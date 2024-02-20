@@ -1,0 +1,17 @@
+#!/bin/bash
+
+mv ~/.bash_profile  ~/.bash_profile.bak
+mv ~/.bashrc  ~/.bashrc.bak
+mv ~/.tmux.conf  ~/.tmux.conf.bak
+mv ~/.tmux-git.conf  ~/.tmux-git.conf.bak
+mv ~/.gitconfig  ~/.gitconfig.bak
+mv ~/.xinitrc  ~/.xinitrc.bak
+
+stow .
+
+firefox_location=~/.mozilla/firefox/
+firefox_location+=$(ls ~/.mozilla/firefox/ | grep release)
+cd $firefox_location
+mkdir -p $firefox_location/test
+echo $firefox_location/test
+ln -s ~/.dotfiles/firefox/userChrome.css $firefox_location/chrome/userChrome.css
