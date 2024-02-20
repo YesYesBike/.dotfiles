@@ -1,5 +1,9 @@
+.git
+.gitignore
 firefox
 install
+install_firefox
 package_list2.txt
 package_list.txt
 README.md
+.stow-local-ignore

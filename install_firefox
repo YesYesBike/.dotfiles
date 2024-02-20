@@ -1,0 +1,7 @@
+#!/bin/bash
+
+firefox_location=~/.mozilla/firefox/
+firefox_location+=$(ls ~/.mozilla/firefox/ | grep release)
+cd $firefox_location
+mkdir $firefox_location/chrome
+ln -s ~/.dotfiles/firefox/userChrome.css $firefox_location/chrome/userChrome.css
