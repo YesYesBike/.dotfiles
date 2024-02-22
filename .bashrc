@@ -20,11 +20,12 @@ branch_color ()
    if git rev-parse --git-dir >/dev/null 2>&1
    then
       color=""
-      if git diff --quiet 2>/dev/null >&2
+      if [[ "$(git status --porcelain 2> /dev/null)" != "" ]];
+      #if git diff --quiet 2>/dev/null >&2
       then
-         color="${c_cyan}"
+          color=${c_red}
       else
-         color=${c_red}
+         color=${c_cyan}
       fi
    else
       return 0
@@ -45,6 +46,7 @@ alias cc='~/bash/./gcc.sh'
 alias cht='cht.sh '
 alias f='cd $(find ~ -type d | ~/bash/./dirsed.sh | fzf)'
 alias ga.='git add .'
+alias gaa='git add -A'
 alias gb='git branch '
 alias gbl='git branch --list'
 alias gbm='git branch -m '
@@ -59,6 +61,7 @@ alias gp='git push '
 alias gP='git pull '
 alias grep='grep --color=auto'
 alias ht='~/bash/./helptotxt.sh '
+alias la='ls -a'
 alias ls='ls --color=auto'
 alias ll='ls -al'
 alias mt='~/bash/./mantotxt.sh '  #I didn't know :Man when I wrote this...
