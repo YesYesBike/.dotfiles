@@ -58,18 +58,15 @@ return{
         "saadparwaiz1/cmp_luasnip",
     },
     {
-        --colorscheme
-        --Perl Luck
-        "junegunn/seoul256.vim",
-        priority = 1000,
-    },
-    {
         --Nvim-R
         "jalvesaq/Nvim-R",
         lazy=false,
     },
     {
         "jalvesaq/cmp-nvim-r",
+    },
+    {
+        "tpope/vim-surround",
     },
     --[[
     {
@@ -85,6 +82,15 @@ return{
     {
         --Lush the Colorscheme Generator
         'rktjmp/lush.nvim',
+        priority = 1000,
+    },
+    --]]
+    --[[
+    
+    {
+        --colorscheme
+        --Perl Luck
+        "junegunn/seoul256.vim",
         priority = 1000,
     },
     --]]

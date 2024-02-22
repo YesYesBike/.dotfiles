@@ -3,17 +3,19 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.w.nutoggle = 0
 vim.w.man_mode = 0
 
-vim.keymap.set("n", "<leader>N", function ()
+vim.keymap.set({"n", "v"}, "<leader>h", function ()
     if vim.w.man_mode == 0 then
         if vim.w.nutoggle == 0 then
             vim.w.nutoggle = 1
             vim.opt.number = true
             vim.opt.relativenumber = true
+            vim.opt.signcolumn = "yes"
             print("set number")
         elseif vim.w.nutoggle == 1 then
             vim.w.nutoggle = 0
             vim.opt.number = false
             vim.opt.relativenumber = false
+            vim.opt.signcolumn = "no"
             print("set nonumber")
         end
     else
@@ -31,21 +33,23 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("x", "<leader>p", "\"_dp")
+vim.keymap.set("x", "<leader>p", "\"_dP")
 
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
-vim.keymap.set("n", "<leader>d", "\"_d")
-vim.keymap.set("v", "<leader>d", "\"_d")
+vim.keymap.set("n", "d", "\"_d", { noremap = true })
+vim.keymap.set("v", "d", "\"_d", { noremap = true })
+vim.keymap.set("n", "<leader>d", "d")
+vim.keymap.set("v", "<leader>d", "d")
 
 --vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
 --Man page Mode
-vim.keymap.set("n", "<leader>h", function()
+vim.keymap.set("n", "<leader>H", function()
     if vim.w.man_mode == 0 then
         vim.w.man_mode = 1
         vim.w.nutoggle = 0
@@ -53,6 +57,7 @@ vim.keymap.set("n", "<leader>h", function()
         vim.opt.relativenumber = false
         vim.opt.wrap = true
         vim.opt.colorcolumn = ""
+        vim.opt.signcolumn = "no"
         vim.keymap.set("n", "j", "2<C-e>2jzz", { buffer = true })
         vim.keymap.set("n", "k", "2<C-y>2kzz", { buffer = true })
         print("Man Page Mode On")
@@ -92,11 +97,12 @@ vim.keymap.set("n", "<leader>R", function()
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/set.lua')
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/telescope.lua')
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/nvimr.lua')
+    vim.cmd('luafile /home/yesyesbike/.config/nvim/lua/yesyesbike/luasnip.lua')
 
 end)
 
 --Redraw Remap because of vim-tmux-navigator
-vim.keymap.set("n", "<leader>l", "<cmd>redraw<CR><cmd>e<CR>")
+--vim.keymap.set("n", "<leader>l", "<cmd>redraw<CR><cmd>e<CR>")
 
 --Resize Panes
 vim.keymap.set("n", "<C-Left>", "<cmd>silent :vertical resize -1<CR>")

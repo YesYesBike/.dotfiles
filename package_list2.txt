@@ -1,3 +1,4 @@
+aalib
 abseil-cpp
 acl
 adobe-source-code-pro-fonts
@@ -8,6 +9,9 @@ alsa-plugins
 alsa-topology-conf
 alsa-ucm-conf
 aom
+apache
+apr
+apr-util
 archlinux-keyring
 argon2
 at-spi2-core
@@ -29,6 +33,7 @@ boost-libs
 brotli
 bubblewrap
 bzip2
+c-ares
 ca-certificates
 ca-certificates-mozilla
 ca-certificates-utils
@@ -71,6 +76,7 @@ firefox
 flac
 flex
 fontconfig
+freeglut
 freetype2
 fribidi
 fzf
@@ -78,6 +84,7 @@ gawk
 gc
 gcc
 gcc-libs
+gd
 gdb
 gdb-common
 gdbm
@@ -90,6 +97,7 @@ glib2
 glibc
 glibmm
 glslang
+glu
 gmp
 gnu-free-fonts
 gnupg
@@ -104,8 +112,10 @@ grub
 gsettings-desktop-schemas
 gsm
 gssdp
+gst-libav
 gst-plugins-bad-libs
 gst-plugins-base-libs
+gst-plugins-good
 gstreamer
 gtk-update-icon-cache
 gtk3
@@ -119,12 +129,14 @@ harfbuzz-icu
 hicolor-icon-theme
 hidapi
 highway
+http-parser
 hwdata
 hwloc
 hyphen
 iana-etc
 icu
 imath
+imlib2
 iproute2
 iptables
 iputils
@@ -132,6 +144,7 @@ iso-codes
 jack2
 jansson
 jbigkit
+jemalloc
 json-c
 json-glib
 kbd
@@ -145,6 +158,7 @@ lcms2
 ldns
 less
 libaio
+libappindicator-gtk3
 libarchive
 libass
 libassuan
@@ -154,6 +168,7 @@ libavif
 libbluray
 libbpf
 libbs2b
+libcaca
 libcanberra
 libcap
 libcap-ng
@@ -162,9 +177,13 @@ libcolord
 libcups
 libdaemon
 libdatrie
+libdbusmenu-glib
+libdbusmenu-gtk3
+libde265
 libdeflate
 libdovi
 libdrm
+libdv
 libedit
 libelf
 libepoxy
@@ -177,6 +196,7 @@ libgcrypt
 libglvnd
 libgpg-error
 libgudev
+libheif
 libice
 libidn2
 libiec61883
@@ -202,6 +222,7 @@ libnghttp3
 libnice
 libnl
 libnm
+libnotify
 libnsl
 libogg
 libomxil-bellagio
@@ -222,6 +243,7 @@ libsamplerate
 libsasl
 libseccomp
 libsecret
+libshout
 libsigc++
 libsixel
 libsm
@@ -245,6 +267,7 @@ libtool
 libunibreak
 libunistring
 libunwind
+liburing
 libusb
 libutempter
 libuv
@@ -278,6 +301,7 @@ libxkbcommon-x11
 libxkbfile
 libxml2
 libxmu
+libxpm
 libxrandr
 libxrender
 libxshmfence
@@ -288,6 +312,7 @@ libxtst
 libxv
 libxxf86vm
 libyuv
+libzip
 licenses
 linux
 linux-api-headers
@@ -305,7 +330,11 @@ mailcap
 make
 man-db
 man-pages
+mariadb
+mariadb-clients
+mariadb-libs
 mesa
+minizip
 mkinitcpio
 mkinitcpio-busybox
 mobile-broadband-provider-info
@@ -323,6 +352,7 @@ nspr
 nss
 numactl
 ocl-icd
+oniguruma
 opencore-amr
 openexr
 openjpeg2
@@ -330,6 +360,7 @@ openmpi
 openpmix
 openssh
 openssl
+openucx
 opus
 orc
 os-prober
@@ -350,12 +381,18 @@ perl
 perl-error
 perl-mailtools
 perl-timedate
+php
+php-apache
+php-cgi
+php-gd
+php-pgsql
 pinentry
 pixman
 pkgconf
 polkit
 popt
 portaudio
+postgresql-libs
 procps-ng
 prrte
 psmisc
@@ -364,7 +401,9 @@ pulseaudio-alsa
 python
 r
 rav1e
+re2
 readline
+ripgrep
 rlwrap
 rtkit
 rubberband
@@ -388,6 +427,7 @@ svt-av1
 systemd
 systemd-libs
 systemd-sysvcompat
+taglib
 tar
 tcl
 tdb
@@ -399,6 +439,7 @@ tmux
 tpm2-tss
 tracker3
 tree-sitter
+twolame
 tzdata
 unibilium
 unzip
@@ -411,8 +452,10 @@ vim
 vim-runtime
 vmaf
 vulkan-icd-loader
+wavpack
 wayland
 webkit2gtk
+webkit2gtk-4.1
 webrtc-audio-processing-1
 which
 woff2
