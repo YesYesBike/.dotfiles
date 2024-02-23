@@ -33,7 +33,7 @@ boost-libs 1.83.0-5
 brotli 1.1.0-1
 bubblewrap 0.8.0-1
 bzip2 1.0.8-5
-c-ares 1.26.0-1
+c-ares 1.27.0-1
 ca-certificates 20220905-1
 ca-certificates-mozilla 3.98-1
 ca-certificates-utils 20220905-1

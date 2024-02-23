@@ -35,7 +35,7 @@ branch_color ()
 export PS1='\[\e[32m\]\W\[\e[0m\]\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]\$ '
 . ~/.bash.d/cht.sh
 
-#set -o vi
+set -o vi
 #PS1='\[\e[32m\W\e[0m\$ '     #w: full directory, W: current directory
 #PS1="\[\e[32m\]\W\[\e[0m\]\$ "
 alias :q='exit'
@@ -59,6 +59,7 @@ alias gs='git status '
 alias gp='git push '
 alias gP='git pull '
 alias grep='grep --color=auto'
+alias he='cd ~/.dotfiles_private/projects/homepage/ && vi .'
 alias ht='~/bash/./helptotxt.sh '
 alias la='ls -a'
 alias ls='ls --color=auto'

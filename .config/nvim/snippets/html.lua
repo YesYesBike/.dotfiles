@@ -33,7 +33,7 @@ local doctype = s("doc", {
     t({"", "<html>"}),
     t({"", "\t<head>"}),
     t({"", '\t\t<meta charset="utf-8">'}),
-    t({"", "\t\t\t<title>"}),
+    t({"", "\t\t<title>"}),
     t({"", "\t\t\t\t"}), i(1,"TITLE"),
     t({"", "\t\t</title>"}),
     t({"", "\t</head>"}),

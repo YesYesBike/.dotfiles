@@ -1,4 +1,3 @@
----@diagnostic disable: missing-fields
 return{
     {
         --Telescope
@@ -63,10 +62,16 @@ return{
         lazy=false,
     },
     {
+        --Cmp for R
         "jalvesaq/cmp-nvim-r",
     },
     {
+        --Tpope
         "tpope/vim-surround",
+    },
+    {
+        --HTML/CSS/Javascript
+        "mattn/emmet-vim",
     },
     --[[
     {
