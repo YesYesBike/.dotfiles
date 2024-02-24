@@ -18,19 +18,21 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
---[[
+vim.opt.smartindent = true
+
 vim.api.nvim_create_autocmd("BufEnter", {
     callback = function ()
-        if
-        print("HTML")
-        vim.opt.tabstop = 2
-        vim.opt.softtabstop = 2
-        vim.opt.shiftwidth = 2
-    end
+        if vim.bo.filetype == 'html' or vim.bo.filetype == 'php' then
+            vim.opt.tabstop = 2
+            vim.opt.softtabstop = 2
+            vim.opt.shiftwidth = 2
+        else
+            vim.opt.tabstop = 4
+            vim.opt.softtabstop = 4
+            vim.opt.shiftwidth = 4
+        end
+    end,
 })
---]]
-
-vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
