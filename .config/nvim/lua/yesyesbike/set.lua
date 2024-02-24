@@ -5,8 +5,14 @@ vim.opt.showtabline = 0
 vim.opt.ls = 0
 vim.opt.ruler = false
 
-vim.opt.nu = false
-vim.opt.relativenumber = false
+vim.opt.nu = true
+vim.opt.relativenumber = true
+vim.api.nvim_create_autocmd("TermOpen", {
+    callback = function()
+        vim.opt.nu = false
+        vim.opt.relativenumber = false
+    end,
+})
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -31,7 +37,7 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 12
-vim.opt.signcolumn = "no"
+vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.splitbelow = true

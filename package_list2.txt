@@ -21,6 +21,7 @@ audit
 autoconf
 automake
 avahi
+babl
 base
 base-devel
 bash
@@ -65,6 +66,7 @@ e2fsprogs
 efibootmgr
 efivar
 enchant
+exiv2
 expat
 fakeroot
 ffmpeg
@@ -89,8 +91,10 @@ gdb
 gdb-common
 gdbm
 gdk-pixbuf2
+gegl
 gettext
 giflib
+gimp
 git
 glib-networking
 glib2
@@ -110,6 +114,7 @@ grep
 groff
 grub
 gsettings-desktop-schemas
+gsfonts
 gsm
 gssdp
 gst-libav
@@ -118,6 +123,7 @@ gst-plugins-base-libs
 gst-plugins-good
 gstreamer
 gtk-update-icon-cache
+gtk2
 gtk3
 gtkmm3
 guile
@@ -143,6 +149,7 @@ iputils
 iso-codes
 jack2
 jansson
+jasper
 jbigkit
 jemalloc
 json-c
@@ -156,6 +163,7 @@ lame
 lapack
 lcms2
 ldns
+lensfun
 less
 libaio
 libappindicator-gtk3
@@ -189,10 +197,12 @@ libelf
 libepoxy
 libevdev
 libevent
+libexif
 libfabric
 libffi
 libfontenc
 libgcrypt
+libgexiv2
 libglvnd
 libgpg-error
 libgudev
@@ -200,6 +210,7 @@ libheif
 libice
 libidn2
 libiec61883
+libinih
 libinput
 libisl
 libjpeg-turbo
@@ -209,9 +220,11 @@ libldap
 libluv
 libmanette
 libmm-glib
+libmng
 libmnl
 libmodplug
 libmpc
+libmypaint
 libndp
 libnetfilter_conntrack
 libnewt
@@ -237,6 +250,7 @@ libpng
 libproxy
 libpsl
 libpulse
+libraw
 libraw1394
 librsvg
 libsamplerate
@@ -252,6 +266,7 @@ libsodium
 libsoup
 libsoup3
 libsoxr
+libspiro
 libssh
 libssh2
 libstemmer
@@ -280,6 +295,7 @@ libvpx
 libvterm
 libwacom
 libwebp
+libwmf
 libwpe
 libx11
 libxau
@@ -343,6 +359,7 @@ mpg123
 msgpack-c
 mtdev
 mtools
+mypaint-brushes1
 ncurses
 neovim
 nettle
@@ -390,6 +407,9 @@ pinentry
 pixman
 pkgconf
 polkit
+poppler
+poppler-data
+poppler-glib
 popt
 portaudio
 postgresql-libs
@@ -423,7 +443,9 @@ sqlite
 srt
 stow
 sudo
+suitesparse
 svt-av1
+sxiv
 systemd
 systemd-libs
 systemd-sysvcompat
@@ -466,6 +488,7 @@ x265
 xcb-proto
 xclip
 xdg-dbus-proxy
+xdg-utils
 xf86-input-libinput
 xkeyboard-config
 xorg-fonts-encodings
@@ -478,6 +501,7 @@ xorg-xkbcomp
 xorg-xmodmap
 xorg-xprop
 xorg-xrdb
+xorg-xset
 xorgproto
 xsel
 xvidcore

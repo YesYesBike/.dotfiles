@@ -1,6 +1,6 @@
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
-vim.w.nutoggle = 0
+vim.w.nutoggle = 1
 vim.w.man_mode = 0
 
 vim.keymap.set({"n", "v"}, "<leader>h", function ()
@@ -64,6 +64,9 @@ vim.keymap.set("n", "<leader>H", function()
         print("Man Page Mode On")
     elseif vim.w.man_mode == 1 then
         vim.w.man_mode = 0
+        vim.w.nutoggle = 1
+        vim.opt.nu = true
+        vim.opt.relativenumber = true
         vim.opt.wrap = false
         vim.opt.colorcolumn = "80"
         vim.keymap.set("n", "j", "j", { buffer = true })
@@ -106,10 +109,10 @@ end)
 --vim.keymap.set("n", "<leader>l", "<cmd>redraw<CR><cmd>e<CR>")
 
 --Resize Panes
-vim.keymap.set("n", "<C-Left>", "<cmd>silent :vertical resize -1<CR>")
-vim.keymap.set("n", "<C-Right>", "<cmd>silent :vertical resize +1<CR>")
-vim.keymap.set("n", "<C-Up>", "<cmd>silent :resize +1<CR>")
-vim.keymap.set("n", "<C-Down>", "<cmd>silent :resize -1<CR>")
+vim.keymap.set({"n", "t"}, "<C-Left>", "<cmd>silent :vertical resize -1<CR>")
+vim.keymap.set({"n", "t"}, "<C-Right>", "<cmd>silent :vertical resize +1<CR>")
+vim.keymap.set({"n", "t"}, "<C-Up>", "<cmd>silent :resize +1<CR>")
+vim.keymap.set({"n", "t"}, "<C-Down>", "<cmd>silent :resize -1<CR>")
 
 --FULLSCREEN
 vim.keymap.set("n", "<C-w><Space>", "<C-w>_<C-w>|")
