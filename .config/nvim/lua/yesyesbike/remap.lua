@@ -23,6 +23,10 @@ vim.keymap.set({"n", "v"}, "<leader>h", function ()
     end
 end)
 
+--some experiment
+vim.keymap.set("n", "j", "jzz")
+vim.keymap.set("n", "k", "kzz")
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -56,7 +60,6 @@ vim.keymap.set("n", "<leader>H", function()
         vim.w.nutoggle = 0
         vim.opt.nu = false
         vim.opt.relativenumber = false
-        vim.opt.wrap = true
         vim.opt.colorcolumn = ""
         vim.opt.signcolumn = "no"
         vim.keymap.set("n", "j", "2<C-e>2jzz", { buffer = true })
@@ -67,7 +70,6 @@ vim.keymap.set("n", "<leader>H", function()
         vim.w.nutoggle = 1
         vim.opt.nu = true
         vim.opt.relativenumber = true
-        vim.opt.wrap = false
         vim.opt.colorcolumn = "80"
         vim.keymap.set("n", "j", "j", { buffer = true })
         vim.keymap.set("n", "k", "k", { buffer = true })
