@@ -91,7 +91,7 @@ static const Key keys[] = {
 	TAGKEYS(                         XK_4,                      3)
 	TAGKEYS(                         XK_5,                      4)
 	{ MODKEY4,                       XK_q,      quit,           {0} },
-    { MODKEY4,                       XK_f,      spawn,          SHCMD("firefox") },
+    //{ MODKEY4,                       XK_f,      spawn,          SHCMD("firefox") },
 };
 
 /* button definitions */
