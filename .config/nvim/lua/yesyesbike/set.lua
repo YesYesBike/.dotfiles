@@ -7,12 +7,25 @@ vim.opt.ruler = false
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
+
 vim.api.nvim_create_autocmd("TermOpen", {
     callback = function()
         vim.opt.nu = false
         vim.opt.relativenumber = false
     end,
 })
+
+local help_mode = function ()
+    if vim.bo.buftype == 'help' then
+        vim.keymap.set("n", "j", "2<C-e>2jzz", { noremap = true, buffer = true })
+        vim.keymap.set("n", "k", "2<C-y>2kzz", { noremap = true, buffer = true })
+    end
+end
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = help_mode
+})
+
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
