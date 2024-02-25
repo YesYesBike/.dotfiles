@@ -23,7 +23,7 @@ vim.opt.smartindent = true
 
 vim.api.nvim_create_autocmd("BufEnter", {
     callback = function ()
-        if vim.bo.filetype == 'html' or vim.bo.filetype == 'php' then
+        if vim.bo.filetype == 'html' or vim.bo.filetype == 'php' or vim.bo.filetype == 'js' or vim.bo.filetype == 'css' then
             vim.opt.tabstop = 2
             vim.opt.softtabstop = 2
             vim.opt.shiftwidth = 2
