@@ -28,21 +28,4 @@ local k = require("luasnip.nodes.key_indexer").new_key
 
 local snippets, autosnippets = {}, {}
 
-local doctype = s("doc", {
-    t("<!DOCTYPE html>"),
-    t({"", "<html>"}),
-    t({"", "\t<head>"}),
-    t({"", '\t\t<meta charset="utf-8">'}),
-    t({"", "\t\t<title>"}),
-    t({"", "\t\t\t\t"}), i(1,"TITLE"),
-    t({"", "\t\t</title>"}),
-    t({"", "\t</head>"}),
-    t({"", ""}),
-    t({"", "\t<body>"}),
-    t({"", "\t\t"}), i(2,"BODY"),
-    t({"", "\t</body>"}),
-    t({"", "</html>"}),
-})
-table.insert(snippets, doctype)
-
 return snippets, autosnippets
