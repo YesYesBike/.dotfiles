@@ -73,9 +73,22 @@ return{
         --HTML/CSS/Javascript
         "mattn/emmet-vim",
     },
+    {
+        --monochrome colorscheme
+        --visit https://github.com/mcchrish/vim-no-color-collections for more
+        --"t184256/vim-boring",
+        --"jaredgorski/fogbell.vim",
+        --"fxn/vim-monochrome",
+        --"stefanvanburen/rams.vim",
+        --"nikolvs/vim-sunbather",
+        --"ryanpcmcquen/true-monochrome_vim",
+        "hardselius/warlock",
+        --"pgdouyon/vim-yin-yang",
+    },
     --[[
     {
         -- Markdown Preview
+
         -- install without yarn or npm
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -83,31 +96,4 @@ return{
         build = function() vim.fn["mkdp#util#install"]() end,
     },
     --]]
-    --[[
-    {
-        --Lush the Colorscheme Generator
-        'rktjmp/lush.nvim',
-        priority = 1000,
-    },
-    --]]
-    --[[
-    
-    {
-        --colorscheme
-        --Perl Luck
-        "junegunn/seoul256.vim",
-        priority = 1000,
-    },
-    --]]
-
-    --[[
-    {
-        --another colorscheme
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
-    },
-    --]]
-
 }

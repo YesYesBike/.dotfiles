@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
     callback = function()
         vim.opt.nu = false
         vim.opt.relativenumber = false
+        vim.opt.signcolumn = "no"
     end,
 })
 
@@ -63,6 +64,22 @@ vim.opt.timeout = false
 
 vim.opt.colorcolumn = "80"
 
-vim.cmd.colorscheme('slate')
+vim.cmd.colorscheme('warlock')
 
-
+--keep terminal colorscheme
+vim.g.terminal_color_0 = "#000000"
+vim.g.terminal_color_1 = "#cd0000"
+vim.g.terminal_color_2 = "#00cd00"
+vim.g.terminal_color_3 = "#cdcd00"
+vim.g.terminal_color_4 = "#0000ee"
+vim.g.terminal_color_5 = "#cd00cd"
+vim.g.terminal_color_6 = "#00cdcd"
+vim.g.terminal_color_7 = "#e5e5e5"
+vim.g.terminal_color_8 = "#7f7f7f"
+vim.g.terminal_color_9 = "#ff0000"
+vim.g.terminal_color_10 = "#00ff00"
+vim.g.terminal_color_11 = "#ffff00"
+vim.g.terminal_color_12 = "#5c5cff"
+vim.g.terminal_color_13 = "#ff00ff"
+vim.g.terminal_color_14 = "#00ffff"
+vim.g.terminal_color_15 = "#ffffff"
