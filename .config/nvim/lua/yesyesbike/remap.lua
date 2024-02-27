@@ -1,25 +1,20 @@
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.w.nutoggle = 1
-vim.w.man_mode = 0
 
 vim.keymap.set({"n", "v"}, "<leader>h", function ()
-    if vim.w.man_mode == 0 then
-        if vim.w.nutoggle == 0 then
-            vim.w.nutoggle = 1
-            vim.opt.number = true
-            vim.opt.relativenumber = true
-            vim.opt.signcolumn = "yes"
-            print("set number")
-        elseif vim.w.nutoggle == 1 then
-            vim.w.nutoggle = 0
-            vim.opt.number = false
-            vim.opt.relativenumber = false
-            vim.opt.signcolumn = "no"
-            print("set nonumber")
-        end
-    else
-        print("cant set number")
+    if vim.w.nutoggle == 0 then
+        vim.w.nutoggle = 1
+        vim.opt.number = true
+        vim.opt.relativenumber = true
+        vim.opt.signcolumn = "yes"
+        print("set number")
+    elseif vim.w.nutoggle == 1 then
+        vim.w.nutoggle = 0
+        vim.opt.number = false
+        vim.opt.relativenumber = false
+        vim.opt.signcolumn = "no"
+        print("set nonumber")
     end
 end)
 
@@ -60,30 +55,6 @@ vim.keymap.set("n", "Q", "<nop>")
 --vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
-
---Man page Mode
-vim.keymap.set("n", "<leader>H", function()
-    if vim.w.man_mode == 0 then
-        vim.w.man_mode = 1
-        vim.w.nutoggle = 0
-        vim.opt.nu = false
-        vim.opt.relativenumber = false
-        vim.opt.colorcolumn = ""
-        vim.opt.signcolumn = "no"
-        vim.keymap.set("n", "j", "2<C-e>2jzz", { buffer = true })
-        vim.keymap.set("n", "k", "2<C-y>2kzz", { buffer = true })
-        print("Man Page Mode On")
-    elseif vim.w.man_mode == 1 then
-        vim.w.man_mode = 0
-        vim.w.nutoggle = 1
-        vim.opt.nu = true
-        vim.opt.relativenumber = true
-        vim.opt.colorcolumn = "80"
-        vim.keymap.set("n", "j", "j", { buffer = true })
-        vim.keymap.set("n", "k", "k", { buffer = true })
-        print("Man Page Mode Off")
-    end
-end)
 
 --statusbar toggle
 local statustoggle = 0
