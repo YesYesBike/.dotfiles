@@ -27,6 +27,7 @@ return{
         branch = "harpoon2",
         dependencies = { {"nvim-lua/plenary.nvim"} }
     },
+    --[[
     {
         --VimTmuxNavigator
         "christoomey/vim-tmux-navigator",
@@ -45,6 +46,7 @@ return{
             { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         },
     },
+    --]]
     {
         --LSP Stuff
         "neovim/nvim-lspconfig",

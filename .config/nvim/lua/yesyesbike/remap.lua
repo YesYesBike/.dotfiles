@@ -19,6 +19,7 @@ vim.keymap.set({"n", "v"}, "<leader>h", function ()
 end)
 
 --Placing cursor center
+vim.keymap.set("n", "<leader>j", "Mj")
 vim.keymap.set("n", "j", "jzz")
 vim.keymap.set("n", "k", "kzz")
 vim.keymap.set("n", "*", "*zz")
@@ -85,9 +86,6 @@ vim.keymap.set("n", "<leader>R", function()
     vim.cmd('luafile /home/yesyesbike/.config/nvim/lua/yesyesbike/luasnip.lua')
 
 end)
-
---Redraw Remap because of vim-tmux-navigator
---vim.keymap.set("n", "<leader>l", "<cmd>redraw<CR><cmd>e<CR>")
 
 --Resize Panes
 vim.keymap.set({"n", "t"}, "<C-Left>", "<cmd>silent :vertical resize -1<CR>")
