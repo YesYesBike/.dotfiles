@@ -34,5 +34,4 @@ gcc $1 $parameter
 [[ -z $(echo $2 | tr -cd 'g') ]] && ./$filename
 
 #Clean Compiled File...
-[[ -n $(echo $2 | tr -cd 'c') ]] && rm $filename
-echo "Deleted $filename"
+[[ -n $(echo $2 | tr -cd 'c') ]] && rm $filename && echo "Deleted $filename"
