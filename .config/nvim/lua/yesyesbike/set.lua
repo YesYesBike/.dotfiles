@@ -51,8 +51,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.g.terminal_color_14 = "#34E2E2"
         vim.g.terminal_color_15 = "#EEEEEC"
 
-        vim.cmd{ cmd = 'highlight', args = { "Terminal guibg='#2E3436'" } }
-        vim.cmd{ cmd = 'highlight', args = { "Terminal guifg='#D3D7CF'" } }
+        --vim.cmd("hi link Terminal NONE")
+        --vim.cmd("hi Terminal ctermfg=black ctermbg=white")
     end,
 })
 
