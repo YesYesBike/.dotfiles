@@ -12,6 +12,8 @@
 
 #gcc $1 && ./a.out
 
+[[ -z $1 ]] && exit
+
 #No Option, No Problem
 [[ -z $2 ]] && gcc $1 && ./a.out && exit
 

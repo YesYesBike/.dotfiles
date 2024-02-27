@@ -42,7 +42,7 @@ alias :q='exit'
 alias be='vi ~/.bashrc'
 alias bs='source ~/.bashrc'
 alias c=clear
-alias cc='. ~/bash/gcc.sh'
+alias C='. ~/bash/gcc.sh'
 alias cdf='cd ~/.dotfiles'
 alias cht='cht.sh '
 alias f='cd $(find ~ -type d | . ~/bash/dirsed.sh | fzf)'
@@ -94,23 +94,23 @@ export FZF_COMPLETION_TRIGGER='**'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 #autocompletion for alias
-function make-completion-wrapper () {
-    local function_name="$2"
-    local arg_count=$(($#-3))
-    local comp_function_name="$1"
-    shift 2
-    local function="
-        function $function_name {
-          ((COMP_CWORD+=$arg_count))
-          # Quotes here are important
-          COMP_WORDS=( "$@" \"\${COMP_WORDS[@]:1}\" )
-          "$comp_function_name"
-          return 0
-        }"
-    eval "$function"
-    echo $function_name
-    echo "$function"
-}
+#function make-completion-wrapper () {
+#    local function_name="$2"
+#    local arg_count=$(($#-3))
+#    local comp_function_name="$1"
+#    shift 2
+#    local function="
+#        function $function_name {
+#          ((COMP_CWORD+=$arg_count))
+#          # Quotes here are important
+#          COMP_WORDS=( "$@" \"\${COMP_WORDS[@]:1}\" )
+#          "$comp_function_name"
+#          return 0
+#        }"
+#    eval "$function"
+#    echo $function_name
+#    echo "$function"
+#}
 
 
 clear

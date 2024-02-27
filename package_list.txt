@@ -489,6 +489,7 @@ xcb-proto
 xclip
 xdg-dbus-proxy
 xdg-utils
+xdotool
 xf86-input-libinput
 xkeyboard-config
 xorg-fonts-encodings

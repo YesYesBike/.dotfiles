@@ -6,6 +6,7 @@ git clone https://git.suckless.org/dwm ~/src/dwm
 git clone https://git.suckless.org/st ~/src/st
 git clone https://git.suckless.org/dmenu ~/src/dmenu
 git clone https://github.com/jordansissel/keynav ~/src/keynav
+mv ~/src/keynav/keynavrc ~/src/keynav/keynavrc.bakk
 
 
 stow .
