@@ -22,4 +22,4 @@ require("yesyesbike.plugin")
 --vim.cmd("unmap <C-y>m")
 --vim.cmd("unmap <C-y>c")
 
-print("Girl Game Good Game")
+--print("Girl Game Good Game")

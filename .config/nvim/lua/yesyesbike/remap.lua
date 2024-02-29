@@ -19,17 +19,12 @@ vim.keymap.set({"n", "v"}, "<leader>h", function ()
 end)
 
 --Placing cursor center
-vim.keymap.set({ "n", "v" }, "<leader>j", "Mj")
-vim.keymap.set({ "n", "v" }, "j", "jzz")
-vim.keymap.set({ "n", "v" }, "k", "kzz")
 vim.keymap.set({ "n", "v" }, "*", "*zz")
 vim.keymap.set({ "n", "v" }, "#", "#zz")
 vim.keymap.set({ "n", "v" }, "<C-d>", "<C-d>zz")
 vim.keymap.set({ "n", "v" }, "<C-u>", "<C-u>zz")
 vim.keymap.set({ "n", "v" }, "n", "nzzzv")
 vim.keymap.set({ "n", "v" }, "N", "Nzzzv")
-vim.keymap.set({ "n", "v" }, "G", "Gzz")
-vim.keymap.set("c", "<enter>", "<enter>zz")
 
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -65,13 +60,16 @@ vim.keymap.set("n", "<leader>S", function()
         statustoggle = 1
         vim.opt.ls = 2
         vim.opt.ruler = true
+        --vim.opt.cmdheight = 1
         print("Status Bar On")
     elseif statustoggle == 1 then
         statustoggle = 0
         vim.opt.ls = 0
         vim.opt.ruler = false
+        --vim.opt.cmdheight = 0
         print("Status Bar Off")
     end
+
 end)
 
 --Reload Setting and Keymap
@@ -84,9 +82,22 @@ vim.keymap.set("n", "<leader>R", function()
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/set.lua')
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/telescope.lua')
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/nvimr.lua')
-    vim.cmd('luafile /home/yesyesbike/.config/nvim/lua/yesyesbike/luasnip.lua')
+    vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/luasnip.lua')
+    --[[
+    local handle = io.popen("ls ~/.config/nvim/lua/yesyesbike/ | grep lua")
+    local result = handle:read("*a")
+    handle:close()
+    --for fileCount = 1, #result do
+    print(result)
+    --]]
 
 end)
+
+--Switching Panes
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 --Resize Panes
 vim.keymap.set({"n", "t"}, "<C-Left>", "<cmd>silent :vertical resize -1<CR>")

@@ -1,10 +1,11 @@
 ---@diagnostic disable: undefined-global
+
 vim.opt.guicursor = ""
 vim.opt.clipboard = unnamedplus
 vim.opt.showtabline = 0
 vim.opt.ls = 0
 vim.opt.ruler = false
-vim.opt.cmdheight = 0
+--vim.opt.cmdheight = 0
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -14,7 +15,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.opt.nu = false
         vim.opt.relativenumber = false
         vim.opt.signcolumn = "no"
-        --keep terminal colorscheme
+
+        --Default
         --vim.g.terminal_color_0 = "#000000"
         --vim.g.terminal_color_1 = "#cd0000"
         --vim.g.terminal_color_2 = "#00cd00"
@@ -63,18 +65,13 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
-vim.api.nvim_create_autocmd("FileType", {
-    callback = function ()
-        if vim.bo.filetype == 'html' or vim.bo.filetype == 'php' or vim.bo.filetype == 'js' or vim.bo.filetype == 'css' then
-            vim.opt.tabstop = 2
-            vim.opt.softtabstop = 2
-            vim.opt.shiftwidth = 2
-        else
-            vim.opt.tabstop = 4
-            vim.opt.softtabstop = 4
-            vim.opt.shiftwidth = 4
-        end
-    end,
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    pattern = {"*.html", ".php", "*.js", "*.php"},
+    command = "set softtabstop=2 shiftwidth=2 tabstop=2",
+})
+
+vim.api.nvim_create_autocmd("InsertEnter", {
+    command = "norm zz",
 })
 
 vim.opt.wrap = false
@@ -106,4 +103,3 @@ vim.opt.timeout = false
 vim.opt.colorcolumn = "80"
 
 vim.cmd.colorscheme('warlock')
-
