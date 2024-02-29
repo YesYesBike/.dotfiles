@@ -67,7 +67,7 @@ alias gP='git pull '
 alias grep='grep --color=auto'
 alias he='cd ~/.dotfiles_private/projects/homepage/ && vi html/homepage.html'
 #alias ht='. ~/bash/helptotxt.sh '
-alias le='cd ~/localhost && sudo vi .'
+alias le='cd ~/localhost && vi .'
 alias la='ls -a'
 alias ls='ls --color=auto'
 alias ll='ls -al'
@@ -115,4 +115,4 @@ export FZF_COMPLETION_TRIGGER='**'
 
 
 clear
-echo 'BASHRC LOADED'
+#echo 'BASHRC LOADED'

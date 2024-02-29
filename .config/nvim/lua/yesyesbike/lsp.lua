@@ -48,6 +48,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     end,
 })
+require'lspconfig'.phpactor.setup{}
 
 
 -- Set up nvim-cmp.

@@ -4,6 +4,7 @@ vim.opt.clipboard = unnamedplus
 vim.opt.showtabline = 0
 vim.opt.ls = 0
 vim.opt.ruler = false
+vim.opt.cmdheight = 0
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

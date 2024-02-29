@@ -1,3 +1,4 @@
 #!/bin/bash
 
 st
+keynav

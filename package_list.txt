@@ -43,6 +43,7 @@ cairomm
 cantarell-fonts
 clang
 compiler-rt
+composer
 coreutils
 cryptsetup
 curl
@@ -403,6 +404,7 @@ php-apache
 php-cgi
 php-gd
 php-pgsql
+phpactor
 pinentry
 pixman
 pkgconf
