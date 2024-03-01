@@ -39,13 +39,13 @@ set -o vi
 #PS1='\[\e[32m\W\e[0m\$ '     #w: full directory, W: current directory
 #PS1="\[\e[32m\]\W\[\e[0m\]\$ "
 alias :q='exit'
-alias be='vi ~/.bashrc'
+alias be='tmux rename-window "BASHRC" && vi ~/.bashrc'
 alias bs='source ~/.bashrc'
 alias c=clear
-alias C='. ~/bash/gcc.sh'
+alias C='~/bash/./gcc.sh'
 alias cdf='cd ~/.dotfiles'
 #alias cht='cht.sh '
-alias f='cd $(find ~ -type d | . ~/bash/dirsed.sh | fzf)'
+alias f='. ~/bash/falias.sh'
 alias ga.='git add .'
 alias gaa='git add -A'
 alias gb='git branch '
@@ -65,7 +65,7 @@ alias gss='git status -s '
 alias gp='git push '
 alias gP='git pull '
 alias grep='grep --color=auto'
-alias he='cd ~/.dotfiles_private/projects/homepage/ && vi html/homepage.html'
+alias he='cd ~/.dotfiles_private/projects/homepage/ && tmux rename-window "Homepage" && vi html/homepage.html'
 #alias ht='. ~/bash/helptotxt.sh '
 alias le='cd ~/localhost && vi .'
 alias la='ls -a'
@@ -80,18 +80,18 @@ alias rb='echo "FUN FUN RE-BOOT!" && sudo reboot'
 alias sd='echo "SHUTDOWN" && sudo shutdown -h 0'
 alias t='tmux '
 alias ta='tmux new -A -s 0'
-alias te='vi ~/.tmux.conf'
+alias te='tmux rename-window ".tmux.conf" && vi ~/.tmux.conf'
 #alias tge='vi ~/.tmux-git.conf'
 alias tk='tmux kill-ses -t 0'
 alias tl='tmux ls'
 alias sudo='sudo -E -s '
 #alias sudo='sudo '
 alias vi=nvim
-alias ve='cd ~/.config/nvim && vi ~/.config/nvim/init.lua'
+alias ve='cd ~/.config/nvim && tmux rename-window "NVIM SET" && vi ~/.config/nvim/init.lua'
 alias vf='. ~/bash/vimfile.sh'
 
-export FZF_DEFAULT_COMMAND=""
-export FZF_COMPLETION_TRIGGER='**'
+export FZF_DEFAULT_OPTS="--border=bold --reverse --margin 13% --no-info --scroll-off=99"
+export FZF_COMPLETION_TRIGGER='~~'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 #autocompletion for alias

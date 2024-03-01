@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sed '/\.cache/d' | sed '/\.git/d' | sed '/\.local/d' | sed '/\.mozilla/d' #| sed /\.R/d 
+cut -d "/" -f 4- | grep -v -e '.git' -e '.cache' -e '.local' -e '.mozilla'

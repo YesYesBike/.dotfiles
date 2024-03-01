@@ -33,19 +33,15 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "gJ", "mzgJ`z")
 
-vim.keymap.set("x", "p", "\"_dP", { noremap = true })
-vim.keymap.set("x", "<leader>p", "P")
+vim.keymap.set("x", "<leader>p", "\"_dP")
 
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
-vim.keymap.set("n", "x", "\"_x", { noremap = true })
-vim.keymap.set("n", "<leader>x", "x", { noremap = true })
-vim.keymap.set("n", "d", "\"_d", { noremap = true })
-vim.keymap.set("v", "d", "\"_d", { noremap = true })
-vim.keymap.set("n", "<leader>d", "d")
-vim.keymap.set("v", "<leader>d", "d")
+vim.keymap.set({"n", "v"}, "<leader>c", "\"_c")
+vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
+vim.keymap.set({"n", "v"}, "<leader>x", "\"_x")
 
 vim.keymap.set("n", "Q", "<nop>")
 

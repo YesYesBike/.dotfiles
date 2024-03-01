@@ -1,4 +1,4 @@
-arg=$(find ~ -type f | ~/bash/./dirsed.sh | fzf)
-if [[ -n $arg ]]; then 
-    nvim $arg
-fi
+#!/bin/sh
+
+arg=$(find ~ -type f | . ~/bash/dirsed.sh | fzf --border-label="Open File(nVim)")
+[ -z $arg ] || vi ~/$arg
