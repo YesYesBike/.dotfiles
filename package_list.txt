@@ -338,6 +338,7 @@ linux-firmware
 linux-firmware-whence
 llvm-libs
 lm_sensors
+lua
 lua-language-server
 luajit
 lvm2

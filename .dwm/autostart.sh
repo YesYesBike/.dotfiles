@@ -1,4 +1,3 @@
 #!/bin/bash
 
-st
-keynav
+exec st

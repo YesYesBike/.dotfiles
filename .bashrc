@@ -33,12 +33,13 @@ branch_color ()
    echo -ne $color
 }
 export PS1='\[\e[32m\]\W\[\e[0m\]\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]\$ '
-. ~/.bash.d/cht.sh
+#. ~/.bash.d/cht.sh
 
 set -o vi
 #PS1='\[\e[32m\W\e[0m\$ '     #w: full directory, W: current directory
 #PS1="\[\e[32m\]\W\[\e[0m\]\$ "
 alias :q='exit'
+alias bc='bc -q '
 alias be='tmux rename-window "BASHRC" && vi ~/.bashrc'
 alias bs='source ~/.bashrc'
 alias c=clear
@@ -77,6 +78,7 @@ alias pi='sudo pacman -S'
 alias pq='pacman -Q > ~/.dotfiles/package_list2.txt && vi ~/.dotfiles/package_list2.txt'
 alias pu='echo "PACKAGE UPGRADE" && sudo pacman -Syu && pacman -Q | sed "s/ .*//" > ~/.dotfiles/package_list.txt'
 alias rb='echo "FUN FUN RE-BOOT!" && sudo reboot'
+alias sicp='racket -I sicp'
 alias sd='echo "SHUTDOWN" && sudo shutdown -h 0'
 alias t='tmux '
 alias ta='tmux new -A -s 0'
@@ -84,13 +86,14 @@ alias te='tmux rename-window ".tmux.conf" && vi ~/.tmux.conf'
 #alias tge='vi ~/.tmux-git.conf'
 alias tk='tmux kill-ses -t 0'
 alias tl='tmux ls'
+alias type='type -a '
 alias sudo='sudo -E -s '
 #alias sudo='sudo '
 alias vi=nvim
 alias ve='cd ~/.config/nvim && tmux rename-window "NVIM SET" && vi ~/.config/nvim/init.lua'
 alias vf='. ~/bash/vimfile.sh'
 
-export FZF_DEFAULT_OPTS="--border=bold --reverse --margin 13% --no-info --scroll-off=99"
+export FZF_DEFAULT_OPTS="--border=bold --reverse --no-info --scroll-off=99"
 export FZF_COMPLETION_TRIGGER='~~'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.opt.nu = false
         vim.opt.relativenumber = false
         vim.opt.signcolumn = "no"
+        vim.cmd("star")
 
         --Default
         --vim.g.terminal_color_0 = "#000000"
@@ -68,10 +69,6 @@ vim.opt.smartindent = true
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     pattern = {"*.html", ".php", "*.js", "*.php"},
     command = "set softtabstop=2 shiftwidth=2 tabstop=2",
-})
-
-vim.api.nvim_create_autocmd("InsertEnter", {
-    command = "norm zz",
 })
 
 vim.opt.wrap = false

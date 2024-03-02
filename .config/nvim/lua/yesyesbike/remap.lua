@@ -70,6 +70,7 @@ end)
 
 --Reload Setting and Keymap
 vim.keymap.set("n", "<leader>R", function()
+    vim.cmd("au!")
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/init.lua')
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/harpoon.lua')
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/lsp.lua')
@@ -96,10 +97,10 @@ vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 --Resize Panes
-vim.keymap.set({"n", "t"}, "<C-Left>", "<cmd>silent :vertical resize -1<CR>")
-vim.keymap.set({"n", "t"}, "<C-Right>", "<cmd>silent :vertical resize +1<CR>")
-vim.keymap.set({"n", "t"}, "<C-Up>", "<cmd>silent :resize +1<CR>")
-vim.keymap.set({"n", "t"}, "<C-Down>", "<cmd>silent :resize -1<CR>")
+vim.keymap.set({"n", "t"}, "<C-Left>", "<cmd>vertical resize -1<CR>")
+vim.keymap.set({"n", "t"}, "<C-Right>", "<cmd>vertical resize +1<CR>")
+vim.keymap.set({"n", "t"}, "<C-Up>", "<cmd>resize +1<CR>")
+vim.keymap.set({"n", "t"}, "<C-Down>", "<cmd>resize -1<CR>")
 
 --FULLSCREEN
 vim.keymap.set("n", "<C-w><Space>", "<C-w>_<C-w>|")
@@ -111,5 +112,18 @@ vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
 vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
 vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
-vim.keymap.set("n", "<leader>T", "<cmd>silent :11new<CR><cmd>silent :term<CR>")
-vim.keymap.set("n", "<leader>vT", "<cmd>silent :57vnew<CR><cmd>silent :term<CR>")
+vim.keymap.set("n", "<leader>T", "<cmd>11new<CR><cmd>te<CR>")
+vim.keymap.set("n", "<leader>vT", "<cmd>57vnew<CR><cmd>te<CR>")
+
+
+--Run the current buffer in terminal
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    pattern = {"*.c"},
+    callback = function()
+        vim.keymap.set("n", "<leader>rr", function()
+                vim.cmd("!echo % > __FILENAME")
+                vim.cmd("11new")
+                vim.cmd.te("filename=$(cat __FILENAME);~/bash/./gcc.sh $filename;rm __FILENAME;exit")
+            end)
+    end
+})

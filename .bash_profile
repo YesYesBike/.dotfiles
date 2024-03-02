@@ -6,7 +6,7 @@
 
 #Autostart X at login
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-      exec startx
+      exec startx -- -nocursor
 fi
 
 clear
