@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.opt.nu = false
         vim.opt.relativenumber = false
         vim.opt.signcolumn = "no"
-        vim.cmd("star")
+        vim.cmd.star()
 
         --Default
         --vim.g.terminal_color_0 = "#000000"

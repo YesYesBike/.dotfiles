@@ -109,21 +109,21 @@ vim.keymap.set("n", "<C-w><Space>", "<C-w>_<C-w>|")
 --Terminal
 vim.keymap.set("t", "<C-q>", "<C-\\><C-n>")
 vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
-vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
+--vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
-vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
+--vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
 vim.keymap.set("n", "<leader>T", "<cmd>11new<CR><cmd>te<CR>")
 vim.keymap.set("n", "<leader>vT", "<cmd>57vnew<CR><cmd>te<CR>")
 
 
 --Run the current buffer in terminal
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-    pattern = {"*.c"},
-    callback = function()
-        vim.keymap.set("n", "<leader>rr", function()
-                vim.cmd("!echo % > __FILENAME")
-                vim.cmd("11new")
-                vim.cmd.te("filename=$(cat __FILENAME);~/bash/./gcc.sh $filename;rm __FILENAME;exit")
-            end)
+vim.keymap.set("n", "<leader>rr", function()
+    local filetype = vim.bo.filetype
+    vim.cmd("!echo % > __FILENAME")
+    vim.cmd("11new")
+    if filetype == "c" then
+        vim.cmd.te("filename=$(cat __FILENAME);~/bash/./gcc.sh $filename;rm __FILENAME;exit")
+    else
+        vim.cmd.te("filename=$(cat __FILENAME);./$filename;rm __FILENAME;exit")
     end
-})
+end)
