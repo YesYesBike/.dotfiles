@@ -1,4 +1,14 @@
-return{
+--When You Uninstall Plugin... Checkout
+--1. yesyesbike/plugins
+--2. yesyesbike/remap → <leader>R
+--3. yesyesbike/lsp remove comment
+
+
+
+
+--------------------Necessary Plugins----------------------------------------
+return
+{
     {
         --Telescope
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
@@ -27,26 +37,6 @@ return{
         branch = "harpoon2",
         dependencies = { {"nvim-lua/plenary.nvim"} }
     },
-    --[[
-    {
-        --VimTmuxNavigator
-        "christoomey/vim-tmux-navigator",
-        cmd = {
-            "TmuxNavigateLeft",
-            "TmuxNavigateDown",
-            "TmuxNavigateUp",
-            "TmuxNavigateRight",
-            "TmuxNavigatePrevious",
-        },
-        keys = {
-            { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-            { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-            { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-            { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-            { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-        },
-    },
-    --]]
     {
         --LSP Stuff
         "neovim/nvim-lspconfig",
@@ -57,15 +47,24 @@ return{
         "hrsh7th/nvim-cmp",
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
+        --"jalvesaq/cmp-nvim-r",    --R autocompletion
     },
+    {
+        --monochrome colorscheme
+        --visit https://github.com/mcchrish/vim-no-color-collections for more
+        "hardselius/warlock", --My favorite but only use in a dark place
+        "fxn/vim-monochrome",
+        "nikolvs/vim-sunbather",
+    },
+
+
+
+-------------------Other Things----------------------------------------------
+    --[[
     {
         --Nvim-R
         "jalvesaq/Nvim-R",
         lazy=false,
-    },
-    {
-        --Cmp for R
-        "jalvesaq/cmp-nvim-r",
     },
     {
         --Tpope
@@ -76,22 +75,8 @@ return{
         "mattn/emmet-vim",
     },
     {
-        --monochrome colorscheme
-        --visit https://github.com/mcchrish/vim-no-color-collections for more
-        "fxn/vim-monochrome",
-        "nikolvs/vim-sunbather",
-        "hardselius/warlock",
-        "pgdouyon/vim-yin-yang",
-    },
-    --[[
-    {
-        -- Markdown Preview
-
-        -- install without yarn or npm
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        ft = { "markdown" },
-        build = function() vim.fn["mkdp#util#install"]() end,
-    },
+        --LISP
+        "jpalardy/vim-slime",
+    }
     --]]
 }

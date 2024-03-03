@@ -10,6 +10,13 @@ vim.opt.ruler = false
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        if vim.bo.buftype == "terminal" then
+            vim.cmd.star()
+        end
+    end,
+})
 vim.api.nvim_create_autocmd("TermOpen", {
     callback = function()
         vim.opt.nu = false

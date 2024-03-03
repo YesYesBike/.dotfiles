@@ -24,7 +24,7 @@ lspconfig.lua_ls.setup {
         },
     },
 }
-lspconfig.r_language_server.setup {}
+--lspconfig.r_language_server.setup {}
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -75,7 +75,7 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'luasnip' }, -- For luasnip users.
         { name = 'nvim_lsp', max_item_count = 6},
-        { name = 'cmp_nvim_r' },
+        --{ name = 'cmp_nvim_r' },
         { name = 'path' },
         { name = 'buffer', max_item_count = 6} ,
         }),
@@ -116,6 +116,8 @@ cmp.setup.cmdline(':', {
 
 
 --cmp_nvim_r
+--[[
 require("cmp_nvim_r").setup({
     filetypes = {"r", "rmd", "quarto"},
 })
+--]]
