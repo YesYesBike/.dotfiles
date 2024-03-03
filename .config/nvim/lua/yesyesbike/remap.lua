@@ -1,6 +1,7 @@
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.w.nutoggle = 1
+vim.w.hltoggle = 0
 
 vim.keymap.set({"n", "v"}, "<leader>h", function ()
     if vim.w.nutoggle == 0 then
@@ -15,6 +16,19 @@ vim.keymap.set({"n", "v"}, "<leader>h", function ()
         vim.opt.relativenumber = false
         vim.opt.signcolumn = "no"
         print("set nonumber")
+    end
+end)
+
+
+vim.keymap.set("n", "<leader>H", function ()
+    if vim.w.hltoggle == 0 then
+        vim.w.hltoggle = 1
+        vim.opt.hlsearch = true
+        print("set hlsearch")
+    elseif vim.w.hltoggle == 1 then
+        vim.w.hltoggle = 0
+        vim.opt.hlsearch = false
+        print("set nohlsearch")
     end
 end)
 

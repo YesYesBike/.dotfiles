@@ -78,14 +78,10 @@ return{
     {
         --monochrome colorscheme
         --visit https://github.com/mcchrish/vim-no-color-collections for more
-        --"t184256/vim-boring",
-        --"jaredgorski/fogbell.vim",
-        --"fxn/vim-monochrome",
-        --"stefanvanburen/rams.vim",
-        --"nikolvs/vim-sunbather",
-        --"ryanpcmcquen/true-monochrome_vim",
+        "fxn/vim-monochrome",
+        "nikolvs/vim-sunbather",
         "hardselius/warlock",
-        --"pgdouyon/vim-yin-yang",
+        "pgdouyon/vim-yin-yang",
     },
     --[[
     {

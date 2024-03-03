@@ -36,6 +36,7 @@ export PS1='\[\e[32m\]\W\[\e[0m\]\[$(branch_color)\]$(parse_git_branch)\[${c_sgr
 #. ~/.bash.d/cht.sh
 
 set -o vi
+bind -m vi-insert "\C-l":clear-screen
 #PS1='\[\e[32m\W\e[0m\$ '     #w: full directory, W: current directory
 #PS1="\[\e[32m\]\W\[\e[0m\]\$ "
 alias :q='exit'
