@@ -11,6 +11,7 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 
 vim.api.nvim_create_autocmd("BufEnter", {
+    group = vim.api.nvim_create_augroup('TerminalAutoInsertMode', { clear = true }),
     callback = function()
         if vim.bo.buftype == "terminal" then
             vim.cmd.star()
@@ -18,6 +19,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end,
 })
 vim.api.nvim_create_autocmd("TermOpen", {
+    group = vim.api.nvim_create_augroup('TerminalSetup', { clear = true }),
     callback = function()
         vim.opt.nu = false
         vim.opt.relativenumber = false
@@ -73,8 +75,16 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+    group = vim.api.nvim_create_augroup('HLonYank', { clear = true }),
+    callback = function ()
+        vim.highlight.on_yank()
+    end,
+})
+
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-    pattern = {"*.html", ".php", "*.js", "*.php"},
+    group = vim.api.nvim_create_augroup('TwoSpaceTab', { clear = true }),
+    pattern = {"*.html", "*.js", "*.php"},
     command = "set softtabstop=2 shiftwidth=2 tabstop=2",
 })
 

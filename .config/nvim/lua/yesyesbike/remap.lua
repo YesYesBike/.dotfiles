@@ -126,9 +126,7 @@ vim.keymap.set("n", "<C-w><Space>", "<C-w>_<C-w>|")
 --Terminal
 vim.keymap.set("t", "<ESC><ESC>", "<C-\\><C-n>")
 vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
---vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
---vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
 vim.keymap.set("n", "<leader>T", "<cmd>11new<CR><cmd>te<CR><cmd>file Terminal<CR>")
 vim.keymap.set("n", "<leader>vT", "<cmd>57vnew<CR><cmd>te<CR><cmd>file vTerminal<CR>")
 
@@ -148,5 +146,16 @@ vim.keymap.set("n", "<leader>rr", function()
         vim.cmd("!echo % > __FILENAME")
         vim.cmd("11new")
         vim.cmd.te("filename=$(cat __FILENAME);./$filename;rm __FILENAME;exit")
+    end
+end)
+
+
+--Run the debugger in terminal
+vim.keymap.set("n", "<leader>rd", function()
+    local filetype = vim.bo.filetype
+    if filetype == "c" then
+        vim.cmd("!echo % > __FILENAME")
+        vim.cmd("160vnew")
+        vim.cmd.te("filename=$(cat __FILENAME);~/bash/./gcc.sh $filename g;rm __FILENAME;exit")
     end
 end)

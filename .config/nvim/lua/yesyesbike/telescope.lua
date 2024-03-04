@@ -17,6 +17,14 @@ vim.keymap.set('n', '<leader>tr', builtin.registers, {})
 vim.keymap.set('n', '<leader>ts', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
+vim.keymap.set('n', '<leader>tt', builtin.resume, {})
+vim.keymap.set('n', '<leader>/', function()
+    builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        winblend = 10,
+        previewer = false,
+    })
+end, {})
+
 
 
 --local actions = require("telescope.actions")

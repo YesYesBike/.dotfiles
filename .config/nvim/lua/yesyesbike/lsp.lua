@@ -1,7 +1,10 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-lspconfig.clangd.setup {}
+lspconfig.clangd.setup {
+    capabilities = capabilities,
+}
 lspconfig.lua_ls.setup {
     settings = {
         Lua = {
@@ -9,22 +12,28 @@ lspconfig.lua_ls.setup {
                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                 version = "LuaJIT",
             },
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { "vim" },
-            },
             workspace = {
                 -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
+                checkThirdParty = false,
+                library = {
+                    '${3rd}/luv/library',
+                    unpack(vim.api.nvim_get_runtime_file("", true)),
+                },
             },
             -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = {
-                enable = false,
+            completion = {
+                callSnippet = 'Replace',
             },
+            capabilities = capabilities,
         },
     },
 }
---lspconfig.r_language_server.setup {}
+lspconfig.r_language_server.setup {
+    capabilities = capabilities,
+}
+lspconfig.phpactor.setup{
+    capabilities = capabilities,
+}
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -35,19 +44,37 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf }
-        vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float)
+        vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+        vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist) --diagnostic quickfix list
         vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
         vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, opts)
+        vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, opts)
+        vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, opts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
+        vim.keymap.set('n', '<leader>D', require('telescope.builtin').lsp_type_definitions, opts)
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    end,
-})
+        vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts)
+        vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations, opts)
+
+
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+          if client and client.server_capabilities.documentHighlightProvider then
+            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+              buffer = ev.buf,
+              callback = vim.lsp.buf.document_highlight,
+            })
+
+            vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+              buffer = ev.buf,
+              callback = vim.lsp.buf.clear_references,
+            })
+          end
+        end
+      })
 require'lspconfig'.phpactor.setup{}
 
 
