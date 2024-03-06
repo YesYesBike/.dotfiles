@@ -47,10 +47,10 @@ static const Layout layouts[] = {
 #define MODKEY1 Mod1Mask
 #define MODKEY4 Mod4Mask
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY1,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	{ MODKEY1|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY1|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY1|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+	{ MODKEY4,                       KEY,      view,           {.ui = 1 << TAG} }, \
+	{ MODKEY4|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+	{ MODKEY4|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+	{ MODKEY4|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -72,14 +72,14 @@ static const Key keys[] = {
     { MODKEY1|ShiftMask,             XK_h,      setmfact,       {.f = -0.05} },
     { MODKEY1|ShiftMask,             XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY1,                       XK_Return, zoom,           {0} },
-	{ MODKEY1,                       XK_Tab,    view,           {0} },
+	{ MODKEY4,                       XK_Tab,    view,           {0} },
 	{ MODKEY4,                       XK_c,      killclient,     {0} },
-	{ MODKEY1,                       XK_s,      setlayout,      {.v = &layouts[1]} },
+    { MODKEY4,                       XK_w,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY4,                       XK_s,      setlayout,      {.v = &layouts[1]} },
     //{ MODKEY4,                       XK_f,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY1,                       XK_w,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY1,                       XK_space,  setlayout,      {0} },
 	{ MODKEY1|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY1,                       XK_0,      view,           {.ui = ~0 } },
+	{ MODKEY4,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY1|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY1,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY1,                       XK_period, focusmon,       {.i = +1 } },

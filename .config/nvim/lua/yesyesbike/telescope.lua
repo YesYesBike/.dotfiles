@@ -41,5 +41,8 @@ telescope.setup{
         keymaps = {
             show_plug = false,
         },
+        man_pages = {
+            --sections = { "ALL" },
+        }
     }
 }

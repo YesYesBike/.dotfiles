@@ -104,7 +104,7 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 999
 vim.opt.sidescrolloff = 12
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "number"
 vim.opt.isfname:append("@-@")
 
 vim.opt.splitbelow = true

@@ -43,7 +43,7 @@ alias :q='exit'
 alias bc='bc -q '
 alias be='tmux rename-window "BASHRC" && vi ~/.bashrc'
 alias bs='source ~/.bashrc'
-alias c=clear
+#alias c=clear      Use Ctrl+L instead!
 alias C='~/bash/./gcc.sh'
 alias cdf='cd ~/.dotfiles'
 #alias cht='cht.sh '
@@ -84,6 +84,7 @@ alias sd='echo "SHUTDOWN" && sudo shutdown -h 0'
 alias t='tmux '
 alias ta='tmux new -A -s 0'
 alias te='tmux rename-window ".tmux.conf" && vi ~/.tmux.conf'
+alias twe='vi ~/.tmux-windownames'
 #alias tge='vi ~/.tmux-git.conf'
 alias tk='tmux kill-ses -t 0'
 alias tl='tmux ls'
@@ -91,7 +92,7 @@ alias type='type -a '
 alias sudo='sudo -E -s '
 #alias sudo='sudo '
 alias vi=nvim
-alias ve='pushd ~/.config/nvim; tmux rename-window "NVIM SET"; vi ~/.config/nvim/init.lua; popd'
+alias ve='pushd ~/.config/nvim; tmux rename-window "NVIM_SET"; vi ~/.config/nvim/init.lua; popd'
 alias vf='. ~/bash/vimfile.sh'
 
 export FZF_DEFAULT_OPTS="--border=bold --reverse --no-info --scroll-off=99"
