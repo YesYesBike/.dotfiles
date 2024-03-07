@@ -111,6 +111,13 @@ cmp.setup({
     },
 })
 
+--[[
+--cmp_nvim_r
+require("cmp_nvim_r").setup({
+    filetypes = {"r", "rmd", "quarto"},
+})
+--]]
+
 -- Set configuration for specific filetype.
 --[[
 cmp.setup.filetype('gitcommit', {
@@ -120,7 +127,6 @@ cmp.setup.filetype('gitcommit', {
             { name = 'buffer' },
         })
 })
---]]
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
@@ -139,12 +145,7 @@ cmp.setup.cmdline(':', {
             { name = 'cmdline' }
         })
 })
-
-
-
---cmp_nvim_r
---[[
-require("cmp_nvim_r").setup({
-    filetypes = {"r", "rmd", "quarto"},
-})
 --]]
+
+
+
