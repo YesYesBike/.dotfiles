@@ -8,7 +8,7 @@ vim.keymap.set({"n", "v"}, "<leader>h", function ()
         vim.w.nutoggle = 1
         vim.opt.number = true
         vim.opt.relativenumber = true
-        vim.opt.signcolumn = "yes"
+        vim.opt.signcolumn = "number"
         print("set number")
     elseif vim.w.nutoggle == 1 then
         vim.w.nutoggle = 0

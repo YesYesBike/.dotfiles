@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 //static char *font = "Liberation Mono:pixelsize=24:antialias=true:autohint=true";
-static char *font = "LiterationMonoNerdFontMono-Bold:pixelsize=26:antialias=true:autohint=true";
+static char *font = "LiterationMonoNerdFontMono-Bold:pixelsize=31:antialias=true:autohint=true";
 static int borderpx = 0;    
 
 /*
@@ -125,36 +125,67 @@ unsigned int tabspaces = 8;
 //	"black", /* default background colour */
 //};
 
-//Tango Dark
+//Apprentice
 static const char *colorname[] = {
 	/* 8 normal colors */
-    "#2E3436",
-    "#CC0000",
-    "#4E9A06",
-    "#C4A000",
-    "#3465A4",
-    "#75507B",
-    "#06989A",
-    "#D3D7CF",
+    "#1C1C1C",
+    "#AF5F5F",
+    "#5F875F",
+    "#87875F",
+    "#5F87AF",
+    "#5F5F87",
+    "#5F8787",
+    "#6C6C6C",
 
 	/* 8 bright colors */
-    "#555753",
-    "#EF2929",
-    "#8AE234",
-    "#FCE94F",
-    "#729FCF",
-    "#AD7FA8",
-    "#34E2E2",
-    "#EEEEEC",
+    "#444444",
+    "#FF8700",
+    "#87AF87",
+    "#FFFFAF",
+    "#8FAFD7",
+    "#8787AF",
+    "#5FAFAF",
+    "#FFFFFF",
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
-	"#D3D7CF", /* default foreground colour */
-	"#2E3436", /* default background colour */
+	"#bcbcbc", /* default foreground colour */
+	"#262626", /* default background colour */
 };
+
+//Tango Dark
+//static const char *colorname[] = {
+//	/* 8 normal colors */
+//    "#2E3436",
+//    "#CC0000",
+//    "#4E9A06",
+//    "#C4A000",
+//    "#3465A4",
+//    "#75507B",
+//    "#06989A",
+//    "#D3D7CF",
+//
+//	/* 8 bright colors */
+//    "#555753",
+//    "#EF2929",
+//    "#8AE234",
+//    "#FCE94F",
+//    "#729FCF",
+//    "#AD7FA8",
+//    "#34E2E2",
+//    "#EEEEEC",
+//
+//	[255] = 0,
+//
+//	/* more colors can be added after 255 to use with DefaultXX */
+//	"#cccccc",
+//	"#555555",
+//	"#D3D7CF", /* default foreground colour */
+//	"#2E3436", /* default background colour */
+//};
 
 
 /*

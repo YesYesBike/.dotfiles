@@ -21,18 +21,17 @@ branch_color ()
    then
       color=""
       if [[ "$(git status --porcelain 2> /dev/null)" != "" ]];
-      #if git diff --quiet 2>/dev/null >&2
       then
           color=${c_red}
       else
-         color=${c_cyan}
+          color=${c_cyan}
       fi
    else
       return 0
    fi
    echo -ne $color
 }
-export PS1='\[\e[32m\]\W\[\e[0m\]\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]\$ '
+PS1='\[\e[32m\]\W\[\e[0m\]\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]\$ '
 #. ~/.bash.d/cht.sh
 
 set -o vi
@@ -46,7 +45,6 @@ alias bs='source ~/.bashrc'
 #alias c=clear      Use Ctrl+L instead!
 alias C='~/bash/./gcc.sh'
 alias cdf='cd ~/.dotfiles'
-#alias cht='cht.sh '
 alias f='. ~/bash/falias.sh'
 alias ga.='git add .'
 alias gaa='git add -A'
@@ -68,14 +66,12 @@ alias gp='git push '
 alias gP='git pull '
 alias grep='grep --color=auto'
 alias he='pushd ~/.dotfiles_private/projects/homepage/; tmux rename-window "Homepage"; vi html/homepage.html; popd'
-#alias ht='. ~/bash/helptotxt.sh '
 alias le='pushd ~/localhost; vi .; popd'
 alias la='ls -a'
 alias ls='ls --color=auto'
 alias ll='ls -al'
 alias mt='. ~/bash/mantotxt.sh '  #I didn't know :Man when I wrote this...
 alias pi='sudo pacman -S'
-#alias pr='sudo pacman -Rscn'
 alias pq='pacman -Q > ~/.dotfiles/package_list2.txt && vi ~/.dotfiles/package_list2.txt'
 alias pu='echo "PACKAGE UPGRADE" && sudo pacman -Syu && pacman -Q | sed "s/ .*//" > ~/.dotfiles/package_list.txt'
 alias rb='echo "FUN FUN RE-BOOT!" && sudo reboot'
@@ -85,12 +81,10 @@ alias t='tmux '
 alias ta='tmux new -A -s 0'
 alias te='tmux rename-window ".tmux.conf" && vi ~/.tmux.conf'
 alias twe='vi ~/.tmux-windownames'
-#alias tge='vi ~/.tmux-git.conf'
 alias tk='tmux kill-ses -t 0'
 alias tl='tmux ls'
 alias type='type -a '
 alias sudo='sudo -E -s '
-#alias sudo='sudo '
 alias vi=nvim
 alias ve='pushd ~/.config/nvim; tmux rename-window "NVIM_SET"; vi ~/.config/nvim/init.lua; popd'
 alias vf='. ~/bash/vimfile.sh'

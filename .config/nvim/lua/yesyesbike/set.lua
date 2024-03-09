@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.opt.signcolumn = "no"
         vim.cmd.star()
 
-        --Default
+        --st Default
         --vim.g.terminal_color_0 = "#000000"
         --vim.g.terminal_color_1 = "#cd0000"
         --vim.g.terminal_color_2 = "#00cd00"
@@ -43,29 +43,42 @@ vim.api.nvim_create_autocmd("TermOpen", {
         --vim.g.terminal_color_13 = "#ff00ff"
         --vim.g.terminal_color_14 = "#00ffff"
         --vim.g.terminal_color_15 = "#ffffff"
-        --vim.cmd{ cmd = 'highlight', args = { "Terminal guibg='#000000'" } }
-        --vim.cmd{ cmd = 'highlight', args = { "Terminal guifg='#e5e5e5'" } }
 
         --Tango Dark
-        vim.g.terminal_color_0 = "#2E3436"
-        vim.g.terminal_color_1 = "#CC0000"
-        vim.g.terminal_color_2 = "#4E9A06"
-        vim.g.terminal_color_3 = "#C4A000"
-        vim.g.terminal_color_4 = "#3465A4"
-        vim.g.terminal_color_5 = "#75507B"
-        vim.g.terminal_color_6 = "#06989A"
-        vim.g.terminal_color_7 = "#D3D7CF"
-        vim.g.terminal_color_8 = "#555753"
-        vim.g.terminal_color_9 = "#EF2929"
-        vim.g.terminal_color_10 = "#8AE234"
-        vim.g.terminal_color_11 = "#FCE94F"
-        vim.g.terminal_color_12 = "#729FCF"
-        vim.g.terminal_color_13 = "#AD7FA8"
-        vim.g.terminal_color_14 = "#34E2E2"
-        vim.g.terminal_color_15 = "#EEEEEC"
+        --vim.g.terminal_color_0 = "#2E3436"
+        --vim.g.terminal_color_1 = "#CC0000"
+        --vim.g.terminal_color_2 = "#4E9A06"
+        --vim.g.terminal_color_3 = "#C4A000"
+        --vim.g.terminal_color_4 = "#3465A4"
+        --vim.g.terminal_color_5 = "#75507B"
+        --vim.g.terminal_color_6 = "#06989A"
+        --vim.g.terminal_color_7 = "#D3D7CF"
+        --vim.g.terminal_color_8 = "#555753"
+        --vim.g.terminal_color_9 = "#EF2929"
+        --vim.g.terminal_color_10 = "#8AE234"
+        --vim.g.terminal_color_11 = "#FCE94F"
+        --vim.g.terminal_color_12 = "#729FCF"
+        --vim.g.terminal_color_13 = "#AD7FA8"
+        --vim.g.terminal_color_14 = "#34E2E2"
+        --vim.g.terminal_color_15 = "#EEEEEC"
 
-        --vim.cmd("hi link Terminal NONE")
-        --vim.cmd("hi Terminal ctermfg=black ctermbg=white")
+        --Apprentice
+        vim.g.terminal_color_0 = "#1c1c1c"
+        vim.g.terminal_color_1 = "#af5f5f"
+        vim.g.terminal_color_2 = "#5f875f"
+        vim.g.terminal_color_3 = "#87875f"
+        vim.g.terminal_color_4 = "#5f87af"
+        vim.g.terminal_color_5 = "#5f5f87"
+        vim.g.terminal_color_6 = "#5f8787"
+        vim.g.terminal_color_7 = "#6C6C6C"
+        vim.g.terminal_color_8 = "#444444"
+        vim.g.terminal_color_9 = "#ff8700"
+        vim.g.terminal_color_10 = "#87af87"
+        vim.g.terminal_color_11 = "#ffffaf"
+        vim.g.terminal_color_12 = "#87afd7"
+        vim.g.terminal_color_13 = "#8787af"
+        vim.g.terminal_color_14 = "#5fafaf"
+        vim.g.terminal_color_15 = "#ffffff"
     end,
 })
 
