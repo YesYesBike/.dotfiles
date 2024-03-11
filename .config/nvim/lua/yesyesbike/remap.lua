@@ -57,30 +57,13 @@ vim.keymap.set({"n", "v"}, "<leader>c", "\"_c")
 vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
 vim.keymap.set({"n", "v"}, "<leader>x", "\"_x")
 
+vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })
+
 vim.keymap.set("n", "Q", "<nop>")
 
 --vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
-
---statusbar toggle
-local statustoggle = 0
-vim.keymap.set("n", "<leader>S", function()
-    if statustoggle == 0 then
-        statustoggle = 1
-        vim.opt.ls = 2
-        vim.opt.ruler = true
-        --vim.opt.cmdheight = 1
-        print("Status Bar On")
-    elseif statustoggle == 1 then
-        statustoggle = 0
-        vim.opt.ls = 0
-        vim.opt.ruler = false
-        --vim.opt.cmdheight = 0
-        print("Status Bar Off")
-    end
-
-end)
 
 --Reload Setting and Keymap
 vim.keymap.set("n", "<leader>R", function()
@@ -128,7 +111,7 @@ vim.keymap.set("t", "<ESC><ESC>", "<C-\\><C-n>")
 vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
 vim.keymap.set("n", "<leader>T", "<cmd>11new<CR><cmd>te<CR><cmd>file Terminal<CR>")
-vim.keymap.set("n", "<leader>vT", "<cmd>57vnew<CR><cmd>te<CR><cmd>file vTerminal<CR>")
+vim.keymap.set("n", "<leader>vT", "<cmd>47vnew<CR><cmd>te<CR><cmd>file vTerminal<CR>")
 
 
 --Run the current buffer in terminal
@@ -140,7 +123,7 @@ vim.keymap.set("n", "<leader>rr", function()
         vim.cmd.te("filename=$(cat __FILENAME);~/bash/./gcc.sh $filename;rm __FILENAME;exit")
     elseif filetype == "racket" then
         vim.cmd("!echo % > __FILENAME")
-        vim.cmd("70vnew")
+        vim.cmd("50vnew")
         vim.cmd.te("filename=$(cat __FILENAME);racket")
     else
         vim.cmd("!echo % > __FILENAME")

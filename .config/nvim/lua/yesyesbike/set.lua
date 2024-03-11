@@ -5,7 +5,9 @@ vim.opt.clipboard = unnamedplus
 vim.opt.showtabline = 0
 vim.opt.ls = 0
 vim.opt.ruler = false
---vim.opt.cmdheight = 0
+vim.opt.shortmess = "atToOFI"
+--vim.opt.shortmess = "filnxtToOF"
+vim.opt.cmdheight = 0 --setting for the true gigachad
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -116,7 +118,7 @@ vim.opt.smartcase = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 999
-vim.opt.sidescrolloff = 12
+vim.opt.sidescrolloff = 15
 vim.opt.signcolumn = "number"
 vim.opt.isfname:append("@-@")
 
@@ -126,6 +128,10 @@ vim.opt.splitright = true
 
 vim.opt.updatetime = 50
 vim.opt.timeout = false
+
+vim.g.netrw_banner = 0
+--vim.g.netrw_winsize = 25
+
 
 vim.opt.colorcolumn = "80"
 

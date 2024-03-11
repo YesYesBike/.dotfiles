@@ -366,6 +366,7 @@ mtdev
 mtools
 mypaint-brushes1
 ncurses
+neofetch
 neovim
 nettle
 networkmanager
