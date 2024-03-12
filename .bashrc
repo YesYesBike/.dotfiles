@@ -37,7 +37,7 @@ PS1='\[\e[32m\]\W\[\e[0m\]\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]\$ 
 
 set -o vi
 bind -m vi-insert "\C-l":clear-screen
-source ~/.aliasrc
+. ~/.aliasrc
 
 
 

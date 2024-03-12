@@ -42,7 +42,7 @@ telescope.setup{
             show_plug = false,
         },
         man_pages = {
-            --sections = { "ALL" },
+            sections = { "1", "1perl" },
         }
     }
 }

@@ -71,6 +71,7 @@ enchant
 exiv2
 expat
 fakeroot
+feh
 ffmpeg
 fftw
 file

@@ -2,6 +2,7 @@
 
 alias ..='cd ..'
 alias :q='exit'
+alias ae='vi ~/.aliasrc'
 alias bc='bc -q '
 alias be='tmux rename-window "BASHRC" && vi ~/.bashrc'
 alias bs='source ~/.bashrc'
@@ -37,7 +38,7 @@ alias mt='. ~/bash/mantotxt.sh '  #I didn't know :Man when I wrote this...
 alias pi='sudo pacman -S'
 alias pq='pacman -Q > ~/.dotfiles/package_list2.txt && vi ~/.dotfiles/package_list2.txt'
 alias pu='echo "PACKAGE UPGRADE" && sudo pacman -Syu && pacman -Q |
-    sed "s/ .*//" > ~/.dotfiles/package_list.txt'
+    cut -d " " -f 1 > ~/.dotfiles/package_list.txt'
 alias rb='echo "FUN FUN RE-BOOT!" && sudo reboot'
 alias sicp='racket -I sicp'
 alias sd='echo "SHUTDOWN" && sudo shutdown -h 0'
@@ -53,3 +54,9 @@ alias vi=nvim
 alias ve='pushd > /dev/null ~/.config/nvim; tmux rename-window "NVIM_SET";
     vi ~/.config/nvim/init.lua; popd > /dev/null'
 alias vf='. ~/bash/vimfile.sh'
+
+
+function mc {
+    mkdir -p $1
+    cd $1
+}
