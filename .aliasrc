@@ -8,7 +8,8 @@ alias be='tmux rename-window "BASHRC" && vi ~/.bashrc'
 alias bs='source ~/.bashrc'
 alias C='~/bash/./gcc.sh'
 alias cdf='cd ~/.dotfiles'
-alias f='. ~/bash/falias.sh'
+#alias f='. ~/bash/falias.sh'   use M-enter instead
+alias feh='feh --zoom fill '
 alias ga.='git add .'
 alias gaa='git add -A'
 alias gb='git branch '
@@ -34,7 +35,7 @@ alias le='pushd > /dev/null ~/localhost; vi .; popd > /dev/null'
 alias la='ls -a'
 alias ls='ls --color=auto'
 alias ll='ls -al'
-alias mt='. ~/bash/mantotxt.sh '  #I didn't know :Man when I wrote this...
+#alias mt='. ~/bash/mantotxt.sh '  #I didn't know :Man when I wrote this...
 alias pi='sudo pacman -S'
 alias pq='pacman -Q > ~/.dotfiles/package_list2.txt && vi ~/.dotfiles/package_list2.txt'
 alias pu='echo "PACKAGE UPGRADE" && sudo pacman -Syu && pacman -Q |
@@ -53,7 +54,7 @@ alias sudo='sudo -E -s '
 alias vi=nvim
 alias ve='pushd > /dev/null ~/.config/nvim; tmux rename-window "NVIM_SET";
     vi ~/.config/nvim/init.lua; popd > /dev/null'
-alias vf='. ~/bash/vimfile.sh'
+#alias vf='. ~/bash/vimfile.sh'     use M-space instead
 
 
 function mc {
