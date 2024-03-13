@@ -1,7 +1,7 @@
 #!/bin/bash
 
 alias=$(cat ~/.tmux-alias | fzf-tmux -p 50% --border-label='Tmugs-Alias' |
-    cut -d '/' -f 1 | sed 's/\b//g')
+    cut -d '/' -f 1 | tr -d ' ')
 
 case $alias in
     ae)
@@ -16,6 +16,9 @@ case $alias in
     le)
         tmux neww -n "localhost" -c "localhost" "nvim ."
         ;;
+    tae)
+        tmux neww -n "tmux-alias" "nvim ~/.tmux-alias"
+        ;;
     te)
         tmux neww -n "tmuxconf" "nvim ~/.tmux.conf"
         ;;
@@ -26,5 +29,6 @@ case $alias in
         tmux neww -n "nvim_set" -c ".config/nvim" "nvim init.lua"
         ;;
     *)
+        #echo no
         ;;
 esac

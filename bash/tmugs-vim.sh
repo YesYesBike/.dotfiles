@@ -1,7 +1,7 @@
 #!/bin/bash
 
-file=$(find ~ ~/src ~/projects -mindepth 1 -maxdepth 3 -type f |
-    cut -d "/" -f 4- | grep -v -e ".cache" -e ".vim" |
+file=$(find ~ ~/src ~/projects -mindepth 1 -maxdepth 5 -type f |
+    cut -d "/" -f 4- | grep -v -e "\.cache" -e "\.vim" |
     fzf-tmux -p 80% --border-label "TMUGS-VIM");
 [ -z $file ] && exit 0
 directorie=~/$(echo $file | sed 's/\/[^/]*$//')
