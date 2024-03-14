@@ -41,7 +41,7 @@ alias pi='sudo pacman -S'
 alias pq='pacman -Q > ~/.dotfiles/package_list2.txt && vi ~/.dotfiles/package_list2.txt'
 alias pu='echo "PACKAGE UPGRADE" && sudo pacman -Syu && pacman -Q |
     cut -d " " -f 1 > ~/.dotfiles/package_list.txt'
-alias rb='echo "FUN FUN RE-BOOT!" && sudo reboot'
+alias rb='echo "FUN FUN RE-BOOT!" && sudo reboot '
 alias sicp='racket -I sicp'
 alias sd='echo "SHUTDOWN" && sudo shutdown -h 0'
 alias t='tmux '

@@ -16,9 +16,11 @@ lspconfig.lua_ls.setup {
                 -- Make the server aware of Neovim runtime files
                 checkThirdParty = false,
                 library = {
-                    '${3rd}/luv/library',
-                    unpack(vim.api.nvim_get_runtime_file("", true)),
+                    -- '${3rd}/luv/library',
+                    vim.env.VIMRUNTIME,
                 },
+                -- library = unpack(vim.api.nvim_get_runtime_file("", true)),
+
             },
             -- Do not send telemetry data containing a randomized but unique identifier
             completion = {

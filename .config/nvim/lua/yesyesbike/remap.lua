@@ -58,7 +58,7 @@ vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
 vim.keymap.set({"n", "v"}, "<leader>x", "\"_x")
 
 vim.keymap.set("n", "<leader>X", ":!chmod +x %<CR>")
-vim.keymap.set("n", "<leader>w", ":noa :update<CR>")
+vim.keymap.set("n", "<leader>w", ":noa :update<CR><ESC>")
 
 vim.keymap.set("n", "Q", "<nop>")
 
@@ -123,6 +123,8 @@ vim.keymap.set("n", "<leader>rr", function()
         vim.cmd("!echo % > __FILENAME")
         vim.cmd("11new")
         vim.cmd.te("filename=$(cat __FILENAME);~/bash/./gcc.sh $filename;rm __FILENAME;exit")
+    elseif filetype == "lua" then
+        vim.cmd.so()
     elseif filetype == "racket" then
         vim.cmd("!echo % > __FILENAME")
         vim.cmd("50vnew")
@@ -144,3 +146,15 @@ vim.keymap.set("n", "<leader>rd", function()
         vim.cmd.te("filename=$(cat __FILENAME);~/bash/./gcc.sh $filename g;rm __FILENAME;exit")
     end
 end)
+
+
+--set filetype with leader key (I'll make it better later)
+vim.keymap.set("n", "<leader>1", function ()
+    vim.bo.filetype = 'bash'
+end)
+vim.keymap.set("n", "<leader>2", function ()
+    vim.bo.filetype = 'perl'
+end)
+
+--Cofilenut
+--vim.keymap.set("n", "<C-f>", "")

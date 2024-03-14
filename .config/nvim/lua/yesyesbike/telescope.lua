@@ -4,7 +4,7 @@ vim.keymap.set('n', '<leader>tb', builtin.builtin, {})
 vim.keymap.set('n', '<leader>tB', builtin.buffers, {})
 vim.keymap.set('n', '<leader>tC', builtin.colorscheme, {})
 vim.keymap.set('n', '<leader>tf', builtin.find_files, {})
-vim.keymap.set('n', '<leader>tF', builtin.current_buffer_fuzzy_find, {})
+vim.keymap.set('n', '<leader>tF', builtin.filetypes, {})
 vim.keymap.set('n', '<leader>tg', builtin.git_files, {})
 vim.keymap.set('n', '<leader>th', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>tj', builtin.jumplist, {})
@@ -30,6 +30,8 @@ end, {})
 --local actions = require("telescope.actions")
 local telescope = require('telescope')
 telescope.setup{
+    defaults = {
+    },
     pickers = {
         find_files = {
             hidden = true
