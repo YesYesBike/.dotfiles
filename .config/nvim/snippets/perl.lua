@@ -53,7 +53,7 @@ table.insert(snippets, shbang)
 
 local my_var = s({ trig = "m", regTrig = "true", hidden = "false" },
 fmt([[
-    {}{}{}{};
+    {}{}{}{}{}
 ]], {
     c(1, {t"", t"my ", t"our "}),
     c(2, {t"$", t"@", t"%"}),
@@ -65,6 +65,7 @@ fmt([[
         },
         t"",
     }),
+    c(5, {t";", t""}),
 }, {
     delimiters = "{}",
     --Other Options
@@ -77,7 +78,7 @@ fmt([[
     {}{}{}{}{}
 ]], {
     c(1, {t"q", t"qq", t"qw", t"qx", }),
-    c(2, {t"/", t"#", t"*", t"'", t'"', t"~" }),
+    c(2, {t"/", t"#", t"!", t"~" }),
     --c(2, {t"/", t"[", t"{", t"(", t"<", t"#", t"*", }),
     i(3, " Something "),
     f(function (arg)

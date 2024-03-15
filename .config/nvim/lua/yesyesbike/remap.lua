@@ -2,6 +2,7 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.w.nutoggle = 0
 vim.w.hltoggle = 0
+vim.w.cmdtoggle = 0
 
 vim.keymap.set({"n", "v"}, "<leader>h", function ()
     if vim.w.nutoggle == 0 then
@@ -32,14 +33,15 @@ vim.keymap.set({"n", "v"}, "<leader>H", function ()
     end
 end)
 
---Placing cursor center
-vim.keymap.set({ "n", "v" }, "*", "*zz")
-vim.keymap.set({ "n", "v" }, "#", "#zz")
-vim.keymap.set({ "n", "v" }, "<C-d>", "<C-d>zz")
-vim.keymap.set({ "n", "v" }, "<C-u>", "<C-u>zz")
-vim.keymap.set({ "n", "v" }, "n", "nzzzv")
-vim.keymap.set({ "n", "v" }, "N", "Nzzzv")
-
+vim.keymap.set("n", "<leader>C", function ()
+    if vim.w.cmdtoggle == 0 then
+        vim.w.cmdtoggle = 1
+        vim.opt.cmdheight = 1
+    elseif vim.w.cmdtoggle == 1 then
+        vim.w.cmdtoggle = 0
+        vim.opt.cmdheight = 0
+    end
+end)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -53,18 +55,11 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
-vim.keymap.set({"n", "v"}, "<leader>c", "\"_c")
-vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
-vim.keymap.set({"n", "v"}, "<leader>x", "\"_x")
-
 vim.keymap.set("n", "<leader>X", ":!chmod +x %<CR>")
 vim.keymap.set("n", "<leader>w", ":w<CR>")
-vim.keymap.set("n", "<leader>W", ":w<CR>:!chmod +x %<CR>")
 vim.keymap.set("n", "<leader>Q", ":wqa<CR>")
 
 vim.keymap.set("n", "Q", "<nop>")
-
---vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
@@ -150,13 +145,32 @@ vim.keymap.set("n", "<leader>rd", function()
 end)
 
 
---set filetype with leader key (I'll make it better later)
+--set filetype with leader key (I'll make it better later with Cofilenut)
 vim.keymap.set("n", "<leader>1", function ()
     vim.bo.filetype = 'bash'
+    vim.cmd.write()
+    vim.cmd('!chmod u+x %')
 end)
 vim.keymap.set("n", "<leader>2", function ()
     vim.bo.filetype = 'perl'
+    vim.cmd.write()
+    vim.cmd('!chmod u+x %')
 end)
 
 --Cofilenut
+--First, I need to learn more about telescope
 --vim.keymap.set("n", "<C-f>", "")
+
+
+
+--Perl keymapp
+--Bugg: These commands doesn't work on the boundary.
+--      So run inside the 'brackets'.
+vim.keymap.set("n", "vi/", ":set ww+=h,l<CR>?/<CR>lvNh:<C-u>set ww-=h,l<CR>gv")
+vim.keymap.set("n", "va/", "?/<CR>vN")
+vim.keymap.set("n", "vi#", ":set ww+=h,l<CR>?#<CR>lvNh:<C-u>set ww-=h,l<CR>gv")
+vim.keymap.set("n", "va#", "?#<CR>vN")
+vim.keymap.set("n", "vi!", ":set ww+=h,l<CR>?!<CR>lvNh:<C-u>set ww-=h,l<CR>gv")
+vim.keymap.set("n", "va!", "?!<CR>vN")
+vim.keymap.set("n", "vi~", ":set ww+=h,l<CR>?\\~<CR>lvNh:<C-u>set ww-=h,l<CR>gv")
+vim.keymap.set("n", "va~", "?\\~<CR>vN")

@@ -8,6 +8,7 @@ vim.opt.ruler = false
 vim.opt.shortmess = "atToOFI"
 --vim.opt.shortmess = "filnxtToOF"
 vim.opt.cmdheight = 0 --setting for the true gigachad
+vim.opt.smd = false
 
 vim.opt.nu = false
 vim.opt.relativenumber = false
