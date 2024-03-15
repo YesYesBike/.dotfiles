@@ -2,7 +2,8 @@ ae  / Edit .aliasrc
 be  / Edit .bashrc
 he  / Edit the homepage
 le  / Edit the localhost
+pse / Edit the Perl snippet
 te  / Edit .tmux.conf
-tae  / Edit .tmux-alias
+tae / Edit .tmux-alias
 twe / Edit ~/.tmux-windownames
 ve  / Edit Neovim Setting

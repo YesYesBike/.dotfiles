@@ -1,6 +1,6 @@
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
-vim.w.nutoggle = 1
+vim.w.nutoggle = 0
 vim.w.hltoggle = 0
 
 vim.keymap.set({"n", "v"}, "<leader>h", function ()
@@ -20,7 +20,7 @@ vim.keymap.set({"n", "v"}, "<leader>h", function ()
 end)
 
 
-vim.keymap.set("n", "<leader>H", function ()
+vim.keymap.set({"n", "v"}, "<leader>H", function ()
     if vim.w.hltoggle == 0 then
         vim.w.hltoggle = 1
         vim.opt.hlsearch = true
@@ -58,7 +58,9 @@ vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
 vim.keymap.set({"n", "v"}, "<leader>x", "\"_x")
 
 vim.keymap.set("n", "<leader>X", ":!chmod +x %<CR>")
-vim.keymap.set("n", "<leader>w", ":noa :update<CR><ESC>")
+vim.keymap.set("n", "<leader>w", ":w<CR>")
+vim.keymap.set("n", "<leader>W", ":w<CR>:!chmod +x %<CR>")
+vim.keymap.set("n", "<leader>Q", ":wqa<CR>")
 
 vim.keymap.set("n", "Q", "<nop>")
 

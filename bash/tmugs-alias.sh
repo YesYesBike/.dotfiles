@@ -16,8 +16,11 @@ case $alias in
     le)
         tmux neww -n "localhost" -c "localhost" "nvim ."
         ;;
+    pse)
+        tmux neww -n "PerlSnip" -c ".config/nvim/snippets" "nvim perl.lua"
+        ;;
     tae)
-        tmux neww -n "tmux-alias" "nvim ~/.tmux-alias"
+        tmux neww -n "tmux-alias" -c "bash" "nvim tmugs-alias.sh"
         ;;
     te)
         tmux neww -n "tmuxconf" "nvim ~/.tmux.conf"

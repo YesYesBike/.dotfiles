@@ -28,10 +28,17 @@ local k = require("luasnip.nodes.key_indexer").new_key
 
 local snippets, autosnippets = {}, {}
 
-local shbang = s("shbang", fmt(
-    [[
+
+
+
+
+
+
+
+local shbang = s({trig = "sh", hidden = "true" }, fmt([[
 #!/bin/perl
 use utf8;
+use strict;
 use warnings;
 use diagnostics;
 use feature qw/
@@ -39,8 +46,69 @@ use feature qw/
 /;
 
 {}
-    ]], {i(1), i(2)})
+]], {i(1), i(2)})
 )
 table.insert(snippets, shbang)
+
+
+local my_var = s({ trig = "m", regTrig = "true", hidden = "false" },
+fmt([[
+    {}{}{}{};
+]], {
+    c(1, {t"", t"my ", t"our "}),
+    c(2, {t"$", t"@", t"%"}),
+    i(3, "NAME"),
+    c(4, {
+        {
+            t" = ",
+            i(1, "EXPRESSION"),
+        },
+        t"",
+    }),
+}, {
+    delimiters = "{}",
+    --Other Options
+}))
+table.insert(snippets, my_var)
+
+
+local q_bracket = s({ trig = "Q", regTrig = "true", hidden = "true" },
+fmt([[
+    {}{}{}{}{}
+]], {
+    c(1, {t"q", t"qq", t"qw", t"qx", }),
+    c(2, {t"/", t"#", t"*", t"'", t'"', t"~" }),
+    --c(2, {t"/", t"[", t"{", t"(", t"<", t"#", t"*", }),
+    i(3, " Something "),
+    f(function (arg)
+        return arg[1]
+    end, 2),
+    c(4, {t";", t"", }),
+}, {
+    delimiters = "{}",
+    --Other Options
+}))
+table.insert(snippets, q_bracket)
+
+
+local subroutine = s({ trig = "sub", regTrig = "true", hidden = "true" },
+fmt([[
+    sub <>{
+        <>
+    }
+]], {
+    i(1, "NAME"),
+    i(2, "#Function"),
+}, {
+    delimiters = "<>",
+    --Other Options
+}))
+table.insert(snippets, subroutine)
+
+
+
+
+
+
 
 return snippets, autosnippets

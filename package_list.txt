@@ -177,6 +177,7 @@ libassuan
 libasyncns
 libavc1394
 libavif
+libb64
 libbluray
 libbpf
 libbs2b
@@ -229,6 +230,7 @@ libmnl
 libmodplug
 libmpc
 libmypaint
+libnatpmp
 libndp
 libnetfilter_conntrack
 libnewt
@@ -356,6 +358,7 @@ mariadb
 mariadb-clients
 mariadb-libs
 mesa
+miniupnpc
 minizip
 mkinitcpio
 mkinitcpio-busybox
@@ -395,6 +398,7 @@ pam
 pambase
 pango
 pangomm
+pass
 patch
 pavucontrol
 pciutils
@@ -469,6 +473,8 @@ tk
 tmux
 tpm2-tss
 tracker3
+transmission-cli
+tree
 tree-sitter
 twolame
 tzdata
@@ -478,9 +484,8 @@ util-linux
 util-linux-libs
 v4l-utils
 vapoursynth
+vi
 vid.stab
-vim
-vim-runtime
 vmaf
 vulkan-icd-loader
 wavpack

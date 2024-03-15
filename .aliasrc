@@ -37,6 +37,7 @@ alias la='ls -a'
 alias ls='ls --color=auto'
 alias ll='ls -al'
 #alias mt='. ~/bash/mantotxt.sh '  #I didn't know :Man when I wrote this...
+alias nf='clear; neofetch'
 alias pi='sudo pacman -S'
 alias pq='pacman -Q > ~/.dotfiles/package_list2.txt && vi ~/.dotfiles/package_list2.txt'
 alias pu='echo "PACKAGE UPGRADE" && sudo pacman -Syu && pacman -Q |
@@ -53,6 +54,7 @@ alias tl='tmux ls'
 alias type='type -a '
 alias sudo='sudo -E -s '
 alias vi=nvim
+alias VI='/bin/vi'
 #alias ve='pushd > /dev/null ~/.config/nvim; tmux rename-window "NVIM_SET";
 #    vi ~/.config/nvim/init.lua; popd > /dev/null'
 #alias vf='. ~/bash/vimfile.sh'     use M-space instead
