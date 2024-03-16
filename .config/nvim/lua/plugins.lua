@@ -50,6 +50,10 @@ return
         --"jalvesaq/cmp-nvim-r",    --R autocompletion
     },
     {
+        --Other Utilities
+        --"Aasim-A/scrollEOF.nvim",   --It will be fixed somedays
+    },
+    {
         --monochrome colorscheme
         --visit https://github.com/mcchrish/vim-no-color-collections for more
         "hardselius/warlock", --My favorite but only use in a dark place

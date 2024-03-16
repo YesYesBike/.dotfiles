@@ -58,14 +58,20 @@ fmt([[
     c(1, {t"", t"my ", t"our "}),
     c(2, {t"$", t"@", t"%"}),
     i(3, "NAME"),
-    c(4, {
+    c(4, {t"", {t"[", i(1, "number"), t"]"},
+         {t"{", i(1, "something"), t"}"}, }),
+    c(5, {
         {
             t" = ",
-            i(1, "EXPRESSION"),
+            i(1, "EXPRESSION"), t";",
         },
         t"",
+        {
+            t" = (", t({"","\t"}),
+            i(1, "#HASH"),
+            t({"", ");"}),
+        },
     }),
-    c(5, {t";", t""}),
 }, {
     delimiters = "{}",
     --Other Options
@@ -73,23 +79,20 @@ fmt([[
 table.insert(snippets, my_var)
 
 
-local q_bracket = s({ trig = "Q", regTrig = "true", hidden = "true" },
+local q_slash = s({ trig = "q/", regTrig = "true", hidden = "true" },
 fmt([[
-    {}{}{}{}{}
+    {}{}{}{}
 ]], {
-    c(1, {t"q", t"qq", t"qw", t"qx", }),
-    c(2, {t"/", t"#", t"!", t"~" }),
+    c(2, {t"q", t"qq", t"qw", t"qx", }),
+    c(3, {t"/", t"#", t"!", t"~" }),
     --c(2, {t"/", t"[", t"{", t"(", t"<", t"#", t"*", }),
-    i(3, " Something "),
-    f(function (arg)
-        return arg[1]
-    end, 2),
-    c(4, {t";", t"", }),
+    i(1, " Something "),
+    rep(3),
 }, {
     delimiters = "{}",
     --Other Options
 }))
-table.insert(snippets, q_bracket)
+table.insert(autosnippets, q_slash)
 
 
 local subroutine = s({ trig = "sub", regTrig = "true", hidden = "true" },
@@ -107,6 +110,76 @@ fmt([[
 table.insert(snippets, subroutine)
 
 
+local foreach = s({ trig = "fe", regTrig = "true", hidden = "true" },
+fmt([[
+    foreach <>(<>)
+]], {
+    c(1, { t"", {
+            c(1, { t"", t"my ", t"our " } ),
+            t"$",
+            i(2, "var_name"),
+        },
+    }),
+    c(2, { t"@_", {
+            t"@",
+            i(1, "something"),
+        },
+        i(1, "something"),
+    }),
+}, {
+    delimiters = "<>",
+    --Other Options
+}))
+table.insert(snippets, foreach)
+
+
+local dollar_underscore = s({ trig = "du", regTrig = "true", hidden = "true" },
+fmt([[
+    $_
+]], {
+    --*insert_node*
+}, {
+    delimiters = "{}",
+    --Other Options
+}))
+table.insert(snippets, dollar_underscore)
+
+
+local amper_underscore = s({ trig = "au", regTrig = "true", hidden = "true" },
+fmt([[
+    @_
+]], {
+    --*insert_node*
+}, {
+    delimiters = "{}",
+    --Other Options
+}))
+table.insert(snippets, amper_underscore)
+
+
+local STD = s({ trig = "ss", regTrig = "true", hidden = "true" },
+fmt([[
+    <>
+]], {
+    c(1, { t"STDIN", t"STDOUT", t"STDERR", }),
+}, {
+    delimiters = "<>",
+    --Other Options
+}))
+table.insert(snippets, STD)
+
+
+local big_arrow = s({ trig = "ba", regTrig = "true", hidden = "true" },
+fmt([[
+    {} => {},
+]], {
+    i(1, "KEY"),
+    i(2, "'value'"),
+}, {
+    delimiters = "{}",
+    --Other Options
+}))
+table.insert(snippets, big_arrow)
 
 
 

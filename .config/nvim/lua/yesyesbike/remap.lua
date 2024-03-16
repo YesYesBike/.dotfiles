@@ -4,7 +4,7 @@ vim.w.nutoggle = 0
 vim.w.hltoggle = 0
 vim.w.cmdtoggle = 0
 
-vim.keymap.set({"n", "v"}, "<leader>h", function ()
+vim.keymap.set({"n", "x"}, "<leader>h", function ()
     if vim.w.nutoggle == 0 then
         vim.w.nutoggle = 1
         vim.opt.number = true
@@ -21,7 +21,7 @@ vim.keymap.set({"n", "v"}, "<leader>h", function ()
 end)
 
 
-vim.keymap.set({"n", "v"}, "<leader>H", function ()
+vim.keymap.set({"n", "x"}, "<leader>H", function ()
     if vim.w.hltoggle == 0 then
         vim.w.hltoggle = 1
         vim.opt.hlsearch = true
@@ -46,8 +46,8 @@ end)
 --Save my pinky
 vim.keymap.set("i", "<C-u>", "<ESC>hgUiwea");
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "gJ", "mzgJ`z")
@@ -55,7 +55,7 @@ vim.keymap.set("n", "gJ", "mzgJ`z")
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
 vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("x", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 vim.keymap.set("n", "<leader>X", ":!chmod +x %<CR>")
@@ -77,6 +77,7 @@ vim.keymap.set("n", "<leader>R", function()
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/harpoon.lua')
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/lsp.lua')
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/luasnip.lua')
+    --vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/scrolleof.lua')
     --vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/vim-slime.lua')
     --vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/nvimr.lua')
     --vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/emmet.lua')
