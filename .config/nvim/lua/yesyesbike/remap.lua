@@ -43,6 +43,9 @@ vim.keymap.set("n", "<leader>C", function ()
     end
 end)
 
+--Save my pinky
+vim.keymap.set("i", "<C-u>", "<ESC>hgUiwea");
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -114,6 +117,7 @@ vim.keymap.set("n", "<leader>vT", "<cmd>47vnew<CR><cmd>te<CR><cmd>file vTerminal
 
 
 --Run the current buffer in terminal
+--fix it lateeeer
 vim.keymap.set("n", "<leader>rr", function()
     local filetype = vim.bo.filetype
     if filetype == "c" then

@@ -119,7 +119,7 @@ vim.opt.smartcase = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 999
-vim.opt.sidescrolloff = 15
+vim.opt.sidescrolloff = 21      --101 - 80 = 21
 vim.opt.signcolumn = "no"
 vim.opt.isfname:append("@-@")
 
