@@ -3,6 +3,7 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.w.nutoggle = 0
 vim.w.hltoggle = 0
 vim.w.cmdtoggle = 0
+vim.g.mantoggle = 0
 
 vim.keymap.set({"n", "x"}, "<leader>h", function ()
     if vim.w.nutoggle == 0 then
@@ -43,28 +44,29 @@ vim.keymap.set("n", "<leader>C", function ()
     end
 end)
 
+
 --Save my pinky
-vim.keymap.set("i", "<C-u>", "<ESC>hgUiwea");
+vim.keymap.set("i", "<C-u>", "<ESC>hgUiwea", { desc = "Make the word before the cursur uppercase" });
 
-vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "gJ", "mzgJ`z")
+vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move one line down the selection" })
+vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move one line up the selection" })
 
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("n", "J", "mzJ`z", { desc = "J without moving cursor" })
+vim.keymap.set("n", "gJ", "mzgJ`z", { desc = "gJ without moving cursor" })
 
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("x", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "Paste to selection and keep current buffer" })
 
-vim.keymap.set("n", "<leader>X", ":!chmod +x %<CR>")
-vim.keymap.set("n", "<leader>w", ":w<CR>")
-vim.keymap.set("n", "<leader>Q", ":wqa<CR>")
+vim.keymap.set("n", "<leader>y", "\"+y", { desc = "yank to clipboard" })
+vim.keymap.set("x", "<leader>y", "\"+y", { desc = "yank to clipboard" })
+vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = "yank to clipboard" })
+
+vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "save with less keystrokes" })
+vim.keymap.set("n", "<leader>Q", ":wqa<CR>", { desc = "fast quit" })
 
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = "substitute the word under the cursor in a whole file" })
 
 --Reload Setting and Keymap
 vim.keymap.set("n", "<leader>R", function()
@@ -73,6 +75,7 @@ vim.keymap.set("n", "<leader>R", function()
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/set.lua')
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/remap.lua')
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/plugin.lua')
+    vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/treesitter.lua')
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/telescope.lua')
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/harpoon.lua')
     vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/lsp.lua')
@@ -90,7 +93,7 @@ vim.keymap.set("n", "<leader>R", function()
     print(result)
     --]]
 
-end)
+end, { desc = "Reload all setting(In some dumb way)" })
 
 --Switching Panes
 vim.keymap.set("n", "<C-j>", "<C-w>j")
@@ -153,13 +156,17 @@ end)
 --set filetype with leader key (I'll make it better later with Cofilenut)
 vim.keymap.set("n", "<leader>1", function ()
     vim.bo.filetype = 'bash'
-    vim.cmd.write()
-    vim.cmd('!chmod u+x %')
+    vim.cmd.norm("ashG")
+    vim.cmd.write({mods = {silent = true}})
+    vim.cmd('silent !chmod u+x %')
+    vim.cmd.star()
 end)
 vim.keymap.set("n", "<leader>2", function ()
     vim.bo.filetype = 'perl'
-    vim.cmd.write()
-    vim.cmd('!chmod u+x %')
+    vim.cmd.norm("ashG")
+    vim.cmd.write({mods = {silent = true}})
+    vim.cmd('silent !chmod u+x %')
+    vim.cmd.star()
 end)
 
 --Cofilenut

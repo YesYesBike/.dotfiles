@@ -137,3 +137,5 @@ vim.g.netrw_banner = 0
 vim.opt.colorcolumn = "80"
 
 vim.cmd.colorscheme('warlock')
+
+--aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

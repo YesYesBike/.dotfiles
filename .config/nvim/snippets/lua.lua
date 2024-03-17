@@ -63,7 +63,9 @@ local LuasnipTemp = s("LuasnipTemp", {
     t({"", "]], {"}),
     t({"", "\t"}), i(8, "--*insert_node*"),
     t({"", ""}), t("}, {"),
-    t({"", "\t"}), t('delimiters = "'), i(5, '{}'), t('",'),
+    t({"", "\t"}), t('delimiters = "'),
+    c(5, {t'{}', t'<>', t'[]', t'()'}),
+    t('",'),
     t({"", "\t"}), i(9, '--Other Options'),
     t({"" , "}))"}),
     t({"" , "table.insert("}), c(6,
@@ -120,7 +122,8 @@ table.insert(snippets, LuasnipBoilerplate)
 --Normal Snippets
 local VimKeymapSet = s({ trig = "vks", name = "VimKeymapSet", desc = "", hidden = true, }, fmt([[
     vim.keymap.set("{}", "{}", {})
-    ]], {i(1, "mode"), i(2, "Key"), i(3, "Function")
+    ]], {i(1, "mode"), i(2, "Key"),
+        c(3, { {t'"', i(1, 'Function'), t'"' }, i(1, 'Function'), }),
     })
 )
 table.insert(snippets, VimKeymapSet)

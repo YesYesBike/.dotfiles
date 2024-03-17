@@ -1,4 +1,5 @@
 require("yesyesbike.telescope")
+require("yesyesbike.treesitter")
 require("yesyesbike.harpoon")
 require("yesyesbike.lsp")
 require("yesyesbike.luasnip")

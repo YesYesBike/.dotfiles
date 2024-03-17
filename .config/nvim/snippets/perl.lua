@@ -51,7 +51,7 @@ use feature qw/
 table.insert(snippets, shbang)
 
 
-local my_var = s({ trig = "m", regTrig = "true", hidden = "false" },
+local my_var = s({ trig = "fjf", regTrig = "true", hidden = "false" },
 fmt([[
     {}{}{}{}{}
 ]], {
@@ -76,23 +76,61 @@ fmt([[
     delimiters = "{}",
     --Other Options
 }))
-table.insert(snippets, my_var)
+table.insert(autosnippets, my_var)
 
 
-local q_slash = s({ trig = "q/", regTrig = "true", hidden = "true" },
-fmt([[
-    {}{}{}{}
-]], {
-    c(2, {t"q", t"qq", t"qw", t"qx", }),
-    c(3, {t"/", t"#", t"!", t"~" }),
-    --c(2, {t"/", t"[", t"{", t"(", t"<", t"#", t"*", }),
-    i(1, " Something "),
-    rep(3),
-}, {
-    delimiters = "{}",
-    --Other Options
-}))
-table.insert(autosnippets, q_slash)
+--local q_bracket = s({ trig = "q/", regTrig = "true", hidden = "true" },
+--fmt([[
+--    {}{}{}{}
+--]], {
+--    c(2, {t"q", t"qq", t"qw", t"qx", }),
+--    c(3, {t"/", t"#", t"!", t"~" }),
+--    --c(2, {t"/", t"[", t"{", t"(", t"<", t"#", t"*", }),
+--    i(1, " Something "),
+--    rep(3),
+--}, {
+--    delimiters = "{}",
+--    --Other Options
+--}))
+--table.insert(autosnippets, q_bracket)
+
+
+local q_bracket = s({ trig = "q([qwx]?)(%p)", regTrig = "true", hidden = "true" },
+{
+    t"q", f(function (_,snip)
+        return snip.captures[1]
+    end),
+    f(function (_,snip)
+        local fix_opposite_bracket = {
+            [')'] = '(',
+            ['}'] = '{',
+            [']'] = '[',
+            ['>'] = '<',
+        }
+        local pair = fix_opposite_bracket[snip.captures[2]]
+        if(pair) then
+            return pair
+        else
+            return snip.captures[2]
+        end
+    end),
+    i(1, "something"),
+    f(function (_,snip)
+        local match_bracket = {
+            ['('] = ')',
+            ['{'] = '}',
+            ['['] = ']',
+            ['<'] = '>',
+        }
+        local pair = match_bracket[snip.captures[2]]
+        if(pair) then
+            return pair
+        else
+            return snip.captures[2]
+        end
+    end)
+})
+table.insert(autosnippets, q_bracket)
 
 
 local subroutine = s({ trig = "sub", regTrig = "true", hidden = "true" },
@@ -171,10 +209,9 @@ table.insert(snippets, STD)
 
 local big_arrow = s({ trig = "ba", regTrig = "true", hidden = "true" },
 fmt([[
-    {} => {},
+    {} => {}
 ]], {
-    i(1, "KEY"),
-    i(2, "'value'"),
+    i(1, "KEY"), i(2, "'value'"),
 }, {
     delimiters = "{}",
     --Other Options
@@ -182,7 +219,32 @@ fmt([[
 table.insert(snippets, big_arrow)
 
 
+local double_slash = s({ trig = "//", regTrig = "true", hidden = "true" },
+fmt([[
+    {}
+]], {
+    c(1, {
+        {t'/', i(1,'something'), t'/'},
+        {t'//'}
+    }),
+}, {
+    delimiters = "{}",
+    --Other Options
+}))
+table.insert(autosnippets, double_slash)
 
+
+local backslash_char = s({ trig = "\\([gp])", regTrig = "true", hidden = "true" },
+{
+    t"\\",
+    f(function (_,snip)
+        return snip.captures[1]
+    end),
+    c(1, { {t"{", i(1, 'something'), t"}" },
+           { t"" },
+    }),
+})
+table.insert(autosnippets, backslash_char)
 
 
 return snippets, autosnippets
