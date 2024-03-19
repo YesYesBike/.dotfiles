@@ -28,6 +28,12 @@ local fmt = require("luasnip.extras.fmt").fmt
 
 local snippets, autosnippets = {}, {}
 
+
+
+
+
+
+
 local shbang = s({ trig = "sh", regTrig = "true", hidden = "true" },
 fmt([[
     #!/bin/bash
@@ -40,5 +46,132 @@ fmt([[
     --Other Options
 }))
 table.insert(snippets, shbang)
+
+
+local for_snippet = s({ trig = "f", regTrig = "true", hidden = "true" },
+fmt([[
+    for {} in {}
+    do
+        {}
+    done
+]], {
+    i(1, "var"), i(2, "$something"), i(3, "#something"),
+}, {
+    delimiters = "{}",
+    --Other Options
+}))
+table.insert(snippets, for_snippet)
+
+
+local for_snippet2 = s({ trig = "ff", regTrig = "true", hidden = "true" },
+fmt([[
+    for (( {} ))
+    do
+        {}
+    done
+]], {
+    i(1, "cond"), i(2, "#something"),
+}, {
+    delimiters = "{}",
+    --Other Options
+}))
+table.insert(snippets, for_snippet2)
+
+
+local while_snippet = s({ trig = "w", regTrig = "true", hidden = "true" },
+fmt([[
+    while {}
+    do
+        {}
+    done
+]], {
+    i(1, "cond"), i(2, "something"),
+}, {
+    delimiters = "{}",
+    --Other Options
+}))
+table.insert(snippets, while_snippet)
+
+
+local until_snippet = s({ trig = "u", regTrig = "true", hidden = "true" },
+fmt([[
+    until {}
+    do
+        {}
+    done
+]], {
+    i(1, "cond"), i(2, "something"),
+}, {
+    delimiters = "{}",
+    --Other Options
+}))
+table.insert(snippets, until_snippet)
+
+
+local if_snippet = s({ trig = "i", regTrig = "true", hidden = "true" },
+fmt([[
+    if {}
+    then
+        {}
+    fi
+]], {
+    i(1, "cond"), i(2, "#something"),
+}, {
+    delimiters = "{}",
+    --Other Options
+}))
+table.insert(snippets, if_snippet)
+
+
+
+
+local case_snippet = s({ trig = "ca", regTrig = "true", hidden = "true" },
+fmt([[
+    case {} in
+        {})
+            {}
+            ;;
+        {}
+    esac
+]], {
+    i(1, "$var"), i(2, "cond"), i(3, "something"), i(4),
+}, {
+    delimiters = "{}",
+    --Other Options
+}))
+table.insert(snippets, case_snippet)
+
+
+local cond = s({ trig = "c", regTrig = "true", hidden = "true" },
+fmt([[
+    {})
+        {}
+        ;;
+    {}
+]], {
+    i(1, "cond"), i(2, "#something"), i(3),
+}, {
+    delimiters = "{}",
+    --Other Options
+}))
+table.insert(snippets, cond)
+
+
+local function_snippet = s({ trig = "fu", regTrig = "true", hidden = "true" },
+fmt([[
+    function <>{
+        <>
+    }
+]], {
+    i(1, 'name'), i(2, '#something'),
+}, {
+    delimiters = "<>",
+    --Other Options
+}))
+table.insert(snippets, function_snippet)
+
+
+
+
 
 return snippets, autosnippets

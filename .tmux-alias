@@ -2,6 +2,7 @@ ae  / Edit .aliasrc
 be  / Edit .bashrc
 he  / Edit the homepage
 le  / Edit the localhost
+nf  / NEOFETCH
 pse / Edit the Perl snippet
 te  / Edit .tmux.conf
 tae / Edit .tmux-alias

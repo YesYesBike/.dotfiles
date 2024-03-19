@@ -1,4 +1,4 @@
---When You Uninstall Plugin... Checkout
+--When You(but I) Uninstall Plugin... Checkout
 --1. yesyesbike/plugins
 --2. yesyesbike/remap → <leader>R
 --3. yesyesbike/lsp remove comment

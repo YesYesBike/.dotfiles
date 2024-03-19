@@ -28,6 +28,71 @@ local fmt = require("luasnip.extras.fmt").fmt
 
 local snippets, autosnippets = {}, {}
 
---INSERT
+
+
+
+
+
+
+
+
+
+local include_something = s({ trig = "i", regTrig = "true", hidden = "true" },{
+    t'#include ', c(1, { {t'<', i(1, "something"), t'>' },
+        {t'"', i(1, "something"), t'"'},
+    }),
+})
+table.insert(snippets, include_something)
+
+
+local define_something = s({ trig = "d", regTrig = "true", hidden = "true" },{
+    t'#define ', i(1, 'FOO'), t' ', i(2, 'bar')
+})
+table.insert(snippets, define_something)
+
+
+local for_snippet = s({ trig = "f", regTrig = "true", hidden = "true" },
+fmt([[
+    for (<>; <>; <>)
+]], {
+    i(1, 'def'), i(2, 'cond'), i(3, 'inc'),
+}, {
+    delimiters = "<>",
+    --Other Options
+}))
+table.insert(snippets, for_snippet)
+
+
+local SnippetName = s({ trig = "([ivdfl])f", regTrig = "true", hidden = "true" },{
+    f(function (_,snip)
+        if (snip.captures[1]) then
+            local word = {
+                ['i'] = 'int ',
+                ['v'] = 'void ',
+                ['d'] = 'double ',
+                ['f'] = 'float ',
+                ['l'] = 'long ',
+            }
+            return word[snip.captures[1]]
+        end
+    end), i(1, 'name'), t'(', i(2, 'void'), t')',
+})
+table.insert(snippets, SnippetName)
+
+
+local printf = s({ trig = "pf", regTrig = "true", hidden = "true" },
+fmt([[
+    printf(<>);
+]], {
+    i(1, 'something')
+}, {
+    delimiters = "<>",
+    --Other Options
+}))
+table.insert(snippets, printf)
+
+
+
+
 
 return snippets, autosnippets

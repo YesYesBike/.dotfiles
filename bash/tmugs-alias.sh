@@ -13,6 +13,9 @@ case $alias in
     he)
         tmux neww -n "Homepage" -c ".dotfiles_private/projects/homepage" "nvim html/homepage.html"
         ;;
+    nf)
+        tmux neww "neofetch; sleep 3"
+        ;;
     le)
         tmux neww -n "localhost" -c "localhost" "nvim ."
         ;;

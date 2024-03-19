@@ -42,7 +42,7 @@ bind -m vi-insert "\C-l":clear-screen
 
 
 
-export FZF_DEFAULT_OPTS="--border=bold --reverse --no-info --scroll-off=99"
+export FZF_DEFAULT_OPTS="--border=bold --reverse --no-info --scroll-off=99 --tiebreak=index"
 export FZF_COMPLETION_TRIGGER='~~'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

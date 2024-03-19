@@ -62,7 +62,7 @@ vim.keymap.set("x", "<leader>y", "\"+y", { desc = "yank to clipboard" })
 vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = "yank to clipboard" })
 
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "save with less keystrokes" })
-vim.keymap.set("n", "<leader>Q", ":wqa<CR>", { desc = "fast quit" })
+vim.keymap.set("n", "<Tab>", ":wqa<CR>", { desc = "fast quit" })
 
 vim.keymap.set("n", "Q", "<nop>")
 
@@ -174,18 +174,15 @@ end)
 --vim.keymap.set("n", "<C-f>", "")
 
 
-
 --Perl keymapp
---Bugg: These commands doesn't work on the boundary.
---      So run inside the 'brackets'.
-vim.keymap.set("n", "vi/", ":set ww+=h,l<CR>?/<CR>lvNh:<C-u>set ww-=h,l<CR>gv")
-vim.keymap.set("n", "va/", "?/<CR>vN")
-vim.keymap.set("n", "vi#", ":set ww+=h,l<CR>?#<CR>lvNh:<C-u>set ww-=h,l<CR>gv")
-vim.keymap.set("n", "va#", "?#<CR>vN")
-vim.keymap.set("n", "vi!", ":set ww+=h,l<CR>?!<CR>lvNh:<C-u>set ww-=h,l<CR>gv")
-vim.keymap.set("n", "va!", "?!<CR>vN")
-vim.keymap.set("n", "vi~", ":set ww+=h,l<CR>?\\~<CR>lvNh:<C-u>set ww-=h,l<CR>gv")
-vim.keymap.set("n", "va~", "?\\~<CR>vN")
+vim.keymap.set("n", "vi/", ":set ww+=h,l<CR>/\\/<CR>hvNl:<C-u>set ww-=h,l<CR>gv")
+vim.keymap.set("n", "va/", "/\\/<CR>vN")
+vim.keymap.set("n", "vi#", ":set ww+=h,l<CR>/#<CR>hvNl:<C-u>set ww-=h,l<CR>gv")
+vim.keymap.set("n", "va#", "/#<CR>vN")
+vim.keymap.set("n", "vi!", ":set ww+=h,l<CR>/!<CR>hvNl:<C-u>set ww-=h,l<CR>gv")
+vim.keymap.set("n", "va!", "/!<CR>vN")
+vim.keymap.set("n", "vi~", ":set ww+=h,l<CR>/\\~<CR>hvNl:<C-u>set ww-=h,l<CR>gv")
+vim.keymap.set("n", "va~", "/\\~<CR>vN")
 
 vim.keymap.set("n", "ci/", "vi/c", { remap = true })
 vim.keymap.set("n", "ca/", "va/c", { remap = true })

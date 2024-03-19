@@ -31,6 +31,22 @@ local snippets, autosnippets = {}, {}
 
 
 
+local var = s({ trig = "([mol])([$@%%])", regTrig = "true", hidden = "true" },
+    { f(function (_,snip)
+        if (snip.captures[1]) then
+            local word = {
+                ['m'] = 'my ',
+                ['o'] = 'our ',
+                ['l'] = 'local ',
+            }
+            return word[snip.captures[1]]
+        end
+    end),
+    f(function (_,snip)
+        return snip.captures[2]
+    end),
+})
+table.insert(autosnippets, var)
 
 
 
@@ -42,63 +58,25 @@ use strict;
 use warnings;
 use diagnostics;
 use feature qw/
-    say{}
+    say
 /;
 
 {}
-]], {i(1), i(2)})
+]], {i(1)})
 )
 table.insert(snippets, shbang)
 
 
-local my_var = s({ trig = "fjf", regTrig = "true", hidden = "false" },
-fmt([[
-    {}{}{}{}{}
-]], {
-    c(1, {t"", t"my ", t"our "}),
-    c(2, {t"$", t"@", t"%"}),
-    i(3, "NAME"),
-    c(4, {t"", {t"[", i(1, "number"), t"]"},
-         {t"{", i(1, "something"), t"}"}, }),
-    c(5, {
-        {
-            t" = ",
-            i(1, "EXPRESSION"), t";",
-        },
-        t"",
-        {
-            t" = (", t({"","\t"}),
-            i(1, "#HASH"),
-            t({"", ");"}),
-        },
-    }),
-}, {
-    delimiters = "{}",
-    --Other Options
-}))
-table.insert(autosnippets, my_var)
 
 
---local q_bracket = s({ trig = "q/", regTrig = "true", hidden = "true" },
---fmt([[
---    {}{}{}{}
---]], {
---    c(2, {t"q", t"qq", t"qw", t"qx", }),
---    c(3, {t"/", t"#", t"!", t"~" }),
---    --c(2, {t"/", t"[", t"{", t"(", t"<", t"#", t"*", }),
---    i(1, " Something "),
---    rep(3),
---}, {
---    delimiters = "{}",
---    --Other Options
---}))
---table.insert(autosnippets, q_bracket)
 
-
-local q_bracket = s({ trig = "q([qwx]?)(%p)", regTrig = "true", hidden = "true" },
+local q_bracket = s({ trig = "([mq])([qwxm]?)([^%P$%%&])", regTrig = "true", hidden = "true" },
 {
-    t"q", f(function (_,snip)
+    f(function (_,snip)
         return snip.captures[1]
+    end),
+    f(function (_,snip)
+        return snip.captures[2]
     end),
     f(function (_,snip)
         local fix_opposite_bracket = {
@@ -107,11 +85,11 @@ local q_bracket = s({ trig = "q([qwx]?)(%p)", regTrig = "true", hidden = "true" 
             [']'] = '[',
             ['>'] = '<',
         }
-        local pair = fix_opposite_bracket[snip.captures[2]]
+        local pair = fix_opposite_bracket[snip.captures[3]]
         if(pair) then
             return pair
         else
-            return snip.captures[2]
+            return snip.captures[3]
         end
     end),
     i(1, "something"),
@@ -122,11 +100,11 @@ local q_bracket = s({ trig = "q([qwx]?)(%p)", regTrig = "true", hidden = "true" 
             ['['] = ']',
             ['<'] = '>',
         }
-        local pair = match_bracket[snip.captures[2]]
+        local pair = match_bracket[snip.captures[3]]
         if(pair) then
             return pair
         else
-            return snip.captures[2]
+            return snip.captures[3]
         end
     end)
 })
@@ -152,18 +130,14 @@ local foreach = s({ trig = "fe", regTrig = "true", hidden = "true" },
 fmt([[
     foreach <>(<>)
 ]], {
-    c(1, { t"", {
-            c(1, { t"", t"my ", t"our " } ),
-            t"$",
-            i(2, "var_name"),
-        },
-    }),
-    c(2, { t"@_", {
-            t"@",
+    i(1),
+    c(2,
+        {
             i(1, "something"),
-        },
-        i(1, "something"),
-    }),
+            { t"@", i(1, "something") },
+            t"@_",
+        }
+    ),
 }, {
     delimiters = "<>",
     --Other Options
@@ -171,39 +145,19 @@ fmt([[
 table.insert(snippets, foreach)
 
 
-local dollar_underscore = s({ trig = "du", regTrig = "true", hidden = "true" },
-fmt([[
-    $_
-]], {
-    --*insert_node*
-}, {
-    delimiters = "{}",
-    --Other Options
-}))
-table.insert(snippets, dollar_underscore)
-
-
-local amper_underscore = s({ trig = "au", regTrig = "true", hidden = "true" },
-fmt([[
-    @_
-]], {
-    --*insert_node*
-}, {
-    delimiters = "{}",
-    --Other Options
-}))
-table.insert(snippets, amper_underscore)
-
-
-local STD = s({ trig = "ss", regTrig = "true", hidden = "true" },
-fmt([[
-    <>
-]], {
+local STD = s({ trig = "(<?)[sS]", regTrig = "true", hidden = "true" }, {
+    f(function (_,snip)
+        if snip.captures[1] == '<' then
+            return '<'
+        end
+    end),
     c(1, { t"STDIN", t"STDOUT", t"STDERR", }),
-}, {
-    delimiters = "<>",
-    --Other Options
-}))
+    f(function (_,snip)
+        if snip.captures[1] == '<' then
+            return '>'
+        end
+    end),
+})
 table.insert(snippets, STD)
 
 
@@ -219,21 +173,6 @@ fmt([[
 table.insert(snippets, big_arrow)
 
 
-local double_slash = s({ trig = "//", regTrig = "true", hidden = "true" },
-fmt([[
-    {}
-]], {
-    c(1, {
-        {t'/', i(1,'something'), t'/'},
-        {t'//'}
-    }),
-}, {
-    delimiters = "{}",
-    --Other Options
-}))
-table.insert(autosnippets, double_slash)
-
-
 local backslash_char = s({ trig = "\\([gp])", regTrig = "true", hidden = "true" },
 {
     t"\\",
@@ -245,6 +184,15 @@ local backslash_char = s({ trig = "\\([gp])", regTrig = "true", hidden = "true" 
     }),
 })
 table.insert(autosnippets, backslash_char)
+
+
+local dollar_brace = s({ trig = "$(%S*){", regTrig = "true", hidden = "true" },{
+    t'$', f(function (_,snip)
+        return snip.captures[1]
+    end), t'{',
+    i(1, 'something'), t'}',
+})
+table.insert(autosnippets, dollar_brace)
 
 
 return snippets, autosnippets

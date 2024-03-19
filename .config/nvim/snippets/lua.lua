@@ -42,6 +42,7 @@ local snippets, autosnippets = {}, {}
 
 --Meta-snippets
 
+--[[
 local LuasnipTempLegacy = s("LuasnipTempLegacy", {
     t("local "), i(1, "SnippetName"),
     t(' = s("'), i(2, "trig"), t('", {'),
@@ -50,9 +51,10 @@ local LuasnipTempLegacy = s("LuasnipTempLegacy", {
     t({"" , "table.insert(snippets, "}), rep(1), t(")"),
 })
 table.insert(snippets, LuasnipTempLegacy)
+--]]
 
 
-local LuasnipTemp = s("LuasnipTemp", {
+local LuasnipTemp = s({ trig = "ls", hidden = true }, {
     t("local "), i(1, "SnippetName"),
     t(' = s({ trig = "'), i(2, "trig"),
     t('", regTrig = "'), c(3, {t("true"), t("false")}),
@@ -73,6 +75,21 @@ local LuasnipTemp = s("LuasnipTemp", {
     ), t(", "), rep(1), t(")"),
 })
 table.insert(snippets, LuasnipTemp)
+
+
+local LuasnipTemp2 = s({ trig = "lss", hidden = true }, {
+    t("local "), i(1, "SnippetName"),
+    t(' = s({ trig = "'), i(2, "trig"),
+    t('", regTrig = "'), c(3, {t("true"), t("false")}),
+    t('", hidden = "'), c(4, {t("false"), t("true")}),
+    t('" },'),
+    t'{', t({'','\t'}), i(6, "--INSERT"),
+    t({'','})'}),
+    t{"" , 'table.insert(' }, c(5,
+                {t("snippets"), t("autosnippets")}
+            ), t(", "), rep(1), t(")"),
+})
+table.insert(snippets, LuasnipTemp2)
 
 
 local LuasnipBoilerplate = s("LuasnipBoilerplate", fmt(

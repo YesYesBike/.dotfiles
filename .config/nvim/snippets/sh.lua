@@ -1,0 +1,1 @@
+/home/yesyesbike/.config/nvim/snippets/bash.lua
