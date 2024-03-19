@@ -186,7 +186,7 @@ local backslash_char = s({ trig = "\\([gp])", regTrig = "true", hidden = "true" 
 table.insert(autosnippets, backslash_char)
 
 
-local dollar_brace = s({ trig = "$(%S*){", regTrig = "true", hidden = "true" },{
+local dollar_brace = s({ trig = "$([^%s)]*){", regTrig = "true", hidden = "true" },{
     t'$', f(function (_,snip)
         return snip.captures[1]
     end), t'{',
