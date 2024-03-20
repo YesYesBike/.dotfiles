@@ -5,8 +5,7 @@ vim.opt.clipboard = unnamedplus
 vim.opt.showtabline = 0
 vim.opt.ls = 0
 vim.opt.ruler = false
-vim.opt.shortmess = "atToOFI"
---vim.opt.shortmess = "filnxtToOF"
+vim.opt.shortmess = "atToOFI"   --"filnxtToOF"
 vim.opt.cmdheight = 0 --setting for the true gigachad
 vim.opt.smd = false
 
@@ -125,7 +124,6 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
---vim.opt.fillchars = "vert:''"
 
 vim.opt.updatetime = 50
 vim.opt.timeout = false
@@ -136,6 +134,4 @@ vim.g.netrw_banner = 0
 
 vim.opt.colorcolumn = "80"
 
-vim.cmd.colorscheme('warlock')
-
---aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+vim.cmd.colorscheme('yin')

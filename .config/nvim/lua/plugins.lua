@@ -21,7 +21,7 @@ return
         config = function ()
             local configs = require("nvim-treesitter.configs")
             configs.setup({
-                ensure_installed = { "c", "lua", "vim", "vimdoc", "bash", "python", "r" },
+                ensure_installed = { "c", "lua", "vim", "vimdoc", "bash", "perl", },
                 sync_install = false,
                 highlight = { enable = true },
                 indent = { enable = true },
@@ -54,11 +54,23 @@ return
         --"Aasim-A/scrollEOF.nvim",   --It will be fixed somedays
     },
     {
-        --monochrome colorscheme
+        --simple dark colorscheme
         --visit https://github.com/mcchrish/vim-no-color-collections for more
         "hardselius/warlock", --My favorite but only use in a dark place
         "fxn/vim-monochrome",
         "nikolvs/vim-sunbather",
+        "huyvohcmc/atlas.vim",
+        "ntk148v/komau.vim",
+        "n1ghtmare/noirblaze-vim",
+        "widatama/vim-phoenix",
+        "axvr/photon.vim",
+        "stefanvanburen/rams.vim",
+        "kadekillary/skull-vim",
+        "pgdouyon/vim-yin-yang",
+        "zaki/zazen",
+
+        lazy = false,
+        priority = 1000,
     },
 
 

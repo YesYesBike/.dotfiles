@@ -70,7 +70,7 @@ table.insert(snippets, shbang)
 
 
 
-local q_bracket = s({ trig = "([mq])([qwxm]?)([^%P$%%&])", regTrig = "true", hidden = "true" },
+local q_bracket = s({ trig = "([mq])([qwxm]?)([^%P$%%&;])", regTrig = "true", hidden = "true" },
 {
     f(function (_,snip)
         return snip.captures[1]
@@ -126,9 +126,9 @@ fmt([[
 table.insert(snippets, subroutine)
 
 
-local foreach = s({ trig = "fe", regTrig = "true", hidden = "true" },
+local foreach = s({ trig = "f", regTrig = "true", hidden = "true" },
 fmt([[
-    foreach <>(<>)
+    for <>(<>)
 ]], {
     i(1),
     c(2,
@@ -163,7 +163,7 @@ table.insert(snippets, STD)
 
 local big_arrow = s({ trig = "ba", regTrig = "true", hidden = "true" },
 fmt([[
-    {} => {}
+    {} => {},
 ]], {
     i(1, "KEY"), i(2, "'value'"),
 }, {

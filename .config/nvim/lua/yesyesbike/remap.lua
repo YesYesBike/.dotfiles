@@ -55,7 +55,7 @@ vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move one line up the sele
 vim.keymap.set("n", "J", "mzJ`z", { desc = "J without moving cursor" })
 vim.keymap.set("n", "gJ", "mzgJ`z", { desc = "gJ without moving cursor" })
 
-vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "Paste to selection and keep current buffer" })
+vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "Paste to selection and keep current register" })
 
 vim.keymap.set("n", "<leader>y", "\"+y", { desc = "yank to clipboard" })
 vim.keymap.set("x", "<leader>y", "\"+y", { desc = "yank to clipboard" })
