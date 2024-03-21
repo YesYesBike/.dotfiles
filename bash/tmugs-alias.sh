@@ -16,7 +16,7 @@ case $alias in
     he)
         tmux neww -n "Homepage" -c ".dotfiles_private/projects/homepage" "nvim html/homepage.html"
         ;;
-    man)
+    me)
         tmux run-shell -b ". ~/bash/tmugs-man-ex.sh || exit 0; exec bash"
         ;;
     nf)
