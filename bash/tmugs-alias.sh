@@ -10,8 +10,14 @@ case $alias in
     be)
         tmux neww -n "bashrc" "nvim ~/.bashrc"
         ;;
+    cd)
+        tmux run-shell -b ". ~/bash/tmugs-cd-root.sh || exit 0; exec bash"
+        ;;
     he)
         tmux neww -n "Homepage" -c ".dotfiles_private/projects/homepage" "nvim html/homepage.html"
+        ;;
+    man)
+        tmux run-shell -b ". ~/bash/tmugs-man-ex.sh || exit 0; exec bash"
         ;;
     nf)
         tmux neww "neofetch; sleep 3"

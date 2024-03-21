@@ -125,7 +125,7 @@ table.insert(snippets, if_snippet)
 
 
 
-local case_snippet = s({ trig = "ca", regTrig = "true", hidden = "true" },
+local case_snippet = s({ trig = "c", regTrig = "true", hidden = "true" },
 fmt([[
     case {} in
         {})
@@ -140,21 +140,6 @@ fmt([[
     --Other Options
 }))
 table.insert(snippets, case_snippet)
-
-
-local cond = s({ trig = "c", regTrig = "true", hidden = "true" },
-fmt([[
-    {})
-        {}
-        ;;
-    {}
-]], {
-    i(1, "cond"), i(2, "#something"), i(3),
-}, {
-    delimiters = "{}",
-    --Other Options
-}))
-table.insert(snippets, cond)
 
 
 local function_snippet = s({ trig = "fu", regTrig = "true", hidden = "true" },

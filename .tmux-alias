@@ -1,7 +1,9 @@
 ae  / Edit .aliasrc
 be  / Edit .bashrc
+cd  / Explore in root directory
 he  / Edit the homepage
 le  / Edit the localhost
+man / Man page in other sections
 nf  / NEOFETCH
 pse / Edit the Perl snippet
 te  / Edit .tmux.conf
