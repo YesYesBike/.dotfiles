@@ -32,8 +32,6 @@ do
     shift
 done
 
-#echo $compile $parameter
-
 gcc $compile $parameter
 
 [ -z "$filename" ] && filename="a.out"

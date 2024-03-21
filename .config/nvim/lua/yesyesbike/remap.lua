@@ -125,19 +125,19 @@ vim.keymap.set("n", "<leader>vT", "<cmd>47vnew<CR><cmd>te<CR><cmd>file vTerminal
 vim.keymap.set("n", "<leader>rr", function()
     local filetype = vim.bo.filetype
     if filetype == "c" then
-        vim.cmd("!echo % > __FILENAME")
+        vim.cmd("!echo % > /tmp/__FILENAME")
         vim.cmd("11new")
-        vim.cmd.te("filename=$(cat __FILENAME);~/bash/./gcc.sh $filename;rm __FILENAME;exit")
+        vim.cmd.te("filename=$(cat /tmp/__FILENAME);~/bash/./gcc.sh $filename;exit")
     elseif filetype == "lua" then
         vim.cmd.so()
     elseif filetype == "racket" then
-        vim.cmd("!echo % > __FILENAME")
+        vim.cmd("!echo % > /tmp/__FILENAME")
         vim.cmd("50vnew")
-        vim.cmd.te("filename=$(cat __FILENAME);racket")
+        vim.cmd.te("filename=$(cat /tmp/__FILENAME);racket")
     else
-        vim.cmd("!echo % > __FILENAME")
+        vim.cmd("!echo % > /tmp/__FILENAME")
         vim.cmd("11new")
-        vim.cmd.te("filename=$(cat __FILENAME);./$filename;rm __FILENAME;exit")
+        vim.cmd.te("filename=$(cat /tmp/__FILENAME);./$filename;exit")
     end
 end)
 
