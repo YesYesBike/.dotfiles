@@ -2,20 +2,17 @@
 
 #   $1: Compile Target
 #   $2: Option
-#       g: Compile for debugging
-#       G: Compile for debugging but dont run gdb
+#       g: Compile for debugging (doesn't delete compiled file)
+#       G: Compile for debugging but dont run gdb (doesn't delete compiled file)
 #       o: Output with another name and run
-#       c: delete compiled file after running
-#       a: Ask what to do. I'll add laaaaater
+#       c: DONT delete compiled file after running
 #   $parameter
 #   $filename
 
-#gcc $1 && ./a.out
-
-[[ -z $1 ]] && exit
+[ $# -eq 0 ] && echo "Enter more than one parameter"; exit
 
 #No Option, No Problem
-[[ -z $2 ]] && gcc $1 && ./a.out && exit
+[ $# -eq 1 ] && gcc $1 && ./a.out && rm a.out; exit
 
 #Adding parameters
 [[ -n $(echo $2 | tr -cd 'g') ]] && parameter+='-g ' #yank/paste this line for later feature
@@ -24,7 +21,7 @@
     parameter+='-o ' && parameter+=$filename   #This line should be at the last but I don't know why
 
 #Filename
-[[ -n $filename ]] && [[ -z $(echo $2 | tr -cd 'c') ]] && echo $filename >> compiled_list.txt
+[[ -n $filename ]] && [[ -z $(echo $2 | tr -cd 'c') ]]
 [[ -z $filename ]] && filename='a.out'
 
 #Compiling with parameters

@@ -57,20 +57,23 @@ return
         --simple dark colorscheme
         --visit https://github.com/mcchrish/vim-no-color-collections for more
         "hardselius/warlock", --My favorite but only use in a dark place
+        "pgdouyon/vim-yin-yang",
+        "axvr/photon.vim",
         "fxn/vim-monochrome",
         "nikolvs/vim-sunbather",
         "huyvohcmc/atlas.vim",
         "ntk148v/komau.vim",
         "n1ghtmare/noirblaze-vim",
         "widatama/vim-phoenix",
-        "axvr/photon.vim",
         "stefanvanburen/rams.vim",
         "kadekillary/skull-vim",
-        "pgdouyon/vim-yin-yang",
         "zaki/zazen",
 
         lazy = false,
         priority = 1000,
+    },
+    {
+        "ThePrimeagen/vim-be-good",
     },
 
 

@@ -9,8 +9,8 @@ vim.opt.shortmess = "atToOFI"   --"filnxtToOF"
 vim.opt.cmdheight = 0 --setting for the true gigachad
 vim.opt.smd = false
 
-vim.opt.nu = false
-vim.opt.relativenumber = false
+vim.opt.nu = true
+vim.opt.relativenumber = true
 
 vim.api.nvim_create_autocmd("BufEnter", {
     group = vim.api.nvim_create_augroup('TerminalAutoInsertMode', { clear = true }),
@@ -119,7 +119,7 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 999
 vim.opt.sidescrolloff = 15
-vim.opt.signcolumn = "no"
+vim.opt.signcolumn = "number"
 vim.opt.isfname:append("@-@")
 
 vim.opt.splitbelow = true

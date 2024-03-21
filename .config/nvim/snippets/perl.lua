@@ -173,15 +173,13 @@ fmt([[
 table.insert(snippets, big_arrow)
 
 
-local backslash_char = s({ trig = "\\([gp])", regTrig = "true", hidden = "true" },
+local backslash_char = s({ trig = "\\([gp]{)", regTrig = "true", hidden = "true" },
 {
     t"\\",
     f(function (_,snip)
         return snip.captures[1]
     end),
-    c(1, { {t"{", i(1, 'something'), t"}" },
-           { t"" },
-    }),
+    t"{", i(1, 'something'), t"}",
 })
 table.insert(autosnippets, backslash_char)
 
@@ -193,6 +191,28 @@ local dollar_brace = s({ trig = "$([^%s)]*){", regTrig = "true", hidden = "true"
     i(1, 'something'), t'}',
 })
 table.insert(autosnippets, dollar_brace)
+
+
+local array_hash_brace = s({ trig = "([@%%]){", regTrig = "true", hidden = "true" },{
+    f(function (_,snip)
+        return snip.captures[1]
+    end), t'{',
+    i(1, 'something'), t'}',
+})
+table.insert(autosnippets, array_hash_brace)
+
+
+local dollar_ref = s({ trig = "$([^%s]*)-", regTrig = "true", hidden = "true" },{
+    t'$', f(function (_,snip)
+        return snip.captures[1]
+    end), t'->',
+    c(1, {
+        { t'[', i(1, "element"), t']', },
+        { t'{', i(1, "key"), t'}', },
+        { i(1, "something"), },
+    }),
+})
+table.insert(autosnippets, dollar_ref)
 
 
 return snippets, autosnippets

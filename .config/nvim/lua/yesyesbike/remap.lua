@@ -1,6 +1,6 @@
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
-vim.w.nutoggle = 0
+vim.w.nutoggle = 1
 vim.w.hltoggle = 0
 vim.w.cmdtoggle = 0
 vim.g.mantoggle = 0
@@ -148,7 +148,7 @@ vim.keymap.set("n", "<leader>rd", function()
     if filetype == "c" then
         vim.cmd("!echo % > __FILENAME")
         vim.cmd("160vnew")
-        vim.cmd.te("filename=$(cat __FILENAME);~/bash/./gcc.sh $filename g;rm __FILENAME;exit")
+        vim.cmd.te("filename=$(cat __FILENAME);~/bash/./gcc.sh $filename -g;rm __FILENAME;exit")
     end
 end)
 
