@@ -3,7 +3,8 @@ be  / Edit .bashrc
 cd  / Explore in root directory
 he  / Edit the homepage
 le  / Edit the localhost
-me  / Man page in other sections
+me  / Search Man page in other sections
+md  / Search Man page from description
 nf  / NEOFETCH
 pse / Edit the Perl snippet
 te  / Edit .tmux.conf

@@ -59,10 +59,10 @@ vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "Paste to selection and keep 
 
 vim.keymap.set("n", "<leader>y", "\"+y", { desc = "yank to clipboard" })
 vim.keymap.set("x", "<leader>y", "\"+y", { desc = "yank to clipboard" })
-vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = "yank to clipboard" })
+vim.keymap.set("n", "<leader>Y", "\"+y$", { desc = "yank to clipboard" })
 
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "save with less keystrokes" })
-vim.keymap.set("n", "<Tab>", ":wqa<CR>", { desc = "fast quit" })
+vim.keymap.set("n", "<CR>q", ":wqa<CR>", { desc = "fast quit" })
 
 vim.keymap.set("n", "Q", "<nop>")
 
@@ -172,6 +172,18 @@ end)
 --Cofilenut
 --First, I need to learn more about telescope
 --vim.keymap.set("n", "<C-f>", "")
+
+
+--perldoc
+vim.keymap.set("n", "<CR>d", function ()
+    local input = vim.fn.input("perldoc> ")
+    if  input ~= '' then
+        io.output("/tmp/perldoc")
+        io.write(input)
+        io.close()
+        vim.cmd('silent !tmux neww ~/bash/./perldoc.sh; exit 0')
+    end
+end)
 
 
 --Perl keymapp

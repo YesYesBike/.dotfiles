@@ -65,14 +65,12 @@ return
         "ntk148v/komau.vim",
         "n1ghtmare/noirblaze-vim",
         "widatama/vim-phoenix",
-        "stefanvanburen/rams.vim",
-        "kadekillary/skull-vim",
-        "zaki/zazen",
 
         lazy = false,
         priority = 1000,
     },
     {
+        --vim progaming
         "ThePrimeagen/vim-be-good",
     },
 

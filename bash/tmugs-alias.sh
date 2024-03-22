@@ -1,7 +1,7 @@
 #!/bin/bash
 
-alias=$(cat ~/.tmux-alias | fzf-tmux -p 50% --border-label='Tmugs-Alias' |
-    cut -d '/' -f 1 | tr -d ' ')
+alias=$(cat ~/.tmux-alias | fzf-tmux -n 1 -delimiter='/'\
+    -p 50% --border-label='Tmugs-Alias' | cut -d '/' -f 1 | tr -d ' ')
 
 case $alias in
     ae)
@@ -15,6 +15,9 @@ case $alias in
         ;;
     he)
         tmux neww -n "Homepage" -c ".dotfiles_private/projects/homepage" "nvim html/homepage.html"
+        ;;
+    md)
+        tmux run-shell -b ". ~/bash/tmugs-man-desc.sh || exit 0; exec bash"
         ;;
     me)
         tmux run-shell -b ". ~/bash/tmugs-man-ex.sh || exit 0; exec bash"

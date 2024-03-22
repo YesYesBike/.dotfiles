@@ -42,9 +42,13 @@ bind -m vi-insert "\C-l":clear-screen
 
 
 
-export FZF_DEFAULT_OPTS="--border=bold --reverse --no-info --scroll-off=99 --tiebreak=index"
+export FZF_DEFAULT_OPTS="--border=bold --reverse --no-info --scroll-off=99\
+    --tiebreak=index --bind=change:first"
 export FZF_COMPLETION_TRIGGER='~~'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
+export PERLDOC_PAGER="less -+C "
 
 
 #autocompletion for alias

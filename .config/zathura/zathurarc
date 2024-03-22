@@ -3,5 +3,5 @@ set recolor true
 set font 'monospace normal 30'
 set scroll-step 100
 
-map J scroll half-down
-map K scroll half-up
+map d scroll half-down
+map u scroll half-up

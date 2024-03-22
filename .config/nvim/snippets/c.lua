@@ -37,7 +37,7 @@ local snippets, autosnippets = {}, {}
 
 
 
-local include_something = s({ trig = "i", regTrig = "true", hidden = "true" },{
+local include_something = s({ trig = "^i", regTrig = "true", hidden = "true" },{
     t'#include ', c(1, { {t'<', i(1, "something"), t'>' },
         {t'"', i(1, "something"), t'"'},
     }),
@@ -45,28 +45,23 @@ local include_something = s({ trig = "i", regTrig = "true", hidden = "true" },{
 table.insert(snippets, include_something)
 
 
-local define_something = s({ trig = "d", regTrig = "true", hidden = "true" },{
+local define_something = s({ trig = "^d", regTrig = "true", hidden = "true" },{
     t'#define ', i(1, 'FOO'), t' ', i(2, 'bar')
 })
 table.insert(snippets, define_something)
 
 
-local for_snippet = s({ trig = "f", regTrig = "true", hidden = "true" },
-fmt([[
-    for (<>; <>; <>)
-]], {
-    i(1, 'def'), i(2, 'cond'), i(3, 'inc'),
-}, {
-    delimiters = "<>",
-    --Other Options
-}))
+local for_snippet = s({ trig = "%sf", regTrig = "true", hidden = "true" },{
+    t' for (', i(1, "def"), t' ;', i(2, "cond"), t' ;', i(3, "inc"), t')',
+})
 table.insert(snippets, for_snippet)
 
 
-local SnippetName = s({ trig = "([ivdfl])f", regTrig = "true", hidden = "true" },{
+local SnippetName = s({ trig = "^([civdfl])(p?)f", regTrig = "true", hidden = "true" },{
     f(function (_,snip)
         if (snip.captures[1]) then
             local word = {
+                ['c'] = 'char ',
                 ['i'] = 'int ',
                 ['v'] = 'void ',
                 ['d'] = 'double ',
@@ -75,23 +70,39 @@ local SnippetName = s({ trig = "([ivdfl])f", regTrig = "true", hidden = "true" }
             }
             return word[snip.captures[1]]
         end
-    end), i(1, 'name'), t'(', i(2, 'void'), t')',
+    end),
+    f(function (_,snip)
+        if (snip.captures[2]) then
+            local word = {
+                ['p'] = '* ',
+            }
+            return word[snip.captures[2]]
+        end
+    end),
+    i(1, 'name'), t'(', i(2, 'void'), t')',
+    c(3, {
+        { t' {', t({"","\t"}), i(1, "//something"), t({'','}'}) },
+        t';',
+    }),
 })
 table.insert(snippets, SnippetName)
 
 
-local printf = s({ trig = "pf", regTrig = "true", hidden = "true" },
-fmt([[
-    printf(<>);
-]], {
-    i(1, 'something')
-}, {
-    delimiters = "<>",
-    --Other Options
-}))
+local printf = s({ trig = "%spf", regTrig = "true", hidden = "true" },{
+    t' printf("', i(1, "something"), t'"',
+    c(2, {
+        t(''),
+        { t(', '), i(1, 'something') },
+    }), t');',
+})
 table.insert(snippets, printf)
 
 
+local scanf2 = s({ trig = "%ssf", regTrig = "true", hidden = "true" },{
+    t' scanf("', i(1, "foo"), t'"',
+    t(', '), i(1, 'bar'), t');',
+})
+table.insert(snippets, scanf2)
 
 
 
