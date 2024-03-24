@@ -1,6 +1,6 @@
 #!/bin/bash
 
-string=$(apropos -s 2,3,4,5,7 . | sort |
+string=$(apropos -s $1 . | sort |
     fzf-tmux -p 80% -n 1 --delimiter=' ' --bind change:first\
     --border-label "TMUGS-MAN-EX")
 [ -z $string ] && exit 0
