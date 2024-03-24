@@ -5,6 +5,7 @@ string=$({ apropos -s 1 . | sort; cat ~/bash/manlist; } |
     --border-label "TMUGS-MAN")
 
 [ -z $string ] && exit 0
+
 command=$(echo $string | cut -d ' ' -f 1)
 section=$(echo $string | cut -d ' ' -f 2 | tr -d '()')
 

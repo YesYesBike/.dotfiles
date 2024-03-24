@@ -199,29 +199,6 @@ end)
 
 
 
---perldoc
-vim.keymap.set("n", "<CR>d", function ()
-    local input = vim.fn.input("perldoc> ")
-    if  input ~= '' then
-        io.output("/tmp/perldoc")
-        io.write(input)
-        io.close()
-        vim.cmd('silent !tmux neww ~/bash/./perldoc.sh; exit 0')
-    end
-end)
-
-
---quicknote
-vim.keymap.set("n", "<CR>n", function ()
-    local input = vim.fn.input("note> ")
-    local note = io.open(os.getenv("HOME").."/.dotfiles_private/note/quicknote", "a")
-    if  input ~= '' and note ~= nil then
-        note:write(input..'\n\n')
-        note:close()
-    end
-end)
-
-
 --Perl keymapp
 vim.keymap.set("n", "vi/", ":set ww+=h,l<CR>/\\/<CR>hvNl:<C-u>set ww-=h,l<CR>gv")
 vim.keymap.set("n", "va/", "/\\/<CR>vN")
