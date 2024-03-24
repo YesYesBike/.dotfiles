@@ -34,6 +34,9 @@ case $alias in
     tae)
         tmux neww -n "tmux-alias" -c "bash" "nvim tmugs-alias.sh"
         ;;
+    ttt)
+        tmux neww -n "typing" -c ".dotfiles" "nvim training"
+        ;;
     te)
         tmux neww -n "tmuxconf" "nvim ~/.tmux.conf"
         ;;

@@ -141,6 +141,30 @@ vim.keymap.set("n", "<leader>rr", function()
     end
 end)
 
+--scroll like less in man page
+--I didnt unmap my custom d command...
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    group = vim.api.nvim_create_augroup('LessScrollMan', { clear = true }),
+    pattern = {"man://*"},
+    callback = function ()
+        vim.keymap.set("n", "e", "<C-d>zz", { buffer = true })
+        vim.keymap.set("n", "u", "<C-u>zz", { buffer = true })
+    end
+})
+
+
+--scroll like less in help page
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    group = vim.api.nvim_create_augroup('LessScrollHelp', { clear = true }),
+    callback = function ()
+        if vim.bo.buftype == 'help' then
+            vim.keymap.set("n", "e", "<C-d>zz", { buffer = true })
+            vim.keymap.set("n", "u", "<C-u>zz", { buffer = true })
+        end
+    end
+})
+
+
 
 --Run the debugger in terminal
 vim.keymap.set("n", "<leader>rd", function()
@@ -174,6 +198,7 @@ end)
 --vim.keymap.set("n", "<C-f>", "")
 
 
+
 --perldoc
 vim.keymap.set("n", "<CR>d", function ()
     local input = vim.fn.input("perldoc> ")
@@ -182,6 +207,17 @@ vim.keymap.set("n", "<CR>d", function ()
         io.write(input)
         io.close()
         vim.cmd('silent !tmux neww ~/bash/./perldoc.sh; exit 0')
+    end
+end)
+
+
+--quicknote
+vim.keymap.set("n", "<CR>n", function ()
+    local input = vim.fn.input("note> ")
+    local note = io.open(os.getenv("HOME").."/.dotfiles_private/note/quicknote", "a")
+    if  input ~= '' and note ~= nil then
+        note:write(input..'\n\n')
+        note:close()
     end
 end)
 

@@ -458,7 +458,6 @@ stow
 sudo
 suitesparse
 svt-av1
-sxiv
 systemd
 systemd-libs
 systemd-sysvcompat
@@ -502,7 +501,6 @@ x265
 xcb-proto
 xclip
 xdg-dbus-proxy
-xdg-utils
 xdotool
 xf86-input-libinput
 xkeyboard-config
@@ -516,7 +514,6 @@ xorg-xkbcomp
 xorg-xmodmap
 xorg-xprop
 xorg-xrdb
-xorg-xset
 xorgproto
 xsel
 xvidcore

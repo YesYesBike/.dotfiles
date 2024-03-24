@@ -14,5 +14,5 @@ while(my $line = <>){
     } else {
         $line =~ s/^(\s*)/#$1/m;
     }
-    print $line;
+    say STDOUT $line;
 }

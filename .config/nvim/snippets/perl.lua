@@ -56,7 +56,7 @@ local shbang = s({trig = "sh", hidden = "true" }, fmt([[
 use utf8;
 use strict;
 use warnings;
-use diagnostics;
+use Data::Dumper;
 use feature qw/
     say
 /;
@@ -202,7 +202,7 @@ local array_hash_brace = s({ trig = "([@%%]){", regTrig = "true", hidden = "true
 table.insert(autosnippets, array_hash_brace)
 
 
-local dollar_ref = s({ trig = "$([^%s]*)-", regTrig = "true", hidden = "true" },{
+local dollar_ref = s({ trig = "$([^%s[]*)-", regTrig = "true", hidden = "true" },{
     t'$', f(function (_,snip)
         return snip.captures[1]
     end), t'->',

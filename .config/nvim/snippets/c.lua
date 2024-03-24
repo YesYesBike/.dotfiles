@@ -52,7 +52,7 @@ table.insert(snippets, define_something)
 
 
 local for_snippet = s({ trig = "%sf", regTrig = "true", hidden = "true" },{
-    t' for (', i(1, "def"), t' ;', i(2, "cond"), t' ;', i(3, "inc"), t')',
+    t' for (', i(1, "def"), t'; ', i(2, "cond"), t'; ', i(3, "inc"), t')',
 })
 table.insert(snippets, for_snippet)
 
@@ -98,11 +98,17 @@ local printf = s({ trig = "%spf", regTrig = "true", hidden = "true" },{
 table.insert(snippets, printf)
 
 
-local scanf2 = s({ trig = "%ssf", regTrig = "true", hidden = "true" },{
+local scanf = s({ trig = "%ssf", regTrig = "true", hidden = "true" },{
     t' scanf("', i(1, "foo"), t'"',
     t(', '), i(1, 'bar'), t');',
 })
-table.insert(snippets, scanf2)
+table.insert(snippets, scanf)
+
+
+local return_snippet = s({ trig = "re", regTrig = "false", hidden = "true" },{
+    t'return ', i(1, 'foo'), t';'
+})
+table.insert(snippets, return_snippet)
 
 
 
