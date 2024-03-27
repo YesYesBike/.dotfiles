@@ -46,7 +46,8 @@ end)
 
 
 --Save my pinky
-vim.keymap.set("i", "<C-u>", "<ESC>hgUiwea", { desc = "Make the word before the cursur uppercase" });
+vim.keymap.set("i", "<C-u>", "<ESC>gUiwea",
+    { desc = "Make the word before the cursur uppercase" });
 
 
 vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move one line down the selection" })
@@ -55,7 +56,8 @@ vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move one line up the sele
 vim.keymap.set("n", "J", "mzJ`z", { desc = "J without moving cursor" })
 vim.keymap.set("n", "gJ", "mzgJ`z", { desc = "gJ without moving cursor" })
 
-vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "Paste to selection and keep current register" })
+vim.keymap.set("x", "<leader>p", "\"_dP",
+    { desc = "Paste to selection and keep current register" })
 
 vim.keymap.set("n", "<leader>y", "\"+y", { desc = "yank to clipboard" })
 vim.keymap.set("x", "<leader>y", "\"+y", { desc = "yank to clipboard" })
@@ -68,7 +70,8 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "Q", "gQ")
 
-vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = "substitute the word under the cursor in a whole file" })
+vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
+    { desc = "substitute the word under the cursor in a whole file" })
 
 --Reload Setting and Keymap
 vim.keymap.set("n", "<leader>R", function()

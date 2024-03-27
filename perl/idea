@@ -7,9 +7,10 @@ use feature qw/
     say
 /;
 
+START:
 open FILE, "<", $ENV{HOME}."/note/archive/legacy";
 
-my @line;
+my @line = ();
 
 while(<FILE>){
     chomp;
@@ -18,22 +19,70 @@ while(<FILE>){
 
 close FILE;
 
-AGAIN:
+die "file is empty!" if !@line;
+
 system("clear");
 my $num = int(rand($#line));
-say "Random idea: \"$line[$num++]\"";
-say "It's on line ". $num-- . ".";
+if($line[$num] !~ /^#/){
+    say "Random idea: \"$line[$num++]\"";
+    say "It's on line ". $num-- . ".";
 
-print "Want to delete? ([y]es / [n]ext / <CR>): ";
-chomp(my $answer = <STDIN>);
-if($answer =~ /y/){
-    open FILE, ">", $ENV{HOME}."/note/archive/legacy";
+    print "Want to delete? ([y]es / [n]ext / m[o]ve / <CR>): ";
+    chomp(my $answer = <STDIN>);
+    if($answer){
+        if($answer =~ /y/){
+            open FILE, ">", $ENV{HOME}."/note/archive/legacy";
+            for (my $i=0; $i<=$#line; $i++){
+                say FILE $line[$i] unless $i == $num;
+            }
+            close FILE;
+        } elsif($answer =~ /n/){
+            $line[$num] = '#'.$line[$num];
+            open FILE, ">", $ENV{HOME}."/note/archive/legacy";
+            say FILE for (@line);
+            close FILE;
+            goto START;
+        } elsif($answer =~ /o/){
+            FILENAME_ASKAGIAN:
+            print "Enter the filename([l]ist): ";
+            chomp(my $filename = <STDIN>);
+            if($filename =~ /^l$/){
+                opendir my $dir, $ENV{HOME}."/note/archive/files/"; 
+                my @filelist = readdir $dir;
+                closedir $dir;
+                shift @filelist;
+                shift @filelist;
 
-    for (my $i=0; $i<=$#line; $i++){
-        say FILE $line[$i] unless $i == $num;
+                say "Filelist";
+                say join(', ', @filelist);
+                goto FILENAME_ASKAGIAN;
+            }
+            open NEW, ">>", $ENV{HOME}."/note/archive/files/".$filename;
+            say NEW $line[$num];
+            close NEW;
+
+            open FILE, ">", $ENV{HOME}."/note/archive/legacy";
+
+            for (my $i=0; $i<=$#line; $i++){
+                say FILE $line[$i] unless $i == $num;
+            }
+            close FILE;
+        }
+        print "Start Again?([n]o): ";
+        chomp($answer = <STDIN>);
+        goto START unless $answer =~ /n/;
+
     }
-} elsif($answer =~ /n/){
-    goto AGAIN;
+} else {
+    say "There is no more line.";
 }
+
+open FILE, ">", $ENV{HOME}."/note/archive/legacy";
+for (@line){
+    s/^#//;
+    say FILE;
+}
+close FILE;
+
 
 say "good bye~";
