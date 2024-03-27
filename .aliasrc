@@ -4,8 +4,10 @@ alias ..='cd ..'
 alias :q='exit'
 alias bc='bc -q '
 alias bs='source ~/.bashrc'
+alias c='clear'     #using on ed
 alias C='~/bash/./gcc.sh'
 alias cdf='cd ~/.dotfiles'
+alias ed='clear; ed -p: -v '
 alias f='. ~/bash/falias.sh'
 alias feh='feh -Z '
 alias ga.='git add .'
@@ -48,9 +50,9 @@ alias tk='tmux kill-ses -t 1'
 alias tl='tmux ls'
 alias type='type -a '
 alias sudo='sudo -E -s '
-alias vi=nvim
+alias v=nvim
 alias vic='nvim --clean'
-alias VI='/bin/vi'
+#alias VI='/bin/vi'
 
 
 function mc {

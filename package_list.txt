@@ -65,6 +65,7 @@ dnssec-anchors
 dosfstools
 duktape
 e2fsprogs
+ed
 efibootmgr
 efivar
 enchant
@@ -198,6 +199,7 @@ libdovi
 libdrm
 libdv
 libedit
+libei
 libelf
 libepoxy
 libevdev

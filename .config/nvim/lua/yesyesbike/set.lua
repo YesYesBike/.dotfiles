@@ -99,7 +99,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     group = vim.api.nvim_create_augroup('TwoSpaceTab', { clear = true }),
-    pattern = {"*.html", "*.js", "*.php"},
+    pattern = {"*.html", "*.php"},
     command = "set softtabstop=2 shiftwidth=2 tabstop=2",
 })
 
@@ -114,6 +114,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.infercase = true
 
 vim.opt.termguicolors = true
 

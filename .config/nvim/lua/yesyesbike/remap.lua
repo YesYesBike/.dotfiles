@@ -62,9 +62,11 @@ vim.keymap.set("x", "<leader>y", "\"+y", { desc = "yank to clipboard" })
 vim.keymap.set("n", "<leader>Y", "\"+y$", { desc = "yank to clipboard" })
 
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "save with less keystrokes" })
-vim.keymap.set("n", "<CR>q", ":wqa<CR>", { desc = "fast quit" })
+vim.keymap.set("n", "<Tab>q", ":wqa<CR>", { desc = "fast quit" })
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "Q", "<nop>")
+
+vim.keymap.set("n", "Q", "gQ")
 
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = "substitute the word under the cursor in a whole file" })
 
@@ -128,41 +130,18 @@ vim.keymap.set("n", "<leader>rr", function()
         vim.cmd("!echo % > /tmp/__FILENAME")
         vim.cmd("11new")
         vim.cmd.te("filename=$(cat /tmp/__FILENAME);~/bash/./gcc.sh $filename;exit")
-    elseif filetype == "lua" then
-        vim.cmd.so()
-    elseif filetype == "racket" then
-        vim.cmd("!echo % > /tmp/__FILENAME")
-        vim.cmd("50vnew")
-        vim.cmd.te("filename=$(cat /tmp/__FILENAME);racket")
+    --elseif filetype == "lua" then
+    --    vim.cmd.so()
+    --elseif filetype == "racket" then
+    --    vim.cmd("!echo % > /tmp/__FILENAME")
+    --    vim.cmd("50vnew")
+    --    vim.cmd.te("filename=$(cat /tmp/__FILENAME);racket")
     else
         vim.cmd("!echo % > /tmp/__FILENAME")
         vim.cmd("11new")
         vim.cmd.te("filename=$(cat /tmp/__FILENAME);./$filename;exit")
     end
 end)
-
---scroll like less in man page
---I didnt unmap my custom d command...
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-    group = vim.api.nvim_create_augroup('LessScrollMan', { clear = true }),
-    pattern = {"man://*"},
-    callback = function ()
-        vim.keymap.set("n", "e", "<C-d>zz", { buffer = true })
-        vim.keymap.set("n", "u", "<C-u>zz", { buffer = true })
-    end
-})
-
-
---scroll like less in help page
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-    group = vim.api.nvim_create_augroup('LessScrollHelp', { clear = true }),
-    callback = function ()
-        if vim.bo.buftype == 'help' then
-            vim.keymap.set("n", "e", "<C-d>zz", { buffer = true })
-            vim.keymap.set("n", "u", "<C-u>zz", { buffer = true })
-        end
-    end
-})
 
 
 

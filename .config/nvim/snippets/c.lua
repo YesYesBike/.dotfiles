@@ -52,7 +52,7 @@ table.insert(snippets, define_something)
 
 
 local for_snippet = s({ trig = "%sf", regTrig = "true", hidden = "true" },{
-    t' for (', i(1, "def"), t'; ', i(2, "cond"), t'; ', i(3, "inc"), t')',
+    t' for(', i(1, "def"), t'; ', i(2, "cond"), t'; ', i(3, "inc"), t')',
 })
 table.insert(snippets, for_snippet)
 
@@ -79,9 +79,13 @@ local SnippetName = s({ trig = "^([civdfl])(p?)f", regTrig = "true", hidden = "t
             return word[snip.captures[2]]
         end
     end),
-    i(1, 'name'), t'(', i(2, 'void'), t')',
+    c(1, { i(1, 'name'), t'main', }),
+    t'(',
+    c(2, { i(1, 'void'),
+        t'int argc, char *argv[]', }),
+    t')',
     c(3, {
-        { t' {', t({"","\t"}), i(1, "//something"), t({'','}'}) },
+        { t'{', t({"","\t"}), i(1, "//something"), t({'','}'}) },
         t';',
     }),
 })
@@ -100,7 +104,7 @@ table.insert(snippets, printf)
 
 local scanf = s({ trig = "%ssf", regTrig = "true", hidden = "true" },{
     t' scanf("', i(1, "foo"), t'"',
-    t(', '), i(1, 'bar'), t');',
+    t(', '), i(2, 'bar'), t');',
 })
 table.insert(snippets, scanf)
 

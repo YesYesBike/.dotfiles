@@ -19,9 +19,6 @@ case $alias in
     md)
         tmux run-shell -b ". ~/bash/tmugs-man-desc.sh || exit 0; exec bash"
         ;;
-    me)
-        tmux run-shell -b ". ~/bash/tmugs-man-ex.sh || exit 0; exec bash"
-        ;;
     nf)
         tmux neww "neofetch; sleep 3"
         ;;
