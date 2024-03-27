@@ -177,6 +177,16 @@ end)
 --vim.keymap.set("n", "<C-f>", "")
 
 
+--Colorscheme for tty
+vim.keymap.set("n", "<leader>j", function ()
+    if vim.g.colors_name ~= 'default' then
+        vim.cmd.colorscheme('default')
+    else
+        vim.cmd.colorscheme('yin')
+    end
+end)
+
+
 
 --Perl keymapp
 vim.keymap.set("n", "vi/", ":set ww+=h,l<CR>/\\/<CR>hvNl:<C-u>set ww-=h,l<CR>gv")

@@ -21,7 +21,6 @@ audit
 autoconf
 automake
 avahi
-babl
 base
 base-devel
 bash
@@ -47,6 +46,7 @@ compiler-rt
 composer
 coreutils
 cryptsetup
+ctags
 curl
 dav1d
 db
@@ -56,6 +56,7 @@ dbus-broker
 dbus-broker-units
 dconf
 debugedit
+debuginfod
 default-cursors
 desktop-file-utils
 device-mapper
@@ -69,7 +70,6 @@ ed
 efibootmgr
 efivar
 enchant
-exiv2
 expat
 fakeroot
 feh
@@ -95,10 +95,8 @@ gdb
 gdb-common
 gdbm
 gdk-pixbuf2
-gegl
 gettext
 giflib
-gimp
 girara
 git
 glib-networking
@@ -119,7 +117,6 @@ grep
 groff
 grub
 gsettings-desktop-schemas
-gsfonts
 gsm
 gssdp
 gst-libav
@@ -154,7 +151,6 @@ iputils
 iso-codes
 jack2
 jansson
-jasper
 jbigkit
 jemalloc
 json-c
@@ -168,7 +164,6 @@ lame
 lapack
 lcms2
 ldns
-lensfun
 less
 libaio
 libappindicator-gtk3
@@ -209,7 +204,6 @@ libfabric
 libffi
 libfontenc
 libgcrypt
-libgexiv2
 libglvnd
 libgpg-error
 libgudev
@@ -217,7 +211,6 @@ libheif
 libice
 libidn2
 libiec61883
-libinih
 libinput
 libisl
 libjpeg-turbo
@@ -226,12 +219,11 @@ libksba
 libldap
 libluv
 libmanette
+libmicrohttpd
 libmm-glib
-libmng
 libmnl
 libmodplug
 libmpc
-libmypaint
 libnatpmp
 libndp
 libnetfilter_conntrack
@@ -258,7 +250,6 @@ libpng
 libproxy
 libpsl
 libpulse
-libraw
 libraw1394
 librsvg
 libsamplerate
@@ -274,7 +265,6 @@ libsodium
 libsoup
 libsoup3
 libsoxr
-libspiro
 libssh
 libssh2
 libstemmer
@@ -304,7 +294,6 @@ libvpx
 libvterm
 libwacom
 libwebp
-libwmf
 libwpe
 libx11
 libxau
@@ -336,6 +325,7 @@ libxt
 libxtst
 libxv
 libxxf86vm
+libyaml
 libyuv
 libzip
 licenses
@@ -370,7 +360,6 @@ mpg123
 msgpack-c
 mtdev
 mtools
-mypaint-brushes1
 ncurses
 neofetch
 neovim
@@ -422,7 +411,6 @@ pixman
 pkgconf
 polkit
 poppler
-poppler-data
 poppler-glib
 popt
 portaudio
@@ -458,7 +446,6 @@ sqlite
 srt
 stow
 sudo
-suitesparse
 svt-av1
 systemd
 systemd-libs
@@ -477,6 +464,13 @@ tracker3
 transmission-cli
 tree
 tree-sitter
+tree-sitter-bash
+tree-sitter-c
+tree-sitter-lua
+tree-sitter-markdown
+tree-sitter-python
+tree-sitter-query
+tree-sitter-vimdoc
 twolame
 tzdata
 unibilium

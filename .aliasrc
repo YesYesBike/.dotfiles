@@ -4,7 +4,6 @@ alias ..='cd ..'
 alias :q='exit'
 alias bc='bc -q '
 alias bs='source ~/.bashrc'
-alias c='clear'     #using on ed
 alias C='~/bash/./gcc.sh'
 alias cdf='cd ~/.dotfiles'
 alias ed='clear; ed -p: -v '
@@ -30,13 +29,13 @@ alias gss='git status -s '
 alias gp='git push '
 alias gP='git pull '
 alias grep='grep --color=auto'
+alias i='~/.dotfiles/perl/./idea'
 alias info='info --vi-keys '
 alias la='ls -a'
 alias ls='ls --color=auto'
 alias ll='ls -hal'
 alias nf='clear; neofetch'
-alias pd='perldoc '
-alias pdf='perldoc -f '
+alias note='~/.dotfiles/perl/./quicknote'
 alias pi='sudo pacman -S'
 alias pq='pacman -Q > ~/.dotfiles/package_list2.txt && vi ~/.dotfiles/package_list2.txt'
 alias pu='echo "PACKAGE UPGRADE" && sudo pacman -Syu && pacman -Q |
@@ -51,8 +50,9 @@ alias tl='tmux ls'
 alias type='type -a '
 alias sudo='sudo -E -s '
 alias v=nvim
-alias vic='nvim --clean'
-#alias VI='/bin/vi'
+alias vc='nvim --clean'
+alias x='startx -- -nocursor'
+alias xc=startx
 
 
 function mc {

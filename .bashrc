@@ -48,7 +48,6 @@ export FZF_COMPLETION_TRIGGER='~~'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export BC_ENV_ARGS="$HOME/.bc"
-
 export PERLDOC_PAGER="less -+C "
 
 
@@ -72,3 +71,8 @@ export PERLDOC_PAGER="less -+C "
 #}
 
 clear
+
+if [ -s ~/note/archive/important ]
+then
+    echo $(cat ~/note/archive/important)
+fi

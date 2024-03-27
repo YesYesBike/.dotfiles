@@ -1,3 +1,0 @@
-while(my $line = <>){
-    if ($line =~ /^(\s*)#/){
-        $line =~ s//$1/m;

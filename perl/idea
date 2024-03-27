@@ -1,0 +1,39 @@
+#!/bin/perl
+use utf8;
+use strict;
+use warnings;
+use Data::Dumper;
+use feature qw/
+    say
+/;
+
+open FILE, "<", $ENV{HOME}."/note/archive/legacy";
+
+my @line;
+
+while(<FILE>){
+    chomp;
+    push @line, $_;
+}
+
+close FILE;
+
+AGAIN:
+system("clear");
+my $num = int(rand($#line));
+say "Random idea: \"$line[$num++]\"";
+say "It's on line ". $num-- . ".";
+
+print "Want to delete? ([y]es / [n]ext / <CR>): ";
+chomp(my $answer = <STDIN>);
+if($answer =~ /y/){
+    open FILE, ">", $ENV{HOME}."/note/archive/legacy";
+
+    for (my $i=0; $i<=$#line; $i++){
+        say FILE $line[$i] unless $i == $num;
+    }
+} elsif($answer =~ /n/){
+    goto AGAIN;
+}
+
+say "good bye~";
