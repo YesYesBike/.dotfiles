@@ -3,7 +3,7 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.w.nutoggle = 1
 vim.w.hltoggle = 0
 vim.w.cmdtoggle = 0
-vim.g.mantoggle = 0
+vim.g.lesstoggle = 0
 
 vim.keymap.set({"n", "x"}, "<leader>h", function ()
     if vim.w.nutoggle == 0 then
@@ -34,6 +34,7 @@ vim.keymap.set({"n", "x"}, "<leader>H", function ()
     end
 end)
 
+
 vim.keymap.set("n", "<leader>C", function ()
     if vim.w.cmdtoggle == 0 then
         vim.w.cmdtoggle = 1
@@ -45,9 +46,32 @@ vim.keymap.set("n", "<leader>C", function ()
 end)
 
 
+vim.keymap.set("n", "<Tab>", function ()
+    if vim.g.lesstoggle == 0 then
+        vim.g.lesstoggle = 1
+        vim.keymap.set("n", "q", ":wqa<CR>")
+        vim.keymap.set("n", "d", "<C-d>")
+        vim.keymap.set("n", "u", "<C-u>")
+    elseif vim.g.lesstoggle == 1 then
+        vim.g.lesstoggle = 0
+        vim.cmd('unmap q')
+        vim.cmd('unmap d')
+        vim.cmd('unmap u')
+    end
+end)
+
+
+--centercursor
+--vim.keymap.set("n", "G", "Gzz")
+--vim.keymap.set("n", "n", "nzzzv")
+--vim.keymap.set("n", "N", "Nzzzv")
+
+
+
+
 --Save my pinky
 vim.keymap.set("i", "<C-u>", "<ESC>gUiwea",
-    { desc = "Make the word before the cursur uppercase" });
+    { desc = "Make the word before the cursor uppercase" });
 
 
 vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move one line down the selection" })
@@ -64,7 +88,6 @@ vim.keymap.set("x", "<leader>y", "\"+y", { desc = "yank to clipboard" })
 vim.keymap.set("n", "<leader>Y", "\"+y$", { desc = "yank to clipboard" })
 
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "save with less keystrokes" })
-vim.keymap.set("n", "<Tab>q", ":wqa<CR>", { desc = "fast quit" })
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 
@@ -125,36 +148,65 @@ vim.keymap.set("n", "<leader>T", "<cmd>11new<CR><cmd>te<CR><cmd>file Terminal<CR
 vim.keymap.set("n", "<leader>vT", "<cmd>47vnew<CR><cmd>te<CR><cmd>file vTerminal<CR>")
 
 
---Run the current buffer in terminal
+--Run the current file in terminal
 --fix it lateeeer
+
+local function check_makefile()
+    local file = io.open('Makefile', "r")
+    if file then
+        io.close(file)
+        return true
+    else
+        return false
+    end
+end
+
 vim.keymap.set("n", "<leader>rr", function()
     local filetype = vim.bo.filetype
-    if filetype == "c" then
-        vim.cmd("!echo % > /tmp/__FILENAME")
-        vim.cmd("11new")
-        vim.cmd.te("filename=$(cat /tmp/__FILENAME);~/bash/./gcc.sh $filename;exit")
+    if filetype == "c" or filetype == "make" then
+        if check_makefile() then
+            vim.cmd('make')
+            vim.cmd("!~/perl/make_target")
+            vim.cmd("11new")
+            vim.cmd.te("filename=$(cat /tmp/__FILENAME42069);./$filename;exit")
+        else
+            vim.cmd("!echo % > /tmp/__FILENAME42069")
+            vim.cmd("11new")
+            vim.cmd.te("filename=$(cat /tmp/__FILENAME42069);~/bash/gcc.sh $filename;exit")
+        end
     --elseif filetype == "lua" then
     --    vim.cmd.so()
     --elseif filetype == "racket" then
-    --    vim.cmd("!echo % > /tmp/__FILENAME")
+    --    vim.cmd("!echo % > /tmp/__FILENAME42069")
     --    vim.cmd("50vnew")
-    --    vim.cmd.te("filename=$(cat /tmp/__FILENAME);racket")
+    --    vim.cmd.te("filename=$(cat /tmp/__FILENAME42069);racket")
     else
-        vim.cmd("!echo % > /tmp/__FILENAME")
+        vim.cmd("!echo % > /tmp/__FILENAME42069")
         vim.cmd("11new")
-        vim.cmd.te("filename=$(cat /tmp/__FILENAME);./$filename;exit")
+        vim.cmd.te("filename=$(cat /tmp/__FILENAME42069);./$filename;exit")
     end
 end)
 
 
+vim.keymap.set("n", "<leader>m", function ()
+    vim.cmd('make')
+end)
 
---Run the debugger in terminal
+
+--Run the debugger in new tmux window
 vim.keymap.set("n", "<leader>rd", function()
     local filetype = vim.bo.filetype
-    if filetype == "c" then
-        vim.cmd("!echo % > __FILENAME")
-        vim.cmd("160vnew")
-        vim.cmd.te("filename=$(cat __FILENAME);~/bash/./gcc.sh $filename -g;rm __FILENAME;exit")
+    if filetype == "c" or filetype == "make" then
+        if check_makefile() then
+            vim.cmd('make')
+            vim.cmd("!~/perl/make_target")
+            vim.cmd("silent !pwd > /tmp/__PWD42069")
+            vim.cmd("silent !~/bash/tmux-gdb-make.sh")
+        else
+            vim.cmd("silent !echo % > /tmp/__FILENAME42069")
+            vim.cmd("silent !pwd > /tmp/__PWD42069")
+            vim.cmd("silent !~/bash/tmux-gdb.sh")
+        end
     end
 end)
 
@@ -182,48 +234,9 @@ end)
 
 --Colorscheme for tty
 vim.keymap.set("n", "<leader>j", function ()
-    if vim.g.colors_name ~= 'default' then
-        vim.cmd.colorscheme('default')
+    if vim.g.colors_name ~= 'quiet' then
+        vim.cmd.colorscheme('quiet')
     else
         vim.cmd.colorscheme('yin')
     end
 end)
-
-
-
---Perl keymapp
-vim.keymap.set("n", "vi/", ":set ww+=h,l<CR>/\\/<CR>hvNl:<C-u>set ww-=h,l<CR>gv")
-vim.keymap.set("n", "va/", "/\\/<CR>vN")
-vim.keymap.set("n", "vi#", ":set ww+=h,l<CR>/#<CR>hvNl:<C-u>set ww-=h,l<CR>gv")
-vim.keymap.set("n", "va#", "/#<CR>vN")
-vim.keymap.set("n", "vi!", ":set ww+=h,l<CR>/!<CR>hvNl:<C-u>set ww-=h,l<CR>gv")
-vim.keymap.set("n", "va!", "/!<CR>vN")
-vim.keymap.set("n", "vi~", ":set ww+=h,l<CR>/\\~<CR>hvNl:<C-u>set ww-=h,l<CR>gv")
-vim.keymap.set("n", "va~", "/\\~<CR>vN")
-
-vim.keymap.set("n", "ci/", "vi/c", { remap = true })
-vim.keymap.set("n", "ca/", "va/c", { remap = true })
-vim.keymap.set("n", "ci#", "vi#c", { remap = true })
-vim.keymap.set("n", "ca#", "va#c", { remap = true })
-vim.keymap.set("n", "ci!", "vi!c", { remap = true })
-vim.keymap.set("n", "ca!", "va!c", { remap = true })
-vim.keymap.set("n", "ci~", "vi~c", { remap = true })
-vim.keymap.set("n", "ca~", "va~c", { remap = true })
-
-vim.keymap.set("n", "di/", "vi/d", { remap = true })
-vim.keymap.set("n", "da/", "va/d", { remap = true })
-vim.keymap.set("n", "di#", "vi#d", { remap = true })
-vim.keymap.set("n", "da#", "va#d", { remap = true })
-vim.keymap.set("n", "di!", "vi!d", { remap = true })
-vim.keymap.set("n", "da!", "va!d", { remap = true })
-vim.keymap.set("n", "di~", "vi~d", { remap = true })
-vim.keymap.set("n", "da~", "va~d", { remap = true })
-
-vim.keymap.set("n", "yi/", "vi/y", { remap = true })
-vim.keymap.set("n", "ya/", "va/y", { remap = true })
-vim.keymap.set("n", "yi#", "vi#y", { remap = true })
-vim.keymap.set("n", "ya#", "va#y", { remap = true })
-vim.keymap.set("n", "yi!", "vi!y", { remap = true })
-vim.keymap.set("n", "ya!", "va!y", { remap = true })
-vim.keymap.set("n", "yi~", "vi~y", { remap = true })
-vim.keymap.set("n", "ya~", "va~y", { remap = true })

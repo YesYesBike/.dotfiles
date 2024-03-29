@@ -10,6 +10,9 @@ case $alias in
     be)
         tmux neww -n "bashrc" "nvim ~/.bashrc"
         ;;
+    cal)
+        tmux neww "cal -3; date; sleep 60"
+        ;;
     cd)
         tmux run-shell -b ". ~/bash/tmugs-cd-root.sh || exit 0; exec bash"
         ;;
@@ -36,9 +39,6 @@ case $alias in
         ;;
     te)
         tmux neww -n "tmuxconf" "nvim ~/.tmux.conf"
-        ;;
-    twe)
-        tmux neww -n "tmuxconf" "nvim ~/.tmux-windownames"
         ;;
     ve)
         tmux neww -n "nvim_set" -c ".config/nvim" "nvim init.lua"

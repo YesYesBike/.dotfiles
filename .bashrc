@@ -74,5 +74,5 @@ clear
 
 if [ -s ~/note/archive/important ]
 then
-    echo $(cat ~/note/archive/important)
+    cat ~/note/archive/important
 fi

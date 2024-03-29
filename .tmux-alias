@@ -1,5 +1,6 @@
 ae  / Edit .aliasrc
 be  / Edit .bashrc
+cal / Calendar
 cd  / Explore in root directory
 he  / Edit the homepage
 le  / Edit the localhost
@@ -9,5 +10,4 @@ pse / Edit the Perl snippet
 te  / Edit .tmux.conf
 tae / Edit .tmux-alias
 ttt / Touch Typing Training
-twe / Edit ~/.tmux-windownames
 ve  / Edit Neovim Setting

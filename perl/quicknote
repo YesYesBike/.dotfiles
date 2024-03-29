@@ -42,4 +42,7 @@ close ORIG;
 open(NEW, ">", $ENV{HOME}."/note/quicknote");
 say NEW for (@reserve);
 
+chdir $ENV{HOME}."/note/archive/files/";
+system("~/bash/delempty.sh");
+
 #print Dumper @reserve;

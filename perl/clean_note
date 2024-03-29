@@ -7,6 +7,8 @@ use feature qw/
     say
 /;
 
+#  Cleaning old notes
+
 START:
 open FILE, "<", $ENV{HOME}."/note/archive/legacy";
 
@@ -25,9 +27,9 @@ system("clear");
 my $num = int(rand($#line));
 if($line[$num] !~ /^#/){
     say "Random idea: \"$line[$num++]\"";
-    say "It's on line ". $num-- . ".";
+    say "It's on line ". $num-- . "/" . $#line+1 . ".";
 
-    print "Want to delete? ([y]es / [n]ext / m[o]ve / <CR>): ";
+    print "Want to delete? ([y]es / [n]ext / [m]ove / <CR>): ";
     chomp(my $answer = <STDIN>);
     if($answer){
         if($answer =~ /y/){
@@ -42,7 +44,7 @@ if($line[$num] !~ /^#/){
             say FILE for (@line);
             close FILE;
             goto START;
-        } elsif($answer =~ /o/){
+        } elsif($answer =~ /m/){
             FILENAME_ASKAGIAN:
             print "Enter the filename([l]ist): ";
             chomp(my $filename = <STDIN>);
@@ -50,19 +52,18 @@ if($line[$num] !~ /^#/){
                 opendir my $dir, $ENV{HOME}."/note/archive/files/"; 
                 my @filelist = readdir $dir;
                 closedir $dir;
-                shift @filelist;
-                shift @filelist;
+                shift @filelist for 1..2;
 
                 say "Filelist";
-                say join(', ', @filelist);
+                say join(', ', sort @filelist);
                 goto FILENAME_ASKAGIAN;
             }
+
             open NEW, ">>", $ENV{HOME}."/note/archive/files/".$filename;
             say NEW $line[$num];
             close NEW;
 
             open FILE, ">", $ENV{HOME}."/note/archive/legacy";
-
             for (my $i=0; $i<=$#line; $i++){
                 say FILE $line[$i] unless $i == $num;
             }

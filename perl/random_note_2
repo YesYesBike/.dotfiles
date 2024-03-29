@@ -1,0 +1,30 @@
+#!/bin/perl
+use utf8;
+use strict;
+use warnings;
+use Data::Dumper;
+use feature qw/
+    say
+/;
+
+my %files;
+my $dir = $ENV{HOME}."/note/archive/files/";
+
+opendir (my $filelist, $dir);
+my @filelist = readdir $filelist;
+closedir $filelist;
+shift @filelist for 1..2;
+
+for (@filelist){
+    open FILE, '<', $dir.$_;
+    my @lines;
+    while( chomp(my $line = <FILE>) ){
+        push @lines, $line
+}
+    $files{$_} = [ @lines ];
+}
+
+START:
+system("clear");
+my $filename = (keys %files)[rand keys %files];
+goto START if $files{$filename}->[0];

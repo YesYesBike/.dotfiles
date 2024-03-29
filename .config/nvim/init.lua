@@ -23,6 +23,5 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-
 -- [[User Setting]]
 require("yesyesbike")

@@ -52,6 +52,7 @@ return
     {
         --Other Utilities
         --"Aasim-A/scrollEOF.nvim",   --It will be fixed somedays
+        --"arnamak/stay-centered.nvim",
     },
     {
         --simple dark colorscheme
@@ -71,7 +72,7 @@ return
     },
     {
         --vim progaming
-        "ThePrimeagen/vim-be-good",
+        --"ThePrimeagen/vim-be-good",
     },
 
 

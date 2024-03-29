@@ -51,6 +51,12 @@ local define_something = s({ trig = "^d", regTrig = "true", hidden = "true" },{
 table.insert(snippets, define_something)
 
 
+local SnippetName = s({ trig = "trig", regTrig = "true", hidden = "false" },{
+    --INSERT
+})
+table.insert(snippets, SnippetName)
+
+
 local for_snippet = s({ trig = "%sf", regTrig = "true", hidden = "true" },{
     t' for(', i(1, "def"), t'; ', i(2, "cond"), t'; ', i(3, "inc"), t')',
 })
@@ -92,6 +98,13 @@ local SnippetName = s({ trig = "^([civdfl])(p?)f", regTrig = "true", hidden = "t
 table.insert(snippets, SnippetName)
 
 
+local puts = s({ trig = "%spu", regTrig = "true", hidden = "true" },{
+    t' puts(', c(1, { {t'"', i(1, 'something'), t'"',},
+        i(1, 'something'),}), t')', t';',
+})
+table.insert(snippets, puts)
+
+
 local printf = s({ trig = "%spf", regTrig = "true", hidden = "true" },{
     t' printf("', i(1, "something"), t'"',
     c(2, {
@@ -109,8 +122,8 @@ local scanf = s({ trig = "%ssf", regTrig = "true", hidden = "true" },{
 table.insert(snippets, scanf)
 
 
-local return_snippet = s({ trig = "re", regTrig = "false", hidden = "true" },{
-    t'return ', i(1, 'foo'), t';'
+local return_snippet = s({ trig = "%sr", regTrig = "true", hidden = "true" },{
+    t' return ', i(1, '0'), t';'
 })
 table.insert(snippets, return_snippet)
 

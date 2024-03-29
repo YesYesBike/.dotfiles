@@ -6,7 +6,7 @@ vim.opt.showtabline = 0
 vim.opt.ls = 0
 vim.opt.ruler = false
 vim.opt.shortmess = "atToOFI"   --"filnxtToOF"
-vim.opt.cmdheight = 0 --setting for the true gigachad
+vim.opt.cmdheight = 0
 vim.opt.smd = false
 
 vim.opt.nu = true
@@ -87,8 +87,19 @@ vim.api.nvim_create_autocmd("TermOpen", {
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+--vim.opt.expandtab = true
 vim.opt.smartindent = true
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    group = vim.api.nvim_create_augroup('MakefileTab', { clear = true }),
+    callback = function ()
+		if vim.bo.filetype == "make" then
+			vim.opt.expandtab = false
+		else
+			vim.opt.expandtab = true
+		end
+    end,
+})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup('HLonYank', { clear = true }),
@@ -102,6 +113,61 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     pattern = {"*.html", "*.php"},
     command = "set softtabstop=2 shiftwidth=2 tabstop=2",
 })
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    group = vim.api.nvim_create_augroup('PerlRemap', { clear = true }),
+    callback = function ()
+        if vim.bo.filetype == "perl" then
+            vim.keymap.set("n", "vi/", ":set ww+=h,l<CR>/\\/<CR>hvNl:<C-u>set ww-=h,l<CR>gv")
+            vim.keymap.set("n", "va/", "/\\/<CR>vN")
+            vim.keymap.set("n", "vi#", ":set ww+=h,l<CR>/#<CR>hvNl:<C-u>set ww-=h,l<CR>gv")
+            vim.keymap.set("n", "va#", "/#<CR>vN")
+            vim.keymap.set("n", "vi!", ":set ww+=h,l<CR>/!<CR>hvNl:<C-u>set ww-=h,l<CR>gv")
+            vim.keymap.set("n", "va!", "/!<CR>vN")
+            vim.keymap.set("n", "vi~", ":set ww+=h,l<CR>/\\~<CR>hvNl:<C-u>set ww-=h,l<CR>gv")
+            vim.keymap.set("n", "va~", "/\\~<CR>vN")
+
+            vim.keymap.set("n", "ci/", "vi/c", { remap = true })
+            vim.keymap.set("n", "ca/", "va/c", { remap = true })
+            vim.keymap.set("n", "ci#", "vi#c", { remap = true })
+            vim.keymap.set("n", "ca#", "va#c", { remap = true })
+            vim.keymap.set("n", "ci!", "vi!c", { remap = true })
+            vim.keymap.set("n", "ca!", "va!c", { remap = true })
+            vim.keymap.set("n", "ci~", "vi~c", { remap = true })
+            vim.keymap.set("n", "ca~", "va~c", { remap = true })
+
+            vim.keymap.set("n", "di/", "vi/d", { remap = true })
+            vim.keymap.set("n", "da/", "va/d", { remap = true })
+            vim.keymap.set("n", "di#", "vi#d", { remap = true })
+            vim.keymap.set("n", "da#", "va#d", { remap = true })
+            vim.keymap.set("n", "di!", "vi!d", { remap = true })
+            vim.keymap.set("n", "da!", "va!d", { remap = true })
+            vim.keymap.set("n", "di~", "vi~d", { remap = true })
+            vim.keymap.set("n", "da~", "va~d", { remap = true })
+
+            vim.keymap.set("n", "yi/", "vi/y", { remap = true })
+            vim.keymap.set("n", "ya/", "va/y", { remap = true })
+            vim.keymap.set("n", "yi#", "vi#y", { remap = true })
+            vim.keymap.set("n", "ya#", "va#y", { remap = true })
+            vim.keymap.set("n", "yi!", "vi!y", { remap = true })
+            vim.keymap.set("n", "ya!", "va!y", { remap = true })
+            vim.keymap.set("n", "yi~", "vi~y", { remap = true })
+            vim.keymap.set("n", "ya~", "va~y", { remap = true })
+        end
+    end
+})
+
+
+
+--vim.api.nvim_create_autocmd({"CursorMoved", "CursorMovedI", "InsertLeavePre"}, {
+--    group = vim.api.nvim_create_augroup('CenterCursor', { clear = true }),
+--    callback = function ()
+--        local pos = vim.fn.getpos('.')
+--        vim.cmd('norm! zz')
+--        vim.fn.setpos('.', pos)
+--    end
+--})
+
 
 vim.opt.wrap = false
 
