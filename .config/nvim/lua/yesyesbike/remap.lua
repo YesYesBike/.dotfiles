@@ -3,7 +3,6 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.w.nutoggle = 1
 vim.w.hltoggle = 0
 vim.w.cmdtoggle = 0
-vim.g.lesstoggle = 0
 
 vim.keymap.set({"n", "x"}, "<leader>h", function ()
     if vim.w.nutoggle == 0 then
@@ -46,19 +45,22 @@ vim.keymap.set("n", "<leader>C", function ()
 end)
 
 
-vim.keymap.set("n", "<Tab>", function ()
-    if vim.g.lesstoggle == 0 then
-        vim.g.lesstoggle = 1
-        vim.keymap.set("n", "q", ":wqa<CR>")
-        vim.keymap.set("n", "d", "<C-d>")
-        vim.keymap.set("n", "u", "<C-u>")
-    elseif vim.g.lesstoggle == 1 then
-        vim.g.lesstoggle = 0
-        vim.cmd('unmap q')
-        vim.cmd('unmap d')
-        vim.cmd('unmap u')
-    end
-end)
+local less_mode
+less_mode = function ()
+    vim.opt.colorcolumn = ""
+    vim.keymap.set("n", "q", ":q<CR>", {buffer = true})
+    vim.keymap.set("n", "d", "<C-d>", {buffer = true})
+    vim.keymap.set("n", "u", "<C-u>", {buffer = true})
+    vim.keymap.set("n", "<Tab>", function ()
+        vim.keymap.set("n", "q", "q", {buffer = true})
+        vim.keymap.set("n", "d", "d", {buffer = true})
+        vim.keymap.set("n", "u", "u", {buffer = true})
+        vim.opt.colorcolumn = "80"
+        vim.keymap.set("n", "<Tab>", less_mode, {buffer = true})
+    end, {buffer = true})
+end
+
+vim.keymap.set("n", "<Tab>", less_mode, {buffer = true})
 
 
 --centercursor
