@@ -175,22 +175,22 @@ vim.keymap.set("n", "<leader>rr", function()
             vim.cmd('make')
             vim.cmd("!~/perl/make_target")
             vim.cmd("11new")
-            vim.cmd.te("filename=$(cat /tmp/__FILENAME42069);./$filename;exit")
+            vim.cmd.te("filename=$(< /tmp/__FILENAME42069);./$filename;exit")
         else
             vim.cmd("!echo % > /tmp/__FILENAME42069")
             vim.cmd("11new")
-            vim.cmd.te("filename=$(cat /tmp/__FILENAME42069);~/bash/gcc.sh $filename;exit")
+            vim.cmd.te("filename=$(< /tmp/__FILENAME42069);~/bash/gcc.sh $filename;exit")
         end
     --elseif filetype == "lua" then
     --    vim.cmd.so()
     --elseif filetype == "racket" then
     --    vim.cmd("!echo % > /tmp/__FILENAME42069")
     --    vim.cmd("50vnew")
-    --    vim.cmd.te("filename=$(cat /tmp/__FILENAME42069);racket")
+    --    vim.cmd.te("filename=$(< /tmp/__FILENAME42069);racket")
     else
         vim.cmd("!echo % > /tmp/__FILENAME42069")
         vim.cmd("11new")
-        vim.cmd.te("filename=$(cat /tmp/__FILENAME42069);./$filename;exit")
+        vim.cmd.te("filename=$(< /tmp/__FILENAME42069);./$filename;exit")
     end
 end)
 

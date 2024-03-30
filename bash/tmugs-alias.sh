@@ -1,6 +1,6 @@
 #!/bin/bash
 
-alias=$(cat ~/.tmux-alias | fzf-tmux -n 1 -delimiter='/'\
+alias=$(< ~/.tmux-alias | fzf-tmux -n 1 -delimiter='/'\
     -p 50% --border-label='Tmugs-Alias' | cut -d '/' -f 1 | tr -d ' ')
 
 case $alias in
