@@ -67,6 +67,11 @@ end)
 --vim.keymap.set("n", "N", "Nzzzv")
 
 
+--usless keys...
+vim.keymap.set("i", "<Home>", "<nop>")
+vim.keymap.set("i", "<PageUp>", "<nop>")
+vim.keymap.set("i", "<PageDown>", "<nop>")
+vim.keymap.set("i", "<END>", "<nop>")
 
 
 --Save my pinky

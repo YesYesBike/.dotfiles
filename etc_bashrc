@@ -1,4 +1,4 @@
 PS1='\W\$ '
 setfont ter-132n
-loadkeys /usr/local/share/kbd/keymap/personal.map
+#loadkeys /usr/local/share/kbd/keymaps/personal.map
 echo -e '\033[?8c'

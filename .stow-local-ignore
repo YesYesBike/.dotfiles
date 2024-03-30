@@ -1,6 +1,7 @@
 .git
 .gitignore
 etc_bashrc
+personal.map
 firefox
 install
 install_firefox

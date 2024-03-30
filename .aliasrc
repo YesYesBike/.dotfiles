@@ -43,7 +43,7 @@ alias pu='echo "PACKAGE UPGRADE" && sudo pacman -Syu && pacman -Q |
     cut -d " " -f 1 > ~/.dotfiles/package_list.txt'
 alias raf='~/perl/raffle'
 alias rb='echo "FUN FUN RE-BOOT!" && sudo reboot '
-alias rnote='~/.dotfiles/perl/random_note'
+alias rnote='~/.dotfiles/perl/random_note2'
 alias sicp='racket -I sicp'
 alias sd='echo "SHUTDOWN" && sudo shutdown -h 0'
 alias t='tmux '

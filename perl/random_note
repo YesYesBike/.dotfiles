@@ -31,7 +31,7 @@ say "$line[$num]";
 say "    -from \"$filename\"...";
 
 print "Delete? (y / <CR>): ";
-my $answer = <STDIN>;
+my $answer = <STDIN>;       #forgot chomp!!
 if($answer =~ m/^y$/){
     open FILE, ">", $dir.$filename;
     for(my $i = 0; $i<$#line; $i++){
