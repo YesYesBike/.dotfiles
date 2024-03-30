@@ -3,6 +3,7 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.w.nutoggle = 1
 vim.w.hltoggle = 0
 vim.w.cmdtoggle = 0
+vim.w.lesstoggle = 0
 
 vim.keymap.set({"n", "x"}, "<leader>h", function ()
     if vim.w.nutoggle == 0 then
@@ -45,22 +46,21 @@ vim.keymap.set("n", "<leader>C", function ()
 end)
 
 
-local less_mode
-less_mode = function ()
-    vim.opt.colorcolumn = ""
-    vim.keymap.set("n", "q", ":q<CR>", {buffer = true})
-    vim.keymap.set("n", "d", "<C-d>", {buffer = true})
-    vim.keymap.set("n", "u", "<C-u>", {buffer = true})
-    vim.keymap.set("n", "<Tab>", function ()
-        vim.keymap.set("n", "q", "q", {buffer = true})
-        vim.keymap.set("n", "d", "d", {buffer = true})
-        vim.keymap.set("n", "u", "u", {buffer = true})
+vim.keymap.set("n", "<Tab>", function ()
+    if vim.w.lesstoggle == 0 then
+        vim.w.lesstoggle = 1
+        vim.opt.colorcolumn = ""
+        vim.keymap.set("n", "q", ":q<cr>")
+        vim.keymap.set("n", "d", "<C-d>")
+        vim.keymap.set("n", "u", "<C-u>")
+    elseif vim.w.lesstoggle == 1 then
+        vim.w.lesstoggle = 0
         vim.opt.colorcolumn = "80"
-        vim.keymap.set("n", "<Tab>", less_mode, {buffer = true})
-    end, {buffer = true})
-end
-
-vim.keymap.set("n", "<Tab>", less_mode, {buffer = true})
+        vim.keymap.set("n", "q", "q")
+        vim.keymap.set("n", "d", "d")
+        vim.keymap.set("n", "u", "u")
+    end
+end)
 
 
 --centercursor
@@ -218,7 +218,7 @@ vim.keymap.set("n", "<leader>rd", function()
 end)
 
 
---set filetype with leader key (I'll make it better later with Cofilenut)
+--Setting filetype and shbang
 vim.keymap.set("n", "<leader>1", function ()
     vim.bo.filetype = 'bash'
     vim.cmd.norm("ashG")
@@ -243,7 +243,9 @@ end)
 vim.keymap.set("n", "<leader>j", function ()
     if vim.g.colors_name ~= 'quiet' then
         vim.cmd.colorscheme('quiet')
+        vim.opt.termguicolors = false
     else
         vim.cmd.colorscheme('yin')
+        vim.opt.termguicolors = true
     end
 end)

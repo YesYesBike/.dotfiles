@@ -91,6 +91,29 @@ vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    group = vim.api.nvim_create_augroup('LessmodeHelp', { clear = true }),
+    callback = function ()
+		if vim.bo.buftype == "help" then
+            vim.keymap.set("n", "q", ":q<cr>")
+            vim.keymap.set("n", "d", "<C-d>")
+            vim.keymap.set("n", "u", "<C-u>")
+		end
+    end,
+})
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    group = vim.api.nvim_create_augroup('LessmodeMan', { clear = true }),
+    pattern = {"man://*"},
+    callback = function ()
+        vim.keymap.set("n", "q", ":q<cr>")
+        vim.keymap.set("n", "d", "<C-d>")
+        vim.keymap.set("n", "u", "<C-u>")
+    end,
+})
+
+
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     group = vim.api.nvim_create_augroup('MakefileTab', { clear = true }),
     callback = function ()
 		if vim.bo.filetype == "make" then
