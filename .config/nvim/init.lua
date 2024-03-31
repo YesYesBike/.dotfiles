@@ -1,13 +1,13 @@
--- [[Global Setting]]
+-- Global Setting
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- [[Vimscript]]
+-- Vimscript
 --local vimrc = vim.fn.stdpath("config") .. "/nvim/vimrc.nvim"
 --vim.cmd.source(vimrc)
 
 
--- [Lazy]
+-- Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -23,5 +23,5 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
--- [[User Setting]]
+-- User Setting
 require("yesyesbike")

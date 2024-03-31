@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
         end
     end,
 })
+
 vim.api.nvim_create_autocmd("TermOpen", {
     group = vim.api.nvim_create_augroup('TerminalSetup', { clear = true }),
     callback = function()
@@ -28,6 +29,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.opt.signcolumn = "no"
         vim.cmd.star()
 
+        --Terminal Color
         --st Default
         --vim.g.terminal_color_0 = "#000000"
         --vim.g.terminal_color_1 = "#cd0000"
@@ -94,9 +96,10 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     group = vim.api.nvim_create_augroup('LessmodeHelp', { clear = true }),
     callback = function ()
 		if vim.bo.buftype == "help" then
-            vim.keymap.set("n", "q", ":q<cr>")
-            vim.keymap.set("n", "d", "<C-d>")
-            vim.keymap.set("n", "u", "<C-u>")
+            vim.opt.colorcolumn = ""
+            vim.keymap.set("n", "q", ":q<cr>", {buffer = true})
+            vim.keymap.set("n", "d", "<C-d>", {buffer = true})
+            vim.keymap.set("n", "u", "<C-u>", {buffer = true})
 		end
     end,
 })
@@ -105,12 +108,12 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     group = vim.api.nvim_create_augroup('LessmodeMan', { clear = true }),
     pattern = {"man://*"},
     callback = function ()
-        vim.keymap.set("n", "q", ":q<cr>")
-        vim.keymap.set("n", "d", "<C-d>")
-        vim.keymap.set("n", "u", "<C-u>")
+        vim.opt.colorcolumn = ""
+        vim.keymap.set("n", "q", ":q<cr>", {buffer = true})
+        vim.keymap.set("n", "d", "<C-d>", {buffer = true})
+        vim.keymap.set("n", "u", "<C-u>", {buffer = true})
     end,
 })
-
 
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
@@ -137,6 +140,7 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     command = "set softtabstop=2 shiftwidth=2 tabstop=2",
 })
 
+--Remap for Perl
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     group = vim.api.nvim_create_augroup('PerlRemap', { clear = true }),
     callback = function ()

@@ -1,0 +1,17 @@
+#!/bin/perl
+use utf8;
+use strict;
+use warnings;
+use diagnostics;
+use feature qw/
+    say
+/;
+
+print "Enter the pattern: ";
+chomp(my $pattern = <STDIN>);
+print "Enter the string: ";
+while (<>) {
+    chomp;
+    say "Matched! [$`<$&>$']" if (m/${pattern}/);
+    print "Enter the string: ";
+}

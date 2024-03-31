@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for file in $(ls)
+do
+    if ! [ -s $file ]
+    then
+        rm $file
+        echo "deleted $file"
+    fi
+done

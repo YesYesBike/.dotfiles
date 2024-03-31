@@ -173,13 +173,13 @@ vim.keymap.set("n", "<leader>rr", function()
     if filetype == "c" or filetype == "make" then
         if check_makefile() then
             vim.cmd('make')
-            vim.cmd("!~/perl/make_target")
+            vim.cmd("!~/util/make_target")
             vim.cmd("11new")
             vim.cmd.te("filename=$(< /tmp/__FILENAME42069);./$filename;exit")
         else
             vim.cmd("!echo % > /tmp/__FILENAME42069")
             vim.cmd("11new")
-            vim.cmd.te("filename=$(< /tmp/__FILENAME42069);~/bash/gcc.sh $filename;exit")
+            vim.cmd.te("filename=$(< /tmp/__FILENAME42069);~/util/gcc $filename;exit")
         end
     --elseif filetype == "lua" then
     --    vim.cmd.so()
@@ -206,13 +206,13 @@ vim.keymap.set("n", "<leader>rd", function()
     if filetype == "c" or filetype == "make" then
         if check_makefile() then
             vim.cmd('make')
-            vim.cmd("!~/perl/make_target")
+            vim.cmd("!~/util/make_target")
             vim.cmd("silent !pwd > /tmp/__PWD42069")
-            vim.cmd("silent !~/bash/tmux-gdb-make.sh")
+            vim.cmd("silent !~/util/tmux-gdb-make")
         else
             vim.cmd("silent !echo % > /tmp/__FILENAME42069")
             vim.cmd("silent !pwd > /tmp/__PWD42069")
-            vim.cmd("silent !~/bash/tmux-gdb.sh")
+            vim.cmd("silent !~/util/tmux-gdb")
         end
     end
 end)
@@ -243,9 +243,7 @@ end)
 vim.keymap.set("n", "<leader>j", function ()
     if vim.g.colors_name ~= 'quiet' then
         vim.cmd.colorscheme('quiet')
-        vim.opt.termguicolors = false
     else
         vim.cmd.colorscheme('yin')
-        vim.opt.termguicolors = true
     end
 end)
