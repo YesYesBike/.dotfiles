@@ -1,6 +1,6 @@
 local ls = require("luasnip")
 local s = ls.snippet
-local sn = ls.snippet_node
+--local sn = ls.snippet_node
 --local isn = ls.indent_snippet_node
 local t = ls.text_node
 local i = ls.insert_node
@@ -28,31 +28,16 @@ local fmt = require("luasnip.extras.fmt").fmt
 
 local snippets, autosnippets = {}, {}
 
-local date_snip = s({ trig = "date", regTrig = "false", hidden = "true" },{
-    f(function ()
-        return os.date('%Y-%m-%d')
-    end)
+local boilerplate = s({ trig = "sh", regTrig = "false", hidden = "true" },{
+    t'TARGET = ', i(1, "name"),
+    t({'', 'SRC = '}), i(2, 'main.c'),
+    t({'', 'OBJ = ${SRC:.c=.o}'}),
+    t({'', 'CFLAGS = -c'}), t({'',''}), t({'',''}),
+    t('all: ${TARGET}'), t({'','\trm -f ${OBJ}'}), t({'',''}), t({'',''}),
+    t('${TARGET}: ${OBJ}'), t({'','\t${CC} ${CFLAGS} -o $@ $<'}), t({'',''}), t({'',''}),
+    t('.c.o:'), t({'','\t${CC} ${CFLAGS} -c $<'}), t({'',''}), t({'',''}),
+
 })
-table.insert(snippets, date_snip)
-
-
-local time_snip = s({ trig = "time", regTrig = "false", hidden = "true" },{
-    f(function ()
-        return os.date('%H:%M')
-    end)
-})
-table.insert(snippets, time_snip)
-
-
---local test = s({ trig = "test", regTrig = "false", hidden = "true" },{
---    f(function ()
---        local val = 1+1
---        return tostring(val)
---    end)
---})
---table.insert(snippets, test)
-
-
-
+table.insert(snippets, boilerplate)
 
 return snippets, autosnippets

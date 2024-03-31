@@ -23,7 +23,7 @@ case $alias in
         tmux run-shell -b ". ~/util/tmugs-man-desc || exit 0; exec bash"
         ;;
     nf)
-        tmux neww "neofetch; sleep 3"
+        tmux neww "neofetch | ~/util/slowcat -2; sleep 3"
         ;;
     le)
         tmux neww -n "localhost" -c "localhost" "nvim ."
