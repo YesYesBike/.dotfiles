@@ -1,41 +1,41 @@
 -- Setup language servers.ls
-local lspconfig = require('lspconfig')
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+--local lspconfig = require('lspconfig')
+--local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-lspconfig.clangd.setup {
-    capabilities = capabilities,
-}
-lspconfig.lua_ls.setup {
-    settings = {
-        Lua = {
-            runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                version = "LuaJIT",
-            },
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                checkThirdParty = false,
-                library = {
-                    -- '${3rd}/luv/library',
-                    vim.env.VIMRUNTIME,
-                },
-                -- library = unpack(vim.api.nvim_get_runtime_file("", true)),
-
-            },
-            -- Do not send telemetry data containing a randomized but unique identifier
-            completion = {
-                callSnippet = 'Replace',
-            },
-            capabilities = capabilities,
-        },
-    },
-}
-lspconfig.r_language_server.setup {
-    capabilities = capabilities,
-}
-lspconfig.phpactor.setup{
-    capabilities = capabilities,
-}
+--lspconfig.clangd.setup {
+--    capabilities = capabilities,
+--}
+--lspconfig.lua_ls.setup {
+--    settings = {
+--        Lua = {
+--            runtime = {
+--                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+--                version = "LuaJIT",
+--            },
+--            workspace = {
+--                -- Make the server aware of Neovim runtime files
+--                checkThirdParty = false,
+--                library = {
+--                    -- '${3rd}/luv/library',
+--                    vim.env.VIMRUNTIME,
+--                },
+--                -- library = unpack(vim.api.nvim_get_runtime_file("", true)),
+--
+--            },
+--            -- Do not send telemetry data containing a randomized but unique identifier
+--            completion = {
+--                callSnippet = 'Replace',
+--            },
+--            capabilities = capabilities,
+--        },
+--    },
+--}
+--lspconfig.r_language_server.setup {
+--    capabilities = capabilities,
+--}
+--lspconfig.phpactor.setup{
+--    capabilities = capabilities,
+--}
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -112,41 +112,34 @@ cmp.setup({
     },
 })
 
---[[
---cmp_nvim_r
-require("cmp_nvim_r").setup({
-    filetypes = {"r", "rmd", "quarto"},
-})
---]]
-
--- Set configuration for specific filetype.
---[[
-cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-        { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
-    }, {
-            { name = 'buffer' },
-        })
-})
-
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ '/', '?' }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-        { name = 'buffer' }
-    }
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-        { name = 'path' }
-    }, {
-            { name = 'cmdline' }
-        })
-})
---]]
-
-
-
+  --cmp_nvim_r
+--require("cmp_nvim_r").setup({
+--    filetypes = {"r", "rmd", "quarto"},
+--})
+--
+---- Set configuration for specific filetype.
+--cmp.setup.filetype('gitcommit', {
+--    sources = cmp.config.sources({
+--        { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+--    }, {
+--            { name = 'buffer' },
+--        })
+--})
+--
+---- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+--cmp.setup.cmdline({ '/', '?' }, {
+--    mapping = cmp.mapping.preset.cmdline(),
+--    sources = {
+--        { name = 'buffer' }
+--    }
+--})
+--
+---- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+--cmp.setup.cmdline(':', {
+--    mapping = cmp.mapping.preset.cmdline(),
+--    sources = cmp.config.sources({
+--        { name = 'path' }
+--    }, {
+--            { name = 'cmdline' }
+--        })
+--})

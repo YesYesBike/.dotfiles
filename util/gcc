@@ -10,7 +10,7 @@
 [ $# -eq 0 ] && echo "Enter more than one parameter" && exit
 
 #No Option, No Problem
-[ $# -eq 1 ] && gcc $1 && ./a.out && rm a.out && exit
+[ $# -eq 1 ] && gcc $1 && ./a.out && rm a.out; exit
 
 compile=$1
 set -- $(getopt -q :go:c "$@")

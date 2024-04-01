@@ -1,6 +1,0 @@
-#!/bin/bash
-
-filename=$(< /tmp/__FILENAME42069)
-pwd=$(< /tmp/__PWD42069)
-
-tmux neww -c $pwd -n "gdb($filename)" "~/bash/gcc.sh $filename -g"

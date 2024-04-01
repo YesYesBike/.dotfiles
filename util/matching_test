@@ -7,8 +7,15 @@ use feature qw/
     say
 /;
 
-print "Enter the pattern: ";
-chomp(my $pattern = <STDIN>);
+my $pattern;
+my $var = 'i';
+
+do{
+    print "Enter the pattern: ";
+    chomp($pattern = <STDIN>);
+    eval { "" =~ /$pattern/ };
+    warn "INVALID PATTERN $@" if $@;
+} while $@;
 print "Enter the string: ";
 while (<>) {
     chomp;

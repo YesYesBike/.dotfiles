@@ -35,13 +35,15 @@ vim.keymap.set({"n", "x"}, "<leader>H", function ()
 end)
 
 
-vim.keymap.set("n", "<leader>C", function ()
+vim.keymap.set("n", "<C-g>", function ()
     if vim.w.cmdtoggle == 0 then
         vim.w.cmdtoggle = 1
         vim.opt.cmdheight = 1
+        vim.opt.ls = 2
     elseif vim.w.cmdtoggle == 1 then
         vim.w.cmdtoggle = 0
         vim.opt.cmdheight = 0
+        vim.opt.ls = 0
     end
 end)
 
@@ -55,18 +57,10 @@ vim.keymap.set("n", "<Tab>", function ()
         vim.keymap.set("n", "u", "<C-u>")
     elseif vim.w.lesstoggle == 1 then
         vim.w.lesstoggle = 0
-        vim.opt.colorcolumn = "80"
-        vim.keymap.set("n", "q", "q")
-        vim.keymap.set("n", "d", "d")
-        vim.keymap.set("n", "u", "u")
+        vim.cmd.nunmap('d')
+        vim.cmd.nunmap('u')
     end
 end)
-
-
---centercursor
---vim.keymap.set("n", "G", "Gzz")
---vim.keymap.set("n", "n", "nzzzv")
---vim.keymap.set("n", "N", "Nzzzv")
 
 
 --usless keys...
@@ -106,29 +100,15 @@ vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left>
 --Reload Setting and Keymap
 vim.keymap.set("n", "<leader>R", function()
     vim.cmd("au!")
-    vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/init.lua')
-    vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/set.lua')
-    vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/remap.lua')
-    vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/plugin.lua')
-    vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/treesitter.lua')
-    vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/telescope.lua')
-    vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/harpoon.lua')
-    vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/lsp.lua')
-    vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/luasnip.lua')
-    --vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/scrolleof.lua')
-    --vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/vim-slime.lua')
-    --vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/nvimr.lua')
-    --vim.cmd('luafile $HOME/.config/nvim/lua/yesyesbike/emmet.lua')
 
-    --[[
-    local handle = io.popen("ls ~/.config/nvim/lua/yesyesbike/ | grep lua")
-    local result = handle:read("*a")
-    handle:close()
-    --for fileCount = 1, #result do
-    print(result)
-    --]]
-
-end, { desc = "Reload all setting(In some dumb way)" })
+    local cmdir = 'luafile '..os.getenv('HOME')..'/.config/nvim/lua/yesyesbike/'
+    local load = {'init', 'set', 'remap', 'plugin', 'treesitter', 'telescope',
+                    'harpoon', 'lsp', 'luasnip'}
+    for i,v in ipairs(load) do
+        local string = cmdir..v..'.lua'
+        vim.cmd(string)
+    end
+end, { desc = "Reload setting" })
 
 --Switching Panes
 vim.keymap.set("n", "<C-j>", "<C-w>j")
@@ -196,7 +176,11 @@ end)
 
 
 vim.keymap.set("n", "<leader>m", function ()
-    vim.cmd('make')
+    if check_makefile() then
+        vim.cmd('make')
+    elseif vim.bo.filetype == "c" then
+        vim.cmd('silent !gcc %')
+    end
 end)
 
 
