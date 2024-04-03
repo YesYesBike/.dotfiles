@@ -13,7 +13,7 @@ use Switch;
 #Usage ./han "Alphabet String"
 
 
-exit 69 unless @ARGV;
+exit 69 unless @ARGV;                       #Add schell later
 binmode(STDOUT, ":encoding(UTF-8)");
 
 
@@ -42,7 +42,7 @@ sub hangul{
 }
 
 sub jung_index{
-    my $ch_jung = $_[0];
+    my $ch_jung = shift;
     my $index_temp;
     for(my $i=0; $i<=$#jung_data; $i++){
         if($ch_jung eq $jung_data[$i]){
@@ -54,7 +54,7 @@ sub jung_index{
 }
 
 sub jong_index{
-    my $ch_jong = $_[0];
+    my $ch_jong = shift;
     my $index_temp;
     for(my $i=0; $i<=$#jong_data; $i++){
         if($ch_jong eq $jong_data[$i]){

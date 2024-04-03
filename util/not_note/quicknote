@@ -29,8 +29,13 @@ while(<ORIG>){
     }
 }
 
+close ORIG;
+
 say IMPORTANT for (@important);
 say LEGACY for (@legacy);
+
+close IMPORTANT;
+close LEGACY;
 
 for(@file){
     m/^\((.*?)\)(.*)/;
@@ -38,7 +43,6 @@ for(@file){
     say FILE $2;
 }
 
-close ORIG;
 open(NEW, ">", $ENV{HOME}."/note/quicknote");
 say NEW for (@reserve);
 

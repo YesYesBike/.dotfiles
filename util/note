@@ -1,0 +1,149 @@
+#!/bin/perl
+use utf8;
+use strict;
+use warnings;
+use Data::Dumper;
+use feature qw/
+    say
+/;
+use Switch;
+
+exit 69 if @ARGV > 1;
+
+my $dir = $ENV{HOME}."/note/archive/files/";
+
+my $prev_file;
+my @lines;
+my %seen;
+
+
+if(@ARGV == 0){
+    schell();
+} else {
+    switch($ARGV[0]){
+        case m/^c$/     {clean_note()}
+        else            {exit 96}
+    }
+}
+
+sub schell{
+
+    opendir (my $filelist, $dir);
+    my @filelist = readdir $filelist;
+    closedir $filelist;
+    shift @filelist for 1..2;
+    $filelist = \@filelist;
+
+    while(1){
+        print "Enter the filename(h to help): ";
+        chomp(my $filename = <STDIN>);
+        switch($filename){
+
+            case m/^l$/ {
+                system("clear");
+                say "<Filelist>";
+                say join(', ', sort @filelist)."\n";
+            }
+
+            case m/^h$/ {
+                system("clear");
+                say "<Help>\n";
+                say "CR: print previous file again";
+                say "h: this page";
+                say "c: clear";
+                say "l: filelist";
+                say "q: quit\n";
+            }
+
+            case m/^c$/ {
+                system("clear");
+            }
+
+            case m/^$/ {
+                print_note($prev_file, $filelist) if($prev_file);
+            }
+
+            case m/^q$/ {
+                say "bye~";
+                exit;
+            }
+
+            else{
+                undef @lines;
+                undef %seen;
+                print_note($filename, $filelist);
+                $prev_file = $filename;
+            }
+        }
+    }
+}
+
+
+sub print_note{
+    my ($filename, $filelist) = @_;
+    my @filelist = @$filelist;
+
+    for (@filelist){
+        if($filename eq $_){
+        } else {
+        }
+    }
+
+    open(FILE, "<", $dir.$filename);
+    while(my $line = <FILE>){
+        chomp $line;
+        push @lines, $line;
+    }
+    close FILE;
+
+    my $num = int rand $#lines;
+    say "$lines[$num]";
+    say "    -from \"$filename\"...";
+
+    $prev_file = $filename;
+}
+
+
+
+sub clean_note{
+    open(ORIG, "<", $ENV{HOME}."/note/quicknote");
+    open(LEGACY, ">>", $ENV{HOME}."/note/archive/legacy");
+    open(IMPORTANT, ">>", $ENV{HOME}."/note/archive/important");
+
+    my @reserve;
+    my @important;
+    my @file;
+    my @legacy;
+
+
+    while(<ORIG>){
+        chomp;
+        switch($_){
+            case m/^$/          {}
+            case m/^#/          { push @reserve, $_ }
+            case m/^!/          { push @important, $_ }
+            case m/^\(.*?\)/    { push @file, $_ }
+            else                { push @legacy, $_ }
+        }
+    }
+
+    close ORIG;
+
+    say IMPORTANT for (@important);
+    say LEGACY for (@legacy);
+
+    close IMPORTANT;
+    close LEGACY;
+
+    for(@file){
+        m/^\((.*?)\)(.*)/;
+        open(FILE, ">>", $ENV{HOME}."/note/archive/files/".$1);
+        say FILE $2;
+    }
+
+    open(NEW, ">", $ENV{HOME}."/note/quicknote");
+    say NEW for (@reserve);
+
+    chdir $ENV{HOME}."/note/archive/files/";
+    system("~/util/delempty");
+}
