@@ -60,12 +60,12 @@ return
         "hardselius/warlock", --My favorite but only use in a dark place
         "pgdouyon/vim-yin-yang",
         "axvr/photon.vim",
-        "fxn/vim-monochrome",
-        "nikolvs/vim-sunbather",
-        "huyvohcmc/atlas.vim",
-        "ntk148v/komau.vim",
-        "n1ghtmare/noirblaze-vim",
-        "widatama/vim-phoenix",
+        --"fxn/vim-monochrome",
+        --"nikolvs/vim-sunbather",
+        --"huyvohcmc/atlas.vim",
+        --"ntk148v/komau.vim",
+        --"n1ghtmare/noirblaze-vim",
+        --"widatama/vim-phoenix",
 
         lazy = false,
         priority = 1000,

@@ -38,7 +38,7 @@ alias mt='~/util/matching_test'
 alias nf='clear; neofetch'
 alias note='~/util/quicknote'
 alias pi='sudo pacman -S'
-alias pq='pacman -Q > ~/.dotfiles/package_list2.txt && vi ~/.dotfiles/package_list2.txt'
+alias pq='pacman -Q > ~/.dotfiles/package_list2.txt && nvim ~/.dotfiles/package_list2.txt'
 alias pu='echo "PACKAGE UPGRADE" && sudo pacman -Syu && pacman -Q |
     cut -d " " -f 1 > ~/.dotfiles/package_list.txt'
 alias raf='~/util/raffle'

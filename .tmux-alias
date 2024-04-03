@@ -2,6 +2,7 @@ ae  / Edit .aliasrc
 be  / Edit .bashrc
 cal / Calendar
 cd  / Explore in root directory
+ch  / C Header File
 he  / Edit the homepage
 le  / Edit the localhost
 md  / Search Man page from description

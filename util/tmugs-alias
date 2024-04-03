@@ -13,6 +13,9 @@ case $alias in
     cal)
         tmux neww "cal -3; date; sleep 60"
         ;;
+    ch)
+        ~/util/tmugs-CH
+        ;;
     cd)
         tmux run-shell -b ". ~/util/tmugs-cd-root || exit 0; exec bash"
         ;;
@@ -23,7 +26,7 @@ case $alias in
         tmux run-shell -b ". ~/util/tmugs-man-desc || exit 0; exec bash"
         ;;
     nf)
-        tmux neww "neofetch | ~/util/slowcat -2; sleep 3"
+        tmux neww "neofetch | ~/util/slowcat -1.3; sleep 3"
         ;;
     le)
         tmux neww -n "localhost" -c "localhost" "nvim ."

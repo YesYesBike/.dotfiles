@@ -7,10 +7,16 @@
 #   $parameter
 #   $filename
 
-[ $# -eq 0 ] && echo "Enter more than one parameter" && exit
+[ $# -eq 0 ] && echo "Enter more than one parameter" && exit 55
 
 #No Option, No Problem
-[ $# -eq 1 ] && gcc $1 && ./a.out && rm a.out; exit
+if [ $# -eq 1 ]
+then
+    gcc $1
+    ./a.out
+    rm a.out
+    exit
+fi
 
 compile=$1
 set -- $(getopt -q :go:c "$@")

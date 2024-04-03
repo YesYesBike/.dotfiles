@@ -40,6 +40,7 @@ vim.keymap.set("n", "<C-g>", function ()
         vim.w.cmdtoggle = 1
         vim.opt.cmdheight = 1
         vim.opt.ls = 2
+        --vim.cmd.pwd()
     elseif vim.w.cmdtoggle == 1 then
         vim.w.cmdtoggle = 0
         vim.opt.cmdheight = 0
@@ -57,6 +58,8 @@ vim.keymap.set("n", "<Tab>", function ()
         vim.keymap.set("n", "u", "<C-u>")
     elseif vim.w.lesstoggle == 1 then
         vim.w.lesstoggle = 0
+        vim.opt.colorcolumn = "80"
+        vim.cmd.nunmap('q')
         vim.cmd.nunmap('d')
         vim.cmd.nunmap('u')
     end
@@ -179,7 +182,7 @@ vim.keymap.set("n", "<leader>m", function ()
     if check_makefile() then
         vim.cmd('make')
     elseif vim.bo.filetype == "c" then
-        vim.cmd('silent !gcc %')
+        vim.cmd('!gcc %')
     end
 end)
 
@@ -223,10 +226,10 @@ end)
 --vim.keymap.set("n", "<C-f>", "")
 
 
---Colorscheme for tty
+--Colorscheme for bright place
 vim.keymap.set("n", "<leader>j", function ()
-    if vim.g.colors_name ~= 'quiet' then
-        vim.cmd.colorscheme('quiet')
+    if vim.g.colors_name ~= 'yang' then
+        vim.cmd.colorscheme('yang')
     else
         vim.cmd.colorscheme('yin')
     end

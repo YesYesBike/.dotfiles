@@ -8,6 +8,9 @@ scroll_down s
 
 zoom_fill f
 zoom_fit F
+zoom_in i
+zoom_out o
+render r
 
 menu_parent h Left
 menu_child  l Right
