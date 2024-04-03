@@ -6,6 +6,7 @@ ch  / C Header File
 he  / Edit the homepage
 le  / Edit the localhost
 md  / Search Man page from description
+no  / Note
 nf  / NEOFETCH
 pse / Edit the Perl snippet
 te  / Edit .tmux.conf
