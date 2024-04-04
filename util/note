@@ -41,10 +41,12 @@ for(@file){
     m/^\((.*?)\)(.*)/;
     open(FILE, ">>", $ENV{HOME}."/note/archive/files/".$1);
     say FILE $2;
+    close FILE;
 }
 
 open(NEW, ">", $ENV{HOME}."/note/quicknote");
 say NEW for (@reserve);
+close NEW;
 
 chdir $ENV{HOME}."/note/archive/files/";
 system("~/util/delempty");

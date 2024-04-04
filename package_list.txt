@@ -355,6 +355,7 @@ minizip
 mkinitcpio
 mkinitcpio-busybox
 mobile-broadband-provider-info
+moreutils
 mpfr
 mpg123
 msgpack-c
@@ -398,7 +399,10 @@ pcre2
 pcsclite
 perl
 perl-error
+perl-io-tty
+perl-ipc-run
 perl-mailtools
+perl-time-duration
 perl-timedate
 php
 php-apache

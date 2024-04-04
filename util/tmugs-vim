@@ -6,4 +6,4 @@ file=$(find ~ ~/src ~/projects -mindepth 1 -maxdepth 5 -type f | sort -u |
 [ -z $file ] && exit 0
 directorie=$(dirname $file)
 file_vim=$(basename $file)
-[ -n $file ] && tmux neww -c $directorie "nvim $file_vim"
+[ -n $file ] && tmux neww -c ~/$directorie "nvim $file_vim"

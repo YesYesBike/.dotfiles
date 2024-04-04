@@ -20,7 +20,7 @@ case $alias in
         tmux run-shell -b ". ~/util/tmugs-cd-root || exit 0; exec bash"
         ;;
     he)
-        tmux neww -n "Homepage" -c ".dotfiles_private/projects/homepage" "nvim html/homepage.html"
+        tmux neww -n "Homepage" -c ~/".dotfiles_private/projects/homepage" "nvim html/homepage.html"
         ;;
     md)
         tmux run-shell -b ". ~/util/tmugs-man-desc || exit 0; exec bash"
@@ -32,22 +32,22 @@ case $alias in
         tmux neww "neofetch | ~/util/slowcat -1.3; sleep 3"
         ;;
     le)
-        tmux neww -n "localhost" -c "localhost" "nvim ."
+        tmux neww -n "localhost" -c ~/"localhost" "nvim ."
         ;;
     pse)
-        tmux neww -n "PerlSnip" -c ".config/nvim/snippets" "nvim perl.lua"
+        tmux neww -n "PerlSnip" -c ~/".config/nvim/snippets" "nvim perl.lua"
         ;;
     tae)
-        tmux neww -n "tmux-alias" -c "util" "nvim tmugs-alias"
+        tmux neww -n "tmux-alias" -c ~/"util" "nvim tmugs-alias"
         ;;
     ttt)
-        tmux neww -n "typing" -c ".dotfiles" "nvim training"
+        tmux neww -n "typing" -c ~/".dotfiles" "nvim training"
         ;;
     te)
         tmux neww -n "tmuxconf" "nvim ~/.tmux.conf"
         ;;
     ve)
-        tmux neww -n "nvim_set" -c ".config/nvim" "nvim init.lua"
+        tmux neww -n "nvim_set" -c ~/".config/nvim" "nvim init.lua"
         ;;
     *)
         #echo no

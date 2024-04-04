@@ -1,11 +1,11 @@
 #!/bin/perl
-use utf8;
-use strict;
-use warnings;
-use Data::Dumper;
-use feature qw/
-    say
-/;
+#use utf8;
+#use strict;
+#use warnings;
+#use Data::Dumper;
+#use feature qw/
+#    say
+#/;
 
 open TARGET, '<', 'Makefile';
 open EXE, '>', '/tmp/__FILENAME42069';
