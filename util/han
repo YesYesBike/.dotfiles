@@ -1,8 +1,8 @@
 #!/bin/perl
 use utf8;
-use strict;
-use warnings;
-use Data::Dumper;
+#use strict;
+#use warnings;
+#use Data::Dumper;
 #use feature qw/
 #    say
 #/;
@@ -55,14 +55,16 @@ my %jong_cho = (
 my %num_jung = reverse %jung_num;
 my %num_jong = reverse %jong_num;
 
-my %double_jaeum = (   #jong,cho jong
+my %double_jaeum = (   #jong,index  jong
     "0,9" => 2, "3,12" => 4, "3,18" => 5,
     "7,0" => 8, "7,6" => 9, "7,7" => 10,
     "7,9" => 11, "7,16" => 12, "7,17" => 13,
     "7,18" => 14, "16,9" => 17,
 );
 
-my %double_moeum = (   #jung, kor  jung
+my %rev = reverse %double_jaeum;
+
+my %double_moeum = (   #jung,index  jung
     "8,19" => 9, "8,20" => 10, "8,32" => 11,
     "13,23" => 14, "13,24" => 15, "13,32" => 16,
     "18,32" => 19,
@@ -109,10 +111,6 @@ sub jaeum{
             if(defined $cho){
                 if( my $var = $double_jaeum{"$jong,$index"} ){
                     $jong = $var;
-                    hangul($cho, $jung, $jong);
-                    undef $jung;
-                    undef $jong;
-                    undef $cho;
                 } else {
                     hangul($cho, $jung, $jong);
                     undef $jung;
@@ -128,7 +126,17 @@ sub moeum{
     my ($ch, $index) = @_;
 
     if(!defined $cho){
-        push @ret, $ch;
+        if(defined $jong){
+            if(my $var = $rev{$jong}){
+                $var =~ /(\d)+,(\d)+/;
+                $jong = $1;
+                hangul($cho, $jung, $jong);
+                $cho = $2;
+                undef $jong;
+            }
+        } else {
+            push @ret, $ch;
+        }
     } else {
         if(!defined $jong){
             if(!defined $jung){
@@ -146,7 +154,6 @@ sub moeum{
         } else {
             my $cho_temp;
             my $jong_temp;
-            my %rev = reverse %double_jaeum;
             if(my $var = $rev{$jong}){
                 $var =~ /(\d)+,(\d)+/;
                 $jong = $1;
