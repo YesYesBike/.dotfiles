@@ -17,16 +17,16 @@ case $alias in
         ~/util/tmugs-CH
         ;;
     cd)
-        tmux run-shell -b ". ~/util/tmugs-cd-root || exit 0; exec bash"
+        tmux run-shell -b "~/util/tmugs-cd-root || exit 0; exec bash"
         ;;
     he)
         tmux neww -n "Homepage" -c ~/".dotfiles_private/projects/homepage" "nvim html/homepage.html"
         ;;
     md)
-        tmux run-shell -b ". ~/util/tmugs-man-desc || exit 0; exec bash"
+        tmux run-shell -b "~/util/tmugs-man-desc || exit 0; exec bash"
         ;;
     no)
-        tmux run-shell -b ". ~/util/tmugs-note || exit 0; exec bash"
+        tmux run-shell -b "~/util/note; ~/util/tmugs-note || exit 0; exec bash"
         ;;
     nf)
         tmux neww "neofetch | ~/util/slowcat -1.3; sleep 3"

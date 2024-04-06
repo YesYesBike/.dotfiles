@@ -52,6 +52,7 @@ alias top='top -E g '
 alias type='type -a '
 alias sudo='sudo -E -s '
 alias v=nvim
+alias vidir='export EDITOR=nvim; vidir '
 alias vc='nvim --clean'
 alias x='startx -- -nocursor'
 alias xc=startx
