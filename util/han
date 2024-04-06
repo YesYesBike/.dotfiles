@@ -8,21 +8,23 @@ use feature qw/
 /;
 use Switch;
 
-#Alphabet to Hangul
-#Original code is from theyt.net
-#But I wrote it from scratch!
-#Usage ./han "Alphabet String"
-#or just './han' to run interactive schell.
-#In this mode, the output will overwrite the clipboard(using xsel).
+#알파벳 한글 변환기
+#표준입출력을 한글로 변환하여 터미널 생활을 더욱 윤택하게
+#theyt.net에서 소스코드를 참조하였으나
+#코드를 이해하기 너무 어려워 아예 처음부터 만들었음.
+#사용법: ./한 "알파벳 문자열"
+#또는 전달인자 없이 쉘로 진입
+#지금 읽고 있는 글도 이 프로그램의 도움으로 작성함
+
 
 
 #exit 69 unless @ARGV;                       #Add schell later
 binmode(STDOUT, ":encoding(UTF-8)");
 
 
-my @kor_key = split //, "ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎㅏㅐㅑㅒㅓㅔㅕㅖㅗㅛㅜㅠㅡㅣ";
+my @한글배열 = split //, "ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎㅏㅐㅑㅒㅓㅔㅕㅖㅗㅛㅜㅠㅡㅣ";
 
-my %alp_num = (
+my %알파벳에서숫자로 = (
     r =>  0, R =>  1, s =>  2, e =>  3, E =>  4, f =>  5,
     a =>  6, q =>  7, Q =>  8, t =>  9, T => 10, d => 11,
     w => 12, W => 13, c => 14, z => 15, x => 16, v => 17,
@@ -31,7 +33,7 @@ my %alp_num = (
     b => 30, m => 31, l => 32,
 );
 
-my %jung_num = (
+my %중성번호 = (
     ㅏ =>  0, ㅐ =>  1, ㅑ =>  2, ㅒ =>  3, ㅓ =>  4,
     ㅔ =>  5, ㅕ =>  6, ㅖ =>  7, ㅗ =>  8, ㅘ =>  9,
     ㅙ => 10, ㅚ => 11, ㅛ => 12, ㅜ => 13, ㅝ => 14,
@@ -39,7 +41,7 @@ my %jung_num = (
     ㅣ => 20,
 );
 
-my %jong_num = (
+my %종성번호 = (
     ㄱ =>  0, ㄲ =>  1, ㄳ =>  2, ㄴ =>  3, ㄵ =>  4,
     ㄶ =>  5, ㄷ =>  6, ㄹ =>  7, ㄺ =>  8, ㄻ =>  9,
     ㄼ => 10, ㄽ => 11, ㄾ => 12, ㄿ => 13, ㅀ => 14,
@@ -48,180 +50,203 @@ my %jong_num = (
     ㅍ => 25, ㅎ => 26,
 );
 
-my %jong_cho = (
+my %종성초성변환 = (
     0  => 0,  1  => 1,  3  => 2,  6  => 3,  7 => 5,
     15 => 6,  16 => 7,  18 => 9,  19 => 10, 20 => 11,
     21 => 12 ,22 => 14, 23 => 15, 24 => 16, 25 => 17,
     26 => 18 ,
 );
 
-my %num_jung = reverse %jung_num;
-my %num_jong = reverse %jong_num;
+my %번호중성 = reverse %중성번호;
 
-my %double_jaeum = (   #jong,index  jong
+my %쌍자음 = (   #종성,초성  종성
     "0,9"  => 2,   "3,12" => 4,  "3,18" => 5,
     "7,0"  => 8,   "7,6"  => 9,  "7,7"  => 10,
     "7,9"  => 11,  "7,16" => 12, "7,17" => 13,
     "7,18" => 14,  "16,9"  => 17,
 );
 
-my %rev = reverse %double_jaeum;
+my %쌍자음반대로 = reverse %쌍자음;
 
-my %double_moeum = (   #jung,index  jung
+my %이중모음 = (   #중성,초성  중성
     "8,19"  => 9,  "8,20"  => 10, "8,32"  => 11,
     "13,23" => 14, "13,24" => 15, "13,32" => 16,
     "18,32" => 19,
 );
 
-if(@ARGV){
-    my $ret;
-    my @ret;
-    my $src = join ' ', @ARGV;
-    #my @src = split //, $src;
+my @출력값;
+my $입력값 = join ' ', @ARGV;
+
+
+my $초성;
+my $중성;
+my $종성;
+
+
+sub 글자입력{
+    my @전달인자 = @_;
+    $_ //= -1 for (@전달인자);
+    my $반환값 = 0xac00 + 21*28*$전달인자[0] + 28*$전달인자[1] + $전달인자[2] + 1;
+    push @출력값, chr($반환값);
 }
 
-
-my $cho;
-my $jung;
-my $jong;
-
-
-sub hangul{
-    my @arr = @_;
-    $_ //= -1 for (@arr);
-    my $var = 0xac00 + 21*28*$arr[0] + 28*$arr[1] + $arr[2] + 1;
-    push @ret, chr($var);
-}
-
-sub jaeum{
-    my ($ch, $index) = @_;
-    if(!defined $jung){
-        if(!defined $jong){
-            if(!defined $cho){
-                $cho = $index;
+sub 자음{
+    my ($글자, $서수) = @_;
+    if(!defined $중성){
+        if(!defined $종성){
+            if(!defined $초성){
+                $초성 = $서수;
             } else {
-                push @ret, $kor_key[$cho];
-                $cho = $index;
+                push @출력값, $한글배열[$초성];
+                $초성 = $서수;
             }
         }
     } else {
-        if(!defined $jong){
-            if(!defined $cho){
-                push @ret, $num_jung{$jung};
-                undef $jung;
-                $cho = $index;
+        if(!defined $종성){
+            if(!defined $초성){
+                push @출력값, $번호중성{$중성};
+                undef $중성;
+                $초성 = $서수;
             } else {
-                $jong = $jong_num{$ch};
+                $종성 = $종성번호{$글자};
             }
         } else {
-            if(defined $cho){
-                if( my $var = $double_jaeum{"$jong,$index"} ){
-                    $jong = $var;
+            if(defined $초성){
+                if( my $임시변수 = $쌍자음{"$종성,$서수"} ){
+                    $종성 = $임시변수;
                 } else {
-                    hangul($cho, $jung, $jong);
-                    undef $jung;
-                    undef $jong;
-                    $cho = $index;
+                    글자입력($초성, $중성, $종성);
+                    undef $중성;
+                    undef $종성;
+                    $초성 = $서수;
                 }
             }
         }
     }
 }
 
-sub moeum{
-    my ($ch, $index) = @_;
+sub 모음{
+    my ($글자, $서수) = @_;
 
-    if(!defined $cho){
-        if(defined $jong){
-            if(my $var = $rev{$jong}){
-                $var =~ /(\d)+,(\d)+/;
-                $jong = $1;
-                hangul($cho, $jung, $jong);
-                $cho = $2;
-                undef $jong;
+    if(!defined $초성){
+        if(defined $종성){
+            if(my $임시변수 = $쌍자음반대로{$종성}){
+                $임시변수 =~ /(\d)+,(\d)+/;
+                $종성 = $1;
+                글자입력($초성, $중성, $종성);
+                $초성 = $2;
+                undef $종성;
             }
         } else {
-            push @ret, $ch;
+            push @출력값, $글자;
         }
     } else {
-        if(!defined $jong){
-            if(!defined $jung){
-                $jung = $jung_num{$ch};
+        if(!defined $종성){
+            if(!defined $중성){
+                $중성 = $중성번호{$글자};
             } else {
-                if(my $var = $double_moeum{"$jung,$index"}){
-                    $jung = $var;
+                if(my $임시변수 = $이중모음{"$중성,$서수"}){
+                    $중성 = $임시변수;
                 } else {
-                    hangul($cho, $jung, $jong);
-                    undef $cho;
-                    undef $jung;
-                    push @ret, $ch;
+                    글자입력($초성, $중성, $종성);
+                    undef $초성;
+                    undef $중성;
+                    push @출력값, $글자;
                 }
             }
         } else {
-            my $cho_temp;
-            my $jong_temp;
-            if(my $var = $rev{$jong}){
-                $var =~ /(\d)+,(\d)+/;
-                $jong = $1;
-                $cho_temp = $2;
-                hangul($cho, $jung, $jong);
-                undef $jong;
+            my $임시초성;
+            my $임시종성;
+            if(my $임시변수 = $쌍자음반대로{$종성}){
+                $임시변수 =~ /(\d+),(\d+)/;
+                $종성 = $1;
+                $임시초성 = $2;
+                글자입력($초성, $중성, $종성);
+                undef $종성;
             } else {
-                $jong_temp = $jong;
-                undef $jong;
-                hangul($cho, $jung, $jong);
+                $임시종성 = $종성;
+                undef $종성;
+                글자입력($초성, $중성, $종성);
             }
 
-            if(defined $cho_temp){
-                $cho = $cho_temp;
+            if(defined $임시초성){
+                $초성 = $임시초성;
             } else {
-                $cho = $jong_cho{$jong_temp};
+                $초성 = $종성초성변환{$임시종성};
             }
-            $jung = $jung_num{$ch};
+            $중성 = $중성번호{$글자};
         }
     }
 }
 
+sub 한글화{
+    my $입력값 = $_[0];
 
-if(@ARGV){
+    for my $입력문자(split //, $입력값){
+        my $서수 = $알파벳에서숫자로{$입력문자};
+        my $글자 = $한글배열[$서수] if defined $서수;
 
+        if(!defined $서수){
+            글자입력($초성, $중성, $종성);
+            undef $초성;
+            undef $중성;
+            undef $종성;
+            push @출력값, $입력문자;
+            next;
+        }
+
+        if($서수 < 19){
+            자음($글자, $서수);
+        } else {
+            모음($글자, $서수);
+        }
+    }
+
+
+
+    if(defined $초성){
+        if(defined $중성){
+            글자입력($초성, $중성, $종성);
+        } else {
+            push @출력값, $한글배열[$초성];
+        }
+    } else {
+        if(defined $중성){
+            push @출력값, $중성번호{$중성};
+        } else {
+            push @출력값, $종성번호{$종성} if(defined $종성);
+        }
+    }
+
+    undef $초성;
+    undef $중성;
+    undef $종성;
+
+    print join '', @출력값;
+}
+
+sub 도움말{
+    #Function
 }
 
 
-for my $ch_src(split //, $src){           #Start point
-    my $index = $alp_num{$ch_src};
-    my $ch = $kor_key[$index] if defined $index;
-
-    if(!defined $index){
-        hangul($cho, $jung, $jong);
-        undef $cho;
-        undef $jung;
-        undef $jong;
-        push @ret, $ch_src;
-        next;
-    }
-
-    if($index < 19){
-        jaeum($ch, $index);
-    } else {
-        moeum($ch, $index);
-    }
-}
-
-
-
-if(defined $cho){
-    if(defined $jung){
-        hangul($cho, $jung, $jong);
-    } else {
-        push @ret, $kor_key[$cho];
-    }
+if(@ARGV){                              #Starts Here
+    한글화($입력값);
 } else {
-    if(defined $jung){
-        push @ret, $jung_num{$jung};
-    } else {
-        push @ret, $jong_num{$jong} if(defined $jong);
+    say "알파벳-한글 변환기(:q 종료, :h 도움말)";
+    print "> ";
+    while(<STDIN>){
+        chomp;
+        switch($_){
+            case ':q' { exit }
+            case ':c' { system("clear"); print "> " }
+            case ':h' { 도움말 }
+            case '' { print "> " }
+            else {
+                한글화 $_;
+                undef @출력값;
+                print "\n> ";
+            }
+        }
     }
 }
-
-print join '', @ret;
