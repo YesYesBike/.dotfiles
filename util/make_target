@@ -14,10 +14,12 @@ for (<TARGET>){
     chomp;
     if(/TARGET = (.*)/){
         print EXE $1;
-        last;
-    } else {
-        print EXE 'a.out';
+        close TARGET;
+        close EXE;
+        exit;
     }
 }
 
+print EXE 'a.out' unless defined $1;
 close TARGET;
+close EXE;

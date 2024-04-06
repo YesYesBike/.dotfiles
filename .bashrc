@@ -10,6 +10,11 @@ then
 	echo -ne '\033[?8c'
 fi
 
+if [ "$TERM" = "tmux-256color" ]
+then
+	echo -ne '\033[?8c'
+fi
+
 #parse_git_branch()
 #{
 #    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'

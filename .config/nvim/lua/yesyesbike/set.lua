@@ -100,6 +100,7 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
             vim.keymap.set("n", "q", ":q<cr>", {buffer = true})
             vim.keymap.set("n", "d", "<C-d>", {buffer = true})
             vim.keymap.set("n", "u", "<C-u>", {buffer = true})
+            vim.keymap.set("n", "<C-g>", "<C-g>", {buffer = true})
 		end
     end,
 })
@@ -112,6 +113,7 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
         vim.keymap.set("n", "q", ":q<cr>", {buffer = true})
         vim.keymap.set("n", "d", "<C-d>", {buffer = true})
         vim.keymap.set("n", "u", "<C-u>", {buffer = true})
+        vim.keymap.set("n", "<C-g>", "<C-g>", {buffer = true})
     end,
 })
 

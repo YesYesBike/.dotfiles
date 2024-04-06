@@ -31,26 +31,6 @@ local snippets, autosnippets = {}, {}
 
 
 
-local var = s({ trig = "([mol])([$@%%])", regTrig = "true", hidden = "true" },
-    { f(function (_,snip)
-        if (snip.captures[1]) then
-            local word = {
-                ['m'] = 'my ',
-                ['o'] = 'our ',
-                ['l'] = 'local ',
-            }
-            return word[snip.captures[1]]
-        end
-    end),
-    f(function (_,snip)
-        return snip.captures[2]
-    end),
-})
-table.insert(autosnippets, var)
-
-
-
-
 local shbang = s({trig = "sh", hidden = "true" }, fmt([[
 #!/bin/perl
 use utf8;
@@ -200,19 +180,6 @@ local array_hash_brace = s({ trig = "([@%%]){", regTrig = "true", hidden = "true
     i(1, 'something'), t'}',
 })
 table.insert(autosnippets, array_hash_brace)
-
-
-local dollar_ref = s({ trig = "$([^%s[]*)-", regTrig = "true", hidden = "true" },{
-    t'$', f(function (_,snip)
-        return snip.captures[1]
-    end), t'->',
-    c(1, {
-        { t'[', i(1, "element"), t']', },
-        { t'{', i(1, "key"), t'}', },
-        { i(1, "something"), },
-    }),
-})
-table.insert(autosnippets, dollar_ref)
 
 
 return snippets, autosnippets

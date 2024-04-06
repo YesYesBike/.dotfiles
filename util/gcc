@@ -14,8 +14,9 @@ if [ $# -eq 1 ]
 then
     gcc $1
     ./a.out
+    exit_code=$?
     rm a.out
-    exit
+    exit $exit_code
 fi
 
 compile=$1
