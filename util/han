@@ -1,19 +1,22 @@
 #!/bin/perl
 use utf8;
-#use strict;
-#use warnings;
-#use Data::Dumper;
-#use feature qw/
-#    say
-#/;
+use strict;
+use warnings;
+use Data::Dumper;
+use feature qw/
+    say
+/;
 use Switch;
 
 #Alphabet to Hangul
 #Original code is from theyt.net
+#But I wrote it from scratch!
 #Usage ./han "Alphabet String"
+#or just './han' to run interactive schell.
+#In this mode, the output will overwrite the clipboard(using xsel).
 
 
-exit 69 unless @ARGV;                       #Add schell later
+#exit 69 unless @ARGV;                       #Add schell later
 binmode(STDOUT, ":encoding(UTF-8)");
 
 
@@ -56,24 +59,27 @@ my %num_jung = reverse %jung_num;
 my %num_jong = reverse %jong_num;
 
 my %double_jaeum = (   #jong,index  jong
-    "0,9" => 2, "3,12" => 4, "3,18" => 5,
-    "7,0" => 8, "7,6" => 9, "7,7" => 10,
-    "7,9" => 11, "7,16" => 12, "7,17" => 13,
-    "7,18" => 14, "16,9" => 17,
+    "0,9"  => 2,   "3,12" => 4,  "3,18" => 5,
+    "7,0"  => 8,   "7,6"  => 9,  "7,7"  => 10,
+    "7,9"  => 11,  "7,16" => 12, "7,17" => 13,
+    "7,18" => 14,  "16,9"  => 17,
 );
 
 my %rev = reverse %double_jaeum;
 
 my %double_moeum = (   #jung,index  jung
-    "8,19" => 9, "8,20" => 10, "8,32" => 11,
+    "8,19"  => 9,  "8,20"  => 10, "8,32"  => 11,
     "13,23" => 14, "13,24" => 15, "13,32" => 16,
     "18,32" => 19,
 );
 
-my $ret;
-my @ret;
-my $src = join ' ', @ARGV;
-my @src = split //, $src;
+if(@ARGV){
+    my $ret;
+    my @ret;
+    my $src = join ' ', @ARGV;
+    #my @src = split //, $src;
+}
+
 
 my $cho;
 my $jung;
@@ -177,9 +183,12 @@ sub moeum{
 }
 
 
+if(@ARGV){
+
+}
 
 
-for my $ch_src(@src){           #Start point
+for my $ch_src(split //, $src){           #Start point
     my $index = $alp_num{$ch_src};
     my $ch = $kor_key[$index] if defined $index;
 
@@ -215,5 +224,4 @@ if(defined $cho){
     }
 }
 
-$ret = join '', @ret;
-print $ret;
+print join '', @ret;
