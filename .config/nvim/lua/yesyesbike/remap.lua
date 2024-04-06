@@ -65,7 +65,7 @@ vim.keymap.set("i", "<C-u>", "<ESC>gUiwea",
 
 
 --Skill Issue!!!
-vim.keymap.set({"n", "x"}, "H", "0")
+vim.keymap.set({"n", "x"}, "H", "^")
 vim.keymap.set({"n", "x"}, "L", "$")
 
 
