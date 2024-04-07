@@ -221,7 +221,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.updatetime = 50
+vim.opt.updatetime = 1000
 vim.opt.timeout = false
 
 vim.g.netrw_banner = 0

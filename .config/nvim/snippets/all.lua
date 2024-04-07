@@ -44,14 +44,6 @@ local time_snip = s({ trig = "time", regTrig = "false", hidden = "true" },{
 table.insert(snippets, time_snip)
 
 
---local test = s({ trig = "test", regTrig = "false", hidden = "true" },{
---    f(function ()
---        local val = 1+1
---        return tostring(val)
---    end)
---})
---table.insert(snippets, test)
-
 
 
 

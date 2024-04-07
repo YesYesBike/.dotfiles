@@ -231,7 +231,7 @@ sub 도움말{
 
 
 if(@ARGV){                              #Starts Here
-    한글화($입력값);
+    한글화 $입력값;
 } else {
     say "알파벳-한글 변환기(:q 종료, :h 도움말)";
     print "> ";
@@ -239,8 +239,8 @@ if(@ARGV){                              #Starts Here
         chomp;
         switch($_){
             case ':q' { exit }
-            case ':c' { system("clear"); print "> " }
-            case ':h' { 도움말 }
+            case 'c' { system("clear"); print "> " }
+            #case ':h' { 도움말 }
             case '' { print "> " }
             else {
                 한글화 $_;
