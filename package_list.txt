@@ -33,6 +33,7 @@ cmake
 coreutils
 cppdap
 cryptsetup
+ctags
 curl
 dav1d
 db5.3
@@ -258,6 +259,7 @@ libxt
 libxtst
 libxv
 libxxf86vm
+libyaml
 licenses
 linux
 linux-api-headers
@@ -302,6 +304,7 @@ openssh
 openssl
 opus
 orc
+os-prober
 p11-kit
 pacman
 pacman-mirrorlist

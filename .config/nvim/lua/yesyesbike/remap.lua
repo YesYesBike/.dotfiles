@@ -40,10 +40,12 @@ vim.keymap.set("n", "<C-g>", function ()
         vim.w.cmdtoggle = 1
         vim.opt.cmdheight = 1
         vim.opt.ls = 2
+        vim.opt.ruler = true
     elseif vim.w.cmdtoggle == 1 then
         vim.w.cmdtoggle = 0
         vim.opt.cmdheight = 0
         vim.opt.ls = 0
+        vim.opt.ruler = false
     end
 end)
 
@@ -85,7 +87,7 @@ vim.keymap.set("n", "<leader>y", "\"+y", { desc = "yank to clipboard" })
 vim.keymap.set("x", "<leader>y", "\"+y", { desc = "yank to clipboard" })
 vim.keymap.set("n", "<leader>Y", "\"+y$", { desc = "yank to clipboard" })
 
-vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "save with less keystrokes" })
+vim.keymap.set("n", "<leader>w", ":w<CR>kj", { desc = "save with less keystrokes" })
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "quit with less keystrokes" })
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>", { silent = true })
 

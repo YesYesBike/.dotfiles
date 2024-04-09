@@ -119,6 +119,20 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    group = vim.api.nvim_create_augroup('MarkdownWrap', { clear = true }),
+    pattern = {"*.md"},
+    callback = function ()
+        vim.o.wrap = true
+        vim.o.sidescrolloff = 0
+        vim.keymap.set({ "n", "x" },  "j", "gj", { buffer = true })
+        vim.keymap.set({ "n", "x" },  "k", "gk", { buffer = true })
+        vim.keymap.set({ "n", "x" },  "H", "g^", { buffer = true })
+        vim.keymap.set({ "n", "x" },  "L", "g$", { buffer = true })
+    end,
+})
+
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     group = vim.api.nvim_create_augroup('MakefileTab', { clear = true }),
     callback = function ()
 		if vim.bo.filetype == "make" then
@@ -138,7 +152,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     group = vim.api.nvim_create_augroup('TwoSpaceTab', { clear = true }),
-    pattern = {"*.html", "*.php"},
+    pattern = {"*.html"},
     command = "set softtabstop=2 shiftwidth=2 tabstop=2",
 })
 

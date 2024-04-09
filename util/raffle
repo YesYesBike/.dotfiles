@@ -1,11 +1,12 @@
 #!/bin/perl
-use utf8;
-use strict;
-use warnings;
-use Data::Dumper;
+#use utf8;
+#use strict;
+#use warnings;
+#use Data::Dumper;
 use feature qw/
     say
 /;
+use integer;
 
 START:
 
@@ -30,8 +31,10 @@ chomp(my $answer = <STDIN>);
 
 if($answer =~ /^y$/i){
     my $string;
+    QWER:
     print "Enter the line number: ";
     chomp($n = <STDIN>);
+    goto QWER if($n > $#asdf+2 || $n < 1);
     print("Enter the String($n)\n> ");
     chomp($string = <STDIN>);
     $asdf[$n-1] = $string;

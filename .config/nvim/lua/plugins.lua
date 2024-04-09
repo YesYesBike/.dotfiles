@@ -57,8 +57,8 @@ return
     {
         --simple dark colorscheme
         --visit https://github.com/mcchrish/vim-no-color-collections for more
-        "hardselius/warlock", --My favorite but only use in a dark place
         "pgdouyon/vim-yin-yang",
+        "hardselius/warlock",
         "axvr/photon.vim",
         --"fxn/vim-monochrome",
         --"nikolvs/vim-sunbather",
@@ -70,31 +70,29 @@ return
         lazy = false,
         priority = 1000,
     },
-    {
-        --vim progaming
-        --"ThePrimeagen/vim-be-good",
-    },
 
 
 
 -------------------Other Things----------------------------------------------
-    --[[
-    {
-        --Nvim-R
-        "jalvesaq/Nvim-R",
-        lazy=false,
-    },
-    {
-        --Tpope
-        "tpope/vim-surround",
-    },
-    {
-        --HTML/CSS/Javascript
-        "mattn/emmet-vim",
-    },
-    {
-        --LISP
-        "jpalardy/vim-slime",
-    }
-    --]]
+    --{
+    --    vim progaming
+    --    "ThePrimeagen/vim-be-good",
+    --},
+    --{
+    --    --Nvim-R
+    --    "jalvesaq/Nvim-R",
+    --    lazy=false,
+    --},
+    --{
+    --    --Tpope
+    --    "tpope/vim-surround",
+    --},
+    --{
+    --    --HTML/CSS/Javascript
+    --    "mattn/emmet-vim",
+    --},
+    --{
+    --    --LISP
+    --    "jpalardy/vim-slime",
+    --}
 }

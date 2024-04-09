@@ -37,6 +37,7 @@ use utf8;
 use strict;
 use warnings;
 use Data::Dumper;
+use integer;
 use feature qw/
     say
 /;

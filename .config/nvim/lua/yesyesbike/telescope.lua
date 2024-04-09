@@ -46,6 +46,9 @@ telescope.setup{
         },
         man_pages = {
             sections = { "1", "1perl" },
-        }
+        },
+        find_files = {
+            no_ignore = true,
+        },
     }
 }
