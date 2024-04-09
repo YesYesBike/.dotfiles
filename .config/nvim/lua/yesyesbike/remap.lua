@@ -89,7 +89,7 @@ vim.keymap.set("n", "<leader>Y", "\"+y$", { desc = "yank to clipboard" })
 
 vim.keymap.set("n", "<leader>w", ":w<CR>kj", { desc = "save with less keystrokes" })
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "quit with less keystrokes" })
-vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>x", ":!chmod u+x %<CR>", { silent = true })
 
 vim.keymap.set("n", "Q", "gQ")
 
