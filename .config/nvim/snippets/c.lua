@@ -51,12 +51,6 @@ local define_something = s({ trig = "^d", regTrig = "true", hidden = "true" },{
 table.insert(snippets, define_something)
 
 
-local SnippetName = s({ trig = "trig", regTrig = "true", hidden = "false" },{
-    --INSERT
-})
-table.insert(snippets, SnippetName)
-
-
 local for_snippet = s({ trig = "%sf", regTrig = "true", hidden = "true" },{
     t' for(', i(1, "def"), t'; ', i(2, "cond"), t'; ', i(3, "inc"), t')',
 })

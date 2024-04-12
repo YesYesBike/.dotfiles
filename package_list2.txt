@@ -19,6 +19,7 @@ base 3-2
 base-devel 1-1
 bash 5.2.026-2
 bash-completion 2.11-3
+bc 1.07.1-4
 binutils 2.42-2
 bison 3.8.2-6
 boost-libs 1.83.0-5

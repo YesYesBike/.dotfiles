@@ -51,45 +51,45 @@ table.insert(snippets, shbang)
 
 
 
-local q_bracket = s({ trig = "([mq])([qwxm]?)([^%P$%%&;])", regTrig = "true", hidden = "true" },
-{
-    f(function (_,snip)
-        return snip.captures[1]
-    end),
-    f(function (_,snip)
-        return snip.captures[2]
-    end),
-    f(function (_,snip)
-        local fix_opposite_bracket = {
-            [')'] = '(',
-            ['}'] = '{',
-            [']'] = '[',
-            ['>'] = '<',
-        }
-        local pair = fix_opposite_bracket[snip.captures[3]]
-        if(pair) then
-            return pair
-        else
-            return snip.captures[3]
-        end
-    end),
-    i(1, "something"),
-    f(function (_,snip)
-        local match_bracket = {
-            ['('] = ')',
-            ['{'] = '}',
-            ['['] = ']',
-            ['<'] = '>',
-        }
-        local pair = match_bracket[snip.captures[3]]
-        if(pair) then
-            return pair
-        else
-            return snip.captures[3]
-        end
-    end)
-})
-table.insert(autosnippets, q_bracket)
+--local q_bracket = s({ trig = "([mq])([qwxm]?)([^%P$%%&;])", regTrig = "true", hidden = "true" },
+--{
+--    f(function (_,snip)
+--        return snip.captures[1]
+--    end),
+--    f(function (_,snip)
+--        return snip.captures[2]
+--    end),
+--    f(function (_,snip)
+--        local fix_opposite_bracket = {
+--            [')'] = '(',
+--            ['}'] = '{',
+--            [']'] = '[',
+--            ['>'] = '<',
+--        }
+--        local pair = fix_opposite_bracket[snip.captures[3]]
+--        if(pair) then
+--            return pair
+--        else
+--            return snip.captures[3]
+--        end
+--    end),
+--    i(1, "something"),
+--    f(function (_,snip)
+--        local match_bracket = {
+--            ['('] = ')',
+--            ['{'] = '}',
+--            ['['] = ']',
+--            ['<'] = '>',
+--        }
+--        local pair = match_bracket[snip.captures[3]]
+--        if(pair) then
+--            return pair
+--        else
+--            return snip.captures[3]
+--        end
+--    end)
+--})
+--table.insert(autosnippets, q_bracket)
 
 
 local STD = s({ trig = "(<?)[sS]", regTrig = "true", hidden = "true" }, {

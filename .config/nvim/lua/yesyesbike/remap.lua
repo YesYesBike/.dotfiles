@@ -3,7 +3,6 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.w.nutoggle = 1
 vim.w.hltoggle = 0
 vim.w.cmdtoggle = 0
-vim.w.lesstoggle = 0
 
 vim.keymap.set({"n", "x"}, "<leader>h", function ()
     if vim.w.nutoggle == 0 then
@@ -70,12 +69,10 @@ vim.keymap.set("i", "<C-u>", "<ESC>gUiwea",
 vim.keymap.set({"n", "x"}, "H", "^")
 vim.keymap.set({"n", "x"}, "L", "$")
 
+vim.keymap.set("n", "<leader>c", "mz:%bd|e#<cr>`z")
 
 vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move one line down the selection" })
 vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move one line up the selection" })
-
-vim.keymap.set("x", "<", "<gv")
-vim.keymap.set("x", ">", ">gv")
 
 vim.keymap.set("n", "J", "mzJ`z", { desc = "J without moving cursor" })
 vim.keymap.set("n", "gJ", "mzgJ`z", { desc = "gJ without moving cursor" })
@@ -101,7 +98,7 @@ vim.keymap.set("n", "<leader>R", function()
     vim.cmd("au!")
 
     local cmdir = 'luafile '..os.getenv('HOME')..'/.config/nvim/lua/yesyesbike/'
-    local load = {'init', 'set', 'remap', 'plugin', 'treesitter', 'telescope',
+    local load = {'init', 'set', 'remap', 'plugin', 'telescope',
                     'harpoon', 'lsp', 'luasnip'}
     for i,v in ipairs(load) do
         local string = cmdir..v..'.lua'
@@ -159,6 +156,10 @@ vim.keymap.set("n", "<leader>rr", function()
             vim.cmd("11new")
             vim.cmd.te("filename=$(< /tmp/__FILENAME42069);~/util/gcc $filename;exit")
         end
+    elseif filetype == "asm" then
+        vim.cmd("!echo % > /tmp/__FILENAME42069")
+        vim.cmd("11new")
+        vim.cmd.te("~/util/asm")
     --elseif filetype == "lua" then
     --    vim.cmd.so()
     --elseif filetype == "racket" then

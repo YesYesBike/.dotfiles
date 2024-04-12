@@ -8,7 +8,7 @@ case $(apropos $1 | grep -i "^$1" | wc -l) in
     #    ;;
     *)
         string=$(apropos $1 | grep -i "^$1" |\
-            fzf-tmux -p 80% -n 1 --delimiter=' '\
+            fzf-tmux -p 100% -n 1 --delimiter=' '\
             --bind change:first --border-label "TMUX-MAN")
         command=$(echo $string | cut -d ' ' -f 1)
         section=$(echo $string | cut -d ' ' -f 2 | tr -d '()')

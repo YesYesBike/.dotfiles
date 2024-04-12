@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 vim.opt.guicursor = ""
 vim.opt.clipboard = unnamedplus
 vim.opt.showtabline = 0
