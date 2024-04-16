@@ -9,4 +9,4 @@ string=$( rg -i "^#define\s+$1" /usr/include | cut -d/ -f4- |\
 file=$(echo $string | cut -f 1 -d " ")
 const=$(echo $string | cut -f 2 -d " ")
 cd /usr/include
-nvim $file +/$const
+nvim $file +/"#define\s\+$const"

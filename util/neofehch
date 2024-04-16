@@ -1,0 +1,16 @@
+#!/bin/perl
+#use utf8;
+#use strict;
+#use warnings;
+#use Data::Dumper;
+#use integer;
+#use feature qw/
+#    say
+#/;
+
+#Removing Neofetch Escape Characters and Blank lines for STDOUT
+
+while(<>){
+    s/\Q[\E[0-9;\?]*[a-zA-Z]//g;
+    print unless /^\s*$/;
+}

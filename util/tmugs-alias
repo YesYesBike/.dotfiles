@@ -23,7 +23,8 @@ case $alias in
         tmux run-shell -b "~/util/tmugs-man-desc || exit 0; exec bash"
         ;;
     no)
-        tmux run-shell -b "~/util/note; ~/util/tmugs-note || exit 0; exec bash"
+        #tmux run-shell -b "~/util/note; ~/util/tmugs-note || exit 0; exec bash"
+        tmux run-shell -b "~/util/tmugs-note || exit 0; exec bash"
         ;;
     le)
         tmux neww -n "localhost" -c ~/"localhost" "nvim ."

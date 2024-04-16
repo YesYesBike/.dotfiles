@@ -134,6 +134,7 @@ libavc1394
 libbluray
 libbpf
 libbs2b
+libbsd
 libcap
 libcap-ng
 libcloudproviders
@@ -167,6 +168,7 @@ libjxl
 libksba
 libldap
 libluv
+libmd
 libmm-glib
 libmnl
 libmodplug
@@ -337,12 +339,14 @@ procps-ng
 psmisc
 pulseaudio
 python
+racket
 rav1e
 readline
 rhash
 ripgrep
 rtkit
 rubberband
+scrot
 sdl2
 sed
 shaderc

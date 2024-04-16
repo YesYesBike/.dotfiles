@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>E", vim.cmd.Ex)
 
 vim.w.nutoggle = 1
 vim.w.hltoggle = 0
@@ -63,6 +63,9 @@ vim.keymap.set("n", "<END>", "<nop>")
 --Save my pinky
 vim.keymap.set("i", "<C-u>", "<ESC>gUiwea",
     { desc = "Make the word before the cursor uppercase" });
+
+--Select all
+vim.keymap.set("n", "<leader>A", "maggVG")
 
 
 --Skill Issue!!!

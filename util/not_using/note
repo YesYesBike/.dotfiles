@@ -1,0 +1,52 @@
+#!/bin/perl
+use utf8;
+use strict;
+use warnings;
+use Data::Dumper;
+use feature qw/
+    say
+/;
+use Switch;
+
+open(ORIG, "<", $ENV{HOME}."/note/quicknote");
+open(LEGACY, ">>", $ENV{HOME}."/note/archive/legacy");
+open(IMPORTANT, ">>", $ENV{HOME}."/note/archive/important");
+
+my @reserve;
+my @important;
+my @file;
+my @legacy;
+
+
+while(<ORIG>){
+    chomp;
+    switch($_){
+        case m/^$/          {}
+        case m/^#/          { push @reserve, $_ }
+        case m/^!/          { push @important, $_ }
+        case m/^\(.*?\)/    { push @file, $_ }
+        else                { push @legacy, $_ }
+    }
+}
+
+close ORIG;
+
+say IMPORTANT for (@important);
+say LEGACY for (@legacy);
+
+close IMPORTANT;
+close LEGACY;
+
+for(@file){
+    m/^\((.*?)\)(.*)/;
+    open(FILE, ">>", $ENV{HOME}."/note/archive/files/".$1);
+    say FILE $2;
+    close FILE;
+}
+
+open(NEW, ">", $ENV{HOME}."/note/quicknote");
+say NEW for (@reserve);
+close NEW;
+
+chdir $ENV{HOME}."/note/archive/files/";
+system("~/util/delempty");

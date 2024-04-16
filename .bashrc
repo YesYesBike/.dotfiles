@@ -65,6 +65,7 @@ export FZF_COMPLETION_TRIGGER='~~'
 
 export BC_ENV_ARGS="$HOME/.bc"
 export PERLDOC_PAGER="less -+C "
+export PATH=$PATH:~/.spoof-dpi/bin
 
 
 #autocompletion for alias
@@ -88,7 +89,7 @@ export PERLDOC_PAGER="less -+C "
 
 clear
 
-if [ -s ~/note/archive/important ]
+if [ -s ~/note/quicknotes/important ]
 then
-    cat ~/note/archive/important
+    cat ~/note/quicknotes/important 
 fi
