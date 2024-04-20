@@ -1,11 +1,3 @@
---When You(but I) Uninstall Plugin... Checkout
---1. yesyesbike/plugins
---2. yesyesbike/remap → <leader>R
---3. yesyesbike/lsp remove comment
-
-
-
-
 --------------------Necessary Plugins----------------------------------------
 return
 {
@@ -45,7 +37,7 @@ return
         --"hrsh7th/cmp-path",
         --"hrsh7th/cmp-cmdline",
         --"hrsh7th/nvim-cmp",
-        "L3MON4D3/LuaSnip",
+        --"L3MON4D3/LuaSnip",
         --"saadparwaiz1/cmp_luasnip",
         --"jalvesaq/cmp-nvim-r",    --R autocompletion
     },
@@ -58,8 +50,8 @@ return
         --simple dark colorscheme
         --visit https://github.com/mcchrish/vim-no-color-collections for more
         "pgdouyon/vim-yin-yang",
-        "hardselius/warlock",
         "axvr/photon.vim",
+        --"hardselius/warlock",
         --"fxn/vim-monochrome",
         --"nikolvs/vim-sunbather",
         --"huyvohcmc/atlas.vim",

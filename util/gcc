@@ -12,7 +12,7 @@
 #No Option, No Problem
 if [ $# -eq 1 ]
 then
-    gcc $1
+    gcc $1 || exit
     ./a.out
     exit_code=$?
     rm a.out

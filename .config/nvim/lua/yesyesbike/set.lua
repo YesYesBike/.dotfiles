@@ -154,6 +154,13 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     command = "set softtabstop=2 shiftwidth=2 tabstop=2",
 })
 
+--RodRego
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    group = vim.api.nvim_create_augroup('RodRego', { clear = true }),
+    pattern = {"*.rgo"},
+    command = "set filetype=rodrego",
+})
+
 --Remap for Perl
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     group = vim.api.nvim_create_augroup('PerlRemap', { clear = true }),

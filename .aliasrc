@@ -1,5 +1,3 @@
-#/bin/bash
-
 alias ..='cd ..'
 alias :q='exit'
 alias bc='bc -q '
@@ -8,6 +6,7 @@ alias bs='source ~/.bashrc'
 alias C='~/util/gcc'
 alias cdf='cd ~/.dotfiles'
 alias cp='cp -i'
+alias dpi='spoof-dpi -port 12345'
 alias ed='clear; ed -p: -v '
 alias f='. ~/util/falias'
 alias feh='feh -Z '

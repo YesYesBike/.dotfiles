@@ -2,5 +2,5 @@
 
 directory=$(find / -mindepth 1 -maxdepth 3 -type d |
     fzf-tmux -p 80% --bind change:first --border-label "TMUGS-CD-ROOT");
-[ -z $directory ] && exit 0
+[ -z "$directory" ] && exit 0
 [ -n $directory ] && tmux neww -c $directory

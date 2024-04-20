@@ -1,18 +1,12 @@
 vim.keymap.set("n", "<leader>E", vim.cmd.Ex)
 
-vim.w.nutoggle = 1
-vim.w.hltoggle = 0
-vim.w.cmdtoggle = 0
-
 vim.keymap.set({"n", "x"}, "<leader>h", function ()
-    if vim.w.nutoggle == 0 then
-        vim.w.nutoggle = 1
+    if vim.o.number == false then
         vim.opt.number = true
         vim.opt.relativenumber = true
         vim.opt.signcolumn = "number"
         print("set number")
-    elseif vim.w.nutoggle == 1 then
-        vim.w.nutoggle = 0
+    elseif vim.o.number == true then
         vim.opt.number = false
         vim.opt.relativenumber = false
         vim.opt.signcolumn = "no"
@@ -22,29 +16,50 @@ end)
 
 
 vim.keymap.set({"n", "x"}, "<leader>H", function ()
-    if vim.w.hltoggle == 0 then
-        vim.w.hltoggle = 1
+    if vim.o.hlsearch == false then
         vim.opt.hlsearch = true
-        print("set hlsearch")
-    elseif vim.w.hltoggle == 1 then
-        vim.w.hltoggle = 0
+    elseif vim.o.hlsearch == true then
         vim.opt.hlsearch = false
-        print("set nohlsearch")
     end
 end)
 
 
 vim.keymap.set("n", "<C-g>", function ()
-    if vim.w.cmdtoggle == 0 then
-        vim.w.cmdtoggle = 1
+    if vim.o.cmdheight == 0 then
         vim.opt.cmdheight = 1
         vim.opt.ls = 2
         vim.opt.ruler = true
-    elseif vim.w.cmdtoggle == 1 then
-        vim.w.cmdtoggle = 0
+    elseif vim.o.cmdheight == 1 then
         vim.opt.cmdheight = 0
         vim.opt.ls = 0
         vim.opt.ruler = false
+    end
+end)
+
+
+vim.g.quikfix = 0
+vim.g.loklist = 0
+
+--quickfix
+vim.keymap.set("n", "<leader>c", function ()
+    if vim.g.quikfix == 0 then
+        vim.g.quikfix = 1
+        vim.cmd.copen()
+    elseif vim.g.quikfix == 1 then
+        vim.g.quikfix = 0
+        vim.cmd.cclose()
+    end
+end)
+
+
+--loclist
+vim.keymap.set("n", "<leader>l", function ()
+    if vim.g.loklist == 0 then
+        vim.g.loklist = 1
+        vim.cmd.lopen()
+    elseif vim.g.loklist == 1 then
+        vim.g.loklist = 0
+        vim.cmd.lclose()
     end
 end)
 
@@ -65,14 +80,15 @@ vim.keymap.set("i", "<C-u>", "<ESC>gUiwea",
     { desc = "Make the word before the cursor uppercase" });
 
 --Select all
-vim.keymap.set("n", "<leader>A", "maggVG")
+vim.keymap.set("n", "<leader>f", "mfggVG")
 
-
---Skill Issue!!!
+--Skill Issue
 vim.keymap.set({"n", "x"}, "H", "^")
 vim.keymap.set({"n", "x"}, "L", "$")
 
-vim.keymap.set("n", "<leader>c", "mz:%bd|e#<cr>`z")
+
+--clear buffer list
+vim.keymap.set("n", "<leader>b", "mz:%bd|e#<cr>`z")
 
 vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move one line down the selection" })
 vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move one line up the selection" })
@@ -91,6 +107,7 @@ vim.keymap.set("n", "<leader>w", ":w<CR>kj", { desc = "save with less keystrokes
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "quit with less keystrokes" })
 vim.keymap.set("n", "<leader>x", ":!chmod u+x %<CR>", { silent = true })
 
+--Anyone knows how to quit Ex?
 vim.keymap.set("n", "Q", "gQ")
 
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
@@ -101,8 +118,7 @@ vim.keymap.set("n", "<leader>R", function()
     vim.cmd("au!")
 
     local cmdir = 'luafile '..os.getenv('HOME')..'/.config/nvim/lua/yesyesbike/'
-    local load = {'init', 'set', 'remap', 'plugin', 'telescope',
-                    'harpoon', 'lsp', 'luasnip'}
+    local load = {'init', 'set', 'remap', 'plugin', 'telescope', 'harpoon'}
     for i,v in ipairs(load) do
         local string = cmdir..v..'.lua'
         vim.cmd(string)
@@ -163,6 +179,10 @@ vim.keymap.set("n", "<leader>rr", function()
         vim.cmd("!echo % > /tmp/__FILENAME42069")
         vim.cmd("11new")
         vim.cmd.te("~/util/asm")
+    elseif filetype == "rodrego" then
+        vim.cmd("!echo % > /tmp/__FILENAME42069")
+        vim.cmd("11new")
+        vim.cmd.te("filename=$(< /tmp/__FILENAME42069);~/projects/rodrego/rodrego $filename;exit")
     --elseif filetype == "lua" then
     --    vim.cmd.so()
     --elseif filetype == "racket" then
@@ -206,14 +226,13 @@ end)
 --Setting filetype and shbang
 vim.keymap.set("n", "<leader>1", function ()
     vim.bo.filetype = 'bash'
-    vim.cmd.norm("ashG")
     vim.cmd.write({mods = {silent = true}})
     vim.cmd('silent !chmod u+x %')
     vim.cmd.star()
 end)
 vim.keymap.set("n", "<leader>2", function ()
     vim.bo.filetype = 'perl'
-    vim.cmd.norm("ashG")
+    --vim.cmd.norm("ashG")
     vim.cmd.write({mods = {silent = true}})
     vim.cmd('silent !chmod u+x %')
     vim.cmd.star()

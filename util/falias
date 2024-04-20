@@ -1,6 +1,6 @@
 #!/bin/sh
 
-location=$(find ~ ~/src ~/projects -mindepth 1 -maxdepth 5 -type d |
-    . ~/util/dirsed | fzf --margin 13% --border-label="Where I go")
+location=$(find ~ -mindepth 1 -maxdepth 5 -type d |
+    ~/util/dirsed | fzf --margin 13% --border-label="somewhere over teh lainbow")
 [ -z $location ] || cd ~/$location
 

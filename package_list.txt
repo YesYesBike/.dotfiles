@@ -137,6 +137,8 @@ libbs2b
 libbsd
 libcap
 libcap-ng
+libcdio
+libcdio-paranoia
 libcloudproviders
 libcolord
 libcups
@@ -145,6 +147,8 @@ libdatrie
 libdeflate
 libdovi
 libdrm
+libdvdnav
+libdvdread
 libedit
 libei
 libelf
@@ -191,6 +195,7 @@ libpcap
 libpciaccess
 libpgm
 libpipeline
+libpipewire
 libplacebo
 libpng
 libproxy
@@ -202,6 +207,7 @@ libsamplerate
 libsasl
 libseccomp
 libsecret
+libsixel
 libsm
 libsndfile
 libsodium
@@ -254,6 +260,7 @@ libxkbcommon
 libxkbfile
 libxml2
 libxmu
+libxpresent
 libxrandr
 libxrender
 libxshmfence
@@ -268,6 +275,7 @@ linux
 linux-api-headers
 linux-firmware
 linux-firmware-whence
+llvm
 llvm-libs
 lm_sensors
 lua51
@@ -288,8 +296,10 @@ mobile-broadband-provider-info
 moreutils
 mpfr
 mpg123
+mpv
 msgpack-c
 mtdev
+mujs
 ncurses
 neofetch
 neovim-git
@@ -300,6 +310,7 @@ npth
 nspr
 nss
 ocl-icd
+openal
 opencore-amr
 openexr
 openjpeg2
@@ -339,6 +350,11 @@ procps-ng
 psmisc
 pulseaudio
 python
+python-certifi
+python-charset-normalizer
+python-idna
+python-requests
+python-urllib3
 racket
 rav1e
 readline
@@ -378,6 +394,7 @@ tree
 tree-sitter-git
 ttf-liberation
 tzdata
+uchardet
 unibilium
 unzip
 util-linux
@@ -414,6 +431,7 @@ xsel
 xvidcore
 xxhash
 xz
+yt-dlp
 zathura
 zathura-pdf-poppler
 zeromq

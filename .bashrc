@@ -66,6 +66,7 @@ export FZF_COMPLETION_TRIGGER='~~'
 export BC_ENV_ARGS="$HOME/.bc"
 export PERLDOC_PAGER="less -+C "
 export PATH=$PATH:~/.spoof-dpi/bin
+export PATH=$PATH:~/cross_complie/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-linux-gnu/bin
 
 
 #autocompletion for alias
