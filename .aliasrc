@@ -47,6 +47,7 @@ alias pq='pacman -Q > ~/.dotfiles/package_list2.txt && nvim ~/.dotfiles/package_
 alias pu='echo "PACKAGE UPGRADE" && sudo pacman -Syu; pacman -Q |
     cut -d " " -f 1 > ~/.dotfiles/package_list.txt'
 alias raf='~/util/raffle'
+alias rasp='ssh nonocar@rasbian'
 alias rb='echo "FUN FUN RE-BOOT!" && sudo reboot '
 alias sicp='racket -I sicp'
 alias sd='echo "SHUTDOWN" && sudo shutdown -h 0'
@@ -62,6 +63,10 @@ alias vidir='export EDITOR=nvim; vidir; EDITOR='
 alias vc='nvim --clean'
 alias x='startx -- -nocursor'
 alias xc=startx
+
+function rascp {
+    scp $1 nonocar@rasbian:/home/nonocar/transfer
+}
 
 
 function mc {
