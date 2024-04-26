@@ -161,6 +161,12 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     command = "set filetype=rodrego",
 })
 
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    group = vim.api.nvim_create_augroup('RodRego', { clear = true }),
+    pattern = {"*.rgx"},
+    command = "set filetype=rodrego_ex",
+})
+
 --Remap for Perl
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     group = vim.api.nvim_create_augroup('PerlRemap', { clear = true }),

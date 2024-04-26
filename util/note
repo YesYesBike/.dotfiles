@@ -18,10 +18,12 @@ while(<>){
     if (/^!(.*)/){
         $filename = "important";
         $line = $1;
-    }
-    if (/^\((.*?)\)(.*)/){
+    } elsif (/^\((.*?)\)(.*)/){
         $filename = $1;
         $line = $2;
+    } else {
+        $filename = "later";
+        $line = $_;
     }
 
     open FILE, ">>", $dir.$filename or die "Can't open $filename!"; 

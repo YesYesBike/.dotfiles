@@ -1,3 +1,8 @@
+aarch64-linux-gnu-binutils
+aarch64-linux-gnu-gcc
+aarch64-linux-gnu-gdb
+aarch64-linux-gnu-glibc
+aarch64-linux-gnu-linux-api-headers
 abseil-cpp
 acl
 adobe-source-code-pro-fonts
@@ -47,6 +52,7 @@ default-cursors
 desktop-file-utils
 device-mapper
 diffutils
+dosfstools
 duktape
 e2fsprogs
 efibootmgr
@@ -275,7 +281,6 @@ linux
 linux-api-headers
 linux-firmware
 linux-firmware-whence
-llvm
 llvm-libs
 lm_sensors
 lua51
@@ -309,6 +314,7 @@ ninja
 npth
 nspr
 nss
+nvi
 ocl-icd
 openal
 opencore-amr
@@ -401,7 +407,6 @@ util-linux
 util-linux-libs
 v4l-utils
 vapoursynth
-vi
 vid.stab
 vmaf
 vulkan-icd-loader
@@ -424,6 +429,7 @@ xorg-xinit
 xorg-xkbcomp
 xorg-xmodmap
 xorg-xprop
+xorg-xrandr
 xorg-xrdb
 xorg-xset
 xorgproto

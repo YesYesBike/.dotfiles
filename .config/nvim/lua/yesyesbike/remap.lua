@@ -41,7 +41,7 @@ vim.g.quikfix = 0
 vim.g.loklist = 0
 
 --quickfix
-vim.keymap.set("n", "<leader>c", function ()
+vim.keymap.set("n", "<leader>C", function ()
     if vim.g.quikfix == 0 then
         vim.g.quikfix = 1
         vim.cmd.copen()
@@ -65,22 +65,24 @@ end)
 
 
 --usless keys...
-vim.keymap.set("i", "<Home>", "<nop>")
-vim.keymap.set("i", "<PageUp>", "<nop>")
-vim.keymap.set("i", "<PageDown>", "<nop>")
-vim.keymap.set("i", "<END>", "<nop>")
-vim.keymap.set("n", "<Home>", "<nop>")
-vim.keymap.set("n", "<PageUp>", "<nop>")
-vim.keymap.set("n", "<PageDown>", "<nop>")
-vim.keymap.set("n", "<END>", "<nop>")
+vim.keymap.set({"n","x","i"}, "<Home>", "<nop>")
+vim.keymap.set({"n","x","i"}, "<PageUp>", "<nop>")
+vim.keymap.set({"n","x","i"}, "<PageDown>", "<nop>")
+vim.keymap.set({"n","x","i"}, "<END>", "<nop>")
 
-
---Save my pinky
-vim.keymap.set("i", "<C-u>", "<ESC>gUiwea",
-    { desc = "Make the word before the cursor uppercase" });
 
 --Select all
-vim.keymap.set("n", "<leader>f", "mfggVG")
+vim.keymap.set("n", "<leader>F", "mfggVG")
+
+--Pretty Yuzeful
+vim.keymap.set("n", "<leader>J", 'o<esc>"+p<C-w>j')
+vim.keymap.set("n", "<leader>o", 'o<esc>')
+vim.keymap.set("n", "<leader>O", 'O<esc>')
+
+
+--Exchange two words
+vim.keymap.set("n", "<leader>k", 'mzdawemxpx`xa <esc>`z')
+vim.keymap.set("n", "<leader>K", 'mzdaWEmxpx`xa <esc>`z')
 
 --Skill Issue
 vim.keymap.set({"n", "x"}, "H", "^")
@@ -88,7 +90,7 @@ vim.keymap.set({"n", "x"}, "L", "$")
 
 
 --clear buffer list
-vim.keymap.set("n", "<leader>b", "mz:%bd|e#<cr>`z")
+vim.keymap.set("n", "<leader>c", "mz:%bd|e#<cr>`z")
 
 vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move one line down the selection" })
 vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move one line up the selection" })
@@ -183,6 +185,11 @@ vim.keymap.set("n", "<leader>rr", function()
         vim.cmd("!echo % > /tmp/__FILENAME42069")
         vim.cmd("11new")
         vim.cmd.te("filename=$(< /tmp/__FILENAME42069);~/projects/rodrego/rodrego $filename;exit")
+    elseif filetype == "rodrego_ex" then
+        vim.cmd('make!')
+        vim.cmd("!echo % > /tmp/__FILENAME42069")
+        vim.cmd("11new")
+        vim.cmd.te("filename=$(< /tmp/__FILENAME42069);~/projects/rgx/rgx $filename;exit")
     --elseif filetype == "lua" then
     --    vim.cmd.so()
     --elseif filetype == "racket" then
@@ -202,6 +209,8 @@ vim.keymap.set("n", "<leader>m", function ()
         vim.cmd('make!')
     elseif vim.bo.filetype == "c" then
         vim.cmd('!gcc %')
+    elseif vim.bo.filetype == "asm" then
+        vim.cmd('!as %; ld a.out -o build')
     end
 end)
 
@@ -223,7 +232,7 @@ vim.keymap.set("n", "<leader>rd", function()
     end
 end)
 
---Setting filetype and shbang
+--Setting filetype
 vim.keymap.set("n", "<leader>1", function ()
     vim.bo.filetype = 'bash'
     vim.cmd.write({mods = {silent = true}})
@@ -236,6 +245,14 @@ vim.keymap.set("n", "<leader>2", function ()
     vim.cmd.write({mods = {silent = true}})
     vim.cmd('silent !chmod u+x %')
     vim.cmd.star()
+end)
+
+
+--Formattttt
+vim.keymap.set({"x","n"}, "<leader>f", function()
+    if vim.bo.filetype == 'c' then
+        vim.cmd.perldo("s/\\b(if|for|while|switch)\\(/$1 (/g; s/(\\)|else)\\{/$1 {/g;")
+    end
 end)
 
 --Cofilenut

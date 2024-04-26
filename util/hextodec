@@ -1,4 +1,3 @@
-#!/usr/bin/env perl
+#!/usr/bin/env bash
 
-$_ = shift @ARGV;
-print hex;
+echo "ibase=16;$1" | sed 's/;\(.*\)/;\U\1/' | bc
