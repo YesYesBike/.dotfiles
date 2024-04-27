@@ -28,7 +28,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ NULL,       NULL,       "Firefox",  1 << 1,       0,           -1 },
-	{ NULL,       NULL,       "zathura",  1 << 1,       0,           -1 },
+	{ NULL,       NULL,       "org.pwmt.zathura",  1 << 1,       0,           -1 },
 	{ NULL,       NULL,       "mpv",      1 << 1,       0,           -1 },
 	//{ NULL,       NULL,       NULL,       0,            0,           -1 },
 

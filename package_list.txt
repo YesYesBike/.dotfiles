@@ -37,6 +37,7 @@ cairo
 cantarell-fonts
 cmake
 coreutils
+cpio
 cppdap
 cryptsetup
 ctags
@@ -308,6 +309,7 @@ mujs
 ncurses
 neofetch
 neovim-git
+net-tools
 nettle
 networkmanager
 ninja
@@ -366,6 +368,7 @@ rav1e
 readline
 rhash
 ripgrep
+rsync
 rtkit
 rubberband
 scrot
@@ -385,6 +388,7 @@ srt
 stow
 sudo
 svt-av1
+syslinux
 systemd
 systemd-libs
 systemd-sysvcompat
@@ -412,7 +416,9 @@ vmaf
 vulkan-icd-loader
 wayland
 webrtc-audio-processing-1
+wget
 which
+wireless_tools
 wpa_supplicant
 x264
 x265
