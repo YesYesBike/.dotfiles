@@ -126,76 +126,73 @@ unsigned int tabspaces = 8;
 //};
 
 //Apprentice
-static const char *colorname[] = {
-	/* 8 normal colors */
-    "#1C1C1C",
-    "#AF5F5F",
-    "#5F875F",
-    "#87875F",
-    "#5F87AF",
-    "#5F5F87",
-    "#5F8787",
-    "#6C6C6C",
-
-	/* 8 bright colors */
-    "#444444",
-    "#FF8700",
-    "#87AF87",
-    "#FFFFAF",
-    "#8FAFD7",
-    "#8787AF",
-    "#5FAFAF",
-    "#FFFFFF",
-
-	[255] = 0,
-
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"#bcbcbc", /* default foreground colour */
-	"#262626", /* default background colour */
-};
-
-//Tango Dark
 //static const char *colorname[] = {
 //	/* 8 normal colors */
-//    "#2E3436",
-//    "#CC0000",
-//    "#4E9A06",
-//    "#C4A000",
-//    "#3465A4",
-//    "#75507B",
-//    "#06989A",
-//    "#D3D7CF",
+//    "#1C1C1C", "#AF5F5F", "#5F875F", "#87875F",
+//    "#5F87AF", "#5F5F87", "#5F8787", "#6C6C6C",
 //
 //	/* 8 bright colors */
-//    "#555753",
-//    "#EF2929",
-//    "#8AE234",
-//    "#FCE94F",
-//    "#729FCF",
-//    "#AD7FA8",
-//    "#34E2E2",
-//    "#EEEEEC",
+//    "#444444", "#FF8700", "#87AF87", "#FFFFAF",
+//    "#8FAFD7", "#8787AF", "#5FAFAF", "#FFFFFF",
 //
 //	[255] = 0,
 //
 //	/* more colors can be added after 255 to use with DefaultXX */
 //	"#cccccc",
 //	"#555555",
-//	"#D3D7CF", /* default foreground colour */
-//	"#2E3436", /* default background colour */
+//	"#bcbcbc", /* default foreground colour */
+//	"#262626", /* default background colour */
 //};
 
 
+typedef struct {
+	const char* const colors[260]; /* terminal colors */
+	unsigned int fg;               /* foreground */
+	unsigned int bg;               /* background */
+	unsigned int cs;               /* cursor */
+	unsigned int rcs;              /* reverse cursor */
+} ColorScheme;
+/*
+ * Terminal colors (16 first used in escape sequence,
+ * 2 last for custom cursor color),
+ * foreground, background, cursor, reverse cursor
+ */
+static const ColorScheme schemes[] = {
+
+    //Apprentice
+    {{"#1C1C1C", "#AF5F5F", "#5F875F", "#87875F",
+      "#5F87AF", "#5F5F87", "#5F8787", "#6C6C6C",
+      "#444444", "#FF8700", "#87AF87", "#FFFFAF",
+      "#8FAFD7", "#8787AF", "#5FAFAF", "#FFFFFF",
+      "#bcbcbc", "#262626",
+	  [256]="#93a1a1", "#fdf6e3", "#bcbcbc", "#262626"},
+      258, 259, 256, 257},
+
+	// Solarized light
+	{{"#eee8d5", "#dc322f", "#859900", "#b58900",
+	  "#268bd2", "#d33682", "#2aa198", "#073642",
+	  "#fdf6e3", "#cb4b16", "#93a1a1", "#839496",
+	  "#657b83", "#6c71c4", "#586e75", "#002b36",
+	  [256]="#586e75", "#002b36", "#000000", "#000000"},
+      12, 8, 256, 257},
+};
+
+static const char * const * colorname;
+int colorscheme = 0;
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 258;
-unsigned int defaultbg = 259;
-unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+
+unsigned int defaultfg;
+unsigned int defaultbg;
+unsigned int defaultcs;
+static unsigned int defaultrcs;
+
+//unsigned int defaultfg = 258;
+//unsigned int defaultbg = 259;
+//unsigned int defaultcs = 256;
+//static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
@@ -247,7 +244,8 @@ static MouseShortcut mshortcuts[] = {
 };
 
 /* Internal keyboard shortcuts. */
-#define MODKEY Mod1Mask
+#define MODKEY  Mod1Mask
+#define MODKEY4 Mod4Mask
 #define TERMMOD (ControlMask|ShiftMask)
 
 static Shortcut shortcuts[] = {
@@ -264,8 +262,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+	{ MODKEY4,              XK_Escape,      updatescheme,   {.i =  0} },
 };
-
 /*
  * Special keys (change & recompile st.info accordingly)
  *

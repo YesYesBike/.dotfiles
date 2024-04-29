@@ -262,9 +262,9 @@ end)
 
 --Colorscheme for bright place
 vim.keymap.set("n", "<leader>j", function ()
-    if vim.g.colors_name ~= 'photon' then
-        vim.cmd.colorscheme('photon')
+    if vim.o.background == 'dark' then
+        vim.opt.background = 'light'
     else
-        vim.cmd.colorscheme('yin')
+        vim.opt.background = 'dark'
     end
 end)

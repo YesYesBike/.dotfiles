@@ -6,23 +6,23 @@ return
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
-    {
-        --Treesitter
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        config = function ()
-            local configs = require("nvim-treesitter.configs")
-            configs.setup({
-                ensure_installed = { "c", "lua", "vim", "vimdoc", "bash", "perl", },
-                sync_install = false,
-                highlight = { enable = true },
-                indent = { enable = true },
-                auto_install = true,
-                ignore_install = { "javascript" },
+    --{
+    --    --Treesitter
+    --    "nvim-treesitter/nvim-treesitter",
+    --    build = ":TSUpdate",
+    --    config = function ()
+    --        local configs = require("nvim-treesitter.configs")
+    --        configs.setup({
+    --            ensure_installed = { "c", "lua", "vim", "vimdoc", "bash", "perl", },
+    --            sync_install = false,
+    --            highlight = { enable = true },
+    --            indent = { enable = true },
+    --            auto_install = true,
+    --            ignore_install = { "javascript" },
 
-            })
-        end
-    },
+    --        })
+    --    end
+    --},
     {
         --Harpoon
         "ThePrimeagen/harpoon",
@@ -50,7 +50,7 @@ return
         --simple dark colorscheme
         --visit https://github.com/mcchrish/vim-no-color-collections for more
         "pgdouyon/vim-yin-yang",
-        "axvr/photon.vim",
+        --"axvr/photon.vim",
         --"hardselius/warlock",
         --"fxn/vim-monochrome",
         --"nikolvs/vim-sunbather",

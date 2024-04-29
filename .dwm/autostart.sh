@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec st
+exec st -e tmux new -A -s 1
