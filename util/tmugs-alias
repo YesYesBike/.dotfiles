@@ -16,6 +16,9 @@ case $alias in
     cd)
         tmux run-shell -b "~/util/tmugs-cd-root || exit 0; exec bash"
         ;;
+    fe)
+        tmux neww -n "firefox_list" -c ~/personal "nvim firefox_list"
+        ;;
     he)
         tmux neww -n "Homepage" -c ~/".dotfiles_private/projects/homepage" "nvim html/homepage.html"
         ;;
