@@ -56,6 +56,7 @@ diffutils
 dosfstools
 duktape
 e2fsprogs
+ed
 efibootmgr
 efivar
 expat
@@ -300,6 +301,7 @@ mkinitcpio
 mkinitcpio-busybox
 mobile-broadband-provider-info
 moreutils
+mpdecimal
 mpfr
 mpg123
 mpv
@@ -308,7 +310,6 @@ mtdev
 mujs
 ncurses
 neofetch
-neovim-git
 net-tools
 nettle
 networkmanager
@@ -401,7 +402,6 @@ tmux
 tpm2-tss
 tracker3
 tree
-tree-sitter-git
 ttf-liberation
 tzdata
 uchardet

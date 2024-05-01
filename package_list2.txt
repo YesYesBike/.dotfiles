@@ -401,7 +401,6 @@ tmux 3.4-6
 tpm2-tss 4.0.1-1
 tracker3 3.7.1-2
 tree 2.1.1-1
-tree-sitter-git 0.22.2.r26.gc76e5fa9-1
 ttf-liberation 2.1.5-1
 tzdata 2024a-1
 uchardet 0.0.8-2

@@ -62,7 +62,7 @@ alias type='type -a '
 alias sudo='sudo -E -s '
 alias v=nvim
 alias vi=nvi
-alias vidir='export EDITOR=nvim; vidir; EDITOR='
+alias vidir='EDITOR=nvim; vidir; EDITOR='
 alias vc='nvim --clean'
 alias x='startx -- -nocursor'
 alias xc=startx
