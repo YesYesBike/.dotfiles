@@ -234,7 +234,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.infercase = true
+vim.opt.infercase = false
 
 vim.opt.termguicolors = true
 
