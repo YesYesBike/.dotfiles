@@ -241,7 +241,6 @@ vim.keymap.set("n", "<leader>1", function ()
 end)
 vim.keymap.set("n", "<leader>2", function ()
     vim.bo.filetype = 'perl'
-    --vim.cmd.norm("ashG")
     vim.cmd.write({mods = {silent = true}})
     vim.cmd('silent !chmod u+x %')
     vim.cmd.star()
@@ -254,11 +253,6 @@ vim.keymap.set({"x","n"}, "<leader>f", function()
         vim.cmd.perldo("s/\\b(if|for|while|switch)\\(/$1 (/g; s/(\\)|else)\\{/$1 {/g;")
     end
 end)
-
---Cofilenut
---First, I need to learn more about telescope
---vim.keymap.set("n", "<C-f>", "")
-
 
 --Colorscheme for bright place
 vim.keymap.set("n", "<leader>j", function ()

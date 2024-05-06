@@ -10,6 +10,9 @@ case $alias in
     be)
         tmux neww -n "bashrc" "nvim ~/.bashrc"
         ;;
+    bo)
+        tmux run-shell  "~/util/tmugs-book || exit 0; exec bash"
+        ;;
     ch)
         ~/util/tmugs-CH
         ;;

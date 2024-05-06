@@ -107,6 +107,7 @@ gtk3
 guile
 gzip
 harfbuzz
+help2man
 hicolor-icon-theme
 hidapi
 highway
@@ -344,6 +345,7 @@ perl
 perl-error
 perl-io-tty
 perl-ipc-run
+perl-locale-gettext
 perl-mailtools
 perl-time-duration
 perl-timedate
@@ -424,6 +426,7 @@ x264
 x265
 xcb-proto
 xclip
+xdg-utils
 xf86-input-libinput
 xkeyboard-config
 xorg-fonts-encodings

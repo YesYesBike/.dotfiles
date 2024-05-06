@@ -28,8 +28,8 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ NULL,       NULL,       "Firefox",  1 << 1,       0,           -1 },
-	{ NULL,       NULL,       "org.pwmt.zathura",  1 << 1,       0,           -1 },
-	{ NULL,       NULL,       "mpv",      1 << 1,       0,           -1 },
+	{ NULL,       NULL,       "org.pwmt.zathura",  1 << 2,       0,           -1 },
+	{ NULL,       NULL,       "mpv",      1 << 2,       0,           -1 },
 	//{ NULL,       NULL,       NULL,       0,            0,           -1 },
 
 };
@@ -83,8 +83,8 @@ static const Key keys[] = {
     { MODKEY4,                       XK_w,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY4,                       XK_s,      setlayout,      {.v = &layouts[1]} },
     //{ MODKEY4,                       XK_f,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY4,                       XK_space,  setlayout,      {0} },
-	{ MODKEY4|ShiftMask,             XK_space,  togglefloating, {0} },
+	//{ MODKEY4,                       XK_space,  setlayout,      {0} },
+	//{ MODKEY4|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY4,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY4|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY4,                       XK_comma,  focusmon,       {.i = -1 } },
