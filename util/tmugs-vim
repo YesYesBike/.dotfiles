@@ -1,6 +1,6 @@
 #!/bin/bash
 
-file=$(find ~ -mindepth 1 -maxdepth 5 -type f | ~/util/dirsed |\
+file=$(find ~ -mindepth 1 -maxdepth 3 -type f | ~/util/dirsed |\
     fzf-tmux -p 80% --tiebreak=begin --bind change:first --border-label "TMUGS-VIM");
 [ -z $file ] && exit 0
 directorie=$(dirname $file)

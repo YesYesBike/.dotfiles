@@ -7,8 +7,8 @@ vim.opt.shortmess = "atToOFI"   --"filnxtToOF"
 vim.opt.cmdheight = 0
 vim.opt.smd = false
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.opt.nu = false
+vim.opt.relativenumber = false
 
 vim.api.nvim_create_autocmd("BufEnter", {
     group = vim.api.nvim_create_augroup('TerminalAutoInsertMode', { clear = true }),
@@ -26,44 +26,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.opt.relativenumber = false
         vim.opt.signcolumn = "no"
         vim.cmd.star()
-
-        --Terminal Color
-        --st Default
-        --vim.g.terminal_color_0 = "#000000"
-        --vim.g.terminal_color_1 = "#cd0000"
-        --vim.g.terminal_color_2 = "#00cd00"
-        --vim.g.terminal_color_3 = "#cdcd00"
-        --vim.g.terminal_color_4 = "#0000ee"
-        --vim.g.terminal_color_5 = "#cd00cd"
-        --vim.g.terminal_color_6 = "#00cdcd"
-        --vim.g.terminal_color_7 = "#e5e5e5"
-        --vim.g.terminal_color_8 = "#7f7f7f"
-        --vim.g.terminal_color_9 = "#ff0000"
-        --vim.g.terminal_color_10 = "#00ff00"
-        --vim.g.terminal_color_11 = "#ffff00"
-        --vim.g.terminal_color_12 = "#5c5cff"
-        --vim.g.terminal_color_13 = "#ff00ff"
-        --vim.g.terminal_color_14 = "#00ffff"
-        --vim.g.terminal_color_15 = "#ffffff"
-
-        --Tango Dark
-        --vim.g.terminal_color_0 = "#2E3436"
-        --vim.g.terminal_color_1 = "#CC0000"
-        --vim.g.terminal_color_2 = "#4E9A06"
-        --vim.g.terminal_color_3 = "#C4A000"
-        --vim.g.terminal_color_4 = "#3465A4"
-        --vim.g.terminal_color_5 = "#75507B"
-        --vim.g.terminal_color_6 = "#06989A"
-        --vim.g.terminal_color_7 = "#D3D7CF"
-        --vim.g.terminal_color_8 = "#555753"
-        --vim.g.terminal_color_9 = "#EF2929"
-        --vim.g.terminal_color_10 = "#8AE234"
-        --vim.g.terminal_color_11 = "#FCE94F"
-        --vim.g.terminal_color_12 = "#729FCF"
-        --vim.g.terminal_color_13 = "#AD7FA8"
-        --vim.g.terminal_color_14 = "#34E2E2"
-        --vim.g.terminal_color_15 = "#EEEEEC"
-
+        
         --Apprentice
         vim.g.terminal_color_0 = "#1c1c1c"
         vim.g.terminal_color_1 = "#af5f5f"
@@ -210,17 +173,6 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
         end
     end
 })
-
-
-
---vim.api.nvim_create_autocmd({"CursorMoved", "CursorMovedI", "InsertLeavePre"}, {
---    group = vim.api.nvim_create_augroup('CenterCursor', { clear = true }),
---    callback = function ()
---        local pos = vim.fn.getpos('.')
---        vim.cmd('norm! zz')
---        vim.fn.setpos('.', pos)
---    end
---})
 
 
 vim.opt.wrap = false

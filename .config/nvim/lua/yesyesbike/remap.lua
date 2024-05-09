@@ -38,7 +38,6 @@ end)
 
 
 vim.g.quikfix = 0
-vim.g.loklist = 0
 
 --quickfix
 vim.keymap.set("n", "<leader>C", function ()
@@ -48,18 +47,6 @@ vim.keymap.set("n", "<leader>C", function ()
     elseif vim.g.quikfix == 1 then
         vim.g.quikfix = 0
         vim.cmd.cclose()
-    end
-end)
-
-
---loclist
-vim.keymap.set("n", "<leader>l", function ()
-    if vim.g.loklist == 0 then
-        vim.g.loklist = 1
-        vim.cmd.lopen()
-    elseif vim.g.loklist == 1 then
-        vim.g.loklist = 0
-        vim.cmd.lclose()
     end
 end)
 
@@ -75,7 +62,7 @@ vim.keymap.set({"n","x","i"}, "<END>", "<nop>")
 vim.keymap.set("n", "<leader>F", "mfggVG")
 
 --Pretty Yuzeful
-vim.keymap.set("n", "<leader>J", 'o<esc>"+p<C-w>j')
+--vim.keymap.set("n", "<leader>J", 'o<esc>"+p<C-w>j')
 vim.keymap.set("n", "<leader>o", 'o<esc>')
 vim.keymap.set("n", "<leader>O", 'O<esc>')
 
@@ -153,6 +140,7 @@ vim.keymap.set("n", "<leader>vT", ":47vnew<CR>:te<CR>")
 
 
 --Run the current file in terminal
+--Note: use #
 
 local function check_makefile()
     local file = io.open('Makefile', "r")

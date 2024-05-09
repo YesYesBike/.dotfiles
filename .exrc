@@ -1,6 +1,6 @@
 set ai
 set ic
-set nu
+set nonu
 set redraw
 set showmode
 set sw=4
