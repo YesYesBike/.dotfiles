@@ -1,6 +1,6 @@
 #!/bin/sh
 
-book=$(cat ~/common/pdf/booklist | column -t |
+book=$(column -t ~/common/pdf/booklist |
     fzf-tmux -p 80% -n 1,2 --with-nth=1,2 --tiebreak=begin --bind change:first\
     --border-label "TMUGS-BOOK" | tr -s ' ' | cut -d ' ' -f 3)
 

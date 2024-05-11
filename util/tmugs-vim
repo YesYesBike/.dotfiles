@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 file=$(find ~ -mindepth 1 -maxdepth 3 -type f | ~/util/dirsed |\
     fzf-tmux -p 80% --tiebreak=begin --bind change:first --border-label "TMUGS-VIM");

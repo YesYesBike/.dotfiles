@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 file=$(ls ~/note/quicknotes/ | fzf-tmux -p 80%\
     --bind change:first --border-label "TMUGS-NOTE");

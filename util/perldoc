@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #export PERLDOC_PAGER="less -+C "
 #title=$(< /tmp/perldoc)

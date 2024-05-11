@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 string=$({ apropos -s 1,1p . ; cat ~/util/manlist; } |
     fzf-tmux -p 80% -n 1 --delimiter=' ' --bind change:first\
@@ -9,7 +9,7 @@ string=$({ apropos -s 1,1p . ; cat ~/util/manlist; } |
 command=$(echo $string | cut -d ' ' -f 1)
 section=$(echo $string | cut -d ' ' -f 2 | tr -d '()')
 
-asdf=$(cat ~/util/manlist | cut -d ' ' -f 1)
+asdf=$(cut -d ' ' -f 1 ~/util/manlist)
 for var in $asdf
 do
     if [ "$command" = "$var" ]

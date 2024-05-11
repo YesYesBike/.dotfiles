@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 echo "obase=16; $1" | bc

@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
-alias=$(cat ~/.tmux-alias | fzf-tmux -n 1 -delimiter='/'\
-    -p 50% --border-label='Tmugs-Alias' | cut -d '/' -f 1 | tr -d ' ')
+alias=$(fzf-tmux -n 1 -delimiter='/' -p 50% --border-label='Tmugs-Alias' \
+    < ~/.tmux-alias | cut -d '/' -f 1 | tr -d ' ')
 
 case $alias in
     ae)
@@ -16,33 +16,17 @@ case $alias in
     ch)
         ~/util/tmugs-CH
         ;;
-    cd)
-        tmux run-shell -b "~/util/tmugs-cd-root || exit 0; exec bash"
-        ;;
     fe)
         tmux neww -n "firefox_list" -c ~/personal "nvim firefox_list"
         ;;
     he)
-        tmux neww -n "Homepage" -c ~/".dotfiles_private/projects/homepage" "nvim html/homepage.html"
-        ;;
-    md)
-        tmux run-shell -b "~/util/tmugs-man-desc || exit 0; exec bash"
-        ;;
-    no)
-        #tmux run-shell -b "~/util/note; ~/util/tmugs-note || exit 0; exec bash"
-        tmux run-shell -b "~/util/tmugs-note || exit 0; exec bash"
+        tmux neww -n "Homepage" "nvim homepage.html"
         ;;
     le)
         tmux neww -n "localhost" -c ~/"localhost" "nvim ."
         ;;
-    pse)
-        tmux neww -n "PerlSnip" -c ~/".config/nvim/snippets" "nvim perl.lua"
-        ;;
     tae)
         tmux neww -n "tmux-alias" -c ~/"util" "nvim tmugs-alias"
-        ;;
-    ttt)
-        tmux neww -n "typing" -c ~/".dotfiles" "nvim training"
         ;;
     te)
         tmux neww -n "tmuxconf" "nvim ~/.tmux.conf"
@@ -51,6 +35,5 @@ case $alias in
         tmux neww -n "nvim_set" -c ~/".config/nvim" "nvim init.lua"
         ;;
     *)
-        #echo no
         ;;
 esac

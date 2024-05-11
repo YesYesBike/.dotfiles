@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 var=$(ls /usr/share/man/ | grep "man$1" | cut -b 4- | tr -s '\n' ',')
 #var=${var::-1}     it's not necessary

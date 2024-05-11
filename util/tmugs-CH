@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 file=$(ls -R /usr/include/*.h | cut -d/ -f 4- |
 fzf-tmux -p 80% --bind change:first --tiebreak=chunk --border-label "TMUGS-CH");

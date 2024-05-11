@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 directory=$(find / -mindepth 1 -maxdepth 3 -type d |
     fzf-tmux -p 80% --bind change:first --border-label "TMUGS-CD-ROOT");

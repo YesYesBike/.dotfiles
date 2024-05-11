@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 case $(apropos $1 | grep -i "^$1" | wc -l) in
     0)

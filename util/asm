@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-name=$(cat /tmp/__FILENAME42069 | cut -d '.' -f 1)
+name=$(cut -d '.' -f 1 /tmp/__FILENAME42069)
 as "$name.s" -o "$name.o"
 ld "$name.o" -o "$name"
 
