@@ -298,6 +298,7 @@ make
 man-db
 man-pages
 mesa
+minicom
 mkinitcpio
 mkinitcpio-busybox
 mobile-broadband-provider-info
@@ -349,6 +350,7 @@ perl-locale-gettext
 perl-mailtools
 perl-time-duration
 perl-timedate
+picocom
 pinentry
 pixman
 pkgconf
@@ -391,6 +393,7 @@ srt
 stow
 sudo
 svt-av1
+sxiv
 syslinux
 systemd
 systemd-libs

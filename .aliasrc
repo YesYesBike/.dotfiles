@@ -1,4 +1,3 @@
-alias ..='cd ..'
 alias :q='exit'
 alias bc='bc -q '
 alias br='sudo vi /sys/class/backlight/intel_backlight/brightness'

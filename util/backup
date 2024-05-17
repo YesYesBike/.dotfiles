@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+tar -czf ~/personal/backup_$(date +%F).tar.gz -T ~/personal/backup_list 2>/dev/null

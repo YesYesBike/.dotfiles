@@ -22,9 +22,6 @@ case $alias in
     he)
         tmux neww -n "Homepage" "nvim homepage.html"
         ;;
-    le)
-        tmux neww -n "localhost" -c ~/"localhost" "nvim ."
-        ;;
     tae)
         tmux neww -n "tmux-alias" -c ~/"util" "nvim tmugs-alias"
         ;;
