@@ -1,3 +1,4 @@
 #!/usr/bin/sh
 
-tar -czf ~/personal/backup_$(date +%F).tar.gz -T ~/personal/backup_list 2>/dev/null
+mkdir -p ~/backup
+tar -cvzf ~/backup/backup.tar.gz -T ~/personal/backup_list

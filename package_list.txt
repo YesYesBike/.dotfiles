@@ -391,6 +391,7 @@ spirv-tools
 sqlite
 srt
 stow
+strace
 sudo
 svt-av1
 sxiv

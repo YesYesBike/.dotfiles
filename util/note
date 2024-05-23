@@ -8,7 +8,8 @@
 #    say
 #/;
 
-my $dir = $ENV{HOME}."/note/quicknotes/";
+my $dir = $ENV{HOME}."/note/";
+chdir $dir;
 #system("mkdir -p $dir");
 
 while(<>){
@@ -22,14 +23,13 @@ while(<>){
         $filename = $1;
         $line = $2;
     } else {
-        $filename = "later";
+        $filename = "quicknote";
         $line = $_;
     }
 
-    open FILE, ">>", $dir.$filename or die "Can't open $filename!"; 
+    open FILE, ">>", $filename or die "Can't open $filename!"; 
     print FILE $line."\n";
     close FILE;
 }
 
-chdir $dir;
 system("~/util/delempty");
