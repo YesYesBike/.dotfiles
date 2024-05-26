@@ -30,6 +30,7 @@ static const Rule rules[] = {
 	{ NULL,       NULL,       "Firefox",  1 << 1,       0,           -1 },
 	{ NULL,       NULL,       "org.pwmt.zathura",  1 << 2,       0,           -1 },
 	{ NULL,       NULL,       "mpv",      1 << 2,       0,           -1 },
+	{ NULL,       NULL,       "freecad",      1 << 2,       0,           -1 },
 	//{ NULL,       NULL,       NULL,       0,            0,           -1 },
 
 };
@@ -110,12 +111,12 @@ static const Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
-	{ ClkClientWin,         MODKEY1,         Button1,        movemouse,      {0} },
-	{ ClkClientWin,         MODKEY1,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY1,         Button3,        resizemouse,    {0} },
+	{ ClkClientWin,         MODKEY4,         Button1,        movemouse,      {0} },
+	{ ClkClientWin,         MODKEY4,         Button2,        togglefloating, {0} },
+	{ ClkClientWin,         MODKEY4,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
-	{ ClkTagBar,            MODKEY1,         Button1,        tag,            {0} },
-	{ ClkTagBar,            MODKEY1,         Button3,        toggletag,      {0} },
+	{ ClkTagBar,            MODKEY4,         Button1,        tag,            {0} },
+	{ ClkTagBar,            MODKEY4,         Button3,        toggletag,      {0} },
 };
 
