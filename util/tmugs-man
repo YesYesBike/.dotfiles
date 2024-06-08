@@ -1,6 +1,6 @@
 #!/bin/sh
 
-string=$({ apropos -s 1,1p . ; cat ~/util/manlist; } |
+string=$(( apropos -s 1,1p . ; cat ~/util/manlist ) |
     fzf-tmux -p 80% -n 1 --delimiter=' ' --bind change:first\
     --border-label "TMUGS-MAN" --tiebreak=chunk)
 

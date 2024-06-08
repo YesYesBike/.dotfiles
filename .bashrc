@@ -89,7 +89,7 @@ export PATH=$PATH:~/.spoof-dpi/bin
 
 clear
 
-if [ -s ~/note/quicknotes/important ]
+if [ -s ~/note/important ]
 then
-    cat ~/note/quicknotes/important 
+    cat ~/note/important 
 fi

@@ -7,11 +7,14 @@ case $alias in
     ae)
         tmux neww -n "aliasrc" "nvim ~/.aliasrc"
         ;;
+    ba)
+        tmux run "~/personal/ba/ba || exit 0; exec bash"
+        ;;
     be)
         tmux neww -n "bashrc" "nvim ~/.bashrc"
         ;;
     bo)
-        tmux run-shell  "~/util/tmugs-book || exit 0; exec bash"
+        tmux run "~/util/tmugs-book || exit 0; exec bash"
         ;;
     ch)
         ~/util/tmugs-CH

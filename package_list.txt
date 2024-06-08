@@ -8,6 +8,7 @@ acl
 adobe-source-code-pro-fonts
 adwaita-cursors
 adwaita-icon-theme
+adwaita-icon-theme-legacy
 alsa-lib
 alsa-topology-conf
 alsa-ucm-conf
@@ -407,6 +408,7 @@ prrte
 psmisc
 pugixml
 pulseaudio
+pwgen
 pyside6
 python
 python-attrs
@@ -572,6 +574,7 @@ xcb-util-keysyms
 xcb-util-renderutil
 xcb-util-wm
 xclip
+xcursor-themes
 xdg-utils
 xerces-c
 xf86-input-libinput

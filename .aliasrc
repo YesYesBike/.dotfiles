@@ -41,8 +41,8 @@ alias la='ls -a'
 alias ls='ls --color=auto'
 alias ll='ls -hal'
 alias mt='~/util/matching_test'
-alias mon='xrandr --output HDMI-1-1 --auto --left-of eDP-1; feh --bg-scale ~/images/wallpaper/selected/01.jpg --bg-scale ~/images/wallpaper/selected/04.jpg '
-alias monoff='xrandr --output HDMI-1-1 --off; feh --bg-scale ~/images/wallpaper/selected/01.jpg'
+alias mon='xrandr --output HDMI-1-1 --auto --left-of eDP-1 --output HDMI-1-2 --auto --left-of eDP-1 --output HDMI-1-3 --auto --left-of eDP-1 --output HDMI-1-4 --auto --left-of eDP-1; feh --bg-scale ~/images/wallpaper/selected/01.jpg --bg-scale ~/images/wallpaper/selected/06.jpg '
+alias monoff='xrandr --output HDMI-1-1 --off --output HDMI-1-2 --off --output HDMI-1-3 --off --output HDMI-1-4 --off; feh --bg-scale ~/images/wallpaper/selected/01.jpg'
 alias mv='mv -i'
 alias nf='clear; neofetch'
 #alias nfs="neofetch --color_blocks off | sed -e 's/\x1B\[[0-9;\?]*[a-zA-Z]//g' -e 's/^\s+$//'"
@@ -74,11 +74,5 @@ alias x='startx -- -nocursor'
 alias xc=startx
 
 function rascp {
-    scp $1 nonocar@rasbian:/home/nonocar/transfer
-}
-
-
-function mc {
-    mkdir -p $1
-    cd $1
+    scp $* nonocar@rasbian:/home/nonocar/transfer
 }
