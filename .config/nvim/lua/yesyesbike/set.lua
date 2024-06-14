@@ -5,7 +5,7 @@ vim.opt.ls = 0
 vim.opt.ruler = false
 vim.opt.shortmess = "atToOFI"   --"filnxtToOF"
 --vim.opt.cpoptions = "aABceFs_"
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 vim.opt.smd = false
 
 vim.opt.nu = false

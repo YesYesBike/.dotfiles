@@ -7,9 +7,6 @@ case $alias in
     ae)
         tmux neww -n "aliasrc" "nvim ~/.aliasrc"
         ;;
-    ba)
-        tmux run "~/personal/ba/ba || exit 0; exec bash"
-        ;;
     be)
         tmux neww -n "bashrc" "nvim ~/.bashrc"
         ;;

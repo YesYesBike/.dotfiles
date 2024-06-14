@@ -25,12 +25,12 @@ end)
 
 
 vim.keymap.set("n", "<C-g>", function ()
-    if vim.o.cmdheight == 0 then
-        vim.opt.cmdheight = 1
+    if vim.o.ls == 0 then
+        --vim.opt.cmdheight = 1
         vim.opt.ls = 2
         vim.opt.ruler = true
-    elseif vim.o.cmdheight == 1 then
-        vim.opt.cmdheight = 0
+    elseif vim.o.ls == 2 then
+        --vim.opt.cmdheight = 0
         vim.opt.ls = 0
         vim.opt.ruler = false
     end
@@ -92,7 +92,7 @@ vim.keymap.set("n", "<leader>y", "\"+y", { desc = "yank to clipboard" })
 vim.keymap.set("x", "<leader>y", "\"+y", { desc = "yank to clipboard" })
 vim.keymap.set("n", "<leader>Y", "\"+y$", { desc = "yank to clipboard" })
 
-vim.keymap.set("n", "<leader>w", ":w<CR>kj", { desc = "save with less keystrokes" })
+vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "save with less keystrokes" })
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "quit with less keystrokes" })
 vim.keymap.set("n", "<leader>x", ":!chmod u+x %<CR>", { silent = true })
 
@@ -229,6 +229,12 @@ vim.keymap.set("n", "<leader>1", function ()
 end)
 vim.keymap.set("n", "<leader>2", function ()
     vim.bo.filetype = 'perl'
+    vim.cmd.write({mods = {silent = true}})
+    vim.cmd('silent !chmod u+x %')
+    vim.cmd.star()
+end)
+vim.keymap.set("n", "<leader>3", function ()
+    vim.bo.filetype = 'python'
     vim.cmd.write({mods = {silent = true}})
     vim.cmd('silent !chmod u+x %')
     vim.cmd.star()

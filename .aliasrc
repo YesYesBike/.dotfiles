@@ -9,7 +9,7 @@ alias cdf='cd ~/.dotfiles'
 alias cp='cp -i'
 alias dd='dd status=progress '
 alias delem='~/util/delempty'
-alias dpi='spoof-dpi -port 12345'
+#alias dpi='spoof-dpi -port 12345'
 #alias ed='clear; ed -p: -v '
 alias ed='clear; ed'
 alias ex='nex'
@@ -48,8 +48,8 @@ alias nf='clear; neofetch'
 #alias nfs="neofetch --color_blocks off | sed -e 's/\x1B\[[0-9;\?]*[a-zA-Z]//g' -e 's/^\s+$//'"
 alias note='~/util/note'
 alias pg='pacman -Q | grep '
-alias PG='cd ~/images/wallpaper/programming/; feh; cd - 1> /dev/null'
-alias pi='sudo pacman -S'
+#alias PG='cd ~/images/wallpaper/programming/; feh; cd - 1> /dev/null'
+#alias pi='sudo pacman -S'
 alias pq='pacman -Q > ~/.dotfiles/package_list2.txt && nvim ~/.dotfiles/package_list2.txt'
 alias pu='echo "PACKAGE UPGRADE" && sudo pacman -Syu; pacman -Q |
     cut -d " " -f 1 > ~/.dotfiles/package_list.txt'
@@ -68,7 +68,7 @@ alias type='type -a '
 alias sudo='sudo -E -s '
 alias v=nvim
 alias vi=nvi
-alias vidir='EDITOR=nvim; vidir; EDITOR='
+#alias vidir='EDITOR=nvim; vidir; EDITOR='
 alias vc='nvim --clean'
 alias x='startx -- -nocursor'
 alias xc=startx
