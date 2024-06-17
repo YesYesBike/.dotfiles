@@ -66,6 +66,7 @@ export FZF_COMPLETION_TRIGGER='~~'
 export BC_ENV_ARGS="$HOME/.bc"
 export PERLDOC_PAGER="less -+C "
 export PATH=$PATH:~/.spoof-dpi/bin
+export EDITOR=nvi
 
 
 #autocompletion for alias

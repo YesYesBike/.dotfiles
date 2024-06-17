@@ -1,5 +1,5 @@
 alias :q='exit'
-alias backup='~/util/backup'
+alias bak='~/util/backup'
 alias bc='bc -q '
 alias br='sudo vi /sys/class/backlight/intel_backlight/brightness'
 alias bs='source ~/.bashrc'
@@ -41,8 +41,6 @@ alias la='ls -a'
 alias ls='ls --color=auto'
 alias ll='ls -hal'
 alias mt='~/util/matching_test'
-alias mon='xrandr --output HDMI-1-1 --auto --left-of eDP-1 --output HDMI-1-2 --auto --left-of eDP-1 --output HDMI-1-3 --auto --left-of eDP-1 --output HDMI-1-4 --auto --left-of eDP-1; feh --bg-scale ~/images/wallpaper/selected/01.jpg --bg-scale ~/images/wallpaper/selected/06.jpg '
-alias monoff='xrandr --output HDMI-1-1 --off --output HDMI-1-2 --off --output HDMI-1-3 --off --output HDMI-1-4 --off; feh --bg-scale ~/images/wallpaper/selected/01.jpg'
 alias mv='mv -i'
 alias nf='clear; neofetch'
 #alias nfs="neofetch --color_blocks off | sed -e 's/\x1B\[[0-9;\?]*[a-zA-Z]//g' -e 's/^\s+$//'"
@@ -68,11 +66,26 @@ alias type='type -a '
 alias sudo='sudo -E -s '
 alias v=nvim
 alias vi=nvi
-#alias vidir='EDITOR=nvim; vidir; EDITOR='
 alias vc='nvim --clean'
 alias x='startx -- -nocursor'
 alias xc=startx
 
 function rascp {
     scp $* nonocar@rasbian:/home/nonocar/transfer
+}
+
+function monon {
+    xrandr --output HDMI-1-1 --auto --left-of eDP-1
+    xrandr --output HDMI-1-2 --auto --left-of eDP-1
+    xrandr --output HDMI-1-3 --auto --left-of eDP-1
+    xrandr --output HDMI-1-4 --auto --left-of eDP-1
+    feh --bg-scale ~/images/wallpaper/selected/01.jpg --bg-scale ~/images/wallpaper/selected/06.jpg
+}
+
+function monoff {
+    xrandr --output HDMI-1-1 --off
+    xrandr --output HDMI-1-2 --off
+    xrandr --output HDMI-1-3 --off
+    xrandr --output HDMI-1-4 --off
+    feh --bg-scale ~/images/wallpaper/selected/01.jpg --bg-scale ~/images/wallpaper/selected/06.jpg
 }
