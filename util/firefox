@@ -1,7 +1,8 @@
 #!/bin/sh
 
 url=$(sed '/^#/d' ~/personal/firefox_list | column -t |\
-    fzf-tmux -p 80% -n 1,2 --with-nth=1,2,3 --tiebreak=begin --bind change:first --border-label "TMUGS-FIREFOX" |\
+    fzf-tmux -p 80% -n 1,2 --with-nth=1,2,3 \
+    --tiebreak=begin --bind change:first --border-label "TMUGS-FIREFOX" |\
     perl -lane '$F[3]=$F[3]."&t=".$F[2] if $F[2] ne "." && $F[3] =~ /youtube/; print $F[3]')
 
 [ -z "$url" ] && exit 0

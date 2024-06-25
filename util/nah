@@ -33,7 +33,7 @@ my @jong = (
     "",   "r",  "R",  "rt", "s",  "sw", "sg",
     "e",  "f",  "fr", "fa", "fq", "ft", "fx",
     "fv", "fg", "a",  "q",  "qt", "t",  "T",
-    "d",  "w",  "x",  "z",  "x",  "v",  "g",
+    "d",  "w",  "c",  "z",  "x",  "v",  "g",
 );
 
 sub jamo {
@@ -78,4 +78,5 @@ for(<>) {
         my $char = convert($code);
         print $char;
     }
+    print "\n";
 }

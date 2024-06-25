@@ -65,8 +65,7 @@ export FZF_COMPLETION_TRIGGER='~~'
 
 export BC_ENV_ARGS="$HOME/.bc"
 export PERLDOC_PAGER="less -+C "
-export PATH=$PATH:~/.spoof-dpi/bin
-export EDITOR=nvi
+export PATH=$PATH:~/.spoof-dpi/bin:~/src/freecad/build/bin/
 
 
 #autocompletion for alias
