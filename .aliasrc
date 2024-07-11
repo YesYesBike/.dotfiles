@@ -14,7 +14,6 @@ alias delem='~/util/delempty'
 alias ed='clear; ed'
 alias ex='nex'
 alias f='. ~/util/falias'
-alias FC='~/src/freecad/build/bin/FreeCAD&'
 alias feh='feh -Z '
 alias ga.='git add .'
 alias gaa='git add -A'
@@ -69,6 +68,7 @@ alias sudo='sudo -E -s '
 alias v=nvim
 alias vc='nvim --clean'
 alias vidir='export EDITOR=nvim; vidir'
+alias viron='sudo virsh net-start default'
 alias x='startx -- -nocursor'
 alias xc=startx
 
