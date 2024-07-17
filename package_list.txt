@@ -79,6 +79,8 @@ dtc
 duktape
 e2fsprogs
 ed
+edk2-aarch64
+edk2-arm
 edk2-ovmf
 efibootmgr
 efivar
@@ -384,6 +386,7 @@ linux-firmware-whence
 llvm
 llvm-libs
 lm_sensors
+lmdb
 log4cplus
 lua51
 lua51-lpeg
@@ -396,6 +399,9 @@ mailcap
 make
 man-db
 man-pages
+mariadb
+mariadb-clients
+mariadb-libs
 materialx
 mbedtls2
 md4c
@@ -547,6 +553,9 @@ python-yaml
 qemu-base
 qemu-common
 qemu-img
+qemu-system-aarch64
+qemu-system-arm
+qemu-system-arm-firmware
 qemu-system-x86
 qemu-system-x86-firmware
 qhull

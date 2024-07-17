@@ -52,10 +52,10 @@ alias pq='pacman -Q > ~/.dotfiles/package_list2.txt && nvim ~/.dotfiles/package_
 alias pu='echo "PACKAGE UPGRADE" && sudo pacman -Syu; pacman -Q |
     cut -d " " -f 1 > ~/.dotfiles/package_list.txt'
 alias raf='~/util/raffle'
-alias rasp='tmux renamew "RASP"; sudo picocom -b 115200 /dev/ttyUSB0'
+alias rasp='tmux renamew "RASP"; sudo picocom -b 115200 /dev/ttyUSB0; tmux setw automatic-rename'
 alias rassh='ssh nonocar@rasbian'
 alias rb='echo "FUN FUN RE-BOOT!" && sudo reboot '
-alias rocky='ssh manuel@rocky'
+alias rocky='tmux renamew ROCKY; sudo virsh start rocky9; sudo virsh console rocky9; tmux setw automatic-rename'
 alias sicp='racket -I sicp'
 alias sd='echo "SHUTDOWN" && sudo shutdown -h 0'
 alias t='tmux '

@@ -10,3 +10,4 @@ set show-all-if-unmodified on
 #set active-region-end-color "\e[0m"
 set colored-completion-prefix on
 set completion-ignore-case on
+"\C-l":     clear-screen
