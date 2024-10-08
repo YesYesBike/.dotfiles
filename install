@@ -1,0 +1,9 @@
+#!/bin/bash
+
+stow .
+mkdir -p ~/src
+cd ~/.dotfiles/src
+for file in *
+do
+    ls -sn ~/.dotfiles/src/$file ~/src/$file
+done

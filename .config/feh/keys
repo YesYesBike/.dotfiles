@@ -1,0 +1,19 @@
+prev_img j
+next_img k
+
+scroll_left a
+scroll_right d
+scroll_up w
+scroll_down s
+
+zoom_fill f
+zoom_fit F
+zoom_in i
+zoom_out o
+render r
+
+menu_parent h Left
+menu_child  l Right
+menu_down   j Down
+menu_up     k Up
+menu_select space Return

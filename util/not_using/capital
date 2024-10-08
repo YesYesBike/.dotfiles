@@ -1,0 +1,43 @@
+#!/bin/perl
+use utf8;
+use strict;
+use warnings;
+use diagnostics;
+use feature qw/
+    say
+/;
+
+INIT {
+    our %nocap;
+    for ( qw(
+            a an the
+                and but or
+            as at but by for from in into of off on onto per to with
+        )
+    )
+    {
+        $nocap{$_}++;
+    }
+}
+
+sub tc{
+    local $_ = shift;
+
+    s/(\pL[\pL']*)/$nocap{$1} ? lc($1) : ucfirst(lc($1))/ge;
+
+    s/^(\pL[\pL']*) /\u\L$1/x;      #Make Uppercase the first word
+    s/ (\pL[\pL']*)$/\u\L$1/x;      #Make Uppercase the last word
+
+    #Same inside the brackets
+    s/\( (\pL[\pL']*) /(\u\L$1/x;
+    s/(\pL[\pL']*) \) /\u\L$1)/x;
+
+    #Behind colon, semicolon
+    s/ ( [:;] \s+ ) (\pL\[\pL']* ) /$1\u\L$2/x;
+
+    return $_;
+}
+
+
+$_ = "the enchantress of dzur moutain";
+say tc($_);

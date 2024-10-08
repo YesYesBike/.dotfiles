@@ -1,0 +1,7 @@
+[user]
+	name = YesYesBike
+	email = 156565534+YesYesBike@users.noreply.github.com
+[core]
+	editor = nvim
+[init]
+	defaultBranch = master

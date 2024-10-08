@@ -1,0 +1,21 @@
+#!/bin/perl
+#use utf8;
+#use strict;
+#use warnings;
+#use Data::Dumper;
+#use feature qw/
+#    say
+#/;
+#
+#my %seen = ();
+#my @uniq = ();
+#while(<>){
+#    chomp;
+#    push @uniq, $_ unless $seen{$_}++;
+#}
+#
+##open FILE, '>', $ARGV[1];
+##
+##for(
+#
+#print Dumper @uniq;

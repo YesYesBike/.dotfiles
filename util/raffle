@@ -1,0 +1,56 @@
+#!/bin/perl
+#use utf8;
+#use strict;
+#use warnings;
+#use Data::Dumper;
+use feature qw/
+    say
+/;
+use integer;
+
+START:
+
+my @asdf;
+
+system("clear");
+print("Enter the number: ");
+chomp(my $n = <STDIN>);
+for (my $i=0; $i<$n; $i++){
+    system("clear");
+    my $line;
+    print("Enter the String(". ($i+1) .")\n> ");
+    chomp($line = <STDIN>);
+    push @asdf, $line;
+}
+
+CHECK:
+my $order = 0;
+say ++$order.": ".$_ for (@asdf);
+print "Do you want to edit? (y/else): ";
+chomp(my $answer = <STDIN>);
+
+if($answer =~ /^y$/i){
+    my $string;
+    QWER:
+    print "Enter the line number: ";
+    chomp($n = <STDIN>);
+    goto QWER if($n > $#asdf+2 || $n < 1);
+    print("Enter the String($n)\n> ");
+    chomp($string = <STDIN>);
+    $asdf[$n-1] = $string;
+    goto CHECK;
+}
+
+system("clear");
+print "Press Enter to continue";
+<STDIN>;
+
+say "RESULT: $asdf[rand($#asdf)]";
+print "Do you want to stop? (y/else): ";
+chomp($answer = <STDIN>);
+if($answer =~ /^y$/i){
+    say "Good bye!";
+    exit;
+} else {
+    goto START;
+}

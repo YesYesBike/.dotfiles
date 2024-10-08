@@ -1,0 +1,18 @@
+#!/bin/sh
+
+case $(apropos $1 | grep -i "^$1" | wc -l) in
+    0)
+        ;;
+    #1)
+    #    tmux renamew "man($command)"; man $1
+    #    ;;
+    *)
+        string=$(apropos $1 | grep -i "^$1" |\
+            fzf-tmux -p 100% -n 1 --delimiter=' '\
+            --bind change:first --border-label "TMUX-MAN")
+        command=$(echo $string | cut -d ' ' -f 1)
+        section=$(echo $string | cut -d ' ' -f 2 | tr -d '()')
+        tmux renamew "man($command)"
+        man $section $command
+        ;;
+esac

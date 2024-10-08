@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+
+mkdir -p ~/backup
+tar -cvJf ~/backup/backup.tar.xz -T ~/personal/backup_list

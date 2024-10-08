@@ -1,0 +1,20 @@
+#!/bin/perl
+#use utf8;
+#use strict;
+#use warnings;
+#use Data::Dumper;
+#use feature qw/
+#    say
+#/;
+
+#slowcat - print slow
+#usage: slowcat [-Delay] [files..]
+#from Perl Cookbook by Tom Christiansen and Nathan Torkington
+my $delay = ($ARGV[0] =~ /^-([.\d]+)/) ? (shift, $1) : 1;
+$| = 1;
+while(<>){
+    for (split(//)){
+        print;
+        select(undef,undef,undef, 0.005*$delay);
+    }
+}

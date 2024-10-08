@@ -1,0 +1,7 @@
+#!/bin/sh
+
+name=$(cut -d '.' -f 1 /tmp/__FILENAME42069)
+as "$name.s" -o "$name.o"
+ld "$name.o" -o "$name"
+
+././$name

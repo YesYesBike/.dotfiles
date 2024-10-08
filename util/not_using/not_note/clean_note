@@ -1,0 +1,89 @@
+#!/bin/perl
+use utf8;
+use strict;
+use warnings;
+use Data::Dumper;
+use feature qw/
+    say
+/;
+
+#  Cleaning old notes
+
+START:
+open FILE, "<", $ENV{HOME}."/note/archive/legacy";
+
+my @line = ();
+
+while(<FILE>){
+    chomp;
+    push @line, $_;
+}
+
+close FILE;
+
+die "file is empty!" if !@line;
+
+system("clear");
+my $num = int(rand($#line));
+if($line[$num] !~ /^#/){
+    say "Random idea: \"$line[$num++]\"";
+    say "It's on line ". $num-- . "/" . $#line+1 . ".";
+
+    print "Want to delete? ([y]es / [n]ext / [m]ove / <CR>): ";
+    chomp(my $answer = <STDIN>);
+    if($answer){
+        if($answer =~ /y/){
+            open FILE, ">", $ENV{HOME}."/note/archive/legacy";
+            for (my $i=0; $i<=$#line; $i++){
+                say FILE $line[$i] unless $i == $num;
+            }
+            close FILE;
+        } elsif($answer =~ /n/){
+            $line[$num] = '#'.$line[$num];
+            open FILE, ">", $ENV{HOME}."/note/archive/legacy";
+            say FILE for (@line);
+            close FILE;
+            goto START;
+        } elsif($answer =~ /m/){
+            FILENAME_ASKAGIAN:
+            print "Enter the filename([l]ist): ";
+            chomp(my $filename = <STDIN>);
+            if($filename =~ /^l$/){
+                opendir my $dir, $ENV{HOME}."/note/archive/files/"; 
+                my @filelist = readdir $dir;
+                closedir $dir;
+                shift @filelist for 1..2;
+
+                say "Filelist";
+                say join(', ', sort @filelist);
+                goto FILENAME_ASKAGIAN;
+            }
+
+            open NEW, ">>", $ENV{HOME}."/note/archive/files/".$filename;
+            say NEW $line[$num];
+            close NEW;
+
+            open FILE, ">", $ENV{HOME}."/note/archive/legacy";
+            for (my $i=0; $i<=$#line; $i++){
+                say FILE $line[$i] unless $i == $num;
+            }
+            close FILE;
+        }
+        print "Start Again?([n]o): ";
+        chomp($answer = <STDIN>);
+        goto START unless $answer =~ /n/;
+
+    }
+} else {
+    say "There is no more line.";
+}
+
+open FILE, ">", $ENV{HOME}."/note/archive/legacy";
+for (@line){
+    s/^#//;
+    say FILE;
+}
+close FILE;
+
+
+say "good bye~";

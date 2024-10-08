@@ -1,0 +1,17 @@
+#!/bin/sh
+
+alias=$(fzf-tmux -n 1 -delimiter='/' -p 50% --border-label='Tmugs-Alias' \
+    < ~/.tmux-alias | cut -d '/' -f 1 | tr -d ' ')
+
+case $alias in
+    ae) tmux neww -n "aliasrc" "nvim ~/.aliasrc" ;;
+    be) tmux neww -n "bashrc" "nvim ~/.bashrc" ;;
+    bo) tmux run "~/util/tmugs-book || exit 0; exec bash" ;;
+    #ch) ~/util/tmugs-CH ;;
+    fe) tmux neww -n "firefox_list" -c ~/personal "nvim firefox_list" ;;
+    he) tmux neww -n "Homepage" "nvim homepage.html" ;;
+    tae) tmux neww -n "tmux-alias" -c ~/"util" "nvim tmugs-alias" ;;
+    te) tmux neww -n "tmuxconf" "nvim ~/.tmux.conf" ;;
+    ve) tmux neww -n "nvim_set" -c ~/".config/nvim" "nvim init.lua" ;;
+    *) ;;
+esac

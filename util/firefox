@@ -1,0 +1,10 @@
+#!/bin/sh
+
+url=$(sed '/^#/d' ~/personal/firefox_list | column -t |\
+    fzf-tmux -p 80% -n 1,2 --with-nth=1,2,3 \
+    --tiebreak=begin --bind change:first --border-label "TMUGS-FIREFOX" |\
+    perl -lane '$F[3] = $F[3] =~ m#^https://www.youtube.com# ? $F[3]."&t=".$F[2] : $F[3].$F[2] if $F[2] ne "."; print $F[3]')
+
+[ -z "$url" ] && exit 0
+
+firefox --new-tab $url

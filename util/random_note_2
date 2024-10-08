@@ -1,0 +1,53 @@
+#!/bin/perl
+use utf8;
+use strict;
+use warnings;
+use Data::Dumper;
+use feature qw/
+    say
+/;
+
+my %files;
+my $dir = $ENV{HOME}."/note/archive/files/";
+
+START:
+opendir (my $filelist, $dir);
+my @filelist = readdir $filelist;
+closedir $filelist;
+shift @filelist for 1..2;
+
+for (@filelist){
+    open FILE, '<', $dir.$_;
+    my @lines;
+    while( chomp(my $line = <FILE>) ){
+        push @lines, $line
+    }
+    $files{$_} = [ @lines ];
+}
+
+RESELECT:
+system("clear");
+my $filename = (keys %files)[rand keys %files];
+goto RESELECT unless $files{$filename}->[0];
+
+my @lines = @{ $files{$filename} };
+my $num = int rand $#lines;
+say "$lines[$num]";
+say "    -from \"$filename\"...";
+print "Delete? (y / <CR>): ";
+chomp(my $answer = <STDIN>);
+if($answer =~ m/^y$/){
+    splice @lines, $num, 1;
+    open WRITE, '>', $dir.$filename;
+    say WRITE for(@lines);
+    close WRITE;
+}
+
+print "Exit? (y / <CR>): ";
+chomp(my $answer = <STDIN>);
+if($answer =~ m/^y$/){
+    say "Good bye";
+    exit 0;
+} else {
+    goto START;
+}

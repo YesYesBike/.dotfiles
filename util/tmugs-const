@@ -1,0 +1,12 @@
+#!/bin/sh
+
+string=$( rg -i "^#\s*define\s+$1" /usr/include | cut -d/ -f4- |\
+    tr ':\t' '  ' | tr -s ' ' | cut -d " " -f 1,3-4 | column -t |\
+    fzf-tmux -p 100% --border-label "C Const" -n 1,2)
+
+[ -z "$string" ] && exit 0;
+
+file=$(echo $string | cut -f 1 -d " ")
+const=$(echo $string | cut -f 2 -d " ")
+cd /usr/include
+nvim $file +/"#\s*define\s\+$const"
