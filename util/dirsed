@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cut -d "/" -f 4- | sed -e "/\.git/d" -e "/^\.cache/d" -e "/^\.local/d" -e "/^\.mozilla/d"\
-    -e "/^\.vim/d" -e "/^\.cpan/d" -e "/^src\/.*\//d"
+cut -d "/" -f 4- | grep -v -e "\.git" -e "^\.cache" -e "^\.local" -e "^\.mozilla"\
+    -e "^\.vim" -e "^\.cpan" -e "^src\/.*\/"

@@ -65,7 +65,7 @@ export FZF_COMPLETION_TRIGGER='~~'
 
 export BC_ENV_ARGS="$HOME/.bc"
 export PERLDOC_PAGER="less -+C "
-export PATH=$PATH:~/.spoofdpi/bin
+export PATH=$PATH:~/.spoofdpi/bin:~/bin
 #export LESS='-R --use-color -Dd+r$Du+b$'	 #Color
 #export MANPAGER="less -R --use-color -Dd+r -Du+b"
 #export MANROFFOPT="-P -c"

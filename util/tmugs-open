@@ -17,4 +17,5 @@ file=$(basename $file)
 #fi
 command=nvim
 
-[ -n $file ] && tmux neww -c ~/$directorie "$command $file"
+#[ -n $file ] && tmux neww -c ~/$directorie "$command $file"
+[ -n $file ] && tmux neww -c ~/$directorie "nvim $file"

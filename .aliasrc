@@ -28,7 +28,6 @@ alias gss='git status -s '
 alias gp='git push '
 alias gP='git pull '
 alias grep='grep --color=auto'
-alias han='~/util/han'
 alias hanoi='python3 ~/src/hanoi/hanoi.py'
 alias info='info --vi-keys'
 alias kbd='setxkbmap -option caps:escape; xset r rate 190 40'
@@ -43,7 +42,6 @@ alias pg='pacman -Q | grep '
 ##alias pu='echo "PACKAGE UPGRADE" && sudo pacman -Syu'
 alias raf='~/util/raffle'
 ##alias rasp='tmux renamew "RASP"; sudo picocom -b 115200 /dev/ttyUSB0; tmux setw automatic-rename'
-alias rassh='ssh nonocar@rasbian'
 ##alias rocky='tmux renamew ROCKY; sudo virsh start rocky9; sudo virsh console rocky9; tmux setw automatic-rename'
 alias sicp='racket -I sicp'
 alias st='stty cols 101; stty rows 30'
@@ -58,6 +56,12 @@ alias vc='nvim --clean'
 alias vidir='export EDITOR=nvim; vidir'
 alias x='cd; startx -- -nocursor'
 alias xc='cd; startx'
+
+
+function rascp {
+	#echo $@
+	scp $@ user@rasbian:/home/user/transfer/local
+}
 
 function monon {
 	xrandr --output HDMI-1-1 --auto --left-of eDP-1
