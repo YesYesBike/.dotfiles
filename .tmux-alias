@@ -1,6 +1,7 @@
 ae  / Edit .aliasrc
 be  / Edit .bashrc
 bo  / Booklist
+di  / Diary
 fe  / Edit firefox_list
 he  / Edit the homepage
 te  / Edit .tmux.conf

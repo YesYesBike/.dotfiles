@@ -2,5 +2,5 @@
 
 location=$(find ~ -mindepth 1 -maxdepth 3 -type d |
     ~/util/dirsed | fzf --margin 13% --border-label="somewhere over teh lainbow")
-[ -z $location ] || cd ~/$location
+[ -z "$location" ] || cd ~/"$location"
 

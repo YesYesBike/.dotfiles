@@ -8,6 +8,7 @@ case $alias in
     be) tmux neww -n "bashrc" "nvim ~/.bashrc" ;;
     bo) tmux run "~/util/tmugs-book || exit 0; exec bash" ;;
     #ch) ~/util/tmugs-CH ;;
+	di) tmux neww -n "DIARY" -c ~/"personal/projects/github_io/diary" "nvim 2024/10.html" ;;
     fe) tmux neww -n "firefox_list" -c ~/personal "nvim firefox_list" ;;
     he) tmux neww -n "Homepage" "nvim homepage.html" ;;
     tae) tmux neww -n "tmux-alias" -c ~/"util" "nvim tmugs-alias" ;;
