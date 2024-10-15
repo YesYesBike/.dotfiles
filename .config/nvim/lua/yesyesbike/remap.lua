@@ -3,12 +3,12 @@ vim.keymap.set("n", "<leader>E", vim.cmd.Ex)
 vim.keymap.set({"n", "x"}, "<leader>h", function ()
 	if vim.o.number == false then
 		vim.o.number = true
-		vim.o.relativenumber = true
+		--vim.o.relativenumber = true
 		vim.o.signcolumn = "number"
 		print("set number")
 	elseif vim.o.number == true then
 		vim.o.number = false
-		vim.o.relativenumber = false
+		--vim.o.relativenumber = false
 		vim.o.signcolumn = "no"
 		print("set nonumber")
 	end
@@ -153,6 +153,9 @@ vim.keymap.set("n", "<leader>rr", function()
 	elseif filetype == "fortran" then
 			vim.cmd("11new")
 			vim.cmd.te("~/util/gcc # -F ;exit")
+	elseif filetype == "cpp" then
+			vim.cmd("11new")
+			vim.cmd.te("~/util/gcc # -p ;exit")
 	--elseif filetype == "lua" then
 	--	  vim.cmd.so()
 	--elseif filetype == "racket" then
@@ -173,8 +176,10 @@ vim.keymap.set("n", "<leader>m", function ()
 		vim.cmd('!gcc %')
 	elseif vim.bo.filetype == "fortran" then
 		vim.cmd('!gfortran %')
-	elseif vim.bo.filetype == "asm" then
-		vim.cmd('!as %; ld a.out -o build')
+	elseif vim.bo.filetype == "cpp" then
+		vim.cmd('!g++ %')
+	--elseif vim.bo.filetype == "asm" then
+	--	vim.cmd('!as %; ld a.out -o build')
 	end
 end)
 
@@ -206,12 +211,17 @@ vim.keymap.set("n", "<leader>1", function ()
 	vim.cmd.star()
 end)
 vim.keymap.set("n", "<leader>2", function ()
-	vim.bo.filetype = 'perl'
+	vim.bo.filetype = 'python'
 	vim.cmd.norm('a#!/usr/bin/perl')
-	--vim.cmd.norm('a')
+	vim.cmd.norm('2o')
+	vim.cmd.norm('ause warnings;')
+	vim.cmd.norm('o')
+	vim.cmd.norm('ause strict;')
+	vim.cmd.norm('2o')
 	vim.cmd.write({mods = {silent = true}})
 	vim.cmd('silent !chmod u+x %')
-	--vim.cmd.star()
+	vim.bo.filetype = 'perl'
+	vim.cmd.star()
 end)
 vim.keymap.set("n", "<leader>3", function ()
 	vim.bo.filetype = 'python'

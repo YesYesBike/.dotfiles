@@ -13,7 +13,7 @@ then
 fi
 
 compile=$1
-set -- $(getopt -q :go:cF "$@")
+set -- $(getopt -q :go:cFp "$@")
 
 while [ -n "$1" ]
 do
@@ -30,6 +30,8 @@ do
             not_clear=1 ;;
         -F)
             compiler=gfortran ;;
+        -p)
+            compiler=g++ ;;
     esac
     shift
 done

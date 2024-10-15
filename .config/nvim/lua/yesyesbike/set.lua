@@ -10,7 +10,7 @@ vim.opt.cmdheight = 1       --0
 vim.opt.smd = false         --false
 vim.opt.fileencodings = 'utf-8,cp949'
 
-vim.opt.nu = false
+vim.opt.nu = true
 vim.opt.relativenumber = false
 
 vim.api.nvim_create_autocmd("BufEnter", {
