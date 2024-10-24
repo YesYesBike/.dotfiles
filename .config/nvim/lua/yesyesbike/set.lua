@@ -8,19 +8,10 @@ vim.opt.shortmess = "atToOFI"   --"filnxtToOF"
 --vim.opt.cpoptions = "aABceFs_"
 vim.opt.cmdheight = 1       --0
 vim.opt.smd = false         --false
-vim.opt.fileencodings = 'utf-8,cp949'
+--vim.opt.fileencodings = 'utf-8,cp949'
 
 vim.opt.nu = true
 vim.opt.relativenumber = false
-
-vim.api.nvim_create_autocmd("BufEnter", {
-    group = vim.api.nvim_create_augroup('TerminalAutoInsertMode', { clear = true }),
-    callback = function()
-        if vim.bo.buftype == "terminal" then
-            vim.cmd.star()
-        end
-    end,
-})
 
 vim.api.nvim_create_autocmd("TermOpen", {
     group = vim.api.nvim_create_augroup('TerminalSetup', { clear = true }),
@@ -29,24 +20,15 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.opt.relativenumber = false
         vim.opt.signcolumn = "no"
         vim.cmd.star()
-        
-        --Apprentice
-        vim.g.terminal_color_0 = "#1c1c1c"
-        vim.g.terminal_color_1 = "#af5f5f"
-        vim.g.terminal_color_2 = "#5f875f"
-        vim.g.terminal_color_3 = "#87875f"
-        vim.g.terminal_color_4 = "#5f87af"
-        vim.g.terminal_color_5 = "#5f5f87"
-        vim.g.terminal_color_6 = "#5f8787"
-        vim.g.terminal_color_7 = "#6C6C6C"
-        vim.g.terminal_color_8 = "#444444"
-        vim.g.terminal_color_9 = "#ff8700"
-        vim.g.terminal_color_10 = "#87af87"
-        vim.g.terminal_color_11 = "#ffffaf"
-        vim.g.terminal_color_12 = "#87afd7"
-        vim.g.terminal_color_13 = "#8787af"
-        vim.g.terminal_color_14 = "#5fafaf"
-        vim.g.terminal_color_15 = "#ffffff"
+    end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    group = vim.api.nvim_create_augroup('TerminalStar', { clear = true }),
+    callback = function()
+		if vim.bo.buftype == "terminal" then
+			vim.cmd.star()
+		end
     end,
 })
 
@@ -127,3 +109,21 @@ vim.g.netrw_banner = 0
 vim.opt.colorcolumn = "80"
 
 vim.cmd.colorscheme('yin')
+
+--Apprentice
+vim.g.terminal_color_0 = "#1c1c1c"
+vim.g.terminal_color_1 = "#af5f5f"
+vim.g.terminal_color_2 = "#5f875f"
+vim.g.terminal_color_3 = "#87875f"
+vim.g.terminal_color_4 = "#5f87af"
+vim.g.terminal_color_5 = "#5f5f87"
+vim.g.terminal_color_6 = "#5f8787"
+vim.g.terminal_color_7 = "#6C6C6C"
+vim.g.terminal_color_8 = "#444444"
+vim.g.terminal_color_9 = "#ff8700"
+vim.g.terminal_color_10 = "#87af87"
+vim.g.terminal_color_11 = "#ffffaf"
+vim.g.terminal_color_12 = "#87afd7"
+vim.g.terminal_color_13 = "#8787af"
+vim.g.terminal_color_14 = "#5fafaf"
+vim.g.terminal_color_15 = "#ffffff"
