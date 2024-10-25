@@ -10,11 +10,6 @@ then
 	echo -ne '\033[?8c'
 fi
 
-if [ "$TERM" = "tmux-256color" ]
-then
-	echo -ne '\033[?8c'
-fi
-
 #parse_git_branch()
 #{
 #	 git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
@@ -52,7 +47,6 @@ PS1='~ '
 
 
 set -o vi
-#bind -m vi-insert "\C-l":clear-screen
 . ~/.aliasrc
 
 
@@ -66,31 +60,6 @@ export FZF_COMPLETION_TRIGGER='~~'
 export BC_ENV_ARGS="$HOME/.bc"
 export PERLDOC_PAGER="less -+C "
 export PATH=$PATH:~/.spoofdpi/bin:~/bin
-#export LESS='-R --use-color -Dd+r$Du+b$'	 #Color
-#export MANPAGER="less -R --use-color -Dd+r -Du+b"
-#export MANROFFOPT="-P -c"
-
-
-#autocompletion for alias
-#function make-completion-wrapper () {
-#	 local function_name="$2"
-#	 local arg_count=$(($#-3))
-#	 local comp_function_name="$1"
-#	 shift 2
-#	 local function="
-#		 function $function_name {
-#		   ((COMP_CWORD+=$arg_count))
-#		   # Quotes here are important
-#		   COMP_WORDS=( "$@" \"\${COMP_WORDS[@]:1}\" )
-#		   "$comp_function_name"
-#		   return 0
-#		 }"
-#	 eval "$function"
-#	 echo $function_name
-#	 echo "$function"
-#}
-
-#clear
 
 date +'%F(%a)'
 
