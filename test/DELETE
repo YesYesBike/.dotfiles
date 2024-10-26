@@ -1,0 +1,8 @@
+#!/bin/sh
+
+[ "$PWD" != "/home/$USER/test" ] && exit 69
+
+for file in *
+do
+    [ "./$file" != "$0" ] && rm -rf $file
+done
