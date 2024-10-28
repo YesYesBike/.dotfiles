@@ -5,4 +5,12 @@ book=$(column -t ~/common/pdf/booklist |
     --border-label "TMUGS-BOOK" | tr -s ' ' | cut -d ' ' -f 2)
 
 [ -z "$book" ] && exit 0
+if [ "$book" == "RECENT" ]
+then
+	book=$(fzf-tmux -p 80% --tiebreak=begin --bind change:first\
+		--border-label "RECENT" < ~/common/pdf/booklist_recent)
+	[ -z "$book" ] && exit 0
+fi
+export book
+~/util/tmugs-book-recent
 zathura ~/common/pdf/$book.pdf
