@@ -2,8 +2,10 @@
 
 stow .
 mkdir -p ~/src
-cd ~/.dotfiles/src
-for file in *
+cd ~/src
+for i in {dmenu,dwm,st}
 do
-    ls -sn ~/.dotfiles/src/$file ~/src/$file
+	git clone git://git.suckless.org/$i || exit 99
+	ln -s ~/.dotfiles/src/$i/config.h ~/src/$i/config.h
+	cp ~/.dotfiles/src/$i/*.diff ~/src/$i
 done

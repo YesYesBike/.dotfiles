@@ -10,9 +10,4 @@
 !.config/zathura/
 !.config/pulse/default.pa
 
-src/
-!src/st/
-!src/dmenu/
-!src/dwm/
-
 test/
