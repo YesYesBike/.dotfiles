@@ -9,8 +9,10 @@ case $alias in
     bo) tmux run "~/util/tmugs-book || exit 0; exec bash" ;;
     #ch) ~/util/tmugs-CH ;;
 	di) tmux neww -n "DIARY" -c ~/"personal/projects/github_io/diary" "nvim 2024/10.html" ;;
-    fe) tmux neww -n "firefox_list" -c ~/personal "nvim firefox_list" ;;
+    fe) tmux neww -n "firefox_list" -c ~/personal "~/util/tmugs-fe" ;;
+    #fe) tmux neww -n "firefox_list" -c ~/personal "nvim firefox_list" ;;
     he) tmux neww -n "Homepage" "nvim homepage.html" ;;
+	#lol) tmux neww "printf 'enter the value: '; read asdf; echo $asdf" ;;
     tae) tmux neww -n "tmux-alias" -c ~/"util" "nvim tmugs-alias" ;;
     te) tmux neww -n "tmuxconf" "nvim ~/.tmux.conf" ;;
     ve) tmux neww -n "nvim_set" -c ~/".config/nvim" "nvim init.lua" ;;

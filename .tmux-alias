@@ -4,6 +4,7 @@ bo  / Booklist
 di  / Diary
 fe  / Edit firefox_list
 he  / Edit the homepage
+lol / test
 te  / Edit .tmux.conf
 tae / Edit .tmux-alias
 ve  / Edit Neovim Setting

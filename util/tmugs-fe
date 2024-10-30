@@ -1,0 +1,65 @@
+#!/usr/bin/sh
+
+menu=$(printf "add\nedit\nremove" | fzf-tmux -p 80% \
+	--tiebreak=begin --bind change:first --border-label "TMUGS-FIREFOX")
+
+case $menu in
+	add) 
+		perl -e '@que=qw/category title url stamp/; my @ans;
+			for(@que){print "Enter the $_\n> "; chomp($ans=<>); push @ans, $ans}
+			push @ans, "0"; $new=join ",", @ans;
+			open $fh, ">>", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+			print $fh $new;
+			close $fh or die "close failed\n"'
+			#jsdkfjsl'
+		;;
+	edit)
+		url=$( column -t -s',' ~/personal/firefox_asdf |\
+			fzf-tmux -p 80% -n 1,2 --with-nth=1,2,4 \
+			--tiebreak=begin --bind change:first --border-label "EDIT")
+		edit=$(printf "category\ntitle\nurl\nstamp" | fzf-tmux -p 80% \
+			--tiebreak=begin --bind change:first --border-label "where to edit")
+		export url
+		export edit
+		perl -e '$url = $ENV{url}; @url = @{[split " ", $url]}; $edit = $ENV{edit};
+			if($edit eq "category"){$value=$url[0]}
+			elsif($edit eq "title"){$value=$url[1]}
+			elsif($edit eq "url"){$value=$url[2]}
+			elsif($edit eq "stamp"){$value=$url[3]}
+			print "Enter the new value(original: $value)\n> "; chomp($value=<>); 
+			$url[3] = $url[3] // ".";
+
+			if($edit eq "category"){$url[0]=$value}
+			elsif($edit eq "title"){$url[1]=$value}
+			elsif($edit eq "url"){$url[2]=$value}
+			elsif($edit eq "stamp"){$url[3]=$value}
+			$url = join ",", @{[split " ", $url]};
+			$url_new = join ",", @url; my @list;
+			open $fh, "<", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+			while(<$fh>){chomp; if(/\Q$url\E/){push @list,$url_new} else{push @list,$_}}
+			close $fh or die "close failed\n";
+			open $fh, ">", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+			print $fh "$_\n" for @list;
+			close $fh or die "close failed\n"'
+		;;
+	remove)
+		url=$( column -t -s',' ~/personal/firefox_asdf |\
+			fzf-tmux -p 80% -n 1,2 --with-nth=1,2,4 \
+			--tiebreak=begin --bind change:first --border-label "REMOVE")
+		export url
+		perl -e '$url = $ENV{url}; @url = split " ", $url; $url = join ",", @url;
+			print $url;
+			open $fh, "<", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+			my @list;
+			while(<$fh>){chomp; next if /\Q$url\E/; 
+				if ($url[4]) {
+					/(.*,)([^,]+)$/; $num=$2; $num-- if $num;
+					$_ = $1.$num;
+				}
+				push @list, $_}
+			close $fh or die "close failed\n";
+			open $fh, ">", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+			print $fh "$_\n" for @list;
+			close $fh or die "close failed\n"'
+		;;
+esac
