@@ -1,24 +1,27 @@
 #!/usr/bin/sh
 
-menu=$(printf "add\nedit\nremove" | fzf-tmux -p 80% \
-	--tiebreak=begin --bind change:first --border-label "TMUGS-FIREFOX")
+menu=$(printf "add\nedit\nremove\nreset" | fzf-tmux -p 80% \
+	--tiebreak=begin --bind change:first --border-label "TMUGS-FE")
 
 case $menu in
 	add) 
 		perl -e '@que=qw/category title url stamp/; my @ans;
 			for(@que){print "Enter the $_\n> "; chomp($ans=<>); push @ans, $ans}
-			push @ans, "0"; $new=join ",", @ans;
+			push @ans, "0"; die "Enter the category/title/url!\n" unless $ans[0] and $ans[1] and $ans[2];
+			y/ /_/ for @ans;
+			$ans[3] = "." unless $ans[3]; $new=join ",", @ans;
 			open $fh, ">>", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
 			print $fh $new;
 			close $fh or die "close failed\n"'
-			#jsdkfjsl'
 		;;
 	edit)
 		url=$( column -t -s',' ~/personal/firefox_asdf |\
 			fzf-tmux -p 80% -n 1,2 --with-nth=1,2,4 \
 			--tiebreak=begin --bind change:first --border-label "EDIT")
+		[ -z "$url" ] && exit 0
 		edit=$(printf "category\ntitle\nurl\nstamp" | fzf-tmux -p 80% \
 			--tiebreak=begin --bind change:first --border-label "where to edit")
+		[ -z "$edit" ] && exit 0
 		export url
 		export edit
 		perl -e '$url = $ENV{url}; @url = @{[split " ", $url]}; $edit = $ENV{edit};
@@ -27,7 +30,7 @@ case $menu in
 			elsif($edit eq "url"){$value=$url[2]}
 			elsif($edit eq "stamp"){$value=$url[3]}
 			print "Enter the new value(original: $value)\n> "; chomp($value=<>); 
-			$url[3] = $url[3] // ".";
+			exit 0 unless $value;
 
 			if($edit eq "category"){$url[0]=$value}
 			elsif($edit eq "title"){$url[1]=$value}
@@ -46,9 +49,9 @@ case $menu in
 		url=$( column -t -s',' ~/personal/firefox_asdf |\
 			fzf-tmux -p 80% -n 1,2 --with-nth=1,2,4 \
 			--tiebreak=begin --bind change:first --border-label "REMOVE")
+		[ -z "$url" ] && exit 0
 		export url
 		perl -e '$url = $ENV{url}; @url = split " ", $url; $url = join ",", @url;
-			print $url;
 			open $fh, "<", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
 			my @list;
 			while(<$fh>){chomp; next if /\Q$url\E/; 
@@ -56,10 +59,20 @@ case $menu in
 					/(.*,)([^,]+)$/; $num=$2; $num-- if $num;
 					$_ = $1.$num;
 				}
-				push @list, $_}
+				push @list, $_
+			}
 			close $fh or die "close failed\n";
 			open $fh, ">", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
 			print $fh "$_\n" for @list;
 			close $fh or die "close failed\n"'
 		;;
+	reset)
+		perl -e 'open $fh, "<", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+			my @list; while(<$fh>){chomp; /(\d+)$/; s//0/ if $1; push @list, $_}
+			close $fh or die "close failed\n";
+			open $fh, ">", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+			print $fh "$_\n" for @list; close $fh or die "close failed\n"'
+		;;
 esac
+
+~/personal/firefox_sort
