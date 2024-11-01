@@ -3,33 +3,33 @@ vim.opt.guicursor = ""
 vim.opt.clipboard = unnamedplus
 vim.opt.showtabline = 0
 vim.opt.ls = 0
-vim.opt.ruler = true        --false
-vim.opt.shortmess = "atToOFI"   --"filnxtToOF"
+vim.opt.ruler = true		--false
+vim.opt.shortmess = "atToOFI"	--"filnxtToOF"
 --vim.opt.cpoptions = "aABceFs_"
-vim.opt.cmdheight = 1       --0
-vim.opt.smd = false         --false
+vim.opt.cmdheight = 1		--0
+vim.opt.smd = false			--false
 --vim.opt.fileencodings = 'utf-8,cp949'
 
 vim.opt.nu = true
 vim.opt.relativenumber = false
 
 vim.api.nvim_create_autocmd("TermOpen", {
-    group = vim.api.nvim_create_augroup('TerminalSetup', { clear = true }),
-    callback = function()
-        vim.opt.nu = false
-        vim.opt.relativenumber = false
-        vim.opt.signcolumn = "no"
-        vim.cmd.star()
-    end,
+	group = vim.api.nvim_create_augroup('TerminalSetup', { clear = true }),
+	callback = function()
+		vim.opt.nu = false
+		vim.opt.relativenumber = false
+		vim.opt.signcolumn = "no"
+		vim.cmd.star()
+	end,
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
-    group = vim.api.nvim_create_augroup('TerminalStar', { clear = true }),
-    callback = function()
+	group = vim.api.nvim_create_augroup('TerminalStar', { clear = true }),
+	callback = function()
 		if vim.bo.buftype == "terminal" then
 			vim.cmd.star()
 		end
-    end,
+	end,
 })
 
 vim.opt.tabstop = 4
@@ -39,41 +39,41 @@ vim.opt.expandtab = false
 vim.opt.smartindent = true
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-    group = vim.api.nvim_create_augroup('LessmodeHelp', { clear = true }),
-    callback = function ()
+	group = vim.api.nvim_create_augroup('LessmodeHelp', { clear = true }),
+	callback = function ()
 		if vim.bo.buftype == "help" then
-            vim.opt.colorcolumn = ""
-            vim.keymap.set("n", "q", ":q<cr>", {buffer = true})
-            vim.keymap.set("n", "d", "<C-d>", {buffer = true})
-            vim.keymap.set("n", "u", "<C-u>", {buffer = true})
-            vim.keymap.set("n", "<C-g>", "<C-g>", {buffer = true})
+			vim.opt.colorcolumn = ""
+			vim.keymap.set("n", "q", ":q<cr>", {buffer = true})
+			vim.keymap.set("n", "d", "<C-d>", {buffer = true})
+			vim.keymap.set("n", "u", "<C-u>", {buffer = true})
+			vim.keymap.set("n", "<C-g>", "<C-g>", {buffer = true})
 		end
-    end,
+	end,
 })
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-    group = vim.api.nvim_create_augroup('LessmodeMan', { clear = true }),
-    pattern = {"man://*"},
-    callback = function ()
-        vim.opt.colorcolumn = ""
-        vim.keymap.set("n", "q", ":q<cr>", {buffer = true})
-        vim.keymap.set("n", "d", "<C-d>", {buffer = true})
-        vim.keymap.set("n", "u", "<C-u>", {buffer = true})
-        vim.keymap.set("n", "<C-g>", "<C-g>", {buffer = true})
-    end,
+	group = vim.api.nvim_create_augroup('LessmodeMan', { clear = true }),
+	pattern = {"man://*"},
+	callback = function ()
+		vim.opt.colorcolumn = ""
+		vim.keymap.set("n", "q", ":q<cr>", {buffer = true})
+		vim.keymap.set("n", "d", "<C-d>", {buffer = true})
+		vim.keymap.set("n", "u", "<C-u>", {buffer = true})
+		vim.keymap.set("n", "<C-g>", "<C-g>", {buffer = true})
+	end,
 })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-    group = vim.api.nvim_create_augroup('HLonYank', { clear = true }),
-    callback = function ()
-        vim.highlight.on_yank()
-    end,
+	group = vim.api.nvim_create_augroup('HLonYank', { clear = true }),
+	callback = function ()
+		vim.highlight.on_yank()
+	end,
 })
 
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
-    group = vim.api.nvim_create_augroup('TwoSpaceTab', { clear = true }),
-    pattern = {"*.html"},
-    command = "set softtabstop=2 shiftwidth=2 tabstop=2",
+	group = vim.api.nvim_create_augroup('TwoSpaceTab', { clear = true }),
+	pattern = {"*.html"},
+	command = "set softtabstop=2 shiftwidth=2 tabstop=2",
 })
 
 vim.opt.wrap = false

@@ -32,6 +32,7 @@ case $menu in
 			print "Enter the new value(original: $value)\n> "; chomp($value=<>); 
 			exit 0 unless $value;
 
+			$value =~ y/ /_/;
 			if($edit eq "category"){$url[0]=$value}
 			elsif($edit eq "title"){$url[1]=$value}
 			elsif($edit eq "url"){$url[2]=$value}

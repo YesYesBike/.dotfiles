@@ -9,7 +9,7 @@ vim.keymap.set('n', '<leader>tm', builtin.man_pages, {})
 vim.keymap.set('n', '<leader>to', builtin.vim_options, {})
 
 vim.keymap.set('n', '<leader>ts', function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") });
+	builtin.grep_string({ search = vim.fn.input("Grep> ") });
 end)
 vim.keymap.set('n', '<leader>/', function()
 	builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -22,7 +22,6 @@ end, {})
 local telescope = require('telescope')
 telescope.setup{
 	pickers = {
-		find_files = { hidden = true, },
 		keymaps = { show_plug = false, },
 		man_pages = { sections = { "1", "1perl", "2", "3p" } },
 	}
