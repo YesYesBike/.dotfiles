@@ -18,7 +18,7 @@ perl -e '$url=$ENV{url}; $url = splice @{[split " ", $url]}, 2, 1;
 	open $fh, "<", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
 	my @list;
 	while(<$fh>){chomp; /(.*,)([^,]+)$/; $aaa=$1; $num=$2;
-		if(/\Q$url\E/){$num=1} else{$num = $num ? $num+1 : 0} push @list, "$aaa$num"}
+		if(/,\Q$url\E,/){$num=1} else{$num = $num ? $num+1 : 0} push @list, "$aaa$num"}
 	close $fh or die "close failed\n";
 	open $fh, ">", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
 	print $fh "$_\n" for @list;

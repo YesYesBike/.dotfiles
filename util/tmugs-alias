@@ -5,8 +5,9 @@ alias=$(fzf-tmux -n 1 -delimiter='/' -p 50% --border-label='Tmugs-Alias' \
 
 case $alias in
     ae) tmux neww -n "aliasrc" "nvim ~/.aliasrc" ;;
+	ba) tmux run -b "~/personal/ba/ba || exit 0" ;;
     be) tmux neww -n "bashrc" "nvim ~/.bashrc" ;;
-    bo) tmux run "~/util/tmugs-book || exit 0; exec bash" ;;
+    #bo) tmux run "~/util/tmugs-book || exit 0; exec bash" ;;
 	di) tmux neww -n "DIARY" -c ~/"personal/projects/github_io/diary" "nvim 2024/10.html" ;;
     #fe) tmux neww -n "firefox_list" -c ~/personal "~/util/tmugs-fe" ;;
     #fe) tmux neww -n "firefox_list" -c ~/personal "nvim firefox_list" ;;
