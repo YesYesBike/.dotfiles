@@ -6,8 +6,8 @@ string=$(( apropos -s 1,1p . ; cat ~/util/manlist ) |
 
 [ -z "$string" ] && exit 0
 
-command=$(echo $string | cut -d ' ' -f 1)
-section=$(echo $string | cut -d ' ' -f 2 | tr -d '()')
+command=$(cut -d ' ' -f 1 <<< "$string")
+section=$(cut -d ' ' -f 2 <<< "$string" | tr -d '()')
 
 asdf=$(cut -d ' ' -f 1 ~/util/manlist)
 for var in $asdf
