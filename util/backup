@@ -1,5 +1,6 @@
 #!/usr/bin/sh
 
-mkdir -p ~/backup
-tar -cvJf ~/backup/backup.tar.xz -T ~/personal/backup_list
+tmpdir=$(mktemp -dt "bakdir.XXXXXX")
+tar -cvJf ${tmpdir}/backup.tar.xz -T ~/personal/backup_list
+export tmpdir
 ~/backup/mov
