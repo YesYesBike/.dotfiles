@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ "$PWD" != "/home/$USER/test" ] && exit 69
+[ "$PWD" != "$HOME/test" ] && exit 69
 
 for file in *
 do

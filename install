@@ -3,13 +3,17 @@
 mv ~/.bashrc ~/.bashrc_bak
 mv ~/.bash_profile ~/.bash_profile_bak
 stow .
+
 mkdir -p ~/src
 cd ~/src
 for i in {dmenu,dwm,st}
 do
 	git clone git://git.suckless.org/$i || exit 99
-	ln -s ~/.dotfiles/src/$i/config.h ~/src/$i/config.h
-	cp ~/.dotfiles/src/$i/*.diff ~/src/$i
+	ln ~/.dotfiles/src/$i/config.h ~/src/$i/config.h
+	ln ~/.dotfiles/src/$i/*.diff ~/src/$i
 done
+
+mkdir -p ~/test
+ln ~/.dotfiles/test/DELETE ~/test/DELETE
 
 source ~/.bashrc
