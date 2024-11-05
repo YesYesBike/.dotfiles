@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+
+#reinventing of 'column -t'
+
+while(<>) {push @l, $_}
+
+for (@l) {
+    @c  =  split " ",$_;
+    for (@c) {
+        $i = each @c;
+        $m[$i] = length if length > $m[$i]
+    }
+}
+
+$i = 0;
+$f = "%-$m[$i++]s " x @m ."\n";
+for (@l) {
+    @c = split " ",$_;
+    printf $f, @c
+}

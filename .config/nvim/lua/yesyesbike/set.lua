@@ -8,6 +8,7 @@ vim.opt.shortmess = "atToOFI"	--"filnxtToOF"
 --vim.opt.cpoptions = "aABceFs_"
 vim.opt.cmdheight = 1		--0
 vim.opt.smd = false			--false
+vim.opt.sc = false
 --vim.opt.fileencodings = 'utf-8,cp949'
 
 vim.opt.nu = true
@@ -68,12 +69,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function ()
 		vim.highlight.on_yank()
 	end,
-})
-
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
-	group = vim.api.nvim_create_augroup('TwoSpaceTab', { clear = true }),
-	pattern = {"*.html"},
-	command = "set softtabstop=2 shiftwidth=2 tabstop=2",
 })
 
 vim.opt.wrap = false

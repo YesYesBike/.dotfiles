@@ -238,18 +238,18 @@ vim.keymap.set("n", "<leader>U", ":set fileencoding=utf-8<cr>")
 
 --Kernel Coding Style...
 vim.keymap.set("n", "<leader>K", function ()
-	if vim.g.kernelcodingstyle == 0 then
-		vim.g.kernelcodingstyle = 1
-		vim.opt.tabstop = 8
-		vim.opt.softtabstop = 8
-		vim.opt.shiftwidth = 8
-		vim.opt.smartindent = false
-	else
+	if vim.g.kernelcodingstyle == 1 then
 		vim.g.kernelcodingstyle = 0
 		vim.opt.tabstop = 4
 		vim.opt.softtabstop = 4
 		vim.opt.shiftwidth = 4
 		vim.opt.smartindent = true
+	else
+		vim.g.kernelcodingstyle = 1
+		vim.opt.tabstop = 8
+		vim.opt.softtabstop = 8
+		vim.opt.shiftwidth = 8
+		vim.opt.smartindent = false
 	end
 end)
 
