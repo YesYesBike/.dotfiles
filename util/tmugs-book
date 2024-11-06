@@ -2,9 +2,9 @@
 
 book=$(column -t ~/common/pdf/booklist |
     fzf-tmux -p 80% --tiebreak=begin --bind change:first\
-    --border-label "TMUGS-BOOK" | tr -s ' ' | cut -d ' ' -f 2)
-
+    --border-label "TMUGS-BOOK" | awk '{ print $2 }')
 [ -z "$book" ] && exit 0
+
 if [ "$book" == "RECENT" ]
 then
 	book=$(fzf-tmux -p 80% --tiebreak=begin --bind change:first\
@@ -12,4 +12,4 @@ then
 	[ -z "$book" ] && exit 0
 fi
 ~/util/tmugs-recent "$book" "common/pdf/booklist_recent"
-zathura ~/common/pdf/$book.pdf
+zathura ~/common/pdf/$book.pdf &

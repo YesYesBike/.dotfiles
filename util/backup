@@ -1,6 +1,7 @@
 #!/usr/bin/sh
 
 tmpdir=$(mktemp -dt "bakdir.XXXXXX")
+chmod 700 ${tmpdir}
 tar -cvJf ${tmpdir}/backup.tar.xz -T ~/personal/backup_list
 export tmpdir
 ~/backup/mov

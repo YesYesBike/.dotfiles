@@ -15,5 +15,3 @@ done
 
 mkdir -p ~/test
 ln ~/.dotfiles/test/DELETE ~/test/DELETE
-
-source ~/.bashrc

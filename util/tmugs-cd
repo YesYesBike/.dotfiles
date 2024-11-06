@@ -3,5 +3,5 @@
 directory=$(find ~ -mindepth 1 -maxdepth 3 -type d |
     ~/util/dirsed | sed '1i\/' | fzf-tmux -p 80% --bind change:first --border-label "TMUGS-CD");
 [ -z $directory ] && exit 0
-[ "$directory" = "/" ] && ./tmugs-cd-root && exit 0
+[ "$directory" = "/" ] && ~/util/tmugs-cd-root && exit 0
 [ -n "$directory" ] && tmux neww -c ~/$directory

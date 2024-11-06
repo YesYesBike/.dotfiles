@@ -69,8 +69,8 @@ vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "save with less keystrokes" 
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "quit with less keystrokes" })
 vim.keymap.set("n", "<leader>x", ":!chmod u+x %<CR>", { silent = true })
 
---Anyone knows how to quit Ex?
 vim.keymap.set("n", "Q", "gQ")
+vim.keymap.set("n", "<C-q>", "q:")
 
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
 	{ desc = "substitute the word under the cursor in a whole file" })
@@ -103,11 +103,8 @@ vim.keymap.set("n", "<C-w><Space>", "<C-w>_<C-w>|")
 
 --Terminal
 vim.keymap.set("t", "<ESC><ESC>", "<C-\\><C-n>")
-vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
-vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
 vim.keymap.set("n", "<leader>T", ":11new<CR>:te<CR>")
-vim.keymap.set("n", "<leader>vT", ":47vnew<CR>:te<CR>")
 
 
 --Run the current file in terminal

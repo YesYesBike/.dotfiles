@@ -1,7 +1,7 @@
 #!/bin/sh
 
-alias=$(fzf-tmux -n 1 -delimiter='/' -p 50% --border-label='Tmugs-Alias' \
-    < ~/.tmux-alias | cut -d '/' -f 1 | tr -d ' ')
+alias=$(fzf-tmux -n 1 -p 50% --border-label='Tmugs-Alias' \
+    < ~/.tmux-alias | awk '{ print $1 }')
 
 case $alias in
     ae) tmux neww -n "aliasrc" "nvim ~/.aliasrc" ;;

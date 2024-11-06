@@ -3,13 +3,13 @@ vim.opt.guicursor = ""
 vim.opt.clipboard = unnamedplus
 vim.opt.showtabline = 0
 vim.opt.ls = 0
-vim.opt.ruler = true		--false
+vim.opt.ruler = false		--false
 vim.opt.shortmess = "atToOFI"	--"filnxtToOF"
 --vim.opt.cpoptions = "aABceFs_"
 vim.opt.cmdheight = 1		--0
 vim.opt.smd = false			--false
-vim.opt.sc = false
---vim.opt.fileencodings = 'utf-8,cp949'
+vim.opt.showcmd = true
+vim.opt.showcmdloc = "last"
 
 vim.opt.nu = true
 vim.opt.relativenumber = false
@@ -39,6 +39,14 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 vim.opt.smartindent = true
 
+vim.api.nvim_create_autocmd({"CmdwinEnter"}, {
+	group = vim.api.nvim_create_augroup('Cmdwin', { clear = true }),
+	callback = function ()
+			vim.keymap.set({"n","i"}, "<C-c>", "<ESC>:q<cr>", {buffer = true})
+			vim.keymap.set({"n","i"}, "<CR>", "<cr>q: <c-u>", {buffer = true})
+	end,
+})
+
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 	group = vim.api.nvim_create_augroup('LessmodeHelp', { clear = true }),
 	callback = function ()
@@ -52,17 +60,17 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 	end,
 })
 
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-	group = vim.api.nvim_create_augroup('LessmodeMan', { clear = true }),
-	pattern = {"man://*"},
-	callback = function ()
-		vim.opt.colorcolumn = ""
-		vim.keymap.set("n", "q", ":q<cr>", {buffer = true})
-		vim.keymap.set("n", "d", "<C-d>", {buffer = true})
-		vim.keymap.set("n", "u", "<C-u>", {buffer = true})
-		vim.keymap.set("n", "<C-g>", "<C-g>", {buffer = true})
-	end,
-})
+--vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+--	group = vim.api.nvim_create_augroup('LessmodeMan', { clear = true }),
+--	pattern = {"man://*"},
+--	callback = function ()
+--		vim.opt.colorcolumn = ""
+--		vim.keymap.set("n", "q", ":q<cr>", {buffer = true})
+--		vim.keymap.set("n", "d", "<C-d>", {buffer = true})
+--		vim.keymap.set("n", "u", "<C-u>", {buffer = true})
+--		vim.keymap.set("n", "<C-g>", "<C-g>", {buffer = true})
+--	end,
+--})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup('HLonYank', { clear = true }),
