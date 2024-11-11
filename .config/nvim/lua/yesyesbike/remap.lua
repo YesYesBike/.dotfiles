@@ -256,8 +256,9 @@ vim.keymap.set("n", "<leader>tt", "mz:%!unexpand -t4<cr>`z")
 
 
 --han
-vim.keymap.set("i", "<C-c>", "<esc>:.!han -e<cr>:echo '' | redraw<cr>A")
-vim.keymap.set("i", "<C-e>", "<esc>:.!han -E<cr>:echo '' | redraw<cr>A")
+--what a emax
+vim.keymap.set("i", "<C-c><C-f>", "<esc>:.!han -e, <cr>:echo '' | redraw<cr>A")
+vim.keymap.set("i", "<C-c><C-c>", "<esc>:.!han -E, <cr>:echo '' | redraw<cr>A")
 
 --shortcut from windows
 vim.keymap.set("i", "<C-s>", "<esc>:w<cr>a")

@@ -39,14 +39,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 vim.opt.smartindent = true
 
-vim.api.nvim_create_autocmd({"CmdwinEnter"}, {
-	group = vim.api.nvim_create_augroup('Cmdwin', { clear = true }),
-	callback = function ()
-			vim.keymap.set({"n","i"}, "<C-c>", "<ESC>:q<cr>", {buffer = true})
-			vim.keymap.set({"n","i"}, "<CR>", "<cr>q: <c-u>", {buffer = true})
-	end,
-})
-
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 	group = vim.api.nvim_create_augroup('LessmodeHelp', { clear = true }),
 	callback = function ()
