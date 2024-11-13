@@ -58,10 +58,10 @@ export FZF_COMPLETION_TRIGGER='~~'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export PLAN9=/usr/local/plan9
-export PATH=$PATH:$PLAN9/bin
+PATH=$PATH:$PLAN9/bin
+PATH=$PATH:~/.spoofdpi/bin:~/bin
 export BC_ENV_ARGS="$HOME/.bc"
 export PERLDOC_PAGER="less -+C "
-export PATH=$PATH:~/.spoofdpi/bin:~/bin
 
 date +'%F(%a)'
 

@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-menu=$(printf "add\nedit\nremove\nreset" | fzf-tmux -p 80% \
+menu=$(printf "add\ncopy\nedit\nremove\nreset" | fzf-tmux -p 80% \
 	--tiebreak=begin --bind change:first --border-label "TMUGS-FE")
 
 case $menu in
@@ -14,16 +14,31 @@ case $menu in
 			print $fh $new;
 			close $fh or die "close failed\n"'
 		;;
+	copy)
+		url=$( column -t -s',' ~/personal/firefox_asdf |\
+			fzf-tmux -p 80% -n 1,2 --with-nth=1,2,4 \
+			--tiebreak=begin --bind change:first --border-label "COPY")
+		[ -z "$url" ] && exit 0
+		export url
+		perl -e '$url = $ENV{url}; @url = @{[split " ", $url]}; @que=qw/category title url stamp/;
+			for(@que){$idx = each @que; 
+				print "Enter the $_ (original: $url[$idx])\n> "; 
+				chomp($ans=<>); $ans =~ y/ /_/; push @ans, $ans}
+
+			for($i=0; $i<4; $i++){$url[$i] = $ans[$i] if $ans[$i]}
+			$url[4] = 0;
+			$url = join ",", @url;
+
+			open $fh, ">>", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+			print $fh "$url\n";
+			close $fh or die "close failed\n"'
+		;;
 	edit)
 		url=$( column -t -s',' ~/personal/firefox_asdf |\
 			fzf-tmux -p 80% -n 1,2 --with-nth=1,2,4 \
 			--tiebreak=begin --bind change:first --border-label "EDIT")
 		[ -z "$url" ] && exit 0
-		#edit=$(printf "category\ntitle\nurl\nstamp" | fzf-tmux -p 80% \
-		#	--tiebreak=begin --bind change:first --border-label "where to edit")
-		#[ -z "$edit" ] && exit 0
 		export url
-		#export edit
 		perl -e '$url = $ENV{url}; @url = @{[split " ", $url]}; @que=qw/category title url stamp/;
 			for(@que){$idx = each @que; 
 				print "Enter the $_ (original: $url[$idx])\n> "; 

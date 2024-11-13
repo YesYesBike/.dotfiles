@@ -4,4 +4,5 @@ be  / Edit .bashrc
 di  / Diary
 te  / Edit .tmux.conf
 tae / Edit .tmux-alias
+sc  / Scratchpad
 ve  / Edit Neovim Setting
