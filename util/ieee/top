@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+url=$(fzf --with-nth=1 -n1 -d'\|' <~/util/ieee/top_list | cut -d '|' -f2)
+[ -z "$url" ] && exit 0
+firefox --new-tab https://pubs.opengroup.org/onlinepubs/9799919799/$url

@@ -1,8 +1,24 @@
-#!/bin/sh
+#!/usr/bin/perl
 
-[ "$PWD" != "$HOME/test" ] && exit 69
+use warnings;
+use strict;
 
-for file in *
-do
-    [ "./$file" != "$0" ] && rm -rf $file
-done
+my $home = $ENV{"HOME"};
+my $directory = "${home}/test/";
+my %preserve;
+my @list = qw(
+);
+
+$0 =~ s#\./##;
+push @list, $0;
+$preserve{$_}++ for @list;
+
+die "Set the directory!\n" if $directory eq "DEFAULT";
+opendir DIR, $directory or die "Directory open failed\n";
+while (my $filename = readdir(DIR)) {
+	next if $filename =~ /^\.+$/;
+	unless ($preserve{"$filename"}) {
+		unlink "$filename" or die "$filename: Unlink failed\n";
+	}
+}
+closedir DIR or die "Directory close failed\n";
