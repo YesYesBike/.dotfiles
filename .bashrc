@@ -47,6 +47,7 @@ PS1='~ '
 
 
 set -o vi
+stty -ixon
 . ~/.aliasrc
 
 
@@ -60,6 +61,7 @@ export FZF_COMPLETION_TRIGGER='~~'
 export PLAN9=/usr/local/plan9
 PATH=$PATH:$PLAN9/bin
 PATH=$PATH:~/.spoofdpi/bin:~/bin
+PATH=$PATH:~/src/prv9/source/bin
 export BC_ENV_ARGS="$HOME/.bc"
 export PERLDOC_PAGER="less -+C "
 

@@ -7,6 +7,7 @@ vim.keymap.set('n', '<leader>th', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>tk', builtin.keymaps, {})
 vim.keymap.set('n', '<leader>tm', builtin.man_pages, {})
 vim.keymap.set('n', '<leader>to', builtin.vim_options, {})
+vim.keymap.set('n', '<leader>tt', builtin.tags, {})
 
 vim.keymap.set('n', '<leader>ts', function()
 	builtin.grep_string({ search = vim.fn.input("Grep> ") });

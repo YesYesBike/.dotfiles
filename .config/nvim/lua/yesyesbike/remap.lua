@@ -50,7 +50,7 @@ vim.keymap.set({"n", "x"}, "L", "$")
 
 
 --clear buffer list
-vim.keymap.set("n", "<leader>c", "mz:%bd|e#<cr>`z")
+vim.keymap.set("n", "<leader>c", "mz:%bd|e#|bd#<cr>`z")
 
 vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move one line down the selection" })
 vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move one line up the selection" })
@@ -70,7 +70,6 @@ vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "quit with less keystrokes" 
 vim.keymap.set("n", "<leader>x", ":!chmod u+x %<CR>", { silent = true })
 
 vim.keymap.set("n", "Q", "gQ")
-vim.keymap.set("n", "<C-q>", "q:")
 
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
 	{ desc = "substitute the word under the cursor in a whole file" })
@@ -216,7 +215,7 @@ vim.keymap.set({"x","n"}, "<leader>f", function()
 end)
 
 --Colorscheme for bright place
-vim.keymap.set("n", "<leader>j", function ()
+vim.keymap.set("n", "<leader>C", function ()
 	if vim.o.background == 'dark' then
 		vim.o.background = 'light'
 	else
@@ -228,10 +227,6 @@ end)
 
 --Clear cmdline
 vim.keymap.set("n", "<leader><leader>", ":echo '' | redraw<cr>")
-
---UTF_*
-vim.keymap.set("n", "<leader>U", ":set fileencoding=utf-8<cr>")
-
 
 --Kernel Coding Style...
 vim.keymap.set("n", "<leader>K", function ()
@@ -252,7 +247,7 @@ end)
 
 
 --unexpand tabbsss
-vim.keymap.set("n", "<leader>tt", "mz:%!unexpand -t4<cr>`z")
+--vim.keymap.set("n", "<leader>tt", "mz:%!unexpand -t4<cr>`z")
 
 
 --han
@@ -262,3 +257,6 @@ vim.keymap.set("i", "<C-c><C-c>", "<esc>:.!han -E,<cr>:echo '' | redraw<cr>A")
 
 --shortcut from windows
 vim.keymap.set("i", "<C-s>", "<esc>:w<cr>a")
+
+--ctags
+vim.keymap.set("n", "<F5>", ":!ctags -R<cr>")

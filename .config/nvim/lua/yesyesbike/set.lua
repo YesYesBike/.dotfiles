@@ -44,10 +44,11 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 	callback = function ()
 		if vim.bo.buftype == "help" then
 			vim.opt.colorcolumn = ""
-			vim.keymap.set("n", "q", ":q<cr>", {buffer = true})
+			vim.keymap.set("n", "q", ":bd<cr>", {buffer = true})
 			vim.keymap.set("n", "d", "<C-d>", {buffer = true})
 			vim.keymap.set("n", "u", "<C-u>", {buffer = true})
 			vim.keymap.set("n", "<C-g>", "<C-g>", {buffer = true})
+			vim.keymap.set({"n","x"}, "y", '"+y', {buffer = true, noremap = true})
 		end
 	end,
 })

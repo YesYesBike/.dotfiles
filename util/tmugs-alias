@@ -13,7 +13,7 @@ case $alias in
     #fe) tmux neww -n "firefox_list" -c ~/personal "nvim firefox_list" ;;
     #he) tmux neww -n "Homepage" "nvim homepage.html" ;;
 	#lol) tmux neww "printf 'enter the value: '; read asdf; echo $asdf" ;;
-    sc) tmux neww -n "SCRATCHPAD" -c ~/"note" "nvim scratchpad" ;;
+    sc) tmux neww -n "SCRATCHPAD" -c ~/"note" "nvim +$ scratchpad" ;;
     tae) tmux neww -n "tmux-alias" -c ~/"util" "nvim tmugs-alias" ;;
     te) tmux neww -n "tmuxconf" "nvim ~/.tmux.conf" ;;
     ve) tmux neww -n "nvim_set" -c ~/".config/nvim" "nvim init.lua" ;;
