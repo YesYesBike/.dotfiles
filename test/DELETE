@@ -3,22 +3,21 @@
 use warnings;
 use strict;
 
-my $home = $ENV{"HOME"};
-my $directory = "${home}/test/";
+my $directory = "$ENV{'HOME'}/test/";
 my %preserve;
 my @list = qw(
+	DELETE
 );
 
-$0 =~ s#\./##;
-push @list, $0;
 $preserve{$_}++ for @list;
 
-die "Set the directory!\n" if $directory eq "DEFAULT";
 opendir DIR, $directory or die "Directory open failed\n";
 while (my $filename = readdir(DIR)) {
 	next if $filename =~ /^\.+$/;
 	unless ($preserve{"$filename"}) {
-		unlink "$filename" or die "$filename: Unlink failed\n";
+		(unlink "$filename" or system("rm", "-rf", "$filename") == 0)
+				or die "$filename: Unlink failed\n";
+		print "Deleted: $filename\n"
 	}
 }
 closedir DIR or die "Directory close failed\n";

@@ -228,6 +228,11 @@ end)
 --Clear cmdline
 vim.keymap.set("n", "<leader><leader>", ":echo '' | redraw<cr>")
 
+--Quickfix
+vim.keymap.set("n", "<leader>v", ":copen<cr>")
+vim.keymap.set("n", "<leader>,", ":cprev<cr>")
+vim.keymap.set("n", "<leader>.", ":cnext<cr>")
+
 --Kernel Coding Style...
 vim.keymap.set("n", "<leader>K", function ()
 	if vim.g.kernelcodingstyle == 1 then

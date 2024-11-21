@@ -13,5 +13,4 @@ do
 	ln ~/.dotfiles/src/$i/*.diff ~/src/$i
 done
 
-mkdir -p ~/test
-ln ~/.dotfiles/test/DELETE ~/test/DELETE
+ln -sn /tmp/test_${USER} ~/test

@@ -68,6 +68,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *screenshot[] = { "scrot",
 	"/home/yesyesbike/images/screenshot/%Y-%m-%d-%T.jpg", NULL};
+static const char *slock[] = { "slock", NULL };
 
 static const Key keys[] = {
 	/* modifier						key		   function		   argument */
@@ -86,8 +87,8 @@ static const Key keys[] = {
 	{ MODKEY4,						 XK_w,		setlayout,		{.v = &layouts[0]} },
 	{ MODKEY4,						 XK_s,		setlayout,		{.v = &layouts[1]} },
 	//{ MODKEY4,					   XK_f,	  setlayout,	  {.v = &layouts[2]} },
-	//{ MODKEY4,					   XK_space,  setlayout,	  {0} },
-	//{ MODKEY4|ShiftMask,			   XK_space,  togglefloating, {0} },
+	{ MODKEY4,					   XK_space,  setlayout,	  {0} },
+	{ MODKEY4|ShiftMask,			   XK_space,  togglefloating, {0} },
 	{ MODKEY4,						 XK_0,		view,			{.ui = ~0 } },
 	{ MODKEY4|ShiftMask,			 XK_0,		tag,			{.ui = ~0 } },
 	{ MODKEY4,						 XK_comma,	focusmon,		{.i = -1 } },
@@ -105,7 +106,8 @@ static const Key keys[] = {
 	TAGKEYS(						 XK_9,						8)
 	TAGKEYS(						 XK_0,						9)
 	{ MODKEY4|ShiftMask,			 XK_q,		quit,			{0} },
-	{ MODKEY4,						 XK_l,		spawn,			{.v = screenshot } },
+	{ MODKEY4,						 XK_h,		spawn,			{.v = screenshot } },
+	{ MODKEY4,						 XK_l,		spawn,			{.v = slock } },
 };
 
 /* button definitions */

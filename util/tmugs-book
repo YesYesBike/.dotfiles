@@ -11,5 +11,6 @@ then
 		--border-label "RECENT" < ~/common/pdf/booklist_recent)
 	[ -z "$book" ] && exit 0
 fi
+
 ~/util/tmugs-recent "$book" "common/pdf/booklist_recent"
 zathura ~/common/pdf/$book.pdf &
