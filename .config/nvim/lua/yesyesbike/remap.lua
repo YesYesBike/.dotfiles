@@ -132,12 +132,15 @@ vim.keymap.set("n", "<leader>rr", function()
 			vim.cmd("11new")
 			vim.cmd.te("gcc # && ./a.out")
 		end
-	elseif filetype == "fortran" then
-			vim.cmd("11new")
-			vim.cmd.te("gfortran # && ./a.out")
-	elseif filetype == "cpp" then
-			vim.cmd("11new")
-			vim.cmd.te("g++ # && ./a.out")
+	--elseif filetype == "fortran" then
+	--	vim.cmd("11new")
+	--	vim.cmd.te("gfortran # && ./a.out")
+	--elseif filetype == "cpp" then
+	--	vim.cmd("11new")
+	--	vim.cmd.te("g++ # && ./a.out")
+	elseif filetype == "m4" then
+		vim.cmd("11new")
+		vim.cmd.te("m4 #")
 	else
 		vim.cmd("11new")
 		vim.cmd.te("./#")
@@ -259,6 +262,8 @@ end)
 --what a emax
 vim.keymap.set("i", "<C-c><C-f>", "<esc>:.!han -e,<cr>:echo '' | redraw<cr>A")
 vim.keymap.set("i", "<C-c><C-c>", "<esc>:.!han -E,<cr>:echo '' | redraw<cr>A")
+vim.keymap.set("n", "<C-c><C-f>", "mz:.!han -e,<cr>:echo '' | redraw<cr>`z")
+vim.keymap.set("n", "<C-c><C-c>", "mz:.!han -E,<cr>:echo '' | redraw<cr>`z")
 
 --shortcut from windows
 vim.keymap.set("i", "<C-s>", "<esc>:w<cr>a")

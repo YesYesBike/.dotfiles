@@ -65,3 +65,7 @@ function monoff {
 	xrandr --output HDMI-1-4 --off
 	feh --bg-scale ~/images/wallpaper/selected/01.jpg --bg-scale ~/images/wallpaper/selected/06.jpg
 }
+
+function rfeh {
+	feh -zF
+}

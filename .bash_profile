@@ -16,5 +16,5 @@ if [ ! -e ${TEST_DIR} ]
 then
 	mkdir ${TEST_DIR}
 	chmod 0700 ${TEST_DIR}
-	cp ~/.dotfiles/test/DELETE ${TEST_DIR}
+	cp ~/.dotfiles/test/* ${TEST_DIR}
 fi

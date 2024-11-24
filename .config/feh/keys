@@ -6,8 +6,8 @@ scroll_right d
 scroll_up w
 scroll_down s
 
-zoom_fill F
-zoom_fit f
+zoom_fill f
+zoom_fit F
 zoom_in i
 zoom_out o
 render r

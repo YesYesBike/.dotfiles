@@ -3,16 +3,20 @@
 use warnings;
 use strict;
 
-my $directory = "$ENV{'HOME'}/test/";
+my $directory = "$ENV{'HOME'}/.dotfiles/test";
 my %preserve;
 my @list;
 
-open my $fh, "<list" or die "open\n";
+open my $fh, "<list" or die "open failed\n";
 while (<$fh>) { chomp; push @list, $_ }
-close $fh or die "close\n";
-
+close $fh or die "close failed\n";
 $preserve{$_}++ for @list;
 
+(system("cp", "$_", "$directory") == 0) or die "$_: move failed\n" for @list;
+
+system("diff", "$_", "$directory/$_") for @list;
+
+chdir $directory;
 opendir DIR, $directory or die "Directory open failed\n";
 while (my $filename = readdir(DIR)) {
 	next if $filename =~ /^\.{1,2}$/;
@@ -22,4 +26,3 @@ while (my $filename = readdir(DIR)) {
 		print "Deleted: $filename\n"
 	}
 }
-closedir DIR or die "Directory close failed\n";

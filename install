@@ -6,11 +6,12 @@ stow .
 
 mkdir -p ~/src
 cd ~/src
-for i in {dmenu,dwm,st}
+for i in {dmenu,dwm,st,slock}
 do
 	git clone git://git.suckless.org/$i || exit 99
-	ln ~/.dotfiles/src/$i/config.h ~/src/$i/config.h
-	ln ~/.dotfiles/src/$i/*.diff ~/src/$i
+	ln -sn ~/.dotfiles/src/$i/config.h ~/src/$i/config.h
+	ln -sn ~/.dotfiles/src/$i/*.diff ~/src/$i
 done
+cd -
 
 ln -sn /tmp/test_${USER} ~/test
