@@ -1,5 +1,7 @@
 DELETE
-boiler.m4
-boiler.c
-sync
+Bakefile
+boiler
 list
+macro
+sh
+sync

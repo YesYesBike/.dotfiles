@@ -262,11 +262,16 @@ end)
 --what a emax
 vim.keymap.set("i", "<C-c><C-f>", "<esc>:.!han -e,<cr>:echo '' | redraw<cr>A")
 vim.keymap.set("i", "<C-c><C-c>", "<esc>:.!han -E,<cr>:echo '' | redraw<cr>A")
-vim.keymap.set("n", "<C-c><C-f>", "mz:.!han -e,<cr>:echo '' | redraw<cr>`z")
-vim.keymap.set("n", "<C-c><C-c>", "mz:.!han -E,<cr>:echo '' | redraw<cr>`z")
 
 --shortcut from windows
 vim.keymap.set("i", "<C-s>", "<esc>:w<cr>a")
 
 --ctags
 vim.keymap.set("n", "<F5>", ":!ctags -R<cr>")
+
+--Bakefile
+vim.keymap.set("n", "<leader>M", function()
+	local var = vim.fn.input("Make> ")
+	local str = '!bake '..var
+	vim.cmd(str)
+end)

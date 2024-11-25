@@ -1,0 +1,40 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use feature qw(say);
+
+my $def;
+my @arg = @ARGV;
+my %var_list = %ENV;
+my %cmd_list;
+
+open FILE, "<Bakefile" or die "No Bakefile\n";
+
+while (<FILE>) {
+	next if /^#/;
+	chomp;
+
+	if (/(\w+)\s*=\s*(.*)\s*/) {
+		$var_list{$1} = $2;
+	} elsif (/(^[^:]+)\s*:\s*(.*)/) {
+		$def = $1 unless %cmd_list;
+		$cmd_list{$1} = $2;
+	}
+}
+
+close FILE or die "close failed\n";
+
+my $lv = shift @arg;
+my $i = 1;
+$var_list{$i++} = $_ for (@arg);
+
+my $rv;
+$lv ||= $def;
+($rv = $cmd_list{$lv}) or die "$lv: command not found\n";
+
+while ($rv =~ m/\$\{(\w+)\}/g) {
+	$rv =~ s//$var_list{$1}/;
+}
+
+exec $rv;

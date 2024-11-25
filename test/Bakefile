@@ -1,0 +1,3 @@
+TEST = ${HOME}/test
+
+sync: ${TEST}/sync

@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+m4 -Dvar="$1" "$HOME/test/macro/heder.m4" > "$1".h
