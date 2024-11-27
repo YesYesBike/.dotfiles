@@ -1,0 +1,141 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Data::Dumper;
+
+sub rmcom {
+	$_ = shift;
+	s/\s*#.*$//;
+	return $_;
+}
+
+#TODO: incude
+#sub init {
+#}
+
+my $fh;
+my @arg = @ARGV;
+
+my $bkfile_dot = "$ENV{HOME}/.bakefile";
+my $bkfile_cur = "Bakefile";
+
+my $def_cmd;
+my $def_cmd_def;
+my $def_cmd_norm;
+
+my %env_list = %ENV;
+my %env_list_def;
+my %env_list_norm;
+
+my %cmd_list;
+my %cmd_list_def;
+my %cmd_list_norm;
+
+my %read_list;
+#my @incl_list;
+
+#my $w = "[a-zA-Z0-9_.]";
+my $w = qr/[a-zA-Z0-9_]/;
+
+sub read_bake {
+	my $file = shift;
+	open my $fh, '<', $file or return;
+
+	my $line = 1;
+	while (<$fh>) {
+		chomp;
+		next if /^$/ or /^\s*#/;
+
+		my ($cmd_list_ref, $env_list_ref, $def_cmd_ref);
+		if ($file eq $bkfile_cur) {
+			$cmd_list_ref = \%cmd_list_def;
+			$env_list_ref = \%env_list_def;
+			$def_cmd_ref = \$def_cmd_def;
+		} else {
+			$cmd_list_ref = \%cmd_list_norm;
+			$env_list_ref = \%env_list_norm;
+			$def_cmd_ref = \$def_cmd_norm;
+		}
+
+		if (/^\s*([^:]+)\s*:\s*(.*)\s*$/) {
+			$$def_cmd_ref = $1 unless %$cmd_list_ref;
+			$$cmd_list_ref{$1} = rmcom($2);
+		} elsif (/^\s*($w+)\s*=\s*(.*)\s*$/) {
+			$$env_list_ref{$1} = rmcom($2);
+			#} elsif (/^include\s*(.*)/) {
+			#	push @inc_list, rmcom($1);
+		} else {
+			die "<$_>\nSyntax error at $file, line $line\n";
+		}
+	}
+	close $fh or die "close failed\n";
+	$read_list{$file}++;
+	$line++;
+}
+
+read_bake($bkfile_dot);
+read_bake($bkfile_cur);
+
+%read_list or die "No Bakefile available\n";
+
+$def_cmd = $def_cmd_def // $def_cmd_norm // "";
+$def_cmd or die "No command in Bakefile\n";
+
+#TODO: make clean
+while (my($l, $r) = each %cmd_list_norm) {
+	$cmd_list{$l} = $r;
+}
+while (my($l, $r) = each %cmd_list_def) {
+	$cmd_list{$l} = $r;
+}
+
+while (my($l, $r) = each %env_list_norm) {
+	$env_list{$l} = $r;
+}
+while (my($l, $r) = each %env_list_def) {
+	$env_list{$l} = $r;
+}
+
+
+my $lv = shift @arg;
+$lv ||= $def_cmd;
+$lv = $def_cmd if $lv eq "-";
+
+my $i = 1;
+$env_list{$i++} = $_ for (@arg);
+
+my $rv;
+($rv = $cmd_list{$lv}) or die "$lv: command not defined\n";
+
+
+while ($rv =~ m/\@\{($w+)\}/g) {
+	$cmd_list{$1} or die "$1: command not defined\n";
+	$rv =~ s//$cmd_list{$1}; /;
+}
+
+#TODO: fzf
+#TODO: Nested env: ${1:${HOME}} -> Completed???
+
+my $env_pat;
+$env_pat = qr/
+	\$\{
+		($w+)
+		(:
+			(?:
+				(??{ $env_pat })
+				|
+				[^}]*
+			)
+		)?
+	\}
+/x;
+while ($rv =~ /$env_pat/pg) {
+	(my $rep = $env_list{$1} // $2) or die "$lv: Need more arg(s)\n";
+	my $sav = ${^MATCH};
+	$sav =~ s/([\$\{\}])/\\$1/g;
+	$rep =~ s/^://;
+	$rv =~ s/$sav/$rep/;
+}
+
+exec $rv;
