@@ -188,12 +188,13 @@ vim.keymap.set("n", "<leader>1", function ()
 	vim.cmd.star()
 end)
 vim.keymap.set("n", "<leader>2", function ()
-	vim.bo.filetype = 'python'
 	vim.cmd.norm('a#!/usr/bin/perl')
 	vim.cmd.norm('2o')
 	vim.cmd.norm('ause warnings;')
 	vim.cmd.norm('o')
 	vim.cmd.norm('ause strict;')
+	vim.cmd.norm('o')
+	vim.cmd.norm('ause Data::Dumper;')
 	vim.cmd.norm('2o')
 	vim.cmd.write({mods = {silent = true}})
 	vim.cmd('silent !chmod u+x %')
@@ -262,6 +263,8 @@ end)
 --what a emax
 vim.keymap.set("i", "<C-c><C-f>", "<esc>:.!han -e,<cr>:echo '' | redraw<cr>A")
 vim.keymap.set("i", "<C-c><C-c>", "<esc>:.!han -E,<cr>:echo '' | redraw<cr>A")
+vim.keymap.set("i", "<C-c><C-v>", "<esc>:.!han -o\\|<cr>:echo '' | redraw<cr>A")
+vim.keymap.set("i", "<C-c><C-g>", "<esc>:.!han -O\\|<cr>:echo '' | redraw<cr>A")
 
 --shortcut from windows
 vim.keymap.set("i", "<C-s>", "<esc>:w<cr>a")
@@ -271,7 +274,7 @@ vim.keymap.set("n", "<F5>", ":!ctags -R<cr>")
 
 --Bakefile
 vim.keymap.set("n", "<leader>M", function()
-	local var = vim.fn.input("Make> ")
+	local var = vim.fn.input("Bake> ")
 	local str = '!bake '..var
 	vim.cmd(str)
 end)

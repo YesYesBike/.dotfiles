@@ -1,3 +1,9 @@
 TEST = ${HOME}/test
+TEEST = ${TEST} is test
+CPLIST = Bakefile boiler/Makefile
 
-sync: ${TEST}/sync
+__test__: echo ${TEEST}_${1}_${2}
+__def__: @{mkdr}
+sync: ${TEST}/sync && echo SYNCSYNC
+heder: ${TEST}/sh/heder ${1}
+mkdr: mkdir ${TEST}/${1} && cp ${CPLIST} ${TEST}/${1}
