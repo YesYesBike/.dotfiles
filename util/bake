@@ -38,6 +38,34 @@ my %read_list;
 #my $w = "[a-zA-Z0-9_.]";
 my $w = qr/[a-zA-Z0-9_]/;
 
+my $env_pat;
+$env_pat = qr/
+	\$\{
+		($w+)
+		(:
+			(?:
+				(??{ $env_pat })
+				|
+				[^}]*
+			)
+		)?
+	\}
+/x;
+my $env_pat_num;			#TODO: fix duplication
+$env_pat_num = qr/
+	\$\{
+		([0-9]+)
+		(:
+			(?:
+				(??{ $env_pat_num })
+				|
+				[^}]*
+			)
+		)?
+	\}
+/x;
+
+
 sub read_bake {
 	my $file = shift;
 	open my $fh, '<', $file or return;
@@ -82,19 +110,15 @@ read_bake($bkfile_cur);
 $def_cmd = $def_cmd_def // $def_cmd_norm // "";
 $def_cmd or die "No command in Bakefile\n";
 
-#TODO: make clean
-while (my($l, $r) = each %cmd_list_norm) {
-	$cmd_list{$l} = $r;
+for (\%cmd_list_norm, \%cmd_list_def) {
+	while (my($l, $r) = each %$_) {
+		$cmd_list{$l} = $r;
+	}
 }
-while (my($l, $r) = each %cmd_list_def) {
-	$cmd_list{$l} = $r;
-}
-
-while (my($l, $r) = each %env_list_norm) {
-	$env_list{$l} = $r;
-}
-while (my($l, $r) = each %env_list_def) {
-	$env_list{$l} = $r;
+for (\%env_list_norm, \%env_list_def) {
+	while (my($l, $r) = each %$_) {
+		$env_list{$l} = $r;
+	}
 }
 
 
@@ -103,39 +127,59 @@ $lv ||= $def_cmd;
 $lv = $def_cmd if $lv eq "-";
 
 my $i = 1;
-$env_list{$i++} = $_ for (@arg);
+$env_list{$i++} = $_ for @arg;
 
 my $rv;
 ($rv = $cmd_list{$lv}) or die "$lv: command not defined\n";
 
 
-while ($rv =~ m/\@\{($w+)\}/g) {
-	$cmd_list{$1} or die "$1: command not defined\n";
-	$rv =~ s//$cmd_list{$1}; /;
+
+
+#TODO: @{} + ${} <- whole routine iterate <- Completed??
+#TODO: arg @{asdf}{first, second, ...} <- Completed?
+#while ($rv =~ /\@\{($w+)\}/g) {
+#while ($rv =~ /\@\{($w+)\}(?:\{([^\}]*)\})?/pg) {    #FIXME -> FIXED?
+#while ($rv =~ /\@\{($w+)\}(?:\{(sjkdflsj)\})?/pg) {    #FIXME -> FIXED?
+while ($rv =~ /\@\{($w+)\}(?:\{((?:(?:$env_pat|[^,]*)\s*,?)+)\})?/pg) {
+	my %env_tmp;
+	my $rv_1st = $1;
+	my $rv_2nd = $2;
+	my ($sav, $res) = (${^MATCH}, ${^MATCH});
+	$sav =~ s/([\$\{\}])/\\$1/g;
+
+	$cmd_list{$rv_1st} or die "$rv_1st: command not defined\n";
+	$res =~ s/$sav/$cmd_list{$rv_1st}; /;
+
+	my @arg_cmd;
+	if ($rv_2nd and $rv_2nd =~ /\s*,\s*/) {
+		@arg_cmd = split /\s*,\s*/, $rv_2nd;
+		my $i = 1;
+		$env_tmp{$i++} = $_ for @arg_cmd;
+	}
+
+
+	while ($res =~ /$env_pat_num/pg) {
+		(my $rep = $env_tmp{$1} // $2) or die "$rv_1st: Need more arg(s)\n";
+		(my $sev = ${^MATCH}) =~ s/([\$\{\}])/\\$1/g;
+		$rep =~ s/^://;
+		$res =~ s/$sev/$rep/;
+	}
+
+	$rv =~ s/$sav/$res/;
 }
+
+#print "DEBUGGING\n";
 
 #TODO: fzf
 #TODO: Nested env: ${1:${HOME}} -> Completed???
+#TODO: More Options... ${${asdf}?" * ":asdf_default}
 
-my $env_pat;
-$env_pat = qr/
-	\$\{
-		($w+)
-		(:
-			(?:
-				(??{ $env_pat })
-				|
-				[^}]*
-			)
-		)?
-	\}
-/x;
+
 while ($rv =~ /$env_pat/pg) {
 	(my $rep = $env_list{$1} // $2) or die "$lv: Need more arg(s)\n";
-	my $sav = ${^MATCH};
-	$sav =~ s/([\$\{\}])/\\$1/g;
+	(my $sav = ${^MATCH}) =~ s/([\$\{\}])/\\$1/g;
 	$rep =~ s/^://;
 	$rv =~ s/$sav/$rep/;
 }
 
-exec $rv;
+exec $rv;				#DBG

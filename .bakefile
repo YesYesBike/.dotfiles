@@ -3,10 +3,15 @@
 
 #TMUGS_NEWW = tmux neww -n ${3:neww} -c {$2:${HOME}} "${1:}"
 
+TEST = ${HOME}/test
+BLEU_SRC_DIR = ${HOME}/personal/projects/adt_sample/bleu
+
+
 __def__: echo bakefile default...
-__test__: echo ${1:}
+__test__: echo ${1}
 __ed: tmux neww -n "bakefile" -c ${HOME} "nvim .bakefile"
 __note: tmux neww -n 'NOTE' -c ${HOME}/note 'nvim ${1}'
 ed: tmux neww -n "bakefile" "nvim Bakefile"
 bake: tmux neww -n "bake_src" -c ${HOME}/util "nvim bake"
 __tmugs_neww: tmux neww -n ${3:neww} -c ${2:${HOME}} "${1:vi}"
+bleu: cp -r ${BLEU_SRC_DIR} ${TEST} && echo "bleu!"
