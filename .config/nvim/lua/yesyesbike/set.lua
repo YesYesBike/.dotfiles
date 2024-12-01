@@ -14,6 +14,8 @@ vim.opt.showcmdloc = "last"
 vim.opt.nu = true
 vim.opt.relativenumber = false
 
+vim.opt.cinoptions = ":0s"
+
 vim.api.nvim_create_autocmd("TermOpen", {
 	group = vim.api.nvim_create_augroup('TerminalSetup', { clear = true }),
 	callback = function()

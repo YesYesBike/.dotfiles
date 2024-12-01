@@ -15,3 +15,4 @@ done
 cd -
 
 ln -sn /tmp/test_${USER} ~/test
+ln -sn ~/personal/projects/ ~/projects

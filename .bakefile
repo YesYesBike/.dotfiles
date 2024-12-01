@@ -1,17 +1,20 @@
 #.bakefile at home directory
-#TODO: replace tmux neww ... -> TMUGS_NEWW{sjkflsj}
 
-#TMUGS_NEWW = tmux neww -n ${3:neww} -c {$2:${HOME}} "${1:}"
-
-TEST = ${HOME}/test
-BLEU_SRC_DIR = ${HOME}/personal/projects/adt_sample/bleu
+TEST = $HOME/test
+__BLEU_SRC_DIR = $HOME/projects/adt_sample/bleu
+__BAKE_DIR = $HOME/projects/bake
+__MACRO_DIR = $HOME/macro
 
 
 __def__: echo bakefile default...
-__test__: echo ${1}
-__ed: tmux neww -n "bakefile" -c ${HOME} "nvim .bakefile"
-__note: tmux neww -n 'NOTE' -c ${HOME}/note 'nvim ${1}'
-ed: tmux neww -n "bakefile" "nvim Bakefile"
-bake: tmux neww -n "bake_src" -c ${HOME}/util "nvim bake"
-__tmugs_neww: tmux neww -n ${3:neww} -c ${2:${HOME}} "${1:vi}"
-bleu: cp -r ${BLEU_SRC_DIR} ${TEST} && echo "bleu!"
+__tmugs_neww: tmux neww -n ${3:neww} -c ${2:$HOME} ${1:}
+__vim_macro: m4 -Dval="${1}" -Darg="${2:}" $HOME/macro/vim_macro.m4
+bake: @{__tmugs_neww}{"nvim bake", ${__BAKE_DIR}, "bake_src"}
+bleu: cp -r ${__BLEU_SRC_DIR} ${TEST} && echo "bleu!"
+ed: @{__tmugs_neww}{"nvim Bakefile", $PWD,"bakefile"}
+edd: @{__tmugs_neww}{"nvim .bakefile", $HOME, "bakefile_def"}
+han: @{__tmugs_neww}{"nvim han.c", $HOME/projects/han, "han_src"}
+no: @{__tmugs_neww}{"nvim ${#1:index.md}", $HOME/note, "NOTE"}
+#sc: @{note}{scratchpad} FIXME
+sc: @{__tmugs_neww}{"nvim scratchpad", $HOME/note, "scratch"}
+vmac: @{__tmugs_neww}{"nvim vmac", $HOME/util, "vmac"}

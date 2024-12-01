@@ -1,10 +1,5 @@
 #!/bin/sh
 
-#url=$(grep -v '^#' ~/personal/firefox_list | column -t |\
-#    fzf-tmux -p 80% -n 1,2 --with-nth=1,2,3 \
-#    --tiebreak=begin --bind change:first --border-label "TMUGS-FIREFOX" |\
-#    perl -ae '$F[3] = $F[3] =~ m#^https://www.youtube.com# ? $F[3]."&t=".$F[2] : $F[3].$F[2] if $F[2] ne "."; print $F[3]')
-
 url=$(perl -e 'my @list; while(<>){chomp; push @list, $_}
 	@list = sort {($a1)=($a=~/(\d+)$/); ($b1)=($b=~/(\d+)$/); $sum=$a1+$b1;
 		return 0 unless($sum); if($sum==$a1){-1} elsif($sum==$b1){1} else {$a1<=>$b1}} @list;
@@ -24,7 +19,7 @@ perl -e '$url=$ENV{url}; @url = split " ", $url; $chk = $url[4]; $url = $url[2];
 	open $fh, ">", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
 	print $fh "$_\n" for @list;
 	close $fh or die "close failed\n"'
-url=$(perl -ae \ '$F[2] = $F[2] =~ m#^https://www.youtube.com# ?
+url=$(perl -ae '$F[2] = $F[2] =~ m#^https://www.youtube.com# ?
 	$F[2]."&t=".$F[3] : $F[2].$F[3] if $F[3] ne "."; print $F[2]' <<< "$url")
 
 firefox --new-tab $url
