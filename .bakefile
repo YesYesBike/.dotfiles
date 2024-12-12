@@ -9,8 +9,10 @@ __MACRO_DIR = $HOME/macro
 __def__: echo bakefile default...
 __tmugs_neww: tmux neww -n ${3:neww} -c ${2:$HOME} ${1:}
 __vim_macro: m4 -Dval="${1}" -Darg="${2:}" $HOME/macro/vim_macro.m4
+adt: @{__tmugs_neww}{"nvim adt", $HOME/note/adt, "adt"}
 bake: @{__tmugs_neww}{"nvim bake", ${__BAKE_DIR}, "bake_src"}
-bleu: cp -r ${__BLEU_SRC_DIR} ${TEST} && echo "bleu!"
+bleu_mv: cp -r ${__BLEU_SRC_DIR} ${TEST} && echo "bleu!"
+bleu: @{__tmugs_neww}{"nvim main.c", "${TEST}/bleu", "bleu"}
 ed: @{__tmugs_neww}{"nvim Bakefile", $PWD,"bakefile"}
 edd: @{__tmugs_neww}{"nvim .bakefile", $HOME, "bakefile_def"}
 han: @{__tmugs_neww}{"nvim han.c", $HOME/projects/han, "han_src"}

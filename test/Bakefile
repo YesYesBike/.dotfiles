@@ -4,5 +4,5 @@ CPLIST = Bakefile boiler/Makefile
 
 _def_: @{mkdr}
 sync: ${TEST}/sync && echo SYNCSYNC
-heder: ${TEST}/sh/heder ${1}
+heder: [ -e "${1}.h" ] && exit 69; ${TEST}/sh/heder ${1}
 mkdr: mkdir ${TEST}/${1} && cp ${CPLIST} ${TEST}/${1}

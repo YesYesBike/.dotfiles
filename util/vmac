@@ -23,9 +23,10 @@ sub mac_inc {
 			case "io" { $str = "<stdio.h>" } 
 			case "lib" { $str = "<stdlib.h>" } 
 			case "str" { $str = "<string.h>" } 
-			case "def" { $str = "<stddef.h>" } 
+			#case "def" { $str = "<stddef.h>" } 
 			case "uni" { $str = "<unistd.h>" } 
 			case "fcn" { $str = "<fcntl.h>" } 
+			case "wc" { $str = "<wchar.h>" } 
 			case "." { $str = "\"$mark.h\""; $cnt = 0 }
 			else { $str = "\"$_.h\"" }
 		}
@@ -67,16 +68,24 @@ sub mac_sw {
 	return "switch ($mark) {\n$str}\n"
 }
 
+sub mac_tyst {
+	my $arg = @_ ? shift : $mark;
+	return "typedef struct $arg {\n\t$mark\n} $arg;\n"
+}
+
 sub getmacro {
 	my $str = shift;
 
 	switch ($str) {
+		case "def" { return "#define $mark\n" }
+		case "fo" { return mac_fo(@_) }
 		case "im" { return mac_im(@_) }
 		case "inc" { mac_inc(@_) }
-		case "wh" { return mac_wh(@_) }
-		case "fo" { return mac_fo(@_) }
-		case "sw" { return mac_sw(@_) }
+		case "NELEM" { return "#define NELEM(X)\t((sizeof(X))/(sizeof(X[0])))\n$mark\n" }
 		case "pf" { return "printf($mark);\n" }
+		case "sw" { return mac_sw(@_) }
+		case "tyst" { return mac_tyst(@_) }
+		case "wh" { return mac_wh(@_) }
 		else { print "$str@_\n" }
 	}
 }
