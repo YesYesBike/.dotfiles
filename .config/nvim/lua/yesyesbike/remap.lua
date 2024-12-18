@@ -121,7 +121,7 @@ end
 
 vim.keymap.set("n", "<leader>rr", function()
 	local filetype = vim.bo.filetype
-	if filetype == "c" or filetype == "make" then
+	if filetype == "c" or filetype == "make" or filetype == "nasm" then
 		if check_makefile() then
 			vim.cmd('make!')
 			vim.cmd("!~/util/make_target")
@@ -164,7 +164,7 @@ end)
 --Run the debugger in new tmux window
 vim.keymap.set("n", "<leader>rd", function()
 	local filetype = vim.bo.filetype
-	if filetype == "c" or filetype == "make" then
+	if filetype == "c" or filetype == "make" or filetype == "nasm" then
 		if check_makefile() then
 			vim.cmd('make!')
 			vim.cmd("!~/util/make_target")
