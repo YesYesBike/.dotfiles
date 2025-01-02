@@ -4,6 +4,7 @@ TEST = $HOME/test
 __AHEH_SRC_DIR = $HOME/projects/aheheh
 __BLEU_SRC_DIR = $HOME/projects/adt_sample/bleu
 __NBLEU_SRC_DIR = $HOME/projects/adt_sample/nbleu
+__WEIB_SRC_DIR= $HOME/projects/weib
 __BAKE_DIR = $HOME/projects/bake
 __NBAKE_DIR = $HOME/projects/nbake
 __MACRO_DIR = $HOME/macro
@@ -27,6 +28,8 @@ edd: @{__tmugs_neww}{"nvim .bakefile", $HOME, "bakefile_def"}
 han: @{__tmugs_neww}{"nvim han.c", $HOME/projects/han, "han_src"}
 no: @{__tmugs_neww}{"nvim ${#1:index.md}", $HOME/note, "NOTE"}
 heder: [ -e "${1}.h" ] && exit 69; ${TEST}/sh/heder ${1}
+weib: @{__tmugs_neww}{"nvim main.c", "${TEST}/weib", "weib"}
+weib_mv: cp -r ${__WEIB_SRC_DIR} ${TEST} && echo "weib!"
 #sc: @{note}{scratchpad} FIXME
 sc: @{__tmugs_neww}{"nvim scratchpad", $HOME/note, "scratch"}
 vmac: @{__tmugs_neww}{"nvim vmac", $HOME/util, "vmac"}
