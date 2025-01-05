@@ -65,9 +65,9 @@ vim.keymap.set("n", "<leader>y", "\"+y", { desc = "yank to clipboard" })
 vim.keymap.set("x", "<leader>y", "\"+y", { desc = "yank to clipboard" })
 vim.keymap.set("n", "<leader>Y", "\"+y$", { desc = "yank to clipboard" })
 
-vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "save with less keystrokes" })
-vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "quit with less keystrokes" })
-vim.keymap.set("n", "<leader>x", ":!chmod u+x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "save with less keystrokes" })
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "quit with less keystrokes" })
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod u+x %<CR>", { silent = true })
 
 vim.keymap.set("n", "Q", "gQ")
 
@@ -103,7 +103,7 @@ vim.keymap.set("n", "<C-w><Space>", "<C-w>_<C-w>|")
 --Terminal
 vim.keymap.set("t", "<ESC><ESC>", "<C-\\><C-n>")
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
-vim.keymap.set("n", "<leader>T", ":11new<CR>:te<CR>")
+vim.keymap.set("n", "<leader>T", "<cmd>11new<CR>:te<CR>")
 
 
 --Run the current file in terminal
@@ -235,9 +235,9 @@ end)
 vim.keymap.set("n", "<leader><leader>", ":echo '' | redraw<cr>")
 
 --Quickfix
-vim.keymap.set("n", "<leader>v", ":copen<cr>")
-vim.keymap.set("n", "<leader>,", ":cprev<cr>")
-vim.keymap.set("n", "<leader>.", ":cnext<cr>")
+vim.keymap.set("n", "<leader>v", "<cmd>copen<cr>")
+vim.keymap.set("n", "<leader>,", "<cmd>cprev<cr>")
+vim.keymap.set("n", "<leader>.", "<cmd>cnext<cr>")
 
 --Kernel Coding Style...
 vim.keymap.set("n", "<leader>K", function ()
@@ -263,20 +263,20 @@ end)
 
 --han
 --what a emax
-vim.keymap.set("i", "<C-c><C-f>", "<esc>:.!han -e,<cr>:echo '' | redraw<cr>A")
-vim.keymap.set("i", "<C-c><C-c>", "<esc>:.!han -E,<cr>:echo '' | redraw<cr>A")
-vim.keymap.set("i", "<C-c><C-g>", "<esc>:.!han -o\\|<cr>:echo '' | redraw<cr>A")
-vim.keymap.set("i", "<C-c><C-v>", "<esc>:.!han -O\\|<cr>:echo '' | redraw<cr>A")
+vim.keymap.set("i", "<C-c><C-f>", "<esc><cmd>.!han -e,<cr>A")
+vim.keymap.set("i", "<C-c><C-c>", "<esc><cmd>.!han -E,<cr>A")
+vim.keymap.set("i", "<C-c><C-g>", "<esc><cmd>.!han -o\\|<cr>A")
+vim.keymap.set("i", "<C-c><C-v>", "<esc><cmd>.!han -O\\|<cr>A")
 
 --shortcut from windows
-vim.keymap.set("i", "<C-s>", "<esc>:w<cr>a")
+vim.keymap.set("i", "<C-s>", "<esc><cmd>w<cr>a")
 
 --ctags
-vim.keymap.set("n", "<F5>", ":!ctags -R<cr>")
+vim.keymap.set("n", "<F5>", "<cmd>!ctags -R<cr>")
 
 --macro...
 --why deosnt suport line brek
-vim.keymap.set("i", "<C-c><C-j>", "<esc>:.!vmac<cr>mz:.,/^__MARKPOSTTT__$/-1norm ==<cr>:+1d<cr>'z/\\<__MARKASDFQWERJKL__\\><cr>cw")
+vim.keymap.set("i", "<C-c><C-j>", "<esc><cmd>.!vmac<cr>mz:.,/^__MARKPOSTTT__$/-1norm ==<cr>:+1d<cr>'z/\\<__MARKASDFQWERJKL__\\><cr>cw")
 vim.keymap.set("i", "<C-c><C-n>", "<esc>/\\<__MARKASDFQWERJKL__\\><cr>cw")
 
 --newline

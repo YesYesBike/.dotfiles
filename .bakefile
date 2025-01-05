@@ -14,6 +14,7 @@ __def__: echo bakefile default...
 __tmugs_neww: tmux neww -n ${3:neww} -c ${2:$HOME} ${1:}
 __vim_macro: m4 -Dval="${1}" -Darg="${2:}" $HOME/macro/vim_macro.m4
 adt: @{__tmugs_neww}{"nvim adt", $HOME/note/adt, "adt"}
+avr: @{__tmugs_neww}{,/usr/avr/include/,"AVR"}
 rmap: @{__tmugs_neww}{"nvim rmap", $HOME/note/rmap, "rmap"}
 aheh_mv: cp -r ${__AHEH_SRC_DIR} ${TEST} && echo "aheh"
 aheh: @{__tmugs_neww}{"nvim ./", "${TEST}/aheheh", "aheheh"}

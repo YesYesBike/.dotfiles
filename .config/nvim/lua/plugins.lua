@@ -8,6 +8,12 @@ return {
 		branch = "harpoon2",
         dependencies = { {"nvim-lua/plenary.nvim"} }
     },
+    --{ --LSP
+    --    "neovim/nvim-lspconfig",
+	--	config = function()
+	--		require('lspconfig').clangd.setup{}
+	--	end,
+    --},
     {
         "pgdouyon/vim-yin-yang",
         lazy = false,
