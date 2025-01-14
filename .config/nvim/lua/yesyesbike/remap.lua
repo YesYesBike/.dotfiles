@@ -106,10 +106,7 @@ vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
 vim.keymap.set("n", "<leader>T", "<cmd>11new<CR>:te<CR>")
 
 
---Run the current file in terminal
---Note: use #
-
-local function check_makefile()
+local function makefile_check()
 	local file = io.open('Makefile', "r")
 	if file then
 		io.close(file)
@@ -119,28 +116,43 @@ local function check_makefile()
 	end
 end
 
+local function makefile_target()
+	local f = io.popen('~/util/vim_make ' .. os.getenv('PWD'), 'r')
+	local ret = f:read('*a')
+	f:close()
+
+	return ret
+end
+
+
+--Build
+vim.keymap.set("n", "<leader>m", function ()
+	if makefile_check() then
+		vim.cmd('make!')
+	elseif vim.bo.filetype == "c" then
+		vim.cmd('!gcc %')
+	end
+end)
+
+
+--Run the current file in terminal
 vim.keymap.set("n", "<leader>rr", function()
 	local filetype = vim.bo.filetype
-	if filetype == "c" or filetype == "make" or filetype == "nasm" then
-		if check_makefile() then
-			vim.cmd('make!')
-			vim.cmd("!~/util/make_target")
-			vim.cmd("11new")
-			--TODOTODOTODOTODOTOTODOTO
-			vim.cmd.te("filename=$(< /tmp/__FILENAME42069);./$filename;exit")
-		else
-			vim.cmd("11new")
-			vim.cmd.te("gcc # && ./a.out")
-		end
-	--elseif filetype == "fortran" then
-	--	vim.cmd("11new")
-	--	vim.cmd.te("gfortran # && ./a.out")
-	--elseif filetype == "cpp" then
-	--	vim.cmd("11new")
-	--	vim.cmd.te("g++ # && ./a.out")
-	elseif filetype == "m4" then
+	if makefile_check() then
+		vim.cmd('make!')
+		--TODO: condition check
+		local target = makefile_target()
 		vim.cmd("11new")
-		vim.cmd.te("m4 #")
+		vim.cmd.te("./" .. target)
+	elseif filetype == "c" then
+		vim.cmd("11new")
+		vim.cmd.te("gcc # && ./a.out")
+	elseif filetype == "lua" then
+		vim.cmd("11new")
+		vim.cmd.te("lua #")
+	elseif filetype == "scheme" then
+		vim.cmd("11new")
+		vim.cmd.te("guile #")
 	else
 		vim.cmd("11new")
 		vim.cmd.te("./#")
@@ -148,34 +160,42 @@ vim.keymap.set("n", "<leader>rr", function()
 end)
 
 
-vim.keymap.set("n", "<leader>m", function ()
-	if check_makefile() then
-		vim.cmd('make!')
-	elseif vim.bo.filetype == "c" then
-		vim.cmd('!gcc %')
-	elseif vim.bo.filetype == "fortran" then
-		vim.cmd('!gfortran %')
-	elseif vim.bo.filetype == "cpp" then
-		vim.cmd('!g++ %')
-	end
-end)
-
-
 --Run the debugger in new tmux window
 vim.keymap.set("n", "<leader>rd", function()
 	local filetype = vim.bo.filetype
-	if filetype == "c" or filetype == "make" or filetype == "nasm" then
-		if check_makefile() then
-			vim.cmd('make!')
-			vim.cmd("!~/util/make_target")
-			vim.cmd("silent !pwd > /tmp/__PWD42069")
-			vim.cmd("silent !~/util/tmux-gdb-make")
-		else
-			vim.cmd("silent !echo % > /tmp/__FILENAME42069")
-			vim.cmd("silent !pwd > /tmp/__PWD42069")
-			vim.cmd("silent !~/util/tmux-gdb")
-		end
+	if makefile_check() then
+		vim.cmd('silent make!')
+		--TODO: condition check
+		local target = makefile_target()
+		os.execute("tmux neww -c " .. os.getenv('PWD') .. " gdb " .. target)
+	elseif vim.bo.filetype == "c" then
+		vim.cmd("!gcc -g % && tmux neww -c %:p:h 'gdb a.out'")
+	elseif filetype == "lua" then
+		--not debug mode but interactive mode
+		vim.cmd("11new")
+		vim.cmd.te("lua -i #")
+	elseif filetype == "scheme" then
+		vim.cmd("11new")
+		vim.cmd.te("guile -l #")
 	end
+end)
+
+--Run LUAAAAAA
+vim.keymap.set("n", "<leader>rl", function()
+	vim.cmd("11new")
+	vim.cmd.te("lua")
+end)
+
+--Run PYTHONNNNN
+vim.keymap.set("n", "<leader>rp", function()
+	vim.cmd("11new")
+	vim.cmd.te("python")
+end)
+
+--Run GUILLLLLLE
+vim.keymap.set("n", "<leader>rg", function()
+	vim.cmd("11new")
+	vim.cmd.te("guile")
 end)
 
 --Setting filetype
@@ -211,14 +231,18 @@ vim.keymap.set("n", "<leader>3", function ()
 	vim.cmd('silent !chmod u+x %')
 	vim.cmd.star()
 end)
+vim.keymap.set("n", "<leader>4", function ()
+	vim.bo.filetype = 'lua'
+	vim.cmd.norm('a#!/usr/bin/lua')
+	vim.cmd.norm('2o')
+	vim.cmd.write({mods = {silent = true}})
+	vim.cmd('silent !chmod u+x %')
+	vim.cmd.star()
+end)
 
 
 --Formattttt
-vim.keymap.set({"x","n"}, "<leader>f", function()
-	if vim.bo.filetype == 'c' then
-		vim.cmd.perldo("s/\\b(if|for|while|switch)\\(/$1 (/g; s/(\\)|else|do)\\{/$1 {/g;")
-	end
-end)
+vim.keymap.set({"x","n"}, "<leader>f", "mzgg=G`z")
 
 --Colorscheme for bright place
 vim.keymap.set("n", "<leader>C", function ()
@@ -257,10 +281,6 @@ vim.keymap.set("n", "<leader>K", function ()
 end)
 
 
---unexpand tabbsss
---vim.keymap.set("n", "<leader>tt", "mz:%!unexpand -t4<cr>`z")
-
-
 --han
 --what a emax
 vim.keymap.set("i", "<C-c><C-f>", "<esc><cmd>.!han -e,<cr>A")
@@ -275,9 +295,5 @@ vim.keymap.set("i", "<C-s>", "<esc><cmd>w<cr>a")
 vim.keymap.set("n", "<F5>", "<cmd>!ctags -R<cr>")
 
 --macro...
---why deosnt suport line brek
 vim.keymap.set("i", "<C-c><C-j>", "<esc><cmd>.!vmac<cr>mz:.,/^__MARKPOSTTT__$/-1norm ==<cr>:+1d<cr>'z/\\<__MARKASDFQWERJKL__\\><cr>cw")
 vim.keymap.set("i", "<C-c><C-n>", "<esc>/\\<__MARKASDFQWERJKL__\\><cr>cw")
-
---newline
-vim.keymap.set("i", "<C-o>", "<esc>O") --gudbye my old kye

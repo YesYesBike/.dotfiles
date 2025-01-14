@@ -13,4 +13,4 @@ then
 fi
 
 ~/util/tmugs-recent "$book" "common/pdf/booklist_recent"
-zathura ~/common/pdf/$book.pdf &
+zathura-sandbox ~/common/pdf/$book.pdf &

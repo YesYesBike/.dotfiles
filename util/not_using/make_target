@@ -7,8 +7,10 @@
 #    say
 #/;
 
+umask 0077;
+
 open TARGET, '<', 'Makefile';
-open EXE, '>', '/tmp/__FILENAME42069';
+open EXE, '>', "/tmp/__FILENAME42069_$ENV{'USER'}";
 
 for (<TARGET>){
     chomp;

@@ -40,6 +40,8 @@ alias tk='tmux kill-ses -t'
 alias tl='tmux ls'
 alias top='top -E g '
 alias type='type -a '
+alias uart='picocom -b 9600 /dev/ttyUSB0'
+alias ucat='cat /dev/ttyUSB0'
 alias v=nvim
 alias vidir='export EDITOR=nvim; vidir'
 alias x='cd; startx'

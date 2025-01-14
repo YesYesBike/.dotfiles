@@ -78,14 +78,8 @@ sub getmacro {
 
 	switch ($str) {
 		case "def" { return "#define $mark\n" }
-		case "fo" { return mac_fo(@_) }
 		case "im" { return mac_im(@_) }
 		case "inc" { mac_inc(@_) }
-		case "NELEM" { return "#define NELEM(X)\t((sizeof(X))/(sizeof(X[0])))\n$mark\n" }
-		case "pf" { return "printf($mark);\n" }
-		case "sw" { return mac_sw(@_) }
-		case "tyst" { return mac_tyst(@_) }
-		case "wh" { return mac_wh(@_) }
 		else { print "$str@_\n" }
 	}
 }

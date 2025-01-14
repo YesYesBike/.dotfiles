@@ -64,6 +64,7 @@ PATH=$PATH:~/.spoofdpi/bin:~/bin
 PATH=$PATH:~/src/prv9/source/bin
 export BC_ENV_ARGS="$HOME/.bc"
 export PERLDOC_PAGER="less -+C "
+export HACKPAGER=less
 
 date +'%F(%a)'
 

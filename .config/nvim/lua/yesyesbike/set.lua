@@ -1,4 +1,4 @@
-vim.g.filetype_pl = "prolog"	--perlog
+--vim.g.filetype_pl = "prolog"	--perlog
 vim.opt.guicursor = ""
 vim.opt.clipboard = unnamedplus
 vim.opt.showtabline = 0
@@ -127,3 +127,6 @@ vim.g.terminal_color_12 = "#87afd7"
 vim.g.terminal_color_13 = "#8787af"
 vim.g.terminal_color_14 = "#5fafaf"
 vim.g.terminal_color_15 = "#ffffff"
+
+--Lisp
+--vim.opt.lispwords:append { 'aieee' }
