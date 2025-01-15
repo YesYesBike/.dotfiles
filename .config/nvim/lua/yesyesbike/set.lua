@@ -128,5 +128,9 @@ vim.g.terminal_color_13 = "#8787af"
 vim.g.terminal_color_14 = "#5fafaf"
 vim.g.terminal_color_15 = "#ffffff"
 
+--Trailing Whitespace
+vim.cmd.highlight("ExtraWhitespace ctermbg=DarkMagenta guibg=#440044")
+vim.cmd.match("ExtraWhitespace /\\s\\+$/")
+
 --Lisp
 --vim.opt.lispwords:append { 'aieee' }

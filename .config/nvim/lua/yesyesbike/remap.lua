@@ -131,6 +131,9 @@ vim.keymap.set("n", "<leader>m", function ()
 		vim.cmd('make!')
 	elseif vim.bo.filetype == "c" then
 		vim.cmd('!gcc %')
+	elseif vim.bo.filetype == "markdown" then
+		--vim.cmd('!markdown -f fencedcode -So %<.html %')
+		vim.cmd('!~/util/md2html % %<.html')
 	end
 end)
 
@@ -147,12 +150,6 @@ vim.keymap.set("n", "<leader>rr", function()
 	elseif filetype == "c" then
 		vim.cmd("11new")
 		vim.cmd.te("gcc # && ./a.out")
-	elseif filetype == "lua" then
-		vim.cmd("11new")
-		vim.cmd.te("lua #")
-	elseif filetype == "scheme" then
-		vim.cmd("11new")
-		vim.cmd.te("guile #")
 	else
 		vim.cmd("11new")
 		vim.cmd.te("./#")
@@ -234,6 +231,14 @@ end)
 vim.keymap.set("n", "<leader>4", function ()
 	vim.bo.filetype = 'lua'
 	vim.cmd.norm('a#!/usr/bin/lua')
+	vim.cmd.norm('2o')
+	vim.cmd.write({mods = {silent = true}})
+	vim.cmd('silent !chmod u+x %')
+	vim.cmd.star()
+end)
+vim.keymap.set("n", "<leader>5", function ()
+	vim.bo.filetype = 'scheme'
+	vim.cmd.norm('a#!/usr/bin/guile')
 	vim.cmd.norm('2o')
 	vim.cmd.write({mods = {silent = true}})
 	vim.cmd('silent !chmod u+x %')
