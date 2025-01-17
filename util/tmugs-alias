@@ -4,6 +4,7 @@ alias=$(fzf-tmux -n 1 -p 50% --border-label='Tmugs-Alias' \
     < ~/.tmux-alias | awk '{ print $1 }')
 
 case $alias in
+    ac) tmux neww -n "ASCII" "man 7 ascii" ;;
     ae) tmux neww -n "aliasrc" "nvim ~/.aliasrc" ;;
 	ba) tmux run -b "~/personal/ba/ba || exit 0" ;;
     be) tmux neww -n "bashrc" "nvim ~/.bashrc" ;;

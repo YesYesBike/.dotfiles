@@ -12,12 +12,14 @@ my ($in, $out) = @ARGV;
 ($in and $out) or die "Usage: md2html md html";
 my $cmd = "markdown -f fencedcode -S $in";
 
+my $title_idx = 5;
 my @html_body;
 my @html_top = (
 	"<!DOCTYPE html>",
+	"<!-- Generated from Markdown -->",
 	"<html>",
 	"<head>",
-	"<meta charset=\"UTF-8\">",
+	"<meta charset=\"UTF-8\">",		#title: next to this
 	"</head>",
 	"<body>",
 );
@@ -28,9 +30,9 @@ my @html_bot = (
 
 
 open INFILE, "<$in" or die "open() failed(input)";
-if (<INFILE> =~ /^\%\s*(.*)/) {
+if (<INFILE> =~ /^\%\s*(.+)/) {
 	my $title = $1;
-	splice @html_top, 4, 0, ("<title>$title</title>");
+	splice @html_top, $title_idx, 0, ("<title>$title</title>");
 }
 close INFILE or die "close() failed(input)";
 

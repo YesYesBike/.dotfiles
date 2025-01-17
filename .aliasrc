@@ -45,6 +45,7 @@ alias ucat='cat /dev/ttyUSB0'
 alias v=nvim
 alias vidir='export EDITOR=nvim; vidir'
 alias x='cd; startx'
+alias zathura='zathura-sandbox'
 
 
 function rascp {

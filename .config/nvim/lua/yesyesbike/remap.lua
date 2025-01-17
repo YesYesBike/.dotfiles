@@ -59,7 +59,7 @@ vim.keymap.set("n", "J", "mzJ`z", { desc = "J without moving cursor" })
 vim.keymap.set("n", "gJ", "mzgJ`z", { desc = "gJ without moving cursor" })
 
 vim.keymap.set("x", "<leader>p", "\"_dP",
-	{ desc = "Paste to selection and keep current register" })
+{ desc = "Paste to selection and keep current register" })
 
 vim.keymap.set("n", "<leader>y", "\"+y", { desc = "yank to clipboard" })
 vim.keymap.set("x", "<leader>y", "\"+y", { desc = "yank to clipboard" })
@@ -72,7 +72,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod u+x %<CR>", { silent = true })
 vim.keymap.set("n", "Q", "gQ")
 
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
-	{ desc = "substitute the word under the cursor in a whole file" })
+{ desc = "substitute the word under the cursor in a whole file" })
 
 --Reload Setting and Keymap
 vim.keymap.set("n", "<leader>R", function()
@@ -87,8 +87,8 @@ vim.keymap.set("n", "<leader>R", function()
 end, { desc = "Reload setting" })
 
 --Switching Panes
-vim.keymap.set({"n", "i"}, "<C-j>", "<ESC><C-w>j")
-vim.keymap.set({"n", "i"}, "<C-k>", "<ESC><C-w>k")
+vim.keymap.set("n", "<C-j>", "<ESC><C-w>j")
+vim.keymap.set("n", "<C-k>", "<ESC><C-w>k")
 
 --Resize Panes
 vim.keymap.set({"n", "t"}, "<C-Left>", ":vertical resize -1<CR>")
@@ -131,9 +131,6 @@ vim.keymap.set("n", "<leader>m", function ()
 		vim.cmd('make!')
 	elseif vim.bo.filetype == "c" then
 		vim.cmd('!gcc %')
-	elseif vim.bo.filetype == "markdown" then
-		--vim.cmd('!markdown -f fencedcode -So %<.html %')
-		vim.cmd('!~/util/md2html % %<.html')
 	end
 end)
 
@@ -239,9 +236,12 @@ end)
 vim.keymap.set("n", "<leader>5", function ()
 	vim.bo.filetype = 'scheme'
 	vim.cmd.norm('a#!/usr/bin/guile')
+	vim.cmd.norm('o')
+	vim.cmd.norm('a!#')
 	vim.cmd.norm('2o')
 	vim.cmd.write({mods = {silent = true}})
 	vim.cmd('silent !chmod u+x %')
+	vim.cmd.call("SchemeSetup()")
 	vim.cmd.star()
 end)
 
@@ -260,8 +260,8 @@ end)
 
 
 
---Clear cmdline
-vim.keymap.set("n", "<leader><leader>", ":echo '' | redraw<cr>")
+--Clear cmdline -> just use ctrl-l...
+vim.keymap.set("n", "<leader><leader>", "<nop>")
 
 --Quickfix
 vim.keymap.set("n", "<leader>v", "<cmd>copen<cr>")
@@ -288,10 +288,10 @@ end)
 
 --han
 --what a emax
-vim.keymap.set("i", "<C-c><C-f>", "<esc><cmd>.!han -e,<cr>A")
-vim.keymap.set("i", "<C-c><C-c>", "<esc><cmd>.!han -E,<cr>A")
-vim.keymap.set("i", "<C-c><C-g>", "<esc><cmd>.!han -o\\|<cr>A")
-vim.keymap.set("i", "<C-c><C-v>", "<esc><cmd>.!han -O\\|<cr>A")
+vim.keymap.set("i", "<C-c><C-f>", "<esc><cmd>.!han -e$'\\014'<cr>A")
+vim.keymap.set("i", "<C-c><C-c>", "<esc><cmd>.!han -E$'\\014'<cr>A")
+vim.keymap.set("i", "<C-c><C-g>", "<esc><cmd>.!han -o$'\\014'<cr>A")
+vim.keymap.set("i", "<C-c><C-v>", "<esc><cmd>.!han -O$'\\014'<cr>A")
 
 --shortcut from windows
 vim.keymap.set("i", "<C-s>", "<esc><cmd>w<cr>a")
@@ -302,3 +302,19 @@ vim.keymap.set("n", "<F5>", "<cmd>!ctags -R<cr>")
 --macro...
 vim.keymap.set("i", "<C-c><C-j>", "<esc><cmd>.!vmac<cr>mz:.,/^__MARKPOSTTT__$/-1norm ==<cr>:+1d<cr>'z/\\<__MARKASDFQWERJKL__\\><cr>cw")
 vim.keymap.set("i", "<C-c><C-n>", "<esc>/\\<__MARKASDFQWERJKL__\\><cr>cw")
+
+--format
+vim.keymap.set("i", "<C-c><C-d>", "<esc>mzgg=G`za")
+
+--UPPERCASE
+vim.keymap.set("i", "<C-c><C-u>", "<esc>gUiwea")
+
+--operation
+vim.keymap.set("o", "in(", ":<c-u>norm! f(vi(<cr>")
+vim.keymap.set("o", "il(", ":<c-u>norm! F)vi(<cr>")
+vim.keymap.set("o", "an(", ":<c-u>norm! f(va(<cr>")
+vim.keymap.set("o", "al(", ":<c-u>norm! F)va(<cr>")
+vim.keymap.set("o", "in{", ":<c-u>norm! f{vi{<cr>")
+vim.keymap.set("o", "il{", ":<c-u>norm! F}vi{<cr>")
+vim.keymap.set("o", "an{", ":<c-u>norm! f{va{<cr>")
+vim.keymap.set("o", "al{", ":<c-u>norm! F}va{<cr>")

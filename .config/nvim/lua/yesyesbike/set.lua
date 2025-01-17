@@ -131,6 +131,18 @@ vim.g.terminal_color_15 = "#ffffff"
 --Trailing Whitespace
 vim.cmd.highlight("ExtraWhitespace ctermbg=DarkMagenta guibg=#440044")
 vim.cmd.match("ExtraWhitespace /\\s\\+$/")
+vim.api.nvim_create_autocmd({"InsertLeave"}, {
+	group = vim.api.nvim_create_augroup('ExtraWhiteOn', { clear = true }),
+	command = "hi ExtraWhitespace ctermbg=DarkMagenta guibg=#440044"
+})
+vim.api.nvim_create_autocmd({"InsertEnter"}, {
+	group = vim.api.nvim_create_augroup('ExtraWhiteOff', { clear = true }),
+	command = "hi clear ExtraWhitespace"
+})
+
+--vim.cmd("tnoremap <expr> <C-\\> '<C-\\><C-N>\"'.nr2char(getchar()).'pi'")
+
+
 
 --Lisp
---vim.opt.lispwords:append { 'aieee' }
+--vim.opt.lispwords:append { 'for-each,map,define-macro,list' }
