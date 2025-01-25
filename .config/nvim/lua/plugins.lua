@@ -8,15 +8,16 @@ return {
 		branch = "harpoon2",
         dependencies = { {"nvim-lua/plenary.nvim"} }
     },
-    --{ --LSP
-    --    "neovim/nvim-lspconfig",
-	--	config = function()
-	--		require('lspconfig').clangd.setup{}
-	--	end,
-    --},
     {
-        "pgdouyon/vim-yin-yang",
+        "YesYesBike/vim-yin-yang",
         lazy = false,
         priority = 1000,
     },
+	{ --LISP
+		"jpalardy/vim-slime",
+		init = function()
+			vim.g.slime_target = "neovim"
+			vim.g.slime_no_mappings = true
+		end,
+	},
 }

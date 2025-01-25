@@ -19,6 +19,6 @@ while (<MAKEFILE>) {
 
 close MAKEFILE or die "Makefile close failed\n";
 
-$target or die "No target!\n";
+$target //= 'a.out';
 
 print $target;

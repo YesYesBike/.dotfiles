@@ -79,7 +79,7 @@ vim.keymap.set("n", "<leader>R", function()
 	vim.cmd("au!")
 
 	local cmdir = 'luafile '..os.getenv('HOME')..'/.config/nvim/lua/yesyesbike/'
-	local load = {'init', 'set', 'remap', 'plugin', 'telescope', 'harpoon'}
+	local load = {'init', 'set', 'remap', 'plugin', 'telescope', 'harpoon', 'slime'}
 	for i,v in ipairs(load) do
 		local string = cmdir..v..'.lua'
 		vim.cmd(string)
@@ -91,19 +91,19 @@ vim.keymap.set("n", "<C-j>", "<ESC><C-w>j")
 vim.keymap.set("n", "<C-k>", "<ESC><C-w>k")
 
 --Resize Panes
-vim.keymap.set({"n", "t"}, "<C-Left>", ":vertical resize -1<CR>")
-vim.keymap.set({"n", "t"}, "<C-Right>", ":vertical resize +1<CR>")
+--vim.keymap.set({"n", "t"}, "<C-Left>", ":vertical resize -1<CR>")
+--vim.keymap.set({"n", "t"}, "<C-Right>", ":vertical resize +1<CR>")
 vim.keymap.set({"n", "t"}, "<C-Up>", ":resize +1<CR>")
 vim.keymap.set({"n", "t"}, "<C-Down>", ":resize -1<CR>")
 
 --FULLSCREEN
-vim.keymap.set("n", "<C-w><Space>", "<C-w>_<C-w>|")
+--vim.keymap.set("n", "<C-w><Space>", "<C-w>_<C-w>|")
 
 
 --Terminal
 vim.keymap.set("t", "<ESC><ESC>", "<C-\\><C-n>")
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
-vim.keymap.set("n", "<leader>T", "<cmd>11new<CR>:te<CR>")
+vim.keymap.set("n", "<leader>t", "<cmd>11new<CR>:te<CR>")
 
 
 local function makefile_check()
@@ -193,6 +193,7 @@ vim.keymap.set("n", "<leader>rg", function()
 end)
 
 --Setting filetype
+--TODOTODOTODO
 vim.keymap.set("n", "<leader>1", function ()
 	vim.bo.filetype = 'bash'
 	vim.cmd.norm('a#!/usr/bin/sh')
@@ -202,19 +203,11 @@ vim.keymap.set("n", "<leader>1", function ()
 	vim.cmd.star()
 end)
 vim.keymap.set("n", "<leader>2", function ()
-	vim.cmd.norm('a#!/usr/bin/perl')
-	vim.cmd.norm('2o')
-	vim.cmd.norm('ause warnings;')
-	vim.cmd.norm('o')
-	vim.cmd.norm('ause strict;')
-	vim.cmd.norm('o')
-	vim.cmd.norm('ause feature qw/ say /;')
-	vim.cmd.norm('o')
-	vim.cmd.norm('ause Data::Dumper;')
-	vim.cmd.norm('2o')
+	vim.cmd("0read ~/.dotfiles/boiler/perl")
+	vim.bo.filetype = 'perl'
 	vim.cmd.write({mods = {silent = true}})
 	vim.cmd('silent !chmod u+x %')
-	vim.bo.filetype = 'perl'
+	vim.cmd("$")
 	vim.cmd.star()
 end)
 vim.keymap.set("n", "<leader>3", function ()
@@ -234,14 +227,11 @@ vim.keymap.set("n", "<leader>4", function ()
 	vim.cmd.star()
 end)
 vim.keymap.set("n", "<leader>5", function ()
+	vim.cmd("0read ~/.dotfiles/boiler/scheme")
 	vim.bo.filetype = 'scheme'
-	vim.cmd.norm('a#!/usr/bin/guile')
-	vim.cmd.norm('o')
-	vim.cmd.norm('a!#')
-	vim.cmd.norm('2o')
 	vim.cmd.write({mods = {silent = true}})
 	vim.cmd('silent !chmod u+x %')
-	vim.cmd.call("SchemeSetup()")
+	vim.cmd("$")
 	vim.cmd.star()
 end)
 
@@ -261,7 +251,7 @@ end)
 
 
 --Clear cmdline -> just use ctrl-l...
-vim.keymap.set("n", "<leader><leader>", "<nop>")
+--vim.keymap.set("n", "<leader><leader>", "<nop>")
 
 --Quickfix
 vim.keymap.set("n", "<leader>v", "<cmd>copen<cr>")
@@ -296,6 +286,11 @@ vim.keymap.set("i", "<C-c><C-v>", "<esc><cmd>.!han -O$'\\014'<cr>A")
 --shortcut from windows
 vim.keymap.set("i", "<C-s>", "<esc><cmd>w<cr>a")
 
+--right
+vim.keymap.set("i", "<C-l>", "<Right>")
+vim.keymap.set("i", "<C-c><C-l>", "<C-l><C-l><esc>i")
+vim.keymap.set("i", "<C-c>;", "<esc>viw<right>o<left>c") --TODOTODOTODO
+
 --ctags
 vim.keymap.set("n", "<F5>", "<cmd>!ctags -R<cr>")
 
@@ -304,17 +299,17 @@ vim.keymap.set("i", "<C-c><C-j>", "<esc><cmd>.!vmac<cr>mz:.,/^__MARKPOSTTT__$/-1
 vim.keymap.set("i", "<C-c><C-n>", "<esc>/\\<__MARKASDFQWERJKL__\\><cr>cw")
 
 --format
-vim.keymap.set("i", "<C-c><C-d>", "<esc>mzgg=G`za")
+--vim.keymap.set("i", "<C-c><C-d>", "<esc>mzgg=G`za")
 
 --UPPERCASE
-vim.keymap.set("i", "<C-c><C-u>", "<esc>gUiwea")
+--vim.keymap.set("i", "<C-c><C-u>", "<esc>gUiwea")
 
 --operation
-vim.keymap.set("o", "in(", ":<c-u>norm! f(vi(<cr>")
-vim.keymap.set("o", "il(", ":<c-u>norm! F)vi(<cr>")
-vim.keymap.set("o", "an(", ":<c-u>norm! f(va(<cr>")
-vim.keymap.set("o", "al(", ":<c-u>norm! F)va(<cr>")
-vim.keymap.set("o", "in{", ":<c-u>norm! f{vi{<cr>")
-vim.keymap.set("o", "il{", ":<c-u>norm! F}vi{<cr>")
-vim.keymap.set("o", "an{", ":<c-u>norm! f{va{<cr>")
-vim.keymap.set("o", "al{", ":<c-u>norm! F}va{<cr>")
+--vim.keymap.set("o", "in(", ":<c-u>norm! f(vi(<cr>")
+--vim.keymap.set("o", "il(", ":<c-u>norm! F)vi(<cr>")
+--vim.keymap.set("o", "an(", ":<c-u>norm! f(va(<cr>")
+--vim.keymap.set("o", "al(", ":<c-u>norm! F)va(<cr>")
+--vim.keymap.set("o", "in{", ":<c-u>norm! f{vi{<cr>")
+--vim.keymap.set("o", "il{", ":<c-u>norm! F}vi{<cr>")
+--vim.keymap.set("o", "an{", ":<c-u>norm! f{va{<cr>")
+--vim.keymap.set("o", "al{", ":<c-u>norm! F}va{<cr>")

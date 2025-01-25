@@ -3,5 +3,6 @@
   "lazy.nvim": { "branch": "main", "commit": "d8f26efd456190241afd1b0f5235fe6fdba13d4a" },
   "plenary.nvim": { "branch": "master", "commit": "3707cdb1e43f5cea73afb6037e6494e7ce847a66" },
   "telescope.nvim": { "branch": "master", "commit": "415af52339215926d705cccc08145f3782c4d132" },
-  "vim-yin-yang": { "branch": "master", "commit": "1b34400a61845fa902bbf40a7d3c0349f98d752c" }
+  "vim-slime": { "branch": "main", "commit": "5280fdf24888b1e31409198f284ad2d3a88c692e" },
+  "vim-yin-yang": { "branch": "master", "commit": "607398e9cb1c9ea74fa165edc2dfb743295beb96" }
 }

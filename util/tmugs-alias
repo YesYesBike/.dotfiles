@@ -14,6 +14,8 @@ case $alias in
     #fe) tmux neww -n "firefox_list" -c ~/personal "nvim firefox_list" ;;
     #he) tmux neww -n "Homepage" "nvim homepage.html" ;;
 	#lol) tmux neww "printf 'enter the value: '; read asdf; echo $asdf" ;;
+	rm) tmux neww -n "RMAP" -c ~/"personal/projects/github_io/" "nvim roadmap.md" ;;
+	si)tmux neww -c ~/".dotfiles/scheme" "nvim sicp.scm" ;; 
     sc) tmux neww -n "SCRATCHPAD" -c ~/"note" "nvim +$ scratchpad" ;;
     tae) tmux neww -n "tmux-alias" -c ~/"util" "nvim tmugs-alias" ;;
     te) tmux neww -n "tmuxconf" "nvim ~/.tmux.conf" ;;

@@ -5,5 +5,7 @@ be  / Edit .bashrc
 di  / Diary
 te  / Edit .tmux.conf
 tae / Edit .tmux-alias
+rm  / Roadmap
+si  / SICP
 sc  / Scratchpad
 ve  / Edit Neovim Setting
