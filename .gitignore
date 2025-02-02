@@ -1,4 +1,3 @@
-.config/
 !.config/FreeCAD/
 !.config/feh/
 !.config/mpv/
@@ -9,3 +8,4 @@
 !.config/yt-dlp/
 !.config/zathura/
 !.config/pulse/default.pa
+.config/
