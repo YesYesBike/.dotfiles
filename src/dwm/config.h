@@ -31,6 +31,7 @@ static const Rule rules[] = {
 	{ NULL,		NULL,		"org.pwmt.zathura",	1 << 2,		0,			-1 },
 	{ NULL,		NULL,		"mpv",				1 << 2,		0,			-1 },
 	{ NULL,		NULL,		"freecad",			1 << 2,		0,			-1 },
+	{ NULL,		NULL,		"feh",				1 << 3,		0,			-1 },
 	/*
 	{ NULL,		NULL,		NULL,				0,			0,			-1 },
 	*/
