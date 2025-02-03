@@ -3,7 +3,7 @@
 !.config/feh/
 !.config/mpv/
 !.config/neofetch/
-!.config/nvim/
+!.config/nvim/*
 !.config/procps/toprc
 !.config/sxiv/
 !.config/yt-dlp/

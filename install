@@ -30,3 +30,5 @@ cd -
 
 ln -sn /tmp/test_${USER} ~/test
 ln -sn ~/personal/projects/ ~/projects
+
+ln -sn ~/.dotfiles/.xinitrc_${dev} ~/.xinitrc

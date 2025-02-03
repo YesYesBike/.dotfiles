@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx	= 0;		/* border pixel of windows */
 static const unsigned int snap		= 32;		/* snap pixel */
@@ -70,6 +72,10 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *screenshot[] = { "scrot",
 	"/home/yesyesbike/images/screenshot/%Y-%m-%d-%T.jpg", NULL};
 static const char *slock[] = { "slock", NULL };
+static const char *vol_tog[] = { "amixer", "sset", "Master", "toggle", NULL};
+static const char *vol_inc[] = { "amixer", "sset", "Master", "5%+", NULL};
+static const char *vol_dec[] = { "amixer", "sset", "Master", "5%-", NULL};
+static const char *firefox[] = { "firefox", NULL };
 
 static const Key keys[] = {
 	/* modifier						key		   function		   argument */
@@ -107,8 +113,12 @@ static const Key keys[] = {
 	TAGKEYS(						 XK_9,						8)
 	TAGKEYS(						 XK_0,						9)
 	{ MODKEY4|ShiftMask,			 XK_q,		quit,			{0} },
-	{ MODKEY4,						 XK_h,		spawn,			{.v = screenshot } },
+	{ MODKEY4,						 XK_Print,		spawn,			{.v = screenshot } },
 	{ MODKEY4,						 XK_l,		spawn,			{.v = slock } },
+	{ 0,				XF86XK_AudioMute,		spawn,			{.v = vol_tog} },
+	{ 0,				XF86XK_AudioLowerVolume,	spawn,			{.v = vol_dec} },
+	{ 0,				XF86XK_AudioRaiseVolume,	spawn,			{.v = vol_inc} },
+	{ 0,				XK_KP_Enter,	spawn, {.v = firefox} },
 };
 
 /* button definitions */
