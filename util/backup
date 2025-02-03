@@ -2,6 +2,6 @@
 
 tmpdir=$(mktemp -dt "bakdir.XXXXXX")
 chmod 700 ${tmpdir}
-tar -cvJf ${tmpdir}/backup.tar.xz -T ~/personal/backup_list
+tar -cvJf ${tmpdir}/backup.tar.xz ~/aleph/
 export tmpdir
-~/backup/mov
+~/aleph/bak_mov
