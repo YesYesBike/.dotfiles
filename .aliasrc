@@ -1,5 +1,6 @@
 alias :q='exit'
 alias bak='~/util/backup'
+alias batstat="cat /sys/class/power_supply/BAT0/capacity /sys/class/power_supply/BAT0/status"
 alias bc='bc -q '
 alias bs='source ~/.bashrc'
 alias cdf='cd ~/.dotfiles'
