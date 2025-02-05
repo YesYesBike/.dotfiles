@@ -2,3 +2,4 @@
 require("yesyesbike.remap")
 require("yesyesbike.set")
 require("yesyesbike.plugin")
+require("yesyesbike.lsp")

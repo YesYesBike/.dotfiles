@@ -79,7 +79,7 @@ vim.keymap.set("n", "<leader>R", function()
 	vim.cmd("au!")
 
 	local cmdir = 'luafile '..os.getenv('HOME')..'/.config/nvim/lua/yesyesbike/'
-	local load = {'init', 'set', 'remap', 'plugin', 'telescope', 'harpoon', 'slime'}
+	local load = {'init', 'set', 'remap', 'plugin', 'telescope', 'harpoon', 'slime', 'lsp'}
 	for i,v in ipairs(load) do
 		local string = cmdir..v..'.lua'
 		vim.cmd(string)
@@ -258,9 +258,6 @@ end)
 
 
 
---Clear cmdline -> just use ctrl-l...
---vim.keymap.set("n", "<leader><leader>", "<nop>")
-
 --Quickfix
 vim.keymap.set("n", "<leader>v", "<cmd>copen<cr>")
 vim.keymap.set("n", "<leader>,", "<cmd>cprev<cr>")
@@ -297,7 +294,6 @@ vim.keymap.set("i", "<C-s>", "<esc><cmd>w<cr>a")
 --right
 vim.keymap.set("i", "<C-l>", "<Right>")
 vim.keymap.set("i", "<C-c><C-l>", "<C-l><C-l><esc>i")
-vim.keymap.set("i", "<C-c>;", "<esc>viw<right>o<left>c") --TODOTODOTODO
 
 --ctags
 vim.keymap.set("n", "<F5>", "<cmd>!ctags -R<cr>")
@@ -306,18 +302,8 @@ vim.keymap.set("n", "<F5>", "<cmd>!ctags -R<cr>")
 vim.keymap.set("i", "<C-c><C-j>", "<esc><cmd>.!vmac<cr>mz:.,/^__MARKPOSTTT__$/-1norm ==<cr>:+1d<cr>'z/\\<__MARKASDFQWERJKL__\\><cr>cw")
 vim.keymap.set("i", "<C-c><C-n>", "<esc>/\\<__MARKASDFQWERJKL__\\><cr>cw")
 
---format
---vim.keymap.set("i", "<C-c><C-d>", "<esc>mzgg=G`za")
-
---UPPERCASE
---vim.keymap.set("i", "<C-c><C-u>", "<esc>gUiwea")
-
---operation
---vim.keymap.set("o", "in(", ":<c-u>norm! f(vi(<cr>")
---vim.keymap.set("o", "il(", ":<c-u>norm! F)vi(<cr>")
---vim.keymap.set("o", "an(", ":<c-u>norm! f(va(<cr>")
---vim.keymap.set("o", "al(", ":<c-u>norm! F)va(<cr>")
---vim.keymap.set("o", "in{", ":<c-u>norm! f{vi{<cr>")
---vim.keymap.set("o", "il{", ":<c-u>norm! F}vi{<cr>")
---vim.keymap.set("o", "an{", ":<c-u>norm! f{va{<cr>")
---vim.keymap.set("o", "al{", ":<c-u>norm! F}va{<cr>")
+--lsp
+vim.keymap.set("n", "<leader>L", function()
+	vim.cmd("LspStart")
+	print("lsp")
+end)
