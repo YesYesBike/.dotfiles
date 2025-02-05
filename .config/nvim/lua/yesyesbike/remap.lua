@@ -298,10 +298,6 @@ vim.keymap.set("i", "<C-c><C-l>", "<C-l><C-l><esc>i")
 --ctags
 vim.keymap.set("n", "<F5>", "<cmd>!ctags -R<cr>")
 
---macro...
-vim.keymap.set("i", "<C-c><C-j>", "<esc><cmd>.!vmac<cr>mz:.,/^__MARKPOSTTT__$/-1norm ==<cr>:+1d<cr>'z/\\<__MARKASDFQWERJKL__\\><cr>cw")
-vim.keymap.set("i", "<C-c><C-n>", "<esc>/\\<__MARKASDFQWERJKL__\\><cr>cw")
-
 --lsp
 vim.keymap.set("n", "<leader>L", function()
 	vim.cmd("LspStart")

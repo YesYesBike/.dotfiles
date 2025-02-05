@@ -70,5 +70,5 @@ date +'%F(%a)'
 
 if [ -s ~/note/important ]
 then
-	cat ~/note/important 
+	cat ~/note/important
 fi
