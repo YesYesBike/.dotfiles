@@ -1,0 +1,22 @@
+#!/usr/bin/sh
+
+function tmux_echo {
+	tmux run -t 1: "echo $1"
+}
+
+msg_low="Battery Low. Charge the battery"
+msg_high="Battery is charged enough."
+
+while true
+do
+	capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+	status=$(cat /sys/class/power_supply/BAT0/status)
+
+	[ ${capacity} -le 25 ] && [ ${status} = "Discharging" ]\
+		&& tmux_echo "${capacity}: ${msg_low}"
+	[ ${capacity} -ge 75 ] && [ ${status} = "Charging" ]\
+		&& tmux_echo "${capacity}: ${msg_high}"
+
+	sleep 90
+done
+
