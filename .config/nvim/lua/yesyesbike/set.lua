@@ -57,18 +57,6 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 	end,
 })
 
---vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
---	group = vim.api.nvim_create_augroup('LessmodeMan', { clear = true }),
---	pattern = {"man://*"},
---	callback = function ()
---		vim.opt.colorcolumn = ""
---		vim.keymap.set("n", "q", ":q<cr>", {buffer = true})
---		vim.keymap.set("n", "d", "<C-d>", {buffer = true})
---		vim.keymap.set("n", "u", "<C-u>", {buffer = true})
---		vim.keymap.set("n", "<C-g>", "<C-g>", {buffer = true})
---	end,
---})
-
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup('HLonYank', { clear = true }),
 	callback = function ()
@@ -110,24 +98,6 @@ vim.opt.colorcolumn = "80"
 
 vim.cmd.colorscheme('yin')
 
---Apprentice
---vim.g.terminal_color_0 = "#1c1c1c"
---vim.g.terminal_color_1 = "#af5f5f"
---vim.g.terminal_color_2 = "#5f875f"
---vim.g.terminal_color_3 = "#87875f"
---vim.g.terminal_color_4 = "#5f87af"
---vim.g.terminal_color_5 = "#5f5f87"
---vim.g.terminal_color_6 = "#5f8787"
---vim.g.terminal_color_7 = "#6C6C6C"
---vim.g.terminal_color_8 = "#444444"
---vim.g.terminal_color_9 = "#ff8700"
---vim.g.terminal_color_10 = "#87af87"
---vim.g.terminal_color_11 = "#ffffaf"
---vim.g.terminal_color_12 = "#87afd7"
---vim.g.terminal_color_13 = "#8787af"
---vim.g.terminal_color_14 = "#5fafaf"
---vim.g.terminal_color_15 = "#ffffff"
-
 --Trailing Whitespace
 vim.cmd.highlight("ExtraWhitespace ctermbg=DarkMagenta guibg=#440044")
 vim.cmd.match("ExtraWhitespace /\\s\\+$/")
@@ -139,10 +109,3 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 	group = vim.api.nvim_create_augroup('ExtraWhiteOff', { clear = true }),
 	command = "hi clear ExtraWhitespace"
 })
-
---vim.cmd("tnoremap <expr> <C-\\> '<C-\\><C-N>\"'.nr2char(getchar()).'pi'")
-
-
-
---Lisp
---vim.opt.lispwords:append { 'for-each,map,define-macro,list' }

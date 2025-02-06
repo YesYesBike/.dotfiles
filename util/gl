@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-url=$(cat gl_list | fzf-tmux -p 80% -n 1,2 --with-nth=1 \
+url=$(cat ~/util/gl_list | fzf-tmux -p 80% -n 1,2 --with-nth=1 \
 	--tiebreak=begin --bind change:first --border-label "OpenGL"\
 	| awk '{print$2}')
 

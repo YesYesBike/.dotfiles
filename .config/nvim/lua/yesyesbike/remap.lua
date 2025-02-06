@@ -292,7 +292,7 @@ vim.keymap.set("i", "<C-c><C-v>", "<esc><cmd>.!han -O$'\\014'<cr>A")
 vim.keymap.set("i", "<C-s>", "<esc><cmd>w<cr>a")
 
 --right
-vim.keymap.set("i", "<C-l>", "<Right>")
+--vim.keymap.set("i", "<C-l>", "<Right>")
 vim.keymap.set("i", "<C-c><C-l>", "<C-l><C-l><esc>i")
 
 --ctags
