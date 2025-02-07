@@ -11,7 +11,7 @@ vim.opt.smd = false			--false
 vim.opt.showcmd = true
 vim.opt.showcmdloc = "last"
 
-vim.opt.nu = true
+vim.opt.nu = false
 vim.opt.relativenumber = false
 
 vim.opt.cinoptions = ":0s"
