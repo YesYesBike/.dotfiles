@@ -1,0 +1,68 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+#use feature qw/ say /;
+#use Data::Dumper;
+
+my %cmd;
+my %env;
+my @cmdlist;
+my $runtarget;
+my $regex_char = qr/[a-zA-Z0-9_]/;
+
+sub read_cmd
+{
+	my @ret;
+	my $fh = shift;
+
+	while (<$fh>) {
+		/^\t+(.*)/||last;
+		$_ = $1;
+		while (1) {
+			chomp;
+			s/\\$//||last;
+			(my $tmp = <$fh>) =~ s/^\t+//;
+			$_ .= $tmp;
+			last if eof $fh
+		}
+		push @ret, $_;
+	}
+
+	\@ret;
+}
+
+sub cmd_substitute {
+	my $run_ref = shift;
+	my $env_ref = shift;
+
+	for (@$run_ref) {
+		while (/\$\((${regex_char}+)\)/g) {
+			s//$$env_ref{$1}/ if $$env_ref{$1};
+		}
+	}
+}
+
+$runtarget = shift @ARGV if @ARGV;
+
+open my $fh, "<Bakefile" or die "open failed\n";
+while (<$fh>) {
+	chomp;
+
+	if (/^#/) {
+		next;
+	} elsif (/^($regex_char+):/) {
+		$cmd{$1}=read_cmd($fh);
+		$runtarget = $1 and last unless defined $runtarget
+	} elsif (/($regex_char+)\s*=\s*($regex_char+)/) {
+		#TODO blank in $2
+		$env{$1} = $2;
+	}
+}
+close $fh or die "close failed\n";
+
+$runtarget or exit 1;
+(@cmdlist = @{$cmd{$runtarget}}) or exit 1;
+cmd_substitute(\@cmdlist, \%env);
+
+system join ';', @cmdlist;
