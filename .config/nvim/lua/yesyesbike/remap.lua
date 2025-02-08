@@ -1,17 +1,5 @@
 vim.keymap.set("n", "<leader>E", ":Ex<cr>")
 
-vim.keymap.set("n", "<C-g>", function ()
-	if vim.o.ls == 0 then
-		--vim.o.cmdheight = 1
-		vim.o.ls = 2
-		vim.o.ruler = true
-	elseif vim.o.ls == 2 then
-		--vim.o.cmdheight = 0
-		vim.o.ls = 0
-		vim.o.ruler = false
-	end
-end)
-
 --Skill Issue
 vim.keymap.set({"n", "x"}, "H", "^")
 vim.keymap.set({"n", "x"}, "L", "$")
@@ -139,6 +127,8 @@ vim.keymap.set("n", "<leader>rd", function()
 		os.execute("tmux neww -c " .. os.getenv('PWD') .. " gdb " .. target)
 	elseif vim.bo.filetype == "c" then
 		vim.cmd("!gcc -g % && tmux neww -c %:p:h 'gdb a.out'")
+	else
+		vim.cmd("silent !./debug.sh")
 	--elseif filetype == "lua" then
 	--	--not debug mode but interactive mode
 	--	vim.cmd("11new")
@@ -152,12 +142,6 @@ vim.keymap.set("n", "<leader>rd", function()
 	end
 end)
 
-----Run LUAAAAAA
---vim.keymap.set("n", "<leader>rl", function()
---	vim.cmd("11new")
---	vim.cmd.te("lua")
---end)
---
 ----Run PYTHONNNNN
 --vim.keymap.set("n", "<leader>rp", function()
 --	vim.cmd("11new")

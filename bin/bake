@@ -2,12 +2,13 @@
 
 use warnings;
 use strict;
-#use feature qw/ say /;
+use feature qw/ say /;
 #use Data::Dumper;
 
 my %cmd;
 my %env;
-my @cmdlist;
+my %tgt;			# targets before running the target
+my @runlist;		# commands in a target
 my $runtarget;
 my $regex_char = qr/[a-zA-Z0-9_]/;
 
@@ -51,18 +52,23 @@ while (<$fh>) {
 
 	if (/^#/) {
 		next;
-	} elsif (/^($regex_char+):/) {
-		$cmd{$1}=read_cmd($fh);
-		$runtarget = $1 and last unless defined $runtarget
-	} elsif (/($regex_char+)\s*=\s*($regex_char+)/) {
-		#TODO blank in $2
+	} elsif (/^($regex_char+):\s*(.*)/) {
+		$cmd{$1} = read_cmd($fh);
+		$tgt{$1} = [split ' ', $2] if defined $2;
+		$runtarget //= $1;
+	} elsif (/($regex_char+)\s*=\s*(.*)/) {
 		$env{$1} = $2;
 	}
 }
 close $fh or die "close failed\n";
 
-$runtarget or exit 1;
-(@cmdlist = @{$cmd{$runtarget}}) or exit 1;
-cmd_substitute(\@cmdlist, \%env);
+if (defined (my $tmp = $tgt{$runtarget})) {
+	$cmd{$_} ? push @runlist, @{$cmd{$_}}
+		: die "wrong right side target\n" for @{$tmp}
+}
 
-system join ';', @cmdlist;
+$runtarget or die "no target to run\n";
+(@runlist = (@runlist, @{$cmd{$runtarget}})) or die "no command to run\n";
+cmd_substitute(\@runlist, \%env);
+
+system join ';', @runlist;
