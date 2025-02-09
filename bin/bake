@@ -20,6 +20,8 @@ sub read_cmd
 	while (<$fh>) {
 		/^\t+(.*)/||last;
 		$_ = $1;
+		s/#.*//;
+
 		while (1) {
 			chomp;
 			s/\\$//||last;
@@ -27,32 +29,38 @@ sub read_cmd
 			$_ .= $tmp;
 			last if eof $fh
 		}
-		push @ret, $_;
+		push @ret, $_ if length;		#pass empty string
 	}
 
 	\@ret;
 }
 
-sub cmd_substitute {
+sub substitute {
 	my $run_ref = shift;
 	my $env_ref = shift;
 
 	for (@$run_ref) {
-		while (/\$\((${regex_char}+)\)/g) {
-			s//$$env_ref{$1}/ if $$env_ref{$1};
+		while (/\$\((${regex_char}+)(?:\|([^)]*))?\)/g) {
+			#$(foo) / $(foo|bar)
+			#Substitute to $(foo) if $(foo) defined,
+			#or substitute to 'bar'(not $(bar)!)
+			$$env_ref{$1} ? s//$$env_ref{$1}/ : s//$2/;
 		}
 	}
 }
 
 $runtarget = shift @ARGV if @ARGV;
 
+for (my $i=1; @ARGV; $i++) {
+	$env{$i} = shift @ARGV;
+}
+
 open my $fh, "<Bakefile" or die "open failed\n";
 while (<$fh>) {
 	chomp;
+	s/#.*//;
 
-	if (/^#/) {
-		next;
-	} elsif (/^($regex_char+):\s*(.*)/) {
+	if (/^($regex_char+):\s*(.*)/) {
 		$cmd{$1} = read_cmd($fh);
 		$tgt{$1} = [split ' ', $2] if defined $2;
 		$runtarget //= $1;
@@ -69,6 +77,7 @@ if (defined (my $tmp = $tgt{$runtarget})) {
 
 $runtarget or die "no target to run\n";
 (@runlist = (@runlist, @{$cmd{$runtarget}})) or die "no command to run\n";
-cmd_substitute(\@runlist, \%env);
+substitute(\@runlist, \%env);
 
+#say join ';', @runlist;
 system join ';', @runlist;
