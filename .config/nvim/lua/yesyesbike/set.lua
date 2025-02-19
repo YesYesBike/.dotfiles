@@ -1,6 +1,7 @@
 --vim.g.filetype_pl = "prolog"	--perlog
 vim.opt.guicursor = ""
-vim.opt.clipboard = unnamedplus
+vim.opt.mouse = ""
+vim.opt.clipboard = "unnamedplus"
 vim.opt.showtabline = 0
 vim.opt.ls = 0
 vim.opt.ruler = false		--false
@@ -47,10 +48,10 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 		if vim.bo.buftype == "help" then
 			vim.opt.colorcolumn = ""
 			vim.keymap.set("n", "q", ":q<cr>", {buffer = true})
-			vim.keymap.set("n", "d", "<C-d>", {buffer = true})
-			vim.keymap.set("n", "u", "<C-u>", {buffer = true})
-			vim.keymap.set("n", "<C-g>", "<C-g>", {buffer = true})
-			vim.keymap.set({"n","x"}, "y", '"+y', {buffer = true, noremap = true})
+			--vim.keymap.set("n", "d", "<C-d>", {buffer = true})
+			--vim.keymap.set("n", "u", "<C-u>", {buffer = true})
+			--vim.keymap.set("n", "<C-g>", "<C-g>", {buffer = true})
+			--vim.keymap.set({"n","x"}, "y", '"+y', {buffer = true, noremap = true})
 		elseif vim.bo.buftype == "quickfix" then
 			vim.keymap.set("n", "q", ":q<cr>", {buffer = true})
 		end

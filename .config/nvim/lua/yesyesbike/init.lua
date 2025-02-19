@@ -1,5 +1,5 @@
 --Everything was simple and easy...
-print("no code is faster than no code")
+print("garbage in garbage out")
 require("yesyesbike.remap")
 require("yesyesbike.set")
 require("yesyesbike.plugin")
