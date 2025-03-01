@@ -96,11 +96,8 @@ end)
 vim.keymap.set("n", "<leader>rr", function()
 	local filetype = vim.bo.filetype
 	if makefile_check() then
-		vim.cmd('make!')
-		--TODO: condition check
-		local target = makefile_target()
 		vim.cmd("10new")
-		vim.cmd.te("./" .. target)
+		vim.cmd.te("make tmux-run")
 	elseif runsh_check() then
 		vim.cmd("10new")
 		vim.cmd.te("./run.sh")
@@ -121,10 +118,7 @@ end)
 vim.keymap.set("n", "<leader>rd", function()
 	local filetype = vim.bo.filetype
 	if makefile_check() then
-		vim.cmd('silent make!')
-		--TODO: condition check
-		local target = makefile_target()
-		os.execute("tmux neww -c " .. os.getenv('PWD') .. " gdb " .. target)
+		vim.cmd('silent make! tmux-dbg')
 	elseif vim.bo.filetype == "c" then
 		vim.cmd("!gcc -g % && tmux neww -c %:p:h 'gdb a.out'")
 	else
@@ -188,13 +182,13 @@ end)
 --	vim.cmd('silent !chmod u+x %')
 --	vim.cmd.star()
 --end)
-vim.keymap.set("n", "<leader>5", function ()
-	vim.cmd("0read ~/.dotfiles/boiler/scheme")
-	vim.bo.filetype = 'scheme'
-	vim.cmd.write({mods = {silent = true}})
-	vim.cmd('silent !chmod u+x %')
-	vim.cmd("$")
-	vim.cmd.star()
+--vim.keymap.set("n", "<leader>5", function ()
+--	vim.cmd("0read ~/.dotfiles/boiler/scheme")
+--	vim.bo.filetype = 'scheme'
+--	vim.cmd.write({mods = {silent = true}})
+--	vim.cmd('silent !chmod u+x %')
+--	vim.cmd("$")
+--	vim.cmd.star()
 end)
 
 

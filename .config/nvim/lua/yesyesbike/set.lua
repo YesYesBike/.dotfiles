@@ -1,7 +1,7 @@
 --vim.g.filetype_pl = "prolog"	--perlog
 vim.opt.guicursor = ""
 vim.opt.mouse = ""
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = unnamedplus
 vim.opt.showtabline = 0
 vim.opt.ls = 0
 vim.opt.ruler = false		--false
@@ -11,6 +11,7 @@ vim.opt.cmdheight = 1		--0
 vim.opt.smd = false			--false
 vim.opt.showcmd = true
 vim.opt.showcmdloc = "last"
+vim.opt.cursorline = true
 
 vim.opt.nu = false
 vim.opt.relativenumber = false
@@ -81,7 +82,7 @@ vim.opt.infercase = false
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 999
-vim.opt.sidescrolloff = 15
+vim.opt.sidescrolloff = 7
 vim.opt.signcolumn = "number"
 vim.opt.isfname:append("@-@")
 
