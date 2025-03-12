@@ -69,14 +69,6 @@ local function runsh_check()
 	end
 end
 
-local function makefile_target()
-	local f = io.popen('~/util/vim_make ' .. os.getenv('PWD'), 'r')
-	local ret = f:read('*a')
-	f:close()
-
-	return ret
-end
-
 
 --Build
 vim.keymap.set("n", "<leader>m", function ()
@@ -84,8 +76,6 @@ vim.keymap.set("n", "<leader>m", function ()
 		vim.cmd('make!')
 	elseif vim.bo.filetype == "c" then
 		vim.cmd('!gcc %')
-	--elseif filetype == "sml" then
-	--	vim.cmd("!mlton %")
 	else
 		vim.cmd('!./build.sh')
 	end
@@ -104,9 +94,6 @@ vim.keymap.set("n", "<leader>rr", function()
 	elseif filetype == "c" then
 		vim.cmd("10new")
 		vim.cmd.te("gcc # && ./a.out")
-	--elseif filetype == "sml" then
-	--	vim.cmd("11new")
-	--	vim.cmd.te("mlton # && ./#<")
 	else
 		vim.cmd("10new")
 		vim.cmd.te("./#")
@@ -123,33 +110,9 @@ vim.keymap.set("n", "<leader>rd", function()
 		vim.cmd("!gcc -g % && tmux neww -c %:p:h 'gdb a.out'")
 	else
 		vim.cmd("silent !./debug.sh")
-	--elseif filetype == "lua" then
-	--	--not debug mode but interactive mode
-	--	vim.cmd("11new")
-	--	vim.cmd.te("lua -i #")
-	--elseif filetype == "scheme" then
-	--	vim.cmd("11new")
-	--	vim.cmd.te("guile -l #")
-	--elseif filetype == "sml" then
-	--	vim.cmd("11new")
-	--	vim.cmd.te("smlnj #")
 	end
 end)
 
-----Run PYTHONNNNN
---vim.keymap.set("n", "<leader>rp", function()
---	vim.cmd("11new")
---	vim.cmd.te("python")
---end)
---
-----Run GUILLLLLLE
---vim.keymap.set("n", "<leader>rg", function()
---	vim.cmd("11new")
---	vim.cmd.te("guile")
---end)
-
---Setting filetype
---TODOTODOTODO
 vim.keymap.set("n", "<leader>1", function ()
 	vim.bo.filetype = 'bash'
 	vim.cmd.norm('a#!/usr/bin/sh')
@@ -166,45 +129,9 @@ vim.keymap.set("n", "<leader>2", function ()
 	vim.cmd("$")
 	vim.cmd.star()
 end)
---vim.keymap.set("n", "<leader>3", function ()
---	vim.bo.filetype = 'python'
---	vim.cmd.norm('a#!/usr/bin/python')
---	vim.cmd.norm('2o')
---	vim.cmd.write({mods = {silent = true}})
---	vim.cmd('silent !chmod u+x %')
---	vim.cmd.star()
---end)
---vim.keymap.set("n", "<leader>4", function ()
---	vim.bo.filetype = 'lua'
---	vim.cmd.norm('a#!/usr/bin/lua')
---	vim.cmd.norm('2o')
---	vim.cmd.write({mods = {silent = true}})
---	vim.cmd('silent !chmod u+x %')
---	vim.cmd.star()
---end)
---vim.keymap.set("n", "<leader>5", function ()
---	vim.cmd("0read ~/.dotfiles/boiler/scheme")
---	vim.bo.filetype = 'scheme'
---	vim.cmd.write({mods = {silent = true}})
---	vim.cmd('silent !chmod u+x %')
---	vim.cmd("$")
---	vim.cmd.star()
-end)
-
 
 --Formattttt
 vim.keymap.set({"x","n"}, "<leader>f", "mzgg=G`z")
-
---Colorscheme for bright place
-vim.keymap.set("n", "<leader>C", function ()
-	if vim.o.background == 'dark' then
-		vim.o.background = 'light'
-	else
-		vim.o.background = 'dark'
-	end
-end)
-
-
 
 --Quickfix
 vim.keymap.set("n", "<leader>v", "<cmd>copen<cr>")
@@ -215,8 +142,6 @@ vim.keymap.set("i", "<C-c><C-f>", "<esc><cmd>.!han -e$'\\014'<cr>A")
 vim.keymap.set("i", "<C-c><C-c>", "<esc><cmd>.!han -E$'\\014'<cr>A")
 vim.keymap.set("i", "<C-c><C-g>", "<esc><cmd>.!han -o$'\\014'<cr>A")
 vim.keymap.set("i", "<C-c><C-v>", "<esc><cmd>.!han -O$'\\014'<cr>A")
-
---right
 vim.keymap.set("i", "<C-l>", "<Right>")
 vim.keymap.set("i", "<C-c><C-l>", "<C-l><C-l><esc>i")
 
@@ -225,3 +150,18 @@ vim.keymap.set("n", "<F5>", "<cmd>!ctags -R<cr>")
 
 --shortcut from windows
 vim.keymap.set("i", "<C-s>", "<esc><cmd>w<cr>a")
+
+--vim.keymap.set("n", "<leader>K", function()
+--	vim.opt.tabstop = 8
+--	vim.opt.softtabstop = 8
+--	vim.opt.shiftwidth = 8
+--end)
+
+--Colorscheme for bright place
+vim.keymap.set("n", "<leader>C", function ()
+	if vim.o.background == 'dark' then
+		vim.o.background = 'light'
+	else
+		vim.o.background = 'dark'
+	end
+end)

@@ -94,56 +94,6 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
-/* Terminal colors (16 first used in escape sequence) */
-//static const char *colorname[] = {
-//	/* 8 normal colors */
-//	"black",
-//	"red3",
-//	"green3",
-//	"yellow3",
-//	"blue2",
-//	"magenta3",
-//	"cyan3",
-//	"gray90",
-//
-//	/* 8 bright colors */
-//	"gray50",
-//	"red",
-//	"green",
-//	"yellow",
-//	"#5c5cff",
-//	"magenta",
-//	"cyan",
-//	"white",
-//
-//	[255] = 0,
-//
-//	/* more colors can be added after 255 to use with DefaultXX */
-//	"#cccccc",
-//	"#555555",
-//	"gray90", /* default foreground colour */
-//	"black", /* default background colour */
-//};
-
-//Apprentice
-//static const char *colorname[] = {
-//	/* 8 normal colors */
-//    "#1C1C1C", "#AF5F5F", "#5F875F", "#87875F",
-//    "#5F87AF", "#5F5F87", "#5F8787", "#6C6C6C",
-//
-//	/* 8 bright colors */
-//    "#444444", "#FF8700", "#87AF87", "#FFFFAF",
-//    "#8FAFD7", "#8787AF", "#5FAFAF", "#FFFFFF",
-//
-//	[255] = 0,
-//
-//	/* more colors can be added after 255 to use with DefaultXX */
-//	"#cccccc",
-//	"#555555",
-//	"#bcbcbc", /* default foreground colour */
-//	"#262626", /* default background colour */
-//};
-
 
 typedef struct {
 	const char* const colors[260]; /* terminal colors */
@@ -158,7 +108,6 @@ typedef struct {
  * foreground, background, cursor, reverse cursor
  */
 static const ColorScheme schemes[] = {
-
     //Apprentice
     {{"#1C1C1C", "#AF5F5F", "#5F875F", "#87875F",
       "#5F87AF", "#5F5F87", "#5F8787", "#6C6C6C",
@@ -175,14 +124,6 @@ static const ColorScheme schemes[] = {
       "#7FBBB3", "#D699B6", "#83C092", "#D3C6AA",
 	  [256]="#555555", "#cccccc", "#5c6a72", "#f3ead3"},
       258, 259, 256, 257},
-
-    //MATRIX
-	  // {{"#000000", "#00FF00", "#00FF00", "#00FF00",
-	  //   "#00FF00", "#00FF00", "#00FF00", "#00FF00",
-	  //   "#000000", "#00FF00", "#00FF00", "#00FF00",
-	  //   "#00FF00", "#00FF00", "#00FF00", "#00FF00",
-	  //[256]="#00FF00", "#000000", "#00FF00", "#000000"},
-	  //   258, 259, 256, 257},
 };
 
 static const char * const * colorname;
@@ -270,7 +211,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	//{ MODKEY4,              XK_Escape,      updatescheme,   {.i =  0} },
+	{ MODKEY4,              XK_Escape,      updatescheme,   {.i =  0} },
 };
 /*
  * Special keys (change & recompile st.info accordingly)

@@ -1,3 +1,3 @@
 require("yesyesbike.telescope")
 require("yesyesbike.harpoon")
-require("yesyesbike.slime")
+--require("cscope_maps").setup()

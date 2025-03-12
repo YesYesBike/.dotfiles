@@ -1,8 +1,8 @@
 diff --git a/st.c b/st.c
-index 57c6e96..834d0bc 100644
+index 03b9bc8..259cfff 100644
 --- a/st.c
 +++ b/st.c
-@@ -2175,6 +2175,28 @@ tstrsequence(uchar c)
+@@ -2179,6 +2179,28 @@ tstrsequence(uchar c)
  	term.esc |= ESC_STR;
  }
  
@@ -45,7 +45,7 @@ index fd3b0d8..b5d904e 100644
  int ttynew(const char *, char *, const char *, char **);
  size_t ttyread(void);
 diff --git a/x.c b/x.c
-index d73152b..bcb87d3 100644
+index d73152b..c58dd2c 100644
 --- a/x.c
 +++ b/x.c
 @@ -59,6 +59,7 @@ static void zoom(const Arg *);
@@ -65,7 +65,7 @@ index d73152b..bcb87d3 100644
  		dc.col = xmalloc(dc.collen * sizeof(Color));
  	}
  
-@@ -2036,6 +2037,40 @@ usage(void)
+@@ -2036,6 +2037,30 @@ usage(void)
  	    " [stty_args ...]\n", argv0, argv0);
  }
  
@@ -73,17 +73,7 @@ index d73152b..bcb87d3 100644
 +void
 +updatescheme(const Arg *arg)
 +{
-+	switch (colorscheme) {
-+	case 0:
-+		colorscheme = 1;
-+		break;
-+	case 1:
-+		colorscheme = 2;
-+		break;
-+	case 2:
-+		colorscheme = 0;
-+		break;
-+	}
++	colorscheme = colorscheme ? 0 : 1;
 +
 +	int oldbg, oldfg;
 +
@@ -106,7 +96,7 @@ index d73152b..bcb87d3 100644
  int
  main(int argc, char *argv[])
  {
-@@ -2088,6 +2123,12 @@ main(int argc, char *argv[])
+@@ -2088,6 +2113,12 @@ main(int argc, char *argv[])
  	} ARGEND;
  
  run:

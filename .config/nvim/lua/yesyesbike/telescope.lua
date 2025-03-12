@@ -19,8 +19,40 @@ end, {})
 
 local telescope = require('telescope')
 telescope.setup{
+	defaults = {
+		layout_config = {
+          bottom_pane = {
+            height = 0.999,
+            preview_cutoff = 120,
+            prompt_position = "top"
+          },
+          center = {
+            height = 0.999,
+            preview_cutoff = 40,
+            prompt_position = "top",
+            width = 0.999
+          },
+          cursor = {
+            height = 0.999,
+            preview_cutoff = 40,
+            width = 0.999
+          },
+          horizontal = {
+            height = 0.999,
+            preview_cutoff = 120,
+            prompt_position = "bottom",
+            width = 0.999
+          },
+          vertical = {
+            height = 0.999,
+            preview_cutoff = 40,
+            prompt_position = "bottom",
+            width = 0.999
+          }
+		},
+	},
 	pickers = {
 		keymaps = { show_plug = false, },
 		man_pages = { sections = { "1", "1perl", "2", "3p" } },
-	}
+	},
 }
