@@ -16,7 +16,7 @@ vim.opt.cursorline = true
 vim.opt.nu = false
 vim.opt.relativenumber = false
 
-vim.opt.cinoptions = ":0s"
+vim.opt.cinoptions = ":0t0"
 
 vim.api.nvim_create_autocmd("TermOpen", {
 	group = vim.api.nvim_create_augroup('TerminalSetup', { clear = true }),

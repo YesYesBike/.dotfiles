@@ -46,7 +46,6 @@ alias type='type -a '
 alias uart='picocom -b 9600 /dev/ttyUSB0'
 alias ucat='cat /dev/ttyUSB0'
 alias v=nvim
-alias vi='vim'		#only for vim-tiny
 alias vidir='export EDITOR=nvim; vidir'
 alias x='cd; startx'
 alias zathura='zathura-sandbox'

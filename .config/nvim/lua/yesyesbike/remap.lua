@@ -94,6 +94,9 @@ vim.keymap.set("n", "<leader>rr", function()
 	elseif filetype == "c" then
 		vim.cmd("10new")
 		vim.cmd.te("gcc # && ./a.out")
+	elseif filetype == "lisp" then
+		vim.cmd("10new")
+		vim.cmd.te("sbcl --script #")
 	else
 		vim.cmd("10new")
 		vim.cmd.te("./#")
@@ -108,6 +111,9 @@ vim.keymap.set("n", "<leader>rd", function()
 		vim.cmd('silent make! tmux-dbg')
 	elseif vim.bo.filetype == "c" then
 		vim.cmd("!gcc -g % && tmux neww -c %:p:h 'gdb a.out'")
+	elseif filetype == "lisp" then
+		vim.cmd("10new")
+		vim.cmd.te("sbcl --load #")
 	else
 		vim.cmd("silent !./debug.sh")
 	end
