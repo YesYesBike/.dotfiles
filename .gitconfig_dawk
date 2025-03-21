@@ -1,0 +1,7 @@
+[user]
+	name = ShipDawk
+	email = shipdawk@google.com
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
