@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+
+#use warnings;
+#use strict;
+#use feature qw/ say /;
+#use Data::Dumper;
+
+my $dir = shift @ARGV;
+my $target;
+
+open MAKEFILE, "<${dir}/Makefile" or die "Makefile open failed\n";
+
+while (<MAKEFILE>) {
+	if (/^TARGET\s*=\s*([^# \t]*)/) {
+		$target = $1;
+		last;
+	}
+}
+
+close MAKEFILE or die "Makefile close failed\n";
+
+$target //= 'a.out';
+
+print $target;

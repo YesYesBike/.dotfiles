@@ -1,0 +1,36 @@
+#.bakefile at home directory
+
+TEST = $HOME/test
+__AHEH_SRC_DIR = $HOME/projects/aheheh
+__BLEU_SRC_DIR = $HOME/projects/adt_sample/bleu
+__NBLEU_SRC_DIR = $HOME/projects/adt_sample/nbleu
+__WEIB_SRC_DIR= $HOME/projects/weib
+__BAKE_DIR = $HOME/projects/bake
+__NBAKE_DIR = $HOME/projects/nbake
+__MACRO_DIR = $HOME/macro
+
+
+__def__: echo bakefile default...
+__tmugs_neww: tmux neww -n ${3:neww} -c ${2:$HOME} ${1:}
+__vim_macro: m4 -Dval="${1}" -Darg="${2:}" $HOME/macro/vim_macro.m4
+adt: @{__tmugs_neww}{"nvim adt", $HOME/note/adt, "adt"}
+avr: @{__tmugs_neww}{,/usr/avr/include/,"AVR"}
+rmap: @{__tmugs_neww}{"nvim rmap", $HOME/note/rmap, "rmap"}
+aheh_mv: cp -r ${__AHEH_SRC_DIR} ${TEST} && echo "aheh"
+aheh: @{__tmugs_neww}{"nvim ./", "${TEST}/aheheh", "aheheh"}
+nbake: @{__tmugs_neww}{"nvim main.c", ${__NBAKE_DIR}, "nbake"}
+bake: @{__tmugs_neww}{"nvim bake", ${__BAKE_DIR}, "bake_src"}
+bleu_mv: cp -r ${__BLEU_SRC_DIR} ${TEST} && echo "bleu!"
+bleu: @{__tmugs_neww}{"nvim main.c", "${TEST}/bleu", "bleu"}
+nbleu_mv: cp -r ${__NBLEU_SRC_DIR} ${TEST} && echo "nbleu!"
+nbleu: @{__tmugs_neww}{"nvim main.c", "${TEST}/nbleu", "nbleu"}
+ed: @{__tmugs_neww}{"nvim Bakefile", $PWD,"bakefile"}
+edd: @{__tmugs_neww}{"nvim .bakefile", $HOME, "bakefile_def"}
+han: @{__tmugs_neww}{"nvim han.c", $HOME/projects/han, "han_src"}
+no: @{__tmugs_neww}{"nvim ${#1:index.md}", $HOME/note, "NOTE"}
+heder: [ -e "${1}.h" ] && exit 69; ${TEST}/sh/heder ${1}
+weib: @{__tmugs_neww}{"nvim main.c", "${TEST}/weib", "weib"}
+weib_mv: cp -r ${__WEIB_SRC_DIR} ${TEST} && echo "weib!"
+#sc: @{note}{scratchpad} FIXME
+sc: @{__tmugs_neww}{"nvim scratchpad", $HOME/note, "scratch"}
+vmac: @{__tmugs_neww}{"nvim vmac", $HOME/util, "vmac"}

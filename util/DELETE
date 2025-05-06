@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+my $user = $ENV{"USER"};
+#my $directory = "/home/$user/Downloads/";
+my $directory = "DEFAULT";
+my %preserve;
+my @list = qw(
+);
+
+$0 =~ s#\./##;
+push @list, $0;
+$preserve{$_}++ for @list;
+
+die "Set the directory!\n" if $directory eq "DEFAULT";
+opendir DIR, $directory or die "Directory open failed\n";
+while (my $filename = readdir(DIR)) {
+	next if $filename =~ /^\.+$/;
+	unlink $filename unless $preserve{"$filename"} or die "Unlink failed\n";
+}
+closedir DIR or die "Directory close failed\n";

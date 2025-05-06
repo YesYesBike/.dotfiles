@@ -1,0 +1,3 @@
+l       select-reference-this-line
+j       down-line
+k       up-line

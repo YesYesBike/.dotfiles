@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+
+tmpdir=$(mktemp -dt "bakdir.XXXXXX")
+chmod 700 ${tmpdir}
+tar -cvJf ${tmpdir}/backup.tar.xz ~/aleph/
+export tmpdir
+~/aleph/bak_mov

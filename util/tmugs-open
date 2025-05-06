@@ -1,0 +1,21 @@
+#!/bin/sh
+
+file=$(find -L ~ -mindepth 1 -maxdepth 3 -type f | ~/util/dirsed |\
+    fzf-tmux -p 80% --tiebreak=begin --bind change:first --border-label "TMUGS-OPEN");
+[ -z $file ] && exit 0
+directorie=$(dirname $file)
+file=$(basename $file)
+
+#if [ -n "$(echo $file | grep '\.mp4$')" ]
+#then
+#    command=mpv
+#elif [ -n "$(echo $file | grep -e '\.png$' -e '\.jpg$')" ]
+#then
+#    command=feh
+#else
+#    command=nvim
+#fi
+command=nvim
+
+#[ -n $file ] && tmux neww -c ~/$directorie "$command $file"
+[ -n $file ] && tmux neww -c ~/$directorie "nvim $file"

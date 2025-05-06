@@ -1,0 +1,7 @@
+set editing-mode vi
+set show-mode-in-prompt off
+set keyseq-timeout 0
+set show-all-if-unmodified on
+set colored-completion-prefix on
+set completion-ignore-case on
+"\C-l":     clear-screen

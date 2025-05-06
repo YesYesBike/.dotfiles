@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#files=$(ls | grep '\.sh$')
+#for name in $files
+#do
+#    name_new=$(echo $name | cut -d '.' -f1)
+#    mv $name $name_new
+#done

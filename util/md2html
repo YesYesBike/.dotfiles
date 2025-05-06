@@ -1,0 +1,43 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+use feature qw/ say /;
+#use Data::Dumper;
+
+
+#Adding the boilerplate from 'markdown' output
+
+my ($in, $out) = @ARGV;
+($in and $out) or die "Usage: md2html md html";
+my $cmd = "markdown -f fencedcode -S $in";
+
+my $title_idx = 5;
+my @html_body;
+my @html_top = (
+	"<!DOCTYPE html>",
+	"<!-- Generated from Markdown -->",
+	"<html>",
+	"<head>",
+	"<meta charset=\"UTF-8\">",		#title: next to this
+	"</head>",
+	"<body>",
+);
+my @html_bot = (
+	"</body>",
+	"</html>",
+);
+
+
+open INFILE, "<$in" or die "open() failed(input)";
+if (<INFILE> =~ /^\%\s*(.+)/) {
+	my $title = $1;
+	splice @html_top, $title_idx, 0, ("<title>$title</title>");
+}
+close INFILE or die "close() failed(input)";
+
+chomp(@html_body = `$cmd`);
+
+open OUTFILE, ">$out" or die "open() failed(output)";
+say OUTFILE for (@html_top, @html_body, @html_bot);
+close OUTFILE or die "close() failed(output)";

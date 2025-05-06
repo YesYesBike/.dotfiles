@@ -1,0 +1,9 @@
+#!/usr/bin/sh
+
+url=$(cat ~/util/gl_list | fzf-tmux -p 80% -n 1,2 --with-nth=1 \
+	--tiebreak=begin --bind change:first --border-label "OpenGL"\
+	| awk '{print$2}')
+
+[ -z "$url" ] && exit 0
+
+firefox --new-tab "https://registry.khronos.org/OpenGL-Refpages/gl4/html/$url"

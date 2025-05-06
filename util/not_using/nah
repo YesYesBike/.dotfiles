@@ -1,0 +1,68 @@
+#!/usr/bin/perl
+
+use utf8;
+use strict;
+use warnings;
+use integer;
+use open ":std", ":encoding(UTF-8)";
+
+my %jamo = (
+    0x3131 => "r", 0x3132 => "R", 0x3134 => "s", 0x3137 => "e",
+    0x3138 => "E", 0x3139 => "f", 0x3141 => "a", 0x3142 => "q",
+    0x3143 => "Q", 0x3145 => "t", 0x3146 => "T", 0x3147 => "d",
+    0x3148 => "w", 0x3149 => "W", 0x314a => "c", 0x314b => "z",
+    0x314c => "x", 0x314d => "v", 0x314e => "g", 0x314f => "k",
+    0x3150 => "o", 0x3151 => "i", 0x3152 => "O", 0x3153 => "j",
+    0x3154 => "p", 0x3155 => "u", 0x3156 => "P", 0x3157 => "h",
+    0x315b => "y", 0x315c => "n", 0x3160 => "b", 0x3161 => "m",
+    0x3163 => "l",
+);
+
+my @cho = (
+    "r", "R", "s", "e", "E", "f", "a", "q", "Q", "t", "T",
+    "d", "w", "W", "c", "z", "x", "v", "g",
+);
+
+my @jung = (
+    "k",  "o", "i", "O",  "j",  "p",  "u", "P", "h",  "hk", "ho",
+    "hl", "y", "n", "nj", "np", "nl", "b", "m", "ml", "l",
+);
+
+my @jong = (
+    "",   "r",  "R",  "rt", "s",  "sw", "sg",
+    "e",  "f",  "fr", "fa", "fq", "ft", "fx",
+    "fv", "fg", "a",  "q",  "qt", "t",  "T",
+    "d",  "w",  "c",  "z",  "x",  "v",  "g",
+);
+
+sub jamo {
+    my $ret;
+    my $code = shift;
+    $ret = $jamo{$code};
+    $ret ||= chr $code;
+}
+
+sub comp {
+    my $code = shift;
+    my $coode = $code - 44032;
+
+    my $ccho = $coode / 588;
+    my $cjung = ($coode - $ccho*588) / 28;
+    my $cjong = ($coode - $ccho*588 - $cjung*28);
+
+    my $cho = $cho[$ccho];
+    my $jung = $jung[$cjung];
+    my $jong = $jong[$cjong];
+
+    $cho.$jung.$jong;
+}
+
+sub convert {
+    my $ret;
+    my $code = shift;
+    $ret = jamo($code) if $code >= 0x3130 and $code <=0x3163;
+    $ret = comp($code) if $code >= 0xAC00 and $code <=0xD7A3;
+    $ret ||= chr $code;
+}
+
+while(<>) { print convert ord for @{[split //, $_]}; }

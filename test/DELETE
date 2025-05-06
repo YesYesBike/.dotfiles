@@ -1,0 +1,25 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+my $directory = "$ENV{'HOME'}/test/";
+my %preserve;
+my @list;
+
+open my $fh, "<list" or die "open\n";
+while (<$fh>) { chomp; push @list, $_ }
+close $fh or die "close\n";
+
+$preserve{$_}++ for @list;
+
+opendir DIR, $directory or die "Directory open failed\n";
+while (my $filename = readdir(DIR)) {
+	next if $filename =~ /^\.{1,2}$/;
+	unless ($preserve{"$filename"}) {
+		system("rm", "-rf", "--", "$filename") == 0
+				or die "$filename: Unlink failed\n";
+		print "Deleted: $filename\n"
+	}
+}
+closedir DIR or die "Directory close failed\n";

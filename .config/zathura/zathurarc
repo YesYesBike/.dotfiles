@@ -1,0 +1,10 @@
+set guioptions none
+set recolor true
+set font 'monospace normal 30'
+set scroll-step 100
+
+map d scroll half-down
+map u scroll half-up
+unmap a
+
+set selection-clipboard clipboard

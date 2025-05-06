@@ -1,0 +1,21 @@
+#!/bin/sh
+
+string=$(( cat ~/util/manlist ; apropos -s 1,1p . ) |
+    fzf-tmux -p 80% -n 1 --delimiter=' ' --bind change:first\
+    --border-label "TMUGS-MAN" --tiebreak=chunk)
+
+[ -z "$string" ] && exit 0
+
+command=$(cut -d ' ' -f 1 <<< "$string")
+section=$(cut -d ' ' -f 2 <<< "$string" | tr -d '()')
+
+asdf=$(cut -d ' ' -f 1 ~/util/manlist)
+for var in $asdf
+do
+    if [ "$command" = "$var" ]
+    then
+        exec ~/util/tmugs-man-ex $command
+    fi
+done
+
+tmux neww -n "man($command)" "man $section $command"

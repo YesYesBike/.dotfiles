@@ -1,0 +1,14 @@
+#!/usr/bin/sh
+
+menu=$(printf "idx\ntop" | fzf-tmux -p 50% --border-label='IEEE')
+
+[ -z "$menu" ] && exit 0
+
+case $menu in
+	idx)
+		~/util/ieee/idx
+		;;
+	top)
+		~/util/ieee/top
+		;;
+esac

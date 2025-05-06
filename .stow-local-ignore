@@ -1,0 +1,10 @@
+.git
+.gitignore
+install
+install_firefox
+README.md
+.stow-local-ignore
+src
+test
+.xinitrc_*
+stty

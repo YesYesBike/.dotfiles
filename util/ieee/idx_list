@@ -1,0 +1,1500 @@
+TOPIC|TOPIC|TOPIC
+a64l()|convert between a 32-bit integer and a radix-64 ASCII string|functions/a64l.html
+abort()|generate an abnormal process abort|functions/abort.html
+abs()|return an integer absolute value|functions/abs.html
+accept()|accept a new connection on a socket|functions/accept.html
+accept4()|accept a new connection on a socket|functions/accept4.html
+access()|determine accessibility of a file descriptor|functions/access.html
+acos()|arc cosine functions|functions/acos.html
+acosf()|arc cosine functions|functions/acosf.html
+acosh()|inverse hyperbolic cosine functions|functions/acosh.html
+acoshf()|inverse hyperbolic cosine functions|functions/acoshf.html
+acoshl()|inverse hyperbolic cosine functions|functions/acoshl.html
+acosl()|arc cosine functions|functions/acosl.html
+admin|create and administer SCCS files |utilities/admin.html
+aio.h|asynchronous input and output|basedefs/aio.h.html
+aio_cancel()|cancel an asynchronous I/O request|functions/aio_cancel.html
+aio_error()|retrieve errors status for an asynchronous I/O operation|functions/aio_error.html
+aio_fsync()|asynchronous file synchronization|functions/aio_fsync.html
+aio_read()|asynchronous read from a file|functions/aio_read.html
+aio_return()|retrieve return status of an asynchronous I/O operation|functions/aio_return.html
+aio_suspend()|wait for an asynchronous I/O request|functions/aio_suspend.html
+aio_write()|asynchronous write to a file|functions/aio_write.html
+alarm()|schedule an alarm signal|functions/alarm.html
+alias|define or display aliases|utilities/alias.html
+aligned_alloc()|allocate memory with a specified alignment|functions/aligned_alloc.html
+alphasort()|scan a directory|functions/alphasort.html
+ar|create and maintain library archives|utilities/ar.html
+arpa/inet.h|definitions for internet operations|basedefs/arpa_inet.h.html
+asa|interpret carriage-control characters|utilities/asa.html
+asctime()|convert date and time to a string|functions/asctime.html
+asctime_r()|convert date and time to a string|functions/asctime_r.html
+asin()|arc sine function|functions/asin.html
+asinf()|arc sine function|functions/asinf.html
+asinh()|inverse hyperbolic sine functions|functions/asinh.html
+asinhf()|inverse hyperbolic sine functions|functions/asinhf.html
+asinhl()|inverse hyperbolic sine functions|functions/asinhl.html
+asinl()|arc sine function|functions/asinl.html
+asprintf()|print formatted output|functions/asprintf.html
+assert()|insert program diagnostics|functions/assert.html
+assert.h|verify program assertion|basedefs/assert.h.html
+at|execute commands at a later time|utilities/at.html
+atan()|arc tangent function|functions/atan.html
+atan2()|arc tangent functions|functions/atan2.html
+atan2f()|arc tangent functions|functions/atan2f.html
+atan2l()|arc tangent functions|functions/atan2l.html
+atanf()|arc tangent function|functions/atanf.html
+atanh()|inverse hyperbolic tangent functions|functions/atanh.html
+atanhf()|inverse hyperbolic tangent functions|functions/atanhf.html
+atanhl()|inverse hyperbolic tangent functions|functions/atanhl.html
+atanl()|arc tangent function|functions/atanl.html
+atexit()|register a function to be called from exit() or after return from main()|functions/atexit.html
+atof()|convert a string to a double-precision number|functions/atof.html
+atoi()|convert a string to an integer|functions/atoi.html
+atol()|convert a string to a long integer|functions/atol.html
+atoll()|convert a string to a long integer|functions/atoll.html
+atomic_compare_exchange_strong()|atomically compare and exchange the values of two objects|functions/atomic_compare_exchange_strong.html
+atomic_compare_exchange_strong_explicit()|atomically compare and exchange the values of two objects|functions/atomic_compare_exchange_strong_explicit.html
+atomic_compare_exchange_weak()|atomically compare and exchange the values of two objects|functions/atomic_compare_exchange_weak.html
+atomic_compare_exchange_weak_explicit()|atomically compare and exchange the values of two objects|functions/atomic_compare_exchange_weak_explicit.html
+atomic_exchange()|atomically exchange the value of an object|functions/atomic_exchange.html
+atomic_exchange_explicit()|atomically exchange the value of an object|functions/atomic_exchange_explicit.html
+atomic_fetch_add()|atomically replace the value of an object with the result of a computation|functions/atomic_fetch_add.html
+atomic_fetch_add_explicit()|atomically replace the value of an object with the result of a computation|functions/atomic_fetch_add_explicit.html
+atomic_fetch_and()|atomically replace the value of an object with the result of a computation|functions/atomic_fetch_and.html
+atomic_fetch_and_explicit()|atomically replace the value of an object with the result of a computation|functions/atomic_fetch_and_explicit.html
+atomic_fetch_or()|atomically replace the value of an object with the result of a computation|functions/atomic_fetch_or.html
+atomic_fetch_or_explicit()|atomically replace the value of an object with the result of a computation|functions/atomic_fetch_or_explicit.html
+atomic_fetch_sub()|atomically replace the value of an object with the result of a computation|functions/atomic_fetch_sub.html
+atomic_fetch_sub_explicit()|atomically replace the value of an object with the result of a computation|functions/atomic_fetch_sub_explicit.html
+atomic_fetch_xor()|atomically replace the value of an object with the result of a computation|functions/atomic_fetch_xor.html
+atomic_fetch_xor_explicit()|atomically replace the value of an object with the result of a computation|functions/atomic_fetch_xor_explicit.html
+atomic_flag_clear()|clear an atomic flag|functions/atomic_flag_clear.html
+atomic_flag_clear_explicit()|clear an atomic flag|functions/atomic_flag_clear_explicit.html
+atomic_flag_test_and_set()|test and set an atomic flag|functions/atomic_flag_test_and_set.html
+atomic_flag_test_and_set_explicit()|test and set an atomic flag|functions/atomic_flag_test_and_set_explicit.html
+atomic_init()|initialize an atomic object|functions/atomic_init.html
+atomic_is_lock_free()|indicate whether or not atomic operations are lock-free|functions/atomic_is_lock_free.html
+atomic_load()|atomically obtain the value of an object|functions/atomic_load.html
+atomic_load_explicit()|atomically obtain the value of an object|functions/atomic_load_explicit.html
+atomic_signal_fence()|fence operations|functions/atomic_signal_fence.html
+atomic_store()|atomically store a value in an object|functions/atomic_store.html
+atomic_store_explicit()|atomically store a value in an object|functions/atomic_store_explicit.html
+atomic_thread_fence()|fence operations|functions/atomic_thread_fence.html
+at_quick_exit()|register a function to to be called from quick_exit()|functions/at_quick_exit.html
+awk|pattern scanning and processing language|utilities/awk.html
+basename|return non-directory portion of a pathname|utilities/basename.html
+basename()|return the last component of a pathname|functions/basename.html
+batch|schedule commands to be executed in a batch queue|utilities/batch.html
+bc|arbitrary-precision arithmetic language|utilities/bc.html
+be16toh()|convert values between host and specified byte order|functions/be16toh.html
+be32toh()|convert values between host and specified byte order|functions/be32toh.html
+be64toh()|convert values between host and specified byte order|functions/be64toh.html
+bg|run jobs in the background|utilities/bg.html
+bind()|bind a name to a socket|functions/bind.html
+bindtextdomain()|text domain manipulation functions|functions/bindtextdomain.html
+bind_textdomain_codeset()|text domain manipulation functions|functions/bind_textdomain_codeset.html
+break|exit from for|utilities/V3_chap02.html#break
+bsearch()|binary search a sorted table|functions/bsearch.html
+btowc()|single byte to wide character conversion|functions/btowc.html
+c16rtomb()|convert a Unicode character code to a character (restartable)|functions/c16rtomb.html
+c17|compile standard C programs|utilities/c17.html
+c32rtomb()|convert a Unicode character code to a character (restartable)|functions/c32rtomb.html
+cabs()|return a complex absolute value|functions/cabs.html
+cabsf()|return a complex absolute value|functions/cabsf.html
+cabsl()|return a complex absolute value|functions/cabsl.html
+cacos()|complex arc cosine functions|functions/cacos.html
+cacosf()|complex arc cosine functions|functions/cacosf.html
+cacosh()|complex arc hyperbolic cosine functions|functions/cacosh.html
+cacoshf()|complex arc hyperbolic cosine functions|functions/cacoshf.html
+cacoshl()|complex arc hyperbolic cosine functions|functions/cacoshl.html
+cacosl()|complex arc cosine functions|functions/cacosl.html
+cal|print a calendar|utilities/cal.html
+calloc()|a memory allocator|functions/calloc.html
+call_once()|dynamic package initialization|functions/call_once.html
+carg()|complex argument functions|functions/carg.html
+cargf()|complex argument functions|functions/cargf.html
+cargl()|complex argument functions|functions/cargl.html
+casin()|complex arc sine functions|functions/casin.html
+casinf()|complex arc sine functions|functions/casinf.html
+casinh()|complex arc hyperbolic sine functions|functions/casinh.html
+casinhf()|complex arc hyperbolic sine functions|functions/casinhf.html
+casinhl()|complex arc hyperbolic sine functions|functions/casinhl.html
+casinl()|complex arc sine functions|functions/casinl.html
+cat|concatenate and print files|utilities/cat.html
+catan()|complex arc tangent functions|functions/catan.html
+catanf()|complex arc tangent functions|functions/catanf.html
+catanh()|complex arc hyperbolic tangent functions|functions/catanh.html
+catanhf()|complex arc hyperbolic tangent functions|functions/catanhf.html
+catanhl()|complex arc hyperbolic tangent functions|functions/catanhl.html
+catanl()|complex arc tangent functions|functions/catanl.html
+catclose()|close a message catalog descriptor|functions/catclose.html
+catgets()|read a program message|functions/catgets.html
+catopen()|open a message catalog|functions/catopen.html
+cbrt()|cube root functions|functions/cbrt.html
+cbrtf()|cube root functions|functions/cbrtf.html
+cbrtl()|cube root functions|functions/cbrtl.html
+ccos()|complex cosine functions|functions/ccos.html
+ccosf()|complex cosine functions|functions/ccosf.html
+ccosh()|complex hyperbolic cosine functions|functions/ccosh.html
+ccoshf()|complex hyperbolic cosine functions|functions/ccoshf.html
+ccoshl()|complex hyperbolic cosine functions|functions/ccoshl.html
+ccosl()|complex cosine functions|functions/ccosl.html
+cd|change the working directory|utilities/cd.html
+ceil()|ceiling value function|functions/ceil.html
+ceilf()|ceiling value function|functions/ceilf.html
+ceill()|ceiling value function|functions/ceill.html
+cexp()|complex exponential functions|functions/cexp.html
+cexpf()|complex exponential functions|functions/cexpf.html
+cexpl()|complex exponential functions|functions/cexpl.html
+cfgetispeed()|get input baud rate|functions/cfgetispeed.html
+cfgetospeed()|get output baud rate|functions/cfgetospeed.html
+cflow|generate a C-language flowgraph |utilities/cflow.html
+cfsetispeed()|set input baud rate|functions/cfsetispeed.html
+cfsetospeed()|set output baud rate|functions/cfsetospeed.html
+chdir()|change working directory|functions/chdir.html
+chgrp|change the file group ownership|utilities/chgrp.html
+chmod|change the file modes|utilities/chmod.html
+chmod()|change mode of a file|functions/chmod.html
+chown|change the file ownership|utilities/chown.html
+chown()|change owner and group of a file|functions/chown.html
+cimag()|complex imaginary functions|functions/cimag.html
+cimagf()|complex imaginary functions|functions/cimagf.html
+cimagl()|complex imaginary functions|functions/cimagl.html
+cksum|write file checksums and sizes|utilities/cksum.html
+clearerr()|clear indicators on a stream|functions/clearerr.html
+clock()|report CPU time used|functions/clock.html
+clock_getcpuclockid()|access a process CPU-time clock |functions/clock_getcpuclockid.html
+clock_getres()|clock and timer functions|functions/clock_getres.html
+clock_gettime()|clock and timer functions|functions/clock_gettime.html
+clock_nanosleep()|high resolution sleep with specifiable clock|functions/clock_nanosleep.html
+clock_settime()|clock and timer functions|functions/clock_settime.html
+clog()|complex natural logarithm functions|functions/clog.html
+clogf()|complex natural logarithm functions|functions/clogf.html
+clogl()|complex natural logarithm functions|functions/clogl.html
+close()|close a file descriptor|functions/close.html
+closedir()|close a directory stream|functions/closedir.html
+closelog()|control system log|functions/closelog.html
+cmp|compare two files|utilities/cmp.html
+CMPLX()|make a complex value|functions/CMPLX.html
+CMPLXF()|make a complex value|functions/CMPLXF.html
+CMPLXL()|make a complex value|functions/CMPLXL.html
+cnd_broadcast()|broadcast or signal a condition|functions/cnd_broadcast.html
+cnd_destroy()|destroy and initialize condition variables|functions/cnd_destroy.html
+cnd_init()|destroy and initialize condition variables|functions/cnd_init.html
+cnd_signal()|broadcast or signal a condition|functions/cnd_signal.html
+cnd_timedwait()|wait on a condition|functions/cnd_timedwait.html
+cnd_wait()|wait on a condition|functions/cnd_wait.html
+colon|null utility|utilities/V3_chap02.html#colon
+comm|select or reject lines common to two files|utilities/comm.html
+command|execute a simple command|utilities/command.html
+complex.h|complex arithmetic|basedefs/complex.h.html
+compress|compress and decompress data|utilities/compress.html
+confstr()|get configurable variables|functions/confstr.html
+conj()|complex conjugate functions|functions/conj.html
+conjf()|complex conjugate functions|functions/conjf.html
+conjl()|complex conjugate functions|functions/conjl.html
+connect()|connect a socket|functions/connect.html
+continue|continue for|utilities/V3_chap02.html#continue
+copysign()|number manipulation function|functions/copysign.html
+copysignf()|number manipulation function|functions/copysignf.html
+copysignl()|number manipulation function|functions/copysignl.html
+cos()|cosine function|functions/cos.html
+cosf()|cosine function|functions/cosf.html
+cosh()|hyperbolic cosine functions|functions/cosh.html
+coshf()|hyperbolic cosine functions|functions/coshf.html
+coshl()|hyperbolic cosine functions|functions/coshl.html
+cosl()|cosine function|functions/cosl.html
+cp|copy files|utilities/cp.html
+cpio.h|cpio archive values|basedefs/cpio.h.html
+cpow()|complex power functions|functions/cpow.html
+cpowf()|complex power functions|functions/cpowf.html
+cpowl()|complex power functions|functions/cpowl.html
+cproj()|complex projection functions|functions/cproj.html
+cprojf()|complex projection functions|functions/cprojf.html
+cprojl()|complex projection functions|functions/cprojl.html
+creal()|complex real functions|functions/creal.html
+crealf()|complex real functions|functions/crealf.html
+creall()|complex real functions|functions/creall.html
+creat()|create a new file or rewrite an existing one|functions/creat.html
+crontab|schedule periodic background work|utilities/crontab.html
+crypt()|password hashing function |functions/crypt.html
+csin()|complex sine functions|functions/csin.html
+csinf()|complex sine functions|functions/csinf.html
+csinh()|complex hyperbolic sine functions|functions/csinh.html
+csinhf()|complex hyperbolic sine functions|functions/csinhf.html
+csinhl()|complex hyperbolic sine functions|functions/csinhl.html
+csinl()|complex sine functions|functions/csinl.html
+csplit|split files based on context|utilities/csplit.html
+csqrt()|complex square root functions|functions/csqrt.html
+csqrtf()|complex square root functions|functions/csqrtf.html
+csqrtl()|complex square root functions|functions/csqrtl.html
+ctags|create a tags file |utilities/ctags.html
+ctan()|complex tangent functions|functions/ctan.html
+ctanf()|complex tangent functions|functions/ctanf.html
+ctanh()|complex hyperbolic tangent functions|functions/ctanh.html
+ctanhf()|complex hyperbolic tangent functions|functions/ctanhf.html
+ctanhl()|complex hyperbolic tangent functions|functions/ctanhl.html
+ctanl()|complex tangent functions|functions/ctanl.html
+ctermid()|generate a pathname for the controlling terminal|functions/ctermid.html
+ctime()|convert a time value to a date and time string|functions/ctime.html
+ctime_r()|convert a time value to a date and time string|functions/ctime_r.html
+ctype.h|character types|basedefs/ctype.h.html
+cut|cut out selected fields of each line of a file|utilities/cut.html
+cxref|generate a C-language program cross-reference table |utilities/cxref.html
+date|write the date and time|utilities/date.html
+daylight|set timezone conversion information|functions/daylight.html
+dbm_clearerr()|database functions|functions/dbm_clearerr.html
+dbm_close()|database functions|functions/dbm_close.html
+dbm_delete()|database functions|functions/dbm_delete.html
+dbm_error()|database functions|functions/dbm_error.html
+dbm_fetch()|database functions|functions/dbm_fetch.html
+dbm_firstkey()|database functions|functions/dbm_firstkey.html
+dbm_nextkey()|database functions|functions/dbm_nextkey.html
+dbm_open()|database functions|functions/dbm_open.html
+dbm_store()|database functions|functions/dbm_store.html
+dcgettext()|message handling functions|functions/dcgettext.html
+dcgettext_l()|message handling functions|functions/dcgettext_l.html
+dcngettext()|message handling functions|functions/dcngettext.html
+dcngettext_l()|message handling functions|functions/dcngettext_l.html
+dd|convert and copy a file|utilities/dd.html
+delta|make a delta (change) to an SCCS file |utilities/delta.html
+devctl.h|device control|basedefs/devctl.h.html
+df|report free disk space|utilities/df.html
+dgettext()|message handling functions|functions/dgettext.html
+dgettext_l()|message handling functions|functions/dgettext_l.html
+diff|compare two files|utilities/diff.html
+difftime()|compute the difference between two calendar time values|functions/difftime.html
+dirent.h|format of directory entries|basedefs/dirent.h.html
+dirfd()|extract the file descriptor used by a DIR stream|functions/dirfd.html
+dirname|return the directory portion of a pathname|utilities/dirname.html
+dirname()|report the parent directory name of a file pathname|functions/dirname.html
+div()|compute the quotient and remainder of an integer division|functions/div.html
+dladdr()|get information relating to an address|functions/dladdr.html
+dlclose()|close a symbol table handle|functions/dlclose.html
+dlerror()|get diagnostic information|functions/dlerror.html
+dlfcn.h|dynamic linking|basedefs/dlfcn.h.html
+dlopen()|open a symbol table handle|functions/dlopen.html
+dlsym()|get the address of a symbol from a symbol table handle|functions/dlsym.html
+dngettext()|message handling functions|functions/dngettext.html
+dngettext_l()|message handling functions|functions/dngettext_l.html
+dot|execute commands in the current environment|utilities/V3_chap02.html#dot
+dprintf()|print formatted output|functions/dprintf.html
+drand48()|generate uniformly distributed pseudo-random numbers|functions/drand48.html
+du|estimate file space usage|utilities/du.html
+dup()|duplicate an open file descriptor|functions/dup.html
+dup2()|duplicate an open file descriptor|functions/dup2.html
+dup3()|duplicate an open file descriptor|functions/dup3.html
+duplocale()|duplicate a locale object|functions/duplocale.html
+_Exit()|terminate a process|functions/_Exit.html
+echo|write arguments to standard output|utilities/echo.html
+ed|edit text|utilities/ed.html
+encrypt()|encoding function |functions/encrypt.html
+endgrent()|group database entry functions|functions/endgrent.html
+endhostent()|network host database functions|functions/endhostent.html
+endian.h|system endianness|basedefs/endian.h.html
+endnetent()|network database functions|functions/endnetent.html
+endprotoent()|network protocol database functions|functions/endprotoent.html
+endpwent()|user database functions|functions/endpwent.html
+endservent()|network services database functions|functions/endservent.html
+endutxent()|user accounting database functions|functions/endutxent.html
+env|set the environment for command invocation|utilities/env.html
+environ|execute a file|functions/environ.html
+erand48()|generate uniformly distributed pseudo-random numbers|functions/erand48.html
+erf()|error functions|functions/erf.html
+erfc()|complementary error functions|functions/erfc.html
+erfcf()|complementary error functions|functions/erfcf.html
+erfcl()|complementary error functions|functions/erfcl.html
+erff()|error functions|functions/erff.html
+erfl()|error functions|functions/erfl.html
+errno|error return value|functions/errno.html
+errno.h|system error numbers|basedefs/errno.h.html
+eval|construct command by concatenating arguments|utilities/V3_chap02.html#eval
+ex|text editor|utilities/ex.html
+exec|perform redirections in the current shell or execute a utility|utilities/V3_chap02.html#exec
+execl()|execute a file|functions/execl.html
+execle()|execute a file|functions/execle.html
+execlp()|execute a file|functions/execlp.html
+execv()|execute a file|functions/execv.html
+execve()|execute a file|functions/execve.html
+execvp()|execute a file|functions/execvp.html
+exit|cause the shell to exit|utilities/V3_chap02.html#exit
+exit()|terminate a process|functions/exit.html
+exp()|exponential function|functions/exp.html
+exp2()|exponential base 2 functions|functions/exp2.html
+exp2f()|exponential base 2 functions|functions/exp2f.html
+exp2l()|exponential base 2 functions|functions/exp2l.html
+expand|convert tabs to spaces|utilities/expand.html
+expf()|exponential function|functions/expf.html
+expl()|exponential function|functions/expl.html
+expm1()|compute exponential functions|functions/expm1.html
+expm1f()|compute exponential functions|functions/expm1f.html
+expm1l()|compute exponential functions|functions/expm1l.html
+export|set the export attribute for variables|utilities/V3_chap02.html#export
+expr|evaluate arguments as an expression|utilities/expr.html
+_Fork()|create a new process|functions/_Fork.html
+fabs()|absolute value function|functions/fabs.html
+fabsf()|absolute value function|functions/fabsf.html
+fabsl()|absolute value function|functions/fabsl.html
+faccessat()|determine accessibility of a file descriptor|functions/faccessat.html
+false|return false value|utilities/false.html
+fc|process the command history list|utilities/fc.html
+fchdir()|change working directory|functions/fchdir.html
+fchmod()|change mode of a file|functions/fchmod.html
+fchmodat()|change mode of a file|functions/fchmodat.html
+fchown()|change owner and group of a file|functions/fchown.html
+fchownat()|change owner and group of a file|functions/fchownat.html
+fclose()|close a stream|functions/fclose.html
+fcntl()|file control|functions/fcntl.html
+fcntl.h|file control options|basedefs/fcntl.h.html
+fdatasync()|synchronize the data of a file |functions/fdatasync.html
+fdim()|compute positive difference between two floating-point numbers|functions/fdim.html
+fdimf()|compute positive difference between two floating-point numbers|functions/fdimf.html
+fdiml()|compute positive difference between two floating-point numbers|functions/fdiml.html
+fdopen()|associate a stream with a file descriptor|functions/fdopen.html
+fdopendir()|open directory associated with file descriptor|functions/fdopendir.html
+FD_CLR()|synchronous I/O multiplexing|functions/FD_CLR.html
+FD_ISSET()|synchronous I/O multiplexing|functions/FD_ISSET.html
+FD_SET()|synchronous I/O multiplexing|functions/FD_SET.html
+FD_ZERO()|synchronous I/O multiplexing|functions/FD_ZERO.html
+feclearexcept()|clear floating-point exception|functions/feclearexcept.html
+fegetenv()|get and set current floating-point environment|functions/fegetenv.html
+fegetexceptflag()|get and set floating-point status flags|functions/fegetexceptflag.html
+fegetround()|get and set current rounding direction|functions/fegetround.html
+feholdexcept()|save current floating-point environment|functions/feholdexcept.html
+fenv.h|floating-point environment|basedefs/fenv.h.html
+feof()|test end-of-file indicator on a stream|functions/feof.html
+feraiseexcept()|raise floating-point exception|functions/feraiseexcept.html
+ferror()|test error indicator on a stream|functions/ferror.html
+fesetenv()|get and set current floating-point environment|functions/fesetenv.html
+fesetexceptflag()|get and set floating-point status flags|functions/fesetexceptflag.html
+fesetround()|get and set current rounding direction|functions/fesetround.html
+fetestexcept()|test floating-point exception flags|functions/fetestexcept.html
+feupdateenv()|update floating-point environment|functions/feupdateenv.html
+fexecve()|execute a file|functions/fexecve.html
+fflush()|flush a stream|functions/fflush.html
+ffs()|find first set bit|functions/ffs.html
+ffsl()|find first set bit|functions/ffsl.html
+ffsll()|find first set bit|functions/ffsll.html
+fg|run jobs in the foreground|utilities/fg.html
+fgetc()|get a byte from a stream|functions/fgetc.html
+fgetpos()|get current file position information|functions/fgetpos.html
+fgets()|get a string from a stream|functions/fgets.html
+fgetwc()|get a wide-character code from a stream|functions/fgetwc.html
+fgetws()|get a wide-character string from a stream|functions/fgetws.html
+file|determine file type|utilities/file.html
+fileno()|map a stream pointer to a file descriptor|functions/fileno.html
+find|find files|utilities/find.html
+float.h|floating types|basedefs/float.h.html
+flockfile()|stdio locking functions|functions/flockfile.html
+floor()|floor function|functions/floor.html
+floorf()|floor function|functions/floorf.html
+floorl()|floor function|functions/floorl.html
+fma()|floating-point multiply-add|functions/fma.html
+fmaf()|floating-point multiply-add|functions/fmaf.html
+fmal()|floating-point multiply-add|functions/fmal.html
+fmax()|determine maximum numeric value of two floating-point numbers|functions/fmax.html
+fmaxf()|determine maximum numeric value of two floating-point numbers|functions/fmaxf.html
+fmaxl()|determine maximum numeric value of two floating-point numbers|functions/fmaxl.html
+fmemopen()|open a memory buffer stream|functions/fmemopen.html
+fmin()|determine minimum numeric value of two floating-point numbers|functions/fmin.html
+fminf()|determine minimum numeric value of two floating-point numbers|functions/fminf.html
+fminl()|determine minimum numeric value of two floating-point numbers|functions/fminl.html
+fmod()|floating-point remainder value function|functions/fmod.html
+fmodf()|floating-point remainder value function|functions/fmodf.html
+fmodl()|floating-point remainder value function|functions/fmodl.html
+fmtmsg()|display a message in the specified format on standard error and/or a system console|functions/fmtmsg.html
+fmtmsg.h|message display structures|basedefs/fmtmsg.h.html
+fnmatch()|match a filename string or a pathname|functions/fnmatch.html
+fnmatch.h|filename-matching types|basedefs/fnmatch.h.html
+fold|filter for folding lines|utilities/fold.html
+fopen()|open a stream|functions/fopen.html
+fork()|create a new process|functions/fork.html
+fpathconf()|get configurable pathname variables|functions/fpathconf.html
+fpclassify()|classify real floating type|functions/fpclassify.html
+fprintf()|print formatted output|functions/fprintf.html
+fputc()|put a byte on a stream|functions/fputc.html
+fputs()|put a string on a stream|functions/fputs.html
+fputwc()|put a wide-character code on a stream|functions/fputwc.html
+fputws()|put a wide-character string on a stream|functions/fputws.html
+fread()|binary input|functions/fread.html
+free()|free allocated memory|functions/free.html
+freeaddrinfo()|get address information|functions/freeaddrinfo.html
+freelocale()|free resources allocated for a locale object|functions/freelocale.html
+freopen()|open a stream|functions/freopen.html
+frexp()|extract significand and exponent from a double precision number|functions/frexp.html
+frexpf()|extract significand and exponent from a double precision number|functions/frexpf.html
+frexpl()|extract significand and exponent from a double precision number|functions/frexpl.html
+fscanf()|convert formatted input|functions/fscanf.html
+fseek()|reposition a file-position indicator in a stream|functions/fseek.html
+fseeko()|reposition a file-position indicator in a stream|functions/fseeko.html
+fsetpos()|set current file position|functions/fsetpos.html
+fstat()|get file status|functions/fstat.html
+fstatat()|get file status|functions/fstatat.html
+fstatvfs()|get file system information|functions/fstatvfs.html
+fsync()|synchronize changes to a file|functions/fsync.html
+ftell()|return a file offset in a stream|functions/ftell.html
+ftello()|return a file offset in a stream|functions/ftello.html
+ftok()|generate an IPC key|functions/ftok.html
+ftruncate()|truncate a file to a specified length|functions/ftruncate.html
+ftrylockfile()|stdio locking functions|functions/ftrylockfile.html
+ftw.h|file tree traversal|basedefs/ftw.h.html
+funlockfile()|stdio locking functions|functions/funlockfile.html
+fuser|list process IDs of all processes that are using one or more named files|utilities/fuser.html
+futimens()|set file access and modification times|functions/futimens.html
+fwide()|set stream orientation|functions/fwide.html
+fwprintf()|print formatted wide-character output|functions/fwprintf.html
+fwrite()|binary output|functions/fwrite.html
+fwscanf()|convert formatted wide-character input|functions/fwscanf.html
+gai_strerror()|address and name information error description|functions/gai_strerror.html
+gencat|generate a formatted message catalog|utilities/gencat.html
+get|get a version of an SCCS file |utilities/get.html
+getaddrinfo()|get address information|functions/getaddrinfo.html
+getc()|get a byte from a stream|functions/getc.html
+getchar()|get a byte from a stdin stream|functions/getchar.html
+getchar_unlocked()|stdio with explicit client locking|functions/getchar_unlocked.html
+getconf|get configuration values|utilities/getconf.html
+getcwd()|get the pathname of the current working directory|functions/getcwd.html
+getc_unlocked()|stdio with explicit client locking|functions/getc_unlocked.html
+getdate()|convert user format date and time|functions/getdate.html
+getdate_err|convert user format date and time|functions/getdate_err.html
+getdelim()|read a delimited record from stream|functions/getdelim.html
+getegid()|get the effective group ID|functions/getegid.html
+getentropy()|fill a buffer with random bytes|functions/getentropy.html
+getenv()|get value of an environment variable|functions/getenv.html
+geteuid()|get the effective user ID|functions/geteuid.html
+getgid()|get the real group ID|functions/getgid.html
+getgrent()|group database entry functions|functions/getgrent.html
+getgrgid()|get group database entry for a group ID|functions/getgrgid.html
+getgrgid_r()|get group database entry for a group ID|functions/getgrgid_r.html
+getgrnam()|search group database for a name|functions/getgrnam.html
+getgrnam_r()|search group database for a name|functions/getgrnam_r.html
+getgroups()|get supplementary group IDs|functions/getgroups.html
+gethostent()|network host database functions|functions/gethostent.html
+gethostid()|get an identifier for the current host|functions/gethostid.html
+gethostname()|get name of current host|functions/gethostname.html
+getline()|read a delimited record from stream|functions/getline.html
+getlocalename_l()|get a locale name from a locale object|functions/getlocalename_l.html
+getlogin()|get login name|functions/getlogin.html
+getlogin_r()|get login name|functions/getlogin_r.html
+getnameinfo()|get name information|functions/getnameinfo.html
+getnetbyaddr()|network database functions|functions/getnetbyaddr.html
+getnetbyname()|network database functions|functions/getnetbyname.html
+getnetent()|network database functions|functions/getnetent.html
+getopt()|command option parsing|functions/getopt.html
+getopts|parse utility options|utilities/getopts.html
+getpeername()|get the name of the peer socket|functions/getpeername.html
+getpgid()|get the process group ID for a process|functions/getpgid.html
+getpgrp()|get the process group ID of the calling process|functions/getpgrp.html
+getpid()|get the process ID|functions/getpid.html
+getppid()|get the parent process ID|functions/getppid.html
+getpriority()|get and set the nice value|functions/getpriority.html
+getprotobyname()|network protocol database functions|functions/getprotobyname.html
+getprotobynumber()|network protocol database functions|functions/getprotobynumber.html
+getprotoent()|network protocol database functions|functions/getprotoent.html
+getpwent()|user database functions|functions/getpwent.html
+getpwnam()|search user database for a name|functions/getpwnam.html
+getpwnam_r()|search user database for a name|functions/getpwnam_r.html
+getpwuid()|search user database for a user ID|functions/getpwuid.html
+getpwuid_r()|search user database for a user ID|functions/getpwuid_r.html
+getresgid()|get real group ID|functions/getresgid.html
+getresuid()|get real user ID|functions/getresuid.html
+getrlimit()|control maximum resource consumption|functions/getrlimit.html
+getrusage()|get information about resource utilization|functions/getrusage.html
+getservbyname()|network services database functions|functions/getservbyname.html
+getservbyport()|network services database functions|functions/getservbyport.html
+getservent()|network services database functions|functions/getservent.html
+getsid()|get the process group ID of a session leader|functions/getsid.html
+getsockname()|get the socket name|functions/getsockname.html
+getsockopt()|get the socket options|functions/getsockopt.html
+getsubopt()|parse suboption arguments from a string|functions/getsubopt.html
+gettext|retrieve text string from messages object|utilities/gettext.html
+gettext()|message handling functions|functions/gettext.html
+gettext_l()|message handling functions|functions/gettext_l.html
+getuid()|get a real user ID|functions/getuid.html
+getutxent()|user accounting database functions|functions/getutxent.html
+getutxid()|user accounting database functions|functions/getutxid.html
+getutxline()|user accounting database functions|functions/getutxline.html
+getwc()|get a wide character from a stream|functions/getwc.html
+getwchar()|get a wide character from a stdin stream|functions/getwchar.html
+glob()|generate pathnames matching a pattern|functions/glob.html
+glob.h|pathname pattern-matching types|basedefs/glob.h.html
+globfree()|generate pathnames matching a pattern|functions/globfree.html
+gmtime()|convert a time value to a broken-down UTC time|functions/gmtime.html
+gmtime_r()|convert a time value to a broken-down UTC time|functions/gmtime_r.html
+grantpt()|grant access to the subsidiary pseudo-terminal device|functions/grantpt.html
+grep|search a file for a pattern|utilities/grep.html
+grp.h|group structure|basedefs/grp.h.html
+hash|remember or report utility locations|utilities/hash.html
+hcreate()|manage hash search table|functions/hcreate.html
+hdestroy()|manage hash search table|functions/hdestroy.html
+head|copy the first part of files|utilities/head.html
+hsearch()|manage hash search table|functions/hsearch.html
+htobe16()|convert values between host and specified byte order|functions/htobe16.html
+htobe32()|convert values between host and specified byte order|functions/htobe32.html
+htobe64()|convert values between host and specified byte order|functions/htobe64.html
+htole16()|convert values between host and specified byte order|functions/htole16.html
+htole32()|convert values between host and specified byte order|functions/htole32.html
+htole64()|convert values between host and specified byte order|functions/htole64.html
+htonl()|convert values between host and network byte order|functions/htonl.html
+htons()|convert values between host and network byte order|functions/htons.html
+hypot()|Euclidean distance function|functions/hypot.html
+hypotf()|Euclidean distance function|functions/hypotf.html
+hypotl()|Euclidean distance function|functions/hypotl.html
+iconv|codeset conversion|utilities/iconv.html
+iconv()|codeset conversion function|functions/iconv.html
+iconv.h|codeset conversion facility|basedefs/iconv.h.html
+iconv_close()|codeset conversion deallocation function|functions/iconv_close.html
+iconv_open()|codeset conversion allocation function|functions/iconv_open.html
+id|return user identity|utilities/id.html
+if_freenameindex()|free memory allocated by if_nameindex|functions/if_freenameindex.html
+if_indextoname()|map a network interface index to its corresponding name|functions/if_indextoname.html
+if_nameindex()|return all network interface names and indexes|functions/if_nameindex.html
+if_nametoindex()|map a network interface name to its corresponding index|functions/if_nametoindex.html
+ilogb()|return an unbiased exponent|functions/ilogb.html
+ilogbf()|return an unbiased exponent|functions/ilogbf.html
+ilogbl()|return an unbiased exponent|functions/ilogbl.html
+imaxabs()|return absolute value|functions/imaxabs.html
+imaxdiv()|return quotient and remainder|functions/imaxdiv.html
+in6addr_any|IPv6 address variables|functions/in6addr_any.html
+in6addr_loopback|IPv6 address variables|functions/in6addr_loopback.html
+inet_addr()|IPv4 address manipulation|functions/inet_addr.html
+inet_ntoa()|IPv4 address manipulation|functions/inet_ntoa.html
+inet_ntop()|convert IPv4 and IPv6 addresses between binary and text form|functions/inet_ntop.html
+inet_pton()|convert IPv4 and IPv6 addresses between binary and text form|functions/inet_pton.html
+initstate()|pseudo-random number functions|functions/initstate.html
+insque()|insert or remove an element in a queue|functions/insque.html
+inttypes.h|fixed size integer types|basedefs/inttypes.h.html
+ipcrm|remove an XSI message queue|utilities/ipcrm.html
+ipcs|report XSI interprocess communication facilities status|utilities/ipcs.html
+isalnum()|test for an alphanumeric character|functions/isalnum.html
+isalnum_l()|test for an alphanumeric character|functions/isalnum_l.html
+isalpha()|test for an alphabetic character|functions/isalpha.html
+isalpha_l()|test for an alphabetic character|functions/isalpha_l.html
+isatty()|test for a terminal device|functions/isatty.html
+isblank()|test for a blank character|functions/isblank.html
+isblank_l()|test for a blank character|functions/isblank_l.html
+iscntrl()|test for a control character|functions/iscntrl.html
+iscntrl_l()|test for a control character|functions/iscntrl_l.html
+isdigit()|test for a decimal digit|functions/isdigit.html
+isdigit_l()|test for a decimal digit|functions/isdigit_l.html
+isfinite()|test for finite value|functions/isfinite.html
+isgraph()|test for a visible character|functions/isgraph.html
+isgraph_l()|test for a visible character|functions/isgraph_l.html
+isgreater()|real-floating relational tests|functions/isgreater.html
+isgreaterequal()|real-floating relational tests|functions/isgreaterequal.html
+isinf()|test for infinity|functions/isinf.html
+isless()|real-floating relational tests|functions/isless.html
+islessequal()|real-floating relational tests|functions/islessequal.html
+islessgreater()|real-floating relational tests|functions/islessgreater.html
+islower()|test for a lowercase letter|functions/islower.html
+islower_l()|test for a lowercase letter|functions/islower_l.html
+isnan()|test for a NaN|functions/isnan.html
+isnormal()|test for a normal value|functions/isnormal.html
+iso646.h|alternative spellings|basedefs/iso646.h.html
+isprint()|test for a printable character|functions/isprint.html
+isprint_l()|test for a printable character|functions/isprint_l.html
+ispunct()|test for a punctuation character|functions/ispunct.html
+ispunct_l()|test for a punctuation character|functions/ispunct_l.html
+isspace()|test for a white-space character|functions/isspace.html
+isspace_l()|test for a white-space character|functions/isspace_l.html
+isunordered()|test if arguments are unordered|functions/isunordered.html
+isupper()|test for an uppercase letter|functions/isupper.html
+isupper_l()|test for an uppercase letter|functions/isupper_l.html
+iswalnum()|test for an alphanumeric wide-character code|functions/iswalnum.html
+iswalnum_l()|test for an alphanumeric wide-character code|functions/iswalnum_l.html
+iswalpha()|test for an alphabetic wide-character code|functions/iswalpha.html
+iswalpha_l()|test for an alphabetic wide-character code|functions/iswalpha_l.html
+iswblank()|test for a blank wide-character code|functions/iswblank.html
+iswblank_l()|test for a blank wide-character code|functions/iswblank_l.html
+iswcntrl()|test for a control wide-character code|functions/iswcntrl.html
+iswcntrl_l()|test for a control wide-character code|functions/iswcntrl_l.html
+iswctype()|test character for a specified class|functions/iswctype.html
+iswctype_l()|test character for a specified class|functions/iswctype_l.html
+iswdigit()|test for a decimal digit wide-character code|functions/iswdigit.html
+iswdigit_l()|test for a decimal digit wide-character code|functions/iswdigit_l.html
+iswgraph()|test for a visible wide-character code|functions/iswgraph.html
+iswgraph_l()|test for a visible wide-character code|functions/iswgraph_l.html
+iswlower()|test for a lowercase letter wide-character code|functions/iswlower.html
+iswlower_l()|test for a lowercase letter wide-character code|functions/iswlower_l.html
+iswprint()|test for a printable wide-character code|functions/iswprint.html
+iswprint_l()|test for a printable wide-character code|functions/iswprint_l.html
+iswpunct()|test for a punctuation wide-character code|functions/iswpunct.html
+iswpunct_l()|test for a punctuation wide-character code|functions/iswpunct_l.html
+iswspace()|test for a white-space wide-character code|functions/iswspace.html
+iswspace_l()|test for a white-space wide-character code|functions/iswspace_l.html
+iswupper()|test for an uppercase letter wide-character code|functions/iswupper.html
+iswupper_l()|test for an uppercase letter wide-character code|functions/iswupper_l.html
+iswxdigit()|test for a hexadecimal digit wide-character code|functions/iswxdigit.html
+iswxdigit_l()|test for a hexadecimal digit wide-character code|functions/iswxdigit_l.html
+isxdigit()|test for a hexadecimal digit|functions/isxdigit.html
+isxdigit_l()|test for a hexadecimal digit|functions/isxdigit_l.html
+j0()|Bessel functions of the first kind|functions/j0.html
+j1()|Bessel functions of the first kind|functions/j1.html
+jn()|Bessel functions of the first kind|functions/jn.html
+jobs|display status of jobs in the current shell execution environment|utilities/jobs.html
+join|relational database operator|utilities/join.html
+jrand48()|generate uniformly distributed pseudo-random numbers|functions/jrand48.html
+kill|terminate or signal processes|utilities/kill.html
+kill()|send a signal to a process or a group of processes|functions/kill.html
+killpg()|send a signal to a process group|functions/killpg.html
+kill_dependency()|terminate a dependency chain|functions/kill_dependency.html
+l64a()|convert between a 32-bit integer and a radix-64 ASCII string|functions/l64a.html
+labs()|return a long integer absolute value|functions/labs.html
+langinfo.h|language information constants|basedefs/langinfo.h.html
+lchown()|change the owner and group of a symbolic link|functions/lchown.html
+lcong48()|generate uniformly distributed pseudo-random numbers|functions/lcong48.html
+ldexp()|load exponent of a floating-point number|functions/ldexp.html
+ldexpf()|load exponent of a floating-point number|functions/ldexpf.html
+ldexpl()|load exponent of a floating-point number|functions/ldexpl.html
+ldiv()|compute quotient and remainder of a long division|functions/ldiv.html
+le16toh()|convert values between host and specified byte order|functions/le16toh.html
+le32toh()|convert values between host and specified byte order|functions/le32toh.html
+le64toh()|convert values between host and specified byte order|functions/le64toh.html
+lex|generate programs for lexical tasks |utilities/lex.html
+lfind()|linear search and update|functions/lfind.html
+lgamma()|log gamma function|functions/lgamma.html
+lgammaf()|log gamma function|functions/lgammaf.html
+lgammal()|log gamma function|functions/lgammal.html
+libgen.h|definitions for pattern matching functions|basedefs/libgen.h.html
+libintl.h|international messaging|basedefs/libintl.h.html
+limits.h|implementation-defined constants|basedefs/limits.h.html
+link|call link function|utilities/link.html
+link()|hard link one file to another file|functions/link.html
+linkat()|hard link one file to another file|functions/linkat.html
+lio_listio()|list directed I/O|functions/lio_listio.html
+listen()|listen for socket connections and limit the queue of incoming connections|functions/listen.html
+llabs()|return a long integer absolute value|functions/llabs.html
+lldiv()|compute quotient and remainder of a long division|functions/lldiv.html
+llrint()|round to the nearest integer value using current rounding direction|functions/llrint.html
+llrintf()|round to the nearest integer value using current rounding direction|functions/llrintf.html
+llrintl()|round to the nearest integer value using current rounding direction|functions/llrintl.html
+llround()|round to nearest integer value|functions/llround.html
+llroundf()|round to nearest integer value|functions/llroundf.html
+llroundl()|round to nearest integer value|functions/llroundl.html
+ln|link files|utilities/ln.html
+locale|get locale-specific information|utilities/locale.html
+locale.h|category macros|basedefs/locale.h.html
+localeconv()|return locale-specific information|functions/localeconv.html
+localedef|define locale environment|utilities/localedef.html
+localtime()|convert a time value to a broken-down local time|functions/localtime.html
+localtime_r()|convert a time value to a broken-down local time|functions/localtime_r.html
+lockf()|record locking on files|functions/lockf.html
+log()|natural logarithm function|functions/log.html
+log10()|base 10 logarithm function|functions/log10.html
+log10f()|base 10 logarithm function|functions/log10f.html
+log10l()|base 10 logarithm function|functions/log10l.html
+log1p()|compute a natural logarithm|functions/log1p.html
+log1pf()|compute a natural logarithm|functions/log1pf.html
+log1pl()|compute a natural logarithm|functions/log1pl.html
+log2()|compute base 2 logarithm functions|functions/log2.html
+log2f()|compute base 2 logarithm functions|functions/log2f.html
+log2l()|compute base 2 logarithm functions|functions/log2l.html
+logb()|radix-independent exponent|functions/logb.html
+logbf()|radix-independent exponent|functions/logbf.html
+logbl()|radix-independent exponent|functions/logbl.html
+logf()|natural logarithm function|functions/logf.html
+logger|log messages|utilities/logger.html
+logl()|natural logarithm function|functions/logl.html
+logname|return the user's login name|utilities/logname.html
+longjmp()|non-local goto|functions/longjmp.html
+lp|send files to a printer|utilities/lp.html
+lrand48()|generate uniformly distributed pseudo-random numbers|functions/lrand48.html
+lrint()|round to nearest integer value using current rounding direction|functions/lrint.html
+lrintf()|round to nearest integer value using current rounding direction|functions/lrintf.html
+lrintl()|round to nearest integer value using current rounding direction|functions/lrintl.html
+lround()|round to nearest integer value|functions/lround.html
+lroundf()|round to nearest integer value|functions/lroundf.html
+lroundl()|round to nearest integer value|functions/lroundl.html
+ls|list directory contents|utilities/ls.html
+lsearch()|linear search and update|functions/lsearch.html
+lseek()|move the read/write file offset|functions/lseek.html
+lstat()|get file status|functions/lstat.html
+m4|macro processor|utilities/m4.html
+mailx|process messages|utilities/mailx.html
+make|maintain|utilities/make.html
+malloc()|a memory allocator|functions/malloc.html
+man|display system documentation|utilities/man.html
+math.h|mathematical declarations|basedefs/math.h.html
+mblen()|get number of bytes in a character|functions/mblen.html
+mbrlen()|get number of bytes in a character (restartable)|functions/mbrlen.html
+mbrtoc16()|convert a character to a Unicode character code (restartable)|functions/mbrtoc16.html
+mbrtoc32()|convert a character to a Unicode character code (restartable)|functions/mbrtoc32.html
+mbrtowc()|convert a character to a wide-character code (restartable)|functions/mbrtowc.html
+mbsinit()|determine conversion object status|functions/mbsinit.html
+mbsnrtowcs()|convert a character string to a wide-character string (restartable)|functions/mbsnrtowcs.html
+mbsrtowcs()|convert a character string to a wide-character string (restartable)|functions/mbsrtowcs.html
+mbstowcs()|convert a character string to a wide-character string|functions/mbstowcs.html
+mbtowc()|convert a character to a wide-character code|functions/mbtowc.html
+memccpy()|copy bytes in memory|functions/memccpy.html
+memchr()|find byte in memory|functions/memchr.html
+memcmp()|compare bytes in memory|functions/memcmp.html
+memcpy()|copy bytes in memory|functions/memcpy.html
+memmem()|find a byte subsequence in a byte sequence|functions/memmem.html
+memmove()|copy bytes in memory with overlapping areas|functions/memmove.html
+memset()|set bytes in memory|functions/memset.html
+mesg|permit or deny messages|utilities/mesg.html
+mkdir|make directories|utilities/mkdir.html
+mkdir()|make a directory|functions/mkdir.html
+mkdirat()|make a directory|functions/mkdirat.html
+mkdtemp()|create a unique directory or file|functions/mkdtemp.html
+mkfifo|make FIFO special files|utilities/mkfifo.html
+mkfifo()|make a FIFO special file|functions/mkfifo.html
+mkfifoat()|make a FIFO special file|functions/mkfifoat.html
+mknod()|make directory, special file, or regular file|functions/mknod.html
+mknodat()|make directory, special file, or regular file|functions/mknodat.html
+mkostemp()|create a unique directory or file|functions/mkostemp.html
+mkstemp()|create a unique directory or file|functions/mkstemp.html
+mktime()|convert broken-down time into time since the Epoch|functions/mktime.html
+mlock()|lock or unlock a range of process address space |functions/mlock.html
+mlockall()|lock/unlock the address space of a process |functions/mlockall.html
+mmap()|map pages of memory|functions/mmap.html
+modf()|decompose a floating-point number|functions/modf.html
+modff()|decompose a floating-point number|functions/modff.html
+modfl()|decompose a floating-point number|functions/modfl.html
+monetary.h|monetary types|basedefs/monetary.h.html
+more|display files on a page-by-page basis|utilities/more.html
+mprotect()|set protection of memory mapping|functions/mprotect.html
+mqueue.h|message queues |basedefs/mqueue.h.html
+mq_close()|close a message queue |functions/mq_close.html
+mq_getattr()|get message queue attributes |functions/mq_getattr.html
+mq_notify()|notify process that a message is available |functions/mq_notify.html
+mq_open()|open a message queue |functions/mq_open.html
+mq_receive()|receive a message from a message queue |functions/mq_receive.html
+mq_send()|send a message to a message queue |functions/mq_send.html
+mq_setattr()|set message queue attributes |functions/mq_setattr.html
+mq_timedreceive()|receive a message from a message queue |functions/mq_timedreceive.html
+mq_timedsend()|send a message to a message queue |functions/mq_timedsend.html
+mq_unlink()|remove a message queue |functions/mq_unlink.html
+mrand48()|generate uniformly distributed pseudo-random numbers|functions/mrand48.html
+msgctl()|XSI message control operations|functions/msgctl.html
+msgfmt|create messages objects from portable messages object source files|utilities/msgfmt.html
+msgget()|get the XSI message queue identifier|functions/msgget.html
+msgrcv()|XSI message receive operation|functions/msgrcv.html
+msgsnd()|XSI message send operation|functions/msgsnd.html
+msync()|synchronize memory with physical storage|functions/msync.html
+mtx_destroy()|destroy and initialize a mutex|functions/mtx_destroy.html
+mtx_init()|destroy and initialize a mutex|functions/mtx_init.html
+mtx_lock()|lock and unlock a mutex|functions/mtx_lock.html
+mtx_timedlock()|lock and unlock a mutex|functions/mtx_timedlock.html
+mtx_trylock()|lock and unlock a mutex|functions/mtx_trylock.html
+mtx_unlock()|lock and unlock a mutex|functions/mtx_unlock.html
+munlock()|lock or unlock a range of process address space |functions/munlock.html
+munlockall()|lock/unlock the address space of a process |functions/munlockall.html
+munmap()|unmap pages of memory|functions/munmap.html
+mv|move files|utilities/mv.html
+nan()|return quiet NaN|functions/nan.html
+nanf()|return quiet NaN|functions/nanf.html
+nanl()|return quiet NaN|functions/nanl.html
+nanosleep()|high resolution sleep|functions/nanosleep.html
+ndbm.h|definitions for ndbm database operations|basedefs/ndbm.h.html
+nearbyint()|floating-point rounding functions|functions/nearbyint.html
+nearbyintf()|floating-point rounding functions|functions/nearbyintf.html
+nearbyintl()|floating-point rounding functions|functions/nearbyintl.html
+net/if.h|sockets local interfaces|basedefs/net_if.h.html
+netdb.h|definitions for network database operations|basedefs/netdb.h.html
+netinet/in.h|Internet address family|basedefs/netinet_in.h.html
+netinet/tcp.h|definitions for the Internet Transmission Control Protocol (TCP)|basedefs/netinet_tcp.h.html
+newgrp|change to a new group|utilities/newgrp.html
+newlocale()|create or modify a locale object|functions/newlocale.html
+nextafter()|next representable floating-point number|functions/nextafter.html
+nextafterf()|next representable floating-point number|functions/nextafterf.html
+nextafterl()|next representable floating-point number|functions/nextafterl.html
+nexttoward()|next representable floating-point number|functions/nexttoward.html
+nexttowardf()|next representable floating-point number|functions/nexttowardf.html
+nexttowardl()|next representable floating-point number|functions/nexttowardl.html
+nftw()|walk a file tree|functions/nftw.html
+ngettext|retrieve text string from messages object|utilities/ngettext.html
+ngettext()|message handling functions|functions/ngettext.html
+ngettext_l()|message handling functions|functions/ngettext_l.html
+nice|invoke a utility with an altered nice value|utilities/nice.html
+nice()|change the nice value of a process|functions/nice.html
+nl|line numbering filter|utilities/nl.html
+nl_langinfo()|language information|functions/nl_langinfo.html
+nl_langinfo_l()|language information|functions/nl_langinfo_l.html
+nl_types.h|data types|basedefs/nl_types.h.html
+nm|write the name list of an object file |utilities/nm.html
+nohup|invoke a utility immune to hangups|utilities/nohup.html
+nrand48()|generate uniformly distributed pseudo-random numbers|functions/nrand48.html
+ntohl()|convert values between host and network byte order|functions/ntohl.html
+ntohs()|convert values between host and network byte order|functions/ntohs.html
+od|dump files in various formats|utilities/od.html
+open()|open file|functions/open.html
+openat()|open file|functions/openat.html
+opendir()|open directory associated with file descriptor|functions/opendir.html
+openlog()|control system log|functions/openlog.html
+open_memstream()|open a dynamic memory buffer stream|functions/open_memstream.html
+open_wmemstream()|open a dynamic memory buffer stream|functions/open_wmemstream.html
+optarg|command option parsing|functions/optarg.html
+opterr|command option parsing|functions/opterr.html
+optind|command option parsing|functions/optind.html
+optopt|command option parsing|functions/optopt.html
+paste|merge corresponding or subsequent lines of files|utilities/paste.html
+patch|apply changes to files|utilities/patch.html
+pathchk|check pathnames|utilities/pathchk.html
+pathconf()|get configurable pathname variables|functions/pathconf.html
+pause()|suspend the thread until a signal is received|functions/pause.html
+pax|portable archive interchange|utilities/pax.html
+pclose()|close a pipe stream to or from a process|functions/pclose.html
+perror()|write error messages to standard error|functions/perror.html
+pipe()|create an interprocess channel|functions/pipe.html
+pipe2()|create an interprocess channel|functions/pipe2.html
+poll()|input/output multiplexing|functions/poll.html
+poll.h|definitions for the poll() function|basedefs/poll.h.html
+popen()|initiate pipe streams to or from a process|functions/popen.html
+posix_close()|close a file descriptor|functions/posix_close.html
+posix_devctl()|device control|functions/posix_devctl.html
+posix_fadvise()|file advisory information |functions/posix_fadvise.html
+posix_fallocate()|file space control |functions/posix_fallocate.html
+posix_getdents()|read directory entries|functions/posix_getdents.html
+posix_madvise()|memory advisory information and alignment control |functions/posix_madvise.html
+posix_memalign()|aligned memory allocation |functions/posix_memalign.html
+posix_mem_offset()|find offset and length of a mapped typed memory block |functions/posix_mem_offset.html
+posix_openpt()|open a pseudo-terminal device|functions/posix_openpt.html
+posix_spawn()|spawn a process |functions/posix_spawn.html
+posix_spawnattr_destroy()|destroy and initialize spawn attributes object |functions/posix_spawnattr_destroy.html
+posix_spawnattr_getflags()|get and set the spawn-flags attribute of a spawn attributes object |functions/posix_spawnattr_getflags.html
+posix_spawnattr_getpgroup()|get and set the spawn-pgroup attribute of a spawn attributes object |functions/posix_spawnattr_getpgroup.html
+posix_spawnattr_getschedparam()|get and set the spawn-schedparam attribute of a spawn attributes object |functions/posix_spawnattr_getschedparam.html
+posix_spawnattr_getschedpolicy()|get and set the spawn-schedpolicy attribute of a spawn attributes object |functions/posix_spawnattr_getschedpolicy.html
+posix_spawnattr_getsigdefault()|get and set the spawn-sigdefault attribute of a spawn attributes object |functions/posix_spawnattr_getsigdefault.html
+posix_spawnattr_getsigmask()|get and set the spawn-sigmask attribute of a spawn attributes object |functions/posix_spawnattr_getsigmask.html
+posix_spawnattr_init()|destroy and initialize spawn attributes object |functions/posix_spawnattr_init.html
+posix_spawnattr_setflags()|get and set the spawn-flags attribute of a spawn attributes object |functions/posix_spawnattr_setflags.html
+posix_spawnattr_setpgroup()|get and set the spawn-pgroup attribute of a spawn attributes object |functions/posix_spawnattr_setpgroup.html
+posix_spawnattr_setschedparam()|get and set the spawn-schedparam attribute of a spawn attributes object |functions/posix_spawnattr_setschedparam.html
+posix_spawnattr_setschedpolicy()|get and set the spawn-schedpolicy attribute of a spawn attributes object |functions/posix_spawnattr_setschedpolicy.html
+posix_spawnattr_setsigdefault()|get and set the spawn-sigdefault attribute of a spawn attributes object |functions/posix_spawnattr_setsigdefault.html
+posix_spawnattr_setsigmask()|get and set the spawn-sigmask attribute of a spawn attributes object |functions/posix_spawnattr_setsigmask.html
+posix_spawnp()|spawn a process |functions/posix_spawnp.html
+posix_spawn_file_actions_addchdir()|add chdir or fchdir action to spawn file actions object |functions/posix_spawn_file_actions_addchdir.html
+posix_spawn_file_actions_addclose()|add close or open action to spawn file actions object |functions/posix_spawn_file_actions_addclose.html
+posix_spawn_file_actions_adddup2()|add dup2 action to spawn file actions object |functions/posix_spawn_file_actions_adddup2.html
+posix_spawn_file_actions_addfchdir()|add chdir or fchdir action to spawn file actions object |functions/posix_spawn_file_actions_addfchdir.html
+posix_spawn_file_actions_addopen()|add close or open action to spawn file actions object |functions/posix_spawn_file_actions_addopen.html
+posix_spawn_file_actions_destroy()|destroy and initialize spawn file actions object |functions/posix_spawn_file_actions_destroy.html
+posix_spawn_file_actions_init()|destroy and initialize spawn file actions object |functions/posix_spawn_file_actions_init.html
+posix_typed_mem_get_info()|query typed memory information |functions/posix_typed_mem_get_info.html
+posix_typed_mem_open()|open a typed memory object |functions/posix_typed_mem_open.html
+pow()|power function|functions/pow.html
+powf()|power function|functions/powf.html
+powl()|power function|functions/powl.html
+ppoll()|input/output multiplexing|functions/ppoll.html
+pr|print files|utilities/pr.html
+pread()|read from a file|functions/pread.html
+printf|write formatted output|utilities/printf.html
+printf()|print formatted output|functions/printf.html
+prs|print an SCCS file |utilities/prs.html
+ps|report process status|utilities/ps.html
+pselect()|synchronous I/O multiplexing|functions/pselect.html
+psiginfo()|write signal information to standard error|functions/psiginfo.html
+psignal()|write signal information to standard error|functions/psignal.html
+pthread.h|threads|basedefs/pthread.h.html
+pthread_atfork()|register fork handlers|functions/pthread_atfork.html
+pthread_attr_destroy()|destroy and initialize the thread attributes object|functions/pthread_attr_destroy.html
+pthread_attr_getdetachstate()|get and set the detachstate attribute|functions/pthread_attr_getdetachstate.html
+pthread_attr_getguardsize()|get and set the thread guardsize attribute|functions/pthread_attr_getguardsize.html
+pthread_attr_getinheritsched()|get and set the inheritsched attribute |functions/pthread_attr_getinheritsched.html
+pthread_attr_getschedparam()|get and set the schedparam attribute|functions/pthread_attr_getschedparam.html
+pthread_attr_getschedpolicy()|get and set the schedpolicy attribute |functions/pthread_attr_getschedpolicy.html
+pthread_attr_getscope()|get and set the contentionscope attribute |functions/pthread_attr_getscope.html
+pthread_attr_getstack()|get and set stack attributes|functions/pthread_attr_getstack.html
+pthread_attr_getstacksize()|get and set the stacksize attribute|functions/pthread_attr_getstacksize.html
+pthread_attr_init()|destroy and initialize the thread attributes object|functions/pthread_attr_init.html
+pthread_attr_setdetachstate()|get and set the detachstate attribute|functions/pthread_attr_setdetachstate.html
+pthread_attr_setguardsize()|get and set the thread guardsize attribute|functions/pthread_attr_setguardsize.html
+pthread_attr_setinheritsched()|get and set the inheritsched attribute |functions/pthread_attr_setinheritsched.html
+pthread_attr_setschedparam()|get and set the schedparam attribute|functions/pthread_attr_setschedparam.html
+pthread_attr_setschedpolicy()|get and set the schedpolicy attribute |functions/pthread_attr_setschedpolicy.html
+pthread_attr_setscope()|get and set the contentionscope attribute |functions/pthread_attr_setscope.html
+pthread_attr_setstack()|get and set stack attributes|functions/pthread_attr_setstack.html
+pthread_attr_setstacksize()|get and set the stacksize attribute|functions/pthread_attr_setstacksize.html
+pthread_barrierattr_destroy()|destroy and initialize the barrier attributes object|functions/pthread_barrierattr_destroy.html
+pthread_barrierattr_getpshared()|get and set the process-shared attribute of the barrier attributes object|functions/pthread_barrierattr_getpshared.html
+pthread_barrierattr_init()|destroy and initialize the barrier attributes object|functions/pthread_barrierattr_init.html
+pthread_barrierattr_setpshared()|get and set the process-shared attribute of the barrier attributes object|functions/pthread_barrierattr_setpshared.html
+pthread_barrier_destroy()|destroy and initialize a barrier object|functions/pthread_barrier_destroy.html
+pthread_barrier_init()|destroy and initialize a barrier object|functions/pthread_barrier_init.html
+pthread_barrier_wait()|synchronize at a barrier|functions/pthread_barrier_wait.html
+pthread_cancel()|cancel execution of a thread|functions/pthread_cancel.html
+pthread_cleanup_pop()|establish cancellation handlers|functions/pthread_cleanup_pop.html
+pthread_cleanup_push()|establish cancellation handlers|functions/pthread_cleanup_push.html
+pthread_condattr_destroy()|destroy and initialize the condition variable attributes object|functions/pthread_condattr_destroy.html
+pthread_condattr_getclock()|get and set the clock selection condition variable attribute|functions/pthread_condattr_getclock.html
+pthread_condattr_getpshared()|get and set the process-shared condition variable attributes|functions/pthread_condattr_getpshared.html
+pthread_condattr_init()|destroy and initialize the condition variable attributes object|functions/pthread_condattr_init.html
+pthread_condattr_setclock()|get and set the clock selection condition variable attribute|functions/pthread_condattr_setclock.html
+pthread_condattr_setpshared()|get and set the process-shared condition variable attributes|functions/pthread_condattr_setpshared.html
+pthread_cond_broadcast()|broadcast or signal a condition|functions/pthread_cond_broadcast.html
+pthread_cond_clockwait()|wait on a condition|functions/pthread_cond_clockwait.html
+pthread_cond_destroy()|destroy and initialize condition variables|functions/pthread_cond_destroy.html
+pthread_cond_init()|destroy and initialize condition variables|functions/pthread_cond_init.html
+pthread_cond_signal()|broadcast or signal a condition|functions/pthread_cond_signal.html
+pthread_cond_timedwait()|wait on a condition|functions/pthread_cond_timedwait.html
+pthread_cond_wait()|wait on a condition|functions/pthread_cond_wait.html
+pthread_create()|thread creation|functions/pthread_create.html
+pthread_detach()|detach a thread|functions/pthread_detach.html
+pthread_equal()|compare thread IDs|functions/pthread_equal.html
+pthread_exit()|thread termination|functions/pthread_exit.html
+pthread_getcpuclockid()|access a thread CPU-time clock |functions/pthread_getcpuclockid.html
+pthread_getschedparam()|dynamic thread scheduling parameters access |functions/pthread_getschedparam.html
+pthread_getspecific()|thread-specific data management|functions/pthread_getspecific.html
+pthread_join()|wait for thread termination|functions/pthread_join.html
+pthread_key_create()|thread-specific data key creation|functions/pthread_key_create.html
+pthread_key_delete()|thread-specific data key deletion|functions/pthread_key_delete.html
+pthread_kill()|send a signal to a thread|functions/pthread_kill.html
+pthread_mutexattr_destroy()|destroy and initialize the mutex attributes object|functions/pthread_mutexattr_destroy.html
+pthread_mutexattr_getprioceiling()|get and set the prioceiling attribute of the mutex attributes object |functions/pthread_mutexattr_getprioceiling.html
+pthread_mutexattr_getprotocol()|get and set the protocol attribute of the mutex attributes object |functions/pthread_mutexattr_getprotocol.html
+pthread_mutexattr_getpshared()|get and set the process-shared attribute|functions/pthread_mutexattr_getpshared.html
+pthread_mutexattr_getrobust()|get and set the mutex robust attribute|functions/pthread_mutexattr_getrobust.html
+pthread_mutexattr_gettype()|get and set the mutex type attribute|functions/pthread_mutexattr_gettype.html
+pthread_mutexattr_init()|destroy and initialize the mutex attributes object|functions/pthread_mutexattr_init.html
+pthread_mutexattr_setprioceiling()|get and set the prioceiling attribute of the mutex attributes object |functions/pthread_mutexattr_setprioceiling.html
+pthread_mutexattr_setprotocol()|get and set the protocol attribute of the mutex attributes object |functions/pthread_mutexattr_setprotocol.html
+pthread_mutexattr_setpshared()|get and set the process-shared attribute|functions/pthread_mutexattr_setpshared.html
+pthread_mutexattr_setrobust()|get and set the mutex robust attribute|functions/pthread_mutexattr_setrobust.html
+pthread_mutexattr_settype()|get and set the mutex type attribute|functions/pthread_mutexattr_settype.html
+pthread_mutex_clocklock()|lock a mutex|functions/pthread_mutex_clocklock.html
+pthread_mutex_consistent()|mark state protected by robust mutex as consistent|functions/pthread_mutex_consistent.html
+pthread_mutex_destroy()|destroy and initialize a mutex|functions/pthread_mutex_destroy.html
+pthread_mutex_getprioceiling()|get and set the priority ceiling of a mutex |functions/pthread_mutex_getprioceiling.html
+pthread_mutex_init()|destroy and initialize a mutex|functions/pthread_mutex_init.html
+pthread_mutex_lock()|lock and unlock a mutex|functions/pthread_mutex_lock.html
+pthread_mutex_setprioceiling()|get and set the priority ceiling of a mutex |functions/pthread_mutex_setprioceiling.html
+pthread_mutex_timedlock()|lock a mutex|functions/pthread_mutex_timedlock.html
+pthread_mutex_trylock()|lock and unlock a mutex|functions/pthread_mutex_trylock.html
+pthread_mutex_unlock()|lock and unlock a mutex|functions/pthread_mutex_unlock.html
+pthread_once()|dynamic package initialization|functions/pthread_once.html
+pthread_rwlockattr_destroy()|destroy and initialize the read-write lock attributes object|functions/pthread_rwlockattr_destroy.html
+pthread_rwlockattr_getpshared()|get and set the process-shared attribute of the read-write lock attributes object|functions/pthread_rwlockattr_getpshared.html
+pthread_rwlockattr_init()|destroy and initialize the read-write lock attributes object|functions/pthread_rwlockattr_init.html
+pthread_rwlockattr_setpshared()|get and set the process-shared attribute of the read-write lock attributes object|functions/pthread_rwlockattr_setpshared.html
+pthread_rwlock_clockrdlock()|lock a read-write lock for reading|functions/pthread_rwlock_clockrdlock.html
+pthread_rwlock_clockwrlock()|lock a read-write lock for writing|functions/pthread_rwlock_clockwrlock.html
+pthread_rwlock_destroy()|destroy and initialize a read-write lock object|functions/pthread_rwlock_destroy.html
+pthread_rwlock_init()|destroy and initialize a read-write lock object|functions/pthread_rwlock_init.html
+pthread_rwlock_rdlock()|lock a read-write lock object for reading|functions/pthread_rwlock_rdlock.html
+pthread_rwlock_timedrdlock()|lock a read-write lock for reading|functions/pthread_rwlock_timedrdlock.html
+pthread_rwlock_timedwrlock()|lock a read-write lock for writing|functions/pthread_rwlock_timedwrlock.html
+pthread_rwlock_tryrdlock()|lock a read-write lock object for reading|functions/pthread_rwlock_tryrdlock.html
+pthread_rwlock_trywrlock()|lock a read-write lock object for writing|functions/pthread_rwlock_trywrlock.html
+pthread_rwlock_unlock()|unlock a read-write lock object|functions/pthread_rwlock_unlock.html
+pthread_rwlock_wrlock()|lock a read-write lock object for writing|functions/pthread_rwlock_wrlock.html
+pthread_self()|get the calling thread ID|functions/pthread_self.html
+pthread_setcancelstate()|set cancelability state|functions/pthread_setcancelstate.html
+pthread_setcanceltype()|set cancelability state|functions/pthread_setcanceltype.html
+pthread_setschedparam()|dynamic thread scheduling parameters access |functions/pthread_setschedparam.html
+pthread_setschedprio()|dynamic thread scheduling parameters access |functions/pthread_setschedprio.html
+pthread_setspecific()|thread-specific data management|functions/pthread_setspecific.html
+pthread_sigmask()|examine and change blocked signals|functions/pthread_sigmask.html
+pthread_spin_destroy()|destroy or initialize a spin lock object|functions/pthread_spin_destroy.html
+pthread_spin_init()|destroy or initialize a spin lock object|functions/pthread_spin_init.html
+pthread_spin_lock()|lock a spin lock object|functions/pthread_spin_lock.html
+pthread_spin_trylock()|lock a spin lock object|functions/pthread_spin_trylock.html
+pthread_spin_unlock()|unlock a spin lock object|functions/pthread_spin_unlock.html
+pthread_testcancel()|set cancelability state|functions/pthread_testcancel.html
+ptsname()|get name of the subsidiary pseudo-terminal device|functions/ptsname.html
+ptsname_r()|get name of the subsidiary pseudo-terminal device|functions/ptsname_r.html
+putc()|put a byte on a stream|functions/putc.html
+putchar()|put a byte on a stdout stream|functions/putchar.html
+putchar_unlocked()|stdio with explicit client locking|functions/putchar_unlocked.html
+putc_unlocked()|stdio with explicit client locking|functions/putc_unlocked.html
+putenv()|change or add a value to an environment|functions/putenv.html
+puts()|put a string on standard output|functions/puts.html
+pututxline()|user accounting database functions|functions/pututxline.html
+putwc()|put a wide character on a stream|functions/putwc.html
+putwchar()|put a wide character on a stdout stream|functions/putwchar.html
+pwd|return working directory name|utilities/pwd.html
+pwd.h|password structure|basedefs/pwd.h.html
+pwrite()|write on a file|functions/pwrite.html
+qsort()|sort a table of data|functions/qsort.html
+qsort_r()|sort a table of data|functions/qsort_r.html
+quick_exit()|terminate a process|functions/quick_exit.html
+raise()|send a signal to the executing process|functions/raise.html
+rand()|pseudo-random number generator|functions/rand.html
+random()|pseudo-random number functions|functions/random.html
+rand_r()|pseudo-random number generator|functions/rand_r.html
+read|read from standard input into shell variables|utilities/read.html
+read()|read from a file|functions/read.html
+readdir()|read a directory|functions/readdir.html
+readdir_r()|read a directory|functions/readdir_r.html
+readlink|display the contents of a symbolic link|utilities/readlink.html
+readlink()|read the contents of a symbolic link|functions/readlink.html
+readlinkat()|read the contents of a symbolic link|functions/readlinkat.html
+readonly|set the readonly attribute for variables|utilities/V3_chap02.html#readonly
+readv()|read a vector|functions/readv.html
+realloc()|memory reallocators|functions/realloc.html
+reallocarray()|memory reallocators|functions/reallocarray.html
+realpath|resolve a pathname|utilities/realpath.html
+realpath()|resolve a pathname|functions/realpath.html
+recv()|receive a message from a connected socket|functions/recv.html
+recvfrom()|receive a message from a socket|functions/recvfrom.html
+recvmsg()|receive a message from a socket|functions/recvmsg.html
+regcomp()|regular expression matching|functions/regcomp.html
+regerror()|regular expression matching|functions/regerror.html
+regex.h|regular expression matching types|basedefs/regex.h.html
+regexec()|regular expression matching|functions/regexec.html
+regfree()|regular expression matching|functions/regfree.html
+remainder()|remainder function|functions/remainder.html
+remainderf()|remainder function|functions/remainderf.html
+remainderl()|remainder function|functions/remainderl.html
+remove()|remove a file|functions/remove.html
+remque()|insert or remove an element in a queue|functions/remque.html
+remquo()|remainder functions|functions/remquo.html
+remquof()|remainder functions|functions/remquof.html
+remquol()|remainder functions|functions/remquol.html
+rename()|rename file|functions/rename.html
+renameat()|rename file|functions/renameat.html
+renice|set nice values of running processes|utilities/renice.html
+return|return from a function or dot script|utilities/V3_chap02.html#return
+rewind()|reset the file position indicator in a stream|functions/rewind.html
+rewinddir()|reset the position of a directory stream to the beginning of a directory|functions/rewinddir.html
+rint()|round-to-nearest integral value|functions/rint.html
+rintf()|round-to-nearest integral value|functions/rintf.html
+rintl()|round-to-nearest integral value|functions/rintl.html
+rm|remove directory entries|utilities/rm.html
+rmdel|remove a delta from an SCCS file |utilities/rmdel.html
+rmdir|remove directories|utilities/rmdir.html
+rmdir()|remove a directory|functions/rmdir.html
+round()|round to the nearest integer value in a floating-point format|functions/round.html
+roundf()|round to the nearest integer value in a floating-point format|functions/roundf.html
+roundl()|round to the nearest integer value in a floating-point format|functions/roundl.html
+sact|print current SCCS file-editing activity |utilities/sact.html
+scalbln()|compute exponent using FLT_RADIX|functions/scalbln.html
+scalblnf()|compute exponent using FLT_RADIX|functions/scalblnf.html
+scalblnl()|compute exponent using FLT_RADIX|functions/scalblnl.html
+scalbn()|compute exponent using FLT_RADIX|functions/scalbn.html
+scalbnf()|compute exponent using FLT_RADIX|functions/scalbnf.html
+scalbnl()|compute exponent using FLT_RADIX|functions/scalbnl.html
+scandir()|scan a directory|functions/scandir.html
+scanf()|convert formatted input|functions/scanf.html
+sccs|front end for the SCCS subsystem |utilities/sccs.html
+sched.h|execution scheduling|basedefs/sched.h.html
+sched_getparam()|get scheduling parameters |functions/sched_getparam.html
+sched_getscheduler()|get scheduling policy |functions/sched_getscheduler.html
+sched_get_priority_max()|get priority limits |functions/sched_get_priority_max.html
+sched_get_priority_min()|get priority limits |functions/sched_get_priority_min.html
+sched_rr_get_interval()|get execution time limits |functions/sched_rr_get_interval.html
+sched_setparam()|set scheduling parameters |functions/sched_setparam.html
+sched_setscheduler()|set scheduling policy and parameters |functions/sched_setscheduler.html
+sched_yield()|yield the processor|functions/sched_yield.html
+search.h|search tables|basedefs/search.h.html
+secure_getenv()|get value of an environment variable|functions/secure_getenv.html
+sed|stream editor|utilities/sed.html
+seed48()|generate uniformly distributed pseudo-random numbers|functions/seed48.html
+seekdir()|set the position of a directory stream|functions/seekdir.html
+select()|synchronous I/O multiplexing|functions/select.html
+semaphore.h|semaphores|basedefs/semaphore.h.html
+semctl()|XSI semaphore control operations|functions/semctl.html
+semget()|get set of XSI semaphores|functions/semget.html
+semop()|XSI semaphore operations|functions/semop.html
+sem_clockwait()|lock a semaphore|functions/sem_clockwait.html
+sem_close()|close a named semaphore|functions/sem_close.html
+sem_destroy()|destroy an unnamed semaphore|functions/sem_destroy.html
+sem_getvalue()|get the value of a semaphore|functions/sem_getvalue.html
+sem_init()|initialize an unnamed semaphore|functions/sem_init.html
+sem_open()|initialize and open a named semaphore|functions/sem_open.html
+sem_post()|unlock a semaphore|functions/sem_post.html
+sem_timedwait()|lock a semaphore|functions/sem_timedwait.html
+sem_trywait()|lock a semaphore|functions/sem_trywait.html
+sem_unlink()|remove a named semaphore|functions/sem_unlink.html
+sem_wait()|lock a semaphore|functions/sem_wait.html
+send()|send a message on a socket|functions/send.html
+sendmsg()|send a message on a socket using a message structure|functions/sendmsg.html
+sendto()|send a message on a socket|functions/sendto.html
+set|set or unset options and positional parameters|utilities/V3_chap02.html#set
+setbuf()|assign buffering to a stream|functions/setbuf.html
+setegid()|set the effective group ID|functions/setegid.html
+setenv()|add or change environment variable|functions/setenv.html
+seteuid()|set effective user ID|functions/seteuid.html
+setgid()|set-group-ID|functions/setgid.html
+setgrent()|group database entry functions|functions/setgrent.html
+sethostent()|network host database functions|functions/sethostent.html
+setjmp()|set jump point for a non-local goto|functions/setjmp.html
+setjmp.h|stack environment declarations|basedefs/setjmp.h.html
+setkey()|set encoding key |functions/setkey.html
+setlocale()|set program locale|functions/setlocale.html
+setlogmask()|control system log|functions/setlogmask.html
+setnetent()|network database functions|functions/setnetent.html
+setpgid()|set process group ID for job control|functions/setpgid.html
+setpriority()|get and set the nice value|functions/setpriority.html
+setprotoent()|network protocol database functions|functions/setprotoent.html
+setpwent()|user database functions|functions/setpwent.html
+setregid()|set real and effective group IDs|functions/setregid.html
+setresgid()|set real group ID|functions/setresgid.html
+setresuid()|set real user ID|functions/setresuid.html
+setreuid()|set real and effective user IDs|functions/setreuid.html
+setrlimit()|control maximum resource consumption|functions/setrlimit.html
+setservent()|network services database functions|functions/setservent.html
+setsid()|create session and set process group ID|functions/setsid.html
+setsockopt()|set the socket options|functions/setsockopt.html
+setstate()|pseudo-random number functions|functions/setstate.html
+setuid()|set user ID|functions/setuid.html
+setutxent()|user accounting database functions|functions/setutxent.html
+setvbuf()|assign buffering to a stream|functions/setvbuf.html
+sh|shell|utilities/sh.html
+shift|shift positional parameters|utilities/V3_chap02.html#shift
+shmat()|XSI shared memory attach operation|functions/shmat.html
+shmctl()|XSI shared memory control operations|functions/shmctl.html
+shmdt()|XSI shared memory detach operation|functions/shmdt.html
+shmget()|get an XSI shared memory segment|functions/shmget.html
+shm_open()|open a shared memory object |functions/shm_open.html
+shm_unlink()|remove a shared memory object |functions/shm_unlink.html
+shutdown()|shut down socket send and receive operations|functions/shutdown.html
+sig2str()|translate between signal names and numbers|functions/sig2str.html
+sigaction()|examine and change a signal action|functions/sigaction.html
+sigaddset()|add a signal to a signal set|functions/sigaddset.html
+sigaltstack()|set and get signal alternate stack context|functions/sigaltstack.html
+sigdelset()|delete a signal from a signal set|functions/sigdelset.html
+sigemptyset()|initialize and empty a signal set|functions/sigemptyset.html
+sigfillset()|initialize and fill a signal set|functions/sigfillset.html
+sigismember()|test for a signal in a signal set|functions/sigismember.html
+siglongjmp()|non-local goto with signal handling|functions/siglongjmp.html
+signal()|signal management|functions/signal.html
+signal.h|signals|basedefs/signal.h.html
+signbit()|test sign|functions/signbit.html
+signgam|log gamma function|functions/signgam.html
+sigpending()|examine pending signals|functions/sigpending.html
+sigprocmask()|examine and change blocked signals|functions/sigprocmask.html
+sigqueue()|queue a signal to a process|functions/sigqueue.html
+sigsetjmp()|set jump point for a non-local goto|functions/sigsetjmp.html
+sigsuspend()|wait for a signal|functions/sigsuspend.html
+sigtimedwait()|wait for queued signals|functions/sigtimedwait.html
+sigwait()|wait for queued signals|functions/sigwait.html
+sigwaitinfo()|wait for queued signals|functions/sigwaitinfo.html
+sin()|sine function|functions/sin.html
+sinf()|sine function|functions/sinf.html
+sinh()|hyperbolic sine functions|functions/sinh.html
+sinhf()|hyperbolic sine functions|functions/sinhf.html
+sinhl()|hyperbolic sine functions|functions/sinhl.html
+sinl()|sine function|functions/sinl.html
+sleep|suspend execution for an interval|utilities/sleep.html
+sleep()|suspend execution for an interval of time|functions/sleep.html
+snprintf()|print formatted output|functions/snprintf.html
+sockatmark()|determine whether a socket is at the out-of-band mark|functions/sockatmark.html
+socket()|create an endpoint for communication|functions/socket.html
+socketpair()|create a pair of connected sockets|functions/socketpair.html
+sort|sort|utilities/sort.html
+spawn.h|spawn |basedefs/spawn.h.html
+split|split a file into pieces|utilities/split.html
+sprintf()|print formatted output|functions/sprintf.html
+sqrt()|square root function|functions/sqrt.html
+sqrtf()|square root function|functions/sqrtf.html
+sqrtl()|square root function|functions/sqrtl.html
+srand()|pseudo-random number generator|functions/srand.html
+srand48()|generate uniformly distributed pseudo-random numbers|functions/srand48.html
+srandom()|pseudo-random number functions|functions/srandom.html
+sscanf()|convert formatted input|functions/sscanf.html
+stat()|get file status|functions/stat.html
+statvfs()|get file system information|functions/statvfs.html
+stdalign.h|alignment macros|basedefs/stdalign.h.html
+stdarg.h|handle variable argument list|basedefs/stdarg.h.html
+stdatomic.h|atomics|basedefs/stdatomic.h.html
+stdbool.h|boolean type and values|basedefs/stdbool.h.html
+stddef.h|standard type definitions|basedefs/stddef.h.html
+stderr|standard I/O streams|functions/stderr.html
+stdin|standard I/O streams|functions/stdin.html
+stdint.h|integer types|basedefs/stdint.h.html
+stdio.h|standard buffered input/output|basedefs/stdio.h.html
+stdlib.h|standard library definitions|basedefs/stdlib.h.html
+stdnoreturn.h|noreturn macro|basedefs/stdnoreturn.h.html
+stdout|standard I/O streams|functions/stdout.html
+stpcpy()|copy a string|functions/stpcpy.html
+stpncpy()|copy fixed length string, returning a pointer to the array end|functions/stpncpy.html
+str2sig()|translate between signal names and numbers|functions/str2sig.html
+strcasecmp()|case-insensitive string comparisons|functions/strcasecmp.html
+strcasecmp_l()|case-insensitive string comparisons|functions/strcasecmp_l.html
+strcat()|concatenate two strings|functions/strcat.html
+strchr()|string scanning operation|functions/strchr.html
+strcmp()|compare two strings|functions/strcmp.html
+strcoll()|string comparison using collating information|functions/strcoll.html
+strcoll_l()|string comparison using collating information|functions/strcoll_l.html
+strcpy()|copy a string|functions/strcpy.html
+strcspn()|get the length of a complementary substring|functions/strcspn.html
+strdup()|duplicate a specific number of bytes from a string|functions/strdup.html
+strerror()|get error message string|functions/strerror.html
+strerror_l()|get error message string|functions/strerror_l.html
+strerror_r()|get error message string|functions/strerror_r.html
+strfmon()|convert monetary value to a string|functions/strfmon.html
+strfmon_l()|convert monetary value to a string|functions/strfmon_l.html
+strftime()|convert date and time to a string|functions/strftime.html
+strftime_l()|convert date and time to a string|functions/strftime_l.html
+string.h|string operations|basedefs/string.h.html
+strings|find printable strings in files|utilities/strings.html
+strings.h|string operations|basedefs/strings.h.html
+strip|remove unnecessary information from strippable files |utilities/strip.html
+strlcat()|size-bounded string concatenation and copying|functions/strlcat.html
+strlcpy()|size-bounded string concatenation and copying|functions/strlcpy.html
+strlen()|get length of fixed size string|functions/strlen.html
+strncasecmp()|case-insensitive string comparisons|functions/strncasecmp.html
+strncasecmp_l()|case-insensitive string comparisons|functions/strncasecmp_l.html
+strncat()|concatenate a string with part of another|functions/strncat.html
+strncmp()|compare part of two strings|functions/strncmp.html
+strncpy()|copy fixed length string, returning a pointer to the array end|functions/strncpy.html
+strndup()|duplicate a specific number of bytes from a string|functions/strndup.html
+strnlen()|get length of fixed size string|functions/strnlen.html
+strpbrk()|scan a string for a byte|functions/strpbrk.html
+strptime()|date and time conversion|functions/strptime.html
+strrchr()|string scanning operation|functions/strrchr.html
+strsignal()|get signal message string|functions/strsignal.html
+strspn()|get length of a substring|functions/strspn.html
+strstr()|find a substring|functions/strstr.html
+strtod()|convert a string to a double-precision number|functions/strtod.html
+strtof()|convert a string to a double-precision number|functions/strtof.html
+strtoimax()|convert string to integer type|functions/strtoimax.html
+strtok()|split string into tokens|functions/strtok.html
+strtok_r()|split string into tokens|functions/strtok_r.html
+strtol()|convert a string to a long integer|functions/strtol.html
+strtold()|convert a string to a double-precision number|functions/strtold.html
+strtoll()|convert a string to a long integer|functions/strtoll.html
+strtoul()|convert a string to an unsigned long|functions/strtoul.html
+strtoull()|convert a string to an unsigned long|functions/strtoull.html
+strtoumax()|convert string to integer type|functions/strtoumax.html
+strxfrm()|string transformation|functions/strxfrm.html
+strxfrm_l()|string transformation|functions/strxfrm_l.html
+stty|set the options for a terminal|utilities/stty.html
+swab()|swap bytes|functions/swab.html
+swprintf()|print formatted wide-character output|functions/swprintf.html
+swscanf()|convert formatted wide-character input|functions/swscanf.html
+symlink()|make a symbolic link|functions/symlink.html
+symlinkat()|make a symbolic link|functions/symlinkat.html
+sync()|schedule file system updates|functions/sync.html
+sys/ipc.h|XSI interprocess communication access structure|basedefs/sys_ipc.h.html
+sys/mman.h|memory management declarations|basedefs/sys_mman.h.html
+sys/msg.h|XSI message queue structures|basedefs/sys_msg.h.html
+sys/resource.h|definitions for resource operations|basedefs/sys_resource.h.html
+sys/select.h|select types|basedefs/sys_select.h.html
+sys/sem.h|XSI semaphore facility|basedefs/sys_sem.h.html
+sys/shm.h|XSI shared memory facility|basedefs/sys_shm.h.html
+sys/socket.h|main sockets header|basedefs/sys_socket.h.html
+sys/stat.h|data returned by the stat() function|basedefs/sys_stat.h.html
+sys/statvfs.h|VFS File System information structure|basedefs/sys_statvfs.h.html
+sys/time.h|time types|basedefs/sys_time.h.html
+sys/times.h|file access and modification times structure|basedefs/sys_times.h.html
+sys/types.h|data types|basedefs/sys_types.h.html
+sys/uio.h|definitions for vector I/O operations|basedefs/sys_uio.h.html
+sys/un.h|definitions for UNIX domain sockets|basedefs/sys_un.h.html
+sys/utsname.h|system name structure|basedefs/sys_utsname.h.html
+sys/wait.h|declarations for waiting|basedefs/sys_wait.h.html
+sysconf()|get configurable system variables|functions/sysconf.html
+syslog()|control system log|functions/syslog.html
+syslog.h|definitions for system error logging|basedefs/syslog.h.html
+system()|issue a command|functions/system.html
+tabs|set terminal tabs|utilities/tabs.html
+tail|copy the last part of a file|utilities/tail.html
+talk|talk to another user|utilities/talk.html
+tan()|tangent function|functions/tan.html
+tanf()|tangent function|functions/tanf.html
+tanh()|hyperbolic tangent functions|functions/tanh.html
+tanhf()|hyperbolic tangent functions|functions/tanhf.html
+tanhl()|hyperbolic tangent functions|functions/tanhl.html
+tanl()|tangent function|functions/tanl.html
+tar.h|extended tar definitions|basedefs/tar.h.html
+tcdrain()|wait for transmission of output|functions/tcdrain.html
+tcflow()|suspend or restart the transmission or reception of data|functions/tcflow.html
+tcflush()|flush non-transmitted output data|functions/tcflush.html
+tcgetattr()|get the parameters associated with the terminal|functions/tcgetattr.html
+tcgetpgrp()|get the foreground process group ID|functions/tcgetpgrp.html
+tcgetsid()|get the process group ID for the session leader for the controlling terminal|functions/tcgetsid.html
+tcgetwinsize()|get the size of a terminal window|functions/tcgetwinsize.html
+tcsendbreak()|send a break for a specific duration|functions/tcsendbreak.html
+tcsetattr()|set the parameters associated with the terminal|functions/tcsetattr.html
+tcsetpgrp()|set the foreground process group ID|functions/tcsetpgrp.html
+tcsetwinsize()|set the size of a terminal window|functions/tcsetwinsize.html
+tdelete()|manage a binary search tree|functions/tdelete.html
+tee|duplicate standard input|utilities/tee.html
+telldir()|current location of a named directory stream|functions/telldir.html
+termios.h|define values for termios|basedefs/termios.h.html
+test|evaluate expression|utilities/test.html
+textdomain()|text domain manipulation functions|functions/textdomain.html
+tfind()|manage a binary search tree|functions/tfind.html
+tgamma()|compute gamma() function|functions/tgamma.html
+tgammaf()|compute gamma() function|functions/tgammaf.html
+tgammal()|compute gamma() function|functions/tgammal.html
+tgmath.h|type-generic macros|basedefs/tgmath.h.html
+thrd_create()|thread creation|functions/thrd_create.html
+thrd_current()|get the calling thread ID|functions/thrd_current.html
+thrd_detach()|detach a thread|functions/thrd_detach.html
+thrd_equal()|compare thread IDs|functions/thrd_equal.html
+thrd_exit()|thread termination|functions/thrd_exit.html
+thrd_join()|wait for thread termination|functions/thrd_join.html
+thrd_sleep()|suspend execution for an interval|functions/thrd_sleep.html
+thrd_yield()|yield the processor|functions/thrd_yield.html
+threads.h|ISO C threads|basedefs/threads.h.html
+time|time a simple command|utilities/time.html
+time()|get time|functions/time.html
+time.h|time types|basedefs/time.h.html
+timeout|execute a utility with a time limit|utilities/timeout.html
+timer_create()|create a per-process timer|functions/timer_create.html
+timer_delete()|delete a per-process timer|functions/timer_delete.html
+timer_getoverrun()|per-process timers|functions/timer_getoverrun.html
+timer_gettime()|per-process timers|functions/timer_gettime.html
+timer_settime()|per-process timers|functions/timer_settime.html
+times|write process times|utilities/V3_chap02.html#times
+times()|get process and waited-for child process times|functions/times.html
+timespec_get()|get time|functions/timespec_get.html
+timezone|set timezone conversion information|functions/timezone.html
+tmpfile()|create a temporary file|functions/tmpfile.html
+tmpnam()|create a name for a temporary file|functions/tmpnam.html
+tolower()|transliterate uppercase characters to lowercase|functions/tolower.html
+tolower_l()|transliterate uppercase characters to lowercase|functions/tolower_l.html
+touch|change file access and modification times|utilities/touch.html
+toupper()|transliterate lowercase characters to uppercase|functions/toupper.html
+toupper_l()|transliterate lowercase characters to uppercase|functions/toupper_l.html
+towctrans()|wide-character transliteration|functions/towctrans.html
+towctrans_l()|wide-character transliteration|functions/towctrans_l.html
+towlower()|transliterate uppercase wide-character code to lowercase|functions/towlower.html
+towlower_l()|transliterate uppercase wide-character code to lowercase|functions/towlower_l.html
+towupper()|transliterate lowercase wide-character code to uppercase|functions/towupper.html
+towupper_l()|transliterate lowercase wide-character code to uppercase|functions/towupper_l.html
+tput|change terminal characteristics|utilities/tput.html
+tr|translate characters|utilities/tr.html
+trap|trap signals|utilities/V3_chap02.html#trap
+true|return true value|utilities/true.html
+trunc()|round to truncated integer value|functions/trunc.html
+truncate()|truncate a file to a specified length|functions/truncate.html
+truncf()|round to truncated integer value|functions/truncf.html
+truncl()|round to truncated integer value|functions/truncl.html
+tsearch()|manage a binary search tree|functions/tsearch.html
+tsort|topological sort|utilities/tsort.html
+tss_create()|thread-specific data key creation|functions/tss_create.html
+tss_delete()|thread-specific data key deletion|functions/tss_delete.html
+tss_get()|thread-specific data management|functions/tss_get.html
+tss_set()|thread-specific data management|functions/tss_set.html
+tty|return user's terminal name|utilities/tty.html
+ttyname()|find the pathname of a terminal|functions/ttyname.html
+ttyname_r()|find the pathname of a terminal|functions/ttyname_r.html
+twalk()|manage a binary search tree|functions/twalk.html
+type|write a description of command type|utilities/type.html
+tzname|set timezone conversion information|functions/tzname.html
+tzset()|set timezone conversion information|functions/tzset.html
+uchar.h|Unicode character handling|basedefs/uchar.h.html
+ulimit|report or set resource limits|utilities/ulimit.html
+umask|get or set the file mode creation mask|utilities/umask.html
+umask()|set and get the file mode creation mask|functions/umask.html
+unalias|remove alias definitions|utilities/unalias.html
+uname|return system name|utilities/uname.html
+uname()|get the name of the current system|functions/uname.html
+uncompress|compress and decompress data|utilities/uncompress.html
+unexpand|convert spaces to tabs|utilities/unexpand.html
+unget|undo a previous get of an SCCS file |utilities/unget.html
+ungetc()|push byte back into input stream|functions/ungetc.html
+ungetwc()|push wide-character code back into the input stream|functions/ungetwc.html
+uniq|report or filter out repeated lines in a file|utilities/uniq.html
+unistd.h|standard symbolic constants and types|basedefs/unistd.h.html
+unlink|call the unlink function|utilities/unlink.html
+unlink()|remove a directory entry|functions/unlink.html
+unlinkat()|remove a directory entry|functions/unlinkat.html
+unlockpt()|unlock a pseudo-terminal manager/subsidiary pair|functions/unlockpt.html
+unset|unset values and attributes of variables and functions|utilities/V3_chap02.html#unset
+unsetenv()|remove an environment variable|functions/unsetenv.html
+uselocale()|use locale in current thread|functions/uselocale.html
+utimensat()|set file access and modification times|functions/utimensat.html
+utimes()|set file access and modification times|functions/utimes.html
+utmpx.h|user accounting database definitions|basedefs/utmpx.h.html
+uucp|system-to-system copy|utilities/uucp.html
+uudecode|decode a binary file|utilities/uudecode.html
+uuencode|encode a binary file|utilities/uuencode.html
+uustat|uucp status enquiry and job control|utilities/uustat.html
+uux|remote command execution|utilities/uux.html
+val|validate SCCS files |utilities/val.html
+vasprintf()|format output of a stdarg argument list|functions/vasprintf.html
+va_arg()|handle variable argument list|functions/va_arg.html
+va_copy()|handle variable argument list|functions/va_copy.html
+va_end()|handle variable argument list|functions/va_end.html
+va_start()|handle variable argument list|functions/va_start.html
+vdprintf()|format output of a stdarg argument list|functions/vdprintf.html
+vfprintf()|format output of a stdarg argument list|functions/vfprintf.html
+vfscanf()|format input of a stdarg argument list|functions/vfscanf.html
+vfwprintf()|wide-character formatted output of a stdarg argument list|functions/vfwprintf.html
+vfwscanf()|wide-character formatted input of a stdarg argument list|functions/vfwscanf.html
+vi|screen-oriented (visual) display editor|utilities/vi.html
+vprintf()|format output of a stdarg argument list|functions/vprintf.html
+vscanf()|format input of a stdarg argument list|functions/vscanf.html
+vsnprintf()|format output of a stdarg argument list|functions/vsnprintf.html
+vsprintf()|format output of a stdarg argument list|functions/vsprintf.html
+vsscanf()|format input of a stdarg argument list|functions/vsscanf.html
+vswprintf()|wide-character formatted output of a stdarg argument list|functions/vswprintf.html
+vswscanf()|wide-character formatted input of a stdarg argument list|functions/vswscanf.html
+vwprintf()|wide-character formatted output of a stdarg argument list|functions/vwprintf.html
+vwscanf()|wide-character formatted input of a stdarg argument list|functions/vwscanf.html
+wait|await process completion|utilities/wait.html
+wait()|wait for a child process to stop or terminate|functions/wait.html
+waitid()|wait for a child process to change state|functions/waitid.html
+waitpid()|wait for a child process to stop or terminate|functions/waitpid.html
+wc|word|utilities/wc.html
+wchar.h|wide-character handling|basedefs/wchar.h.html
+wcpcpy()|copy a wide-character string, returning a pointer to its end|functions/wcpcpy.html
+wcpncpy()|copy a fixed-size wide-character string, returning a pointer to its end|functions/wcpncpy.html
+wcrtomb()|convert a wide-character code to a character (restartable)|functions/wcrtomb.html
+wcscasecmp()|case-insensitive wide-character string comparison|functions/wcscasecmp.html
+wcscasecmp_l()|case-insensitive wide-character string comparison|functions/wcscasecmp_l.html
+wcscat()|concatenate two wide-character strings|functions/wcscat.html
+wcschr()|wide-character string scanning operation|functions/wcschr.html
+wcscmp()|compare two wide-character strings|functions/wcscmp.html
+wcscoll()|wide-character string comparison using collating information|functions/wcscoll.html
+wcscoll_l()|wide-character string comparison using collating information|functions/wcscoll_l.html
+wcscpy()|copy a wide-character string, returning a pointer to its end|functions/wcscpy.html
+wcscspn()|get the length of a complementary wide substring|functions/wcscspn.html
+wcsdup()|duplicate a wide-character string|functions/wcsdup.html
+wcsftime()|convert date and time to a wide-character string|functions/wcsftime.html
+wcslcat()|size-bounded wide string concatenation and copying|functions/wcslcat.html
+wcslcpy()|size-bounded wide string concatenation and copying|functions/wcslcpy.html
+wcslen()|get length of a fixed-sized wide-character string|functions/wcslen.html
+wcsncasecmp()|case-insensitive wide-character string comparison|functions/wcsncasecmp.html
+wcsncasecmp_l()|case-insensitive wide-character string comparison|functions/wcsncasecmp_l.html
+wcsncat()|concatenate a wide-character string with part of another|functions/wcsncat.html
+wcsncmp()|compare part of two wide-character strings|functions/wcsncmp.html
+wcsncpy()|copy a fixed-size wide-character string, returning a pointer to its end|functions/wcsncpy.html
+wcsnlen()|get length of a fixed-sized wide-character string|functions/wcsnlen.html
+wcsnrtombs()|convert a wide-character string to a character string (restartable)|functions/wcsnrtombs.html
+wcspbrk()|scan a wide-character string for a wide-character code|functions/wcspbrk.html
+wcsrchr()|wide-character string scanning operation|functions/wcsrchr.html
+wcsrtombs()|convert a wide-character string to a character string (restartable)|functions/wcsrtombs.html
+wcsspn()|get the length of a wide substring|functions/wcsspn.html
+wcsstr()|find a wide-character substring|functions/wcsstr.html
+wcstod()|convert a wide-character string to a double-precision number|functions/wcstod.html
+wcstof()|convert a wide-character string to a double-precision number|functions/wcstof.html
+wcstoimax()|convert a wide-character string to an integer type|functions/wcstoimax.html
+wcstok()|split a wide-character string into tokens|functions/wcstok.html
+wcstol()|convert a wide-character string to a long integer|functions/wcstol.html
+wcstold()|convert a wide-character string to a double-precision number|functions/wcstold.html
+wcstoll()|convert a wide-character string to a long integer|functions/wcstoll.html
+wcstombs()|convert a wide-character string to a character string|functions/wcstombs.html
+wcstoul()|convert a wide-character string to an unsigned long|functions/wcstoul.html
+wcstoull()|convert a wide-character string to an unsigned long|functions/wcstoull.html
+wcstoumax()|convert a wide-character string to an integer type|functions/wcstoumax.html
+wcswidth()|number of column positions of a wide-character string|functions/wcswidth.html
+wcsxfrm()|wide-character string transformation|functions/wcsxfrm.html
+wcsxfrm_l()|wide-character string transformation|functions/wcsxfrm_l.html
+wctob()|wide-character to single-byte conversion|functions/wctob.html
+wctomb()|convert a wide-character code to a character|functions/wctomb.html
+wctrans()|define character mapping|functions/wctrans.html
+wctrans_l()|define character mapping|functions/wctrans_l.html
+wctype()|define character class|functions/wctype.html
+wctype.h|wide-character classification and mapping utilities|basedefs/wctype.h.html
+wctype_l()|define character class|functions/wctype_l.html
+wcwidth()|number of column positions of a wide-character code|functions/wcwidth.html
+what|identify SCCS files |utilities/what.html
+who|display who is on the system|utilities/who.html
+wmemchr()|find a wide character in memory|functions/wmemchr.html
+wmemcmp()|compare wide characters in memory|functions/wmemcmp.html
+wmemcpy()|copy wide characters in memory|functions/wmemcpy.html
+wmemmove()|copy wide characters in memory with overlapping areas|functions/wmemmove.html
+wmemset()|set wide characters in memory|functions/wmemset.html
+wordexp()|perform word expansions|functions/wordexp.html
+wordexp.h|word-expansion types|basedefs/wordexp.h.html
+wordfree()|perform word expansions|functions/wordfree.html
+wprintf()|print formatted wide-character output|functions/wprintf.html
+write|write to another user|utilities/write.html
+write()|write on a file|functions/write.html
+writev()|write a vector|functions/writev.html
+wscanf()|convert formatted wide-character input|functions/wscanf.html
+xargs|construct argument lists and invoke utility|utilities/xargs.html
+xgettext|extract gettext call strings from C-language source files (DEVELOPMENT)|utilities/xgettext.html
+y0()|Bessel functions of the second kind|functions/y0.html
+y1()|Bessel functions of the second kind|functions/y1.html
+yacc|yet another compiler compiler |utilities/yacc.html
+yn()|Bessel functions of the second kind|functions/yn.html
+zcat|compress and decompress data|utilities/zcat.html

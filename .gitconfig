@@ -1,0 +1,8 @@
+[user]
+	name = YesYesBike
+	email = yesyesbike@gmail.com
+
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main

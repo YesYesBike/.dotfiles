@@ -1,0 +1,53 @@
+#!/bin/sh
+
+[ $# -eq 0 ] && echo "Enter more than one parameter" && exit 55
+
+#No Option, No Problem
+if [ $# -eq 1 ]
+then
+    gcc $1 || exit
+    ./a.out
+    exit_code=$?
+    rm a.out
+    exit $exit_code
+fi
+
+compile=$1
+set -- $(getopt -q :go:cFp "$@")
+
+while [ -n "$1" ]
+do
+    case "$1" in
+        -g)
+            parameter=$parameter"-g "
+            debug=1
+            ;;
+        -o)
+            parameter=$parameter"-o $2 "
+            filename=$2
+            shift ;;
+        -c)
+            not_clear=1 ;;
+        -F)
+            compiler=gfortran ;;
+        -p)
+            compiler=g++ ;;
+    esac
+    shift
+done
+
+[ -z "$compiler" ] && compiler=gcc
+
+$compiler $compile $parameter
+
+[ -z "$filename" ] && filename="a.out"
+
+if [ -n "$debug" ]
+then
+    gdb $filename
+else
+    ././$filename
+fi
+
+
+[ -n "$not_clear" ] || rm $filename

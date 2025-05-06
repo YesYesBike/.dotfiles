@@ -1,0 +1,6 @@
+#!/bin/sh
+
+filename=$(< /tmp/__FILENAME42069_${USER})
+pwd=$(< /tmp/__PWD42069_${USER})
+
+tmux neww -c $pwd -n "gdb($filename)" "~/util/gcc $filename -g"

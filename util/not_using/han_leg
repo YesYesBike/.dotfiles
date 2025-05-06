@@ -1,0 +1,227 @@
+#!/bin/perl
+use utf8;
+#use strict;
+#use warnings;
+#use Data::Dumper;
+#use feature qw/
+#    say
+#/;
+#use Switch;
+
+binmode(STDOUT, ":encoding(UTF-8)");
+
+my @han_arr = split //,
+    "ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎㅏㅐㅑㅒㅓㅔㅕㅖㅗㅛㅜㅠㅡㅣ";
+
+my %alp_num = (
+    r =>  0, R =>  1, s =>  2, e =>  3, E =>  4, f =>  5,
+    a =>  6, q =>  7, Q =>  8, t =>  9, T => 10, d => 11,
+    w => 12, W => 13, c => 14, z => 15, x => 16, v => 17,
+    g => 18, k => 19, o => 20, i => 21, O => 22, j => 23,
+    p => 24, u => 25, P => 26, h => 27, y => 28, n => 29,
+    b => 30, m => 31, l => 32,
+);
+
+my %jung_num = (
+    ㅏ =>  0, ㅐ =>  1, ㅑ =>  2, ㅒ =>  3, ㅓ =>  4,
+    ㅔ =>  5, ㅕ =>  6, ㅖ =>  7, ㅗ =>  8, ㅘ =>  9,
+    ㅙ => 10, ㅚ => 11, ㅛ => 12, ㅜ => 13, ㅝ => 14,
+    ㅞ => 15, ㅟ => 16, ㅠ => 17, ㅡ => 18, ㅢ => 19,
+    ㅣ => 20,
+);
+
+my %jong_num = (
+    ㄱ =>  0, ㄲ =>  1, ㄳ =>  2, ㄴ =>  3, ㄵ =>  4,
+    ㄶ =>  5, ㄷ =>  6, ㄹ =>  7, ㄺ =>  8, ㄻ =>  9,
+    ㄼ => 10, ㄽ => 11, ㄾ => 12, ㄿ => 13, ㅀ => 14,
+    ㅁ => 15, ㅂ => 16, ㅄ => 17, ㅅ => 18, ㅆ => 19,
+    ㅇ => 20, ㅈ => 21, ㅊ => 22, ㅋ => 23, ㅌ => 24,
+    ㅍ => 25, ㅎ => 26,
+);
+
+my %jong_cho = (
+    0  => 0,  1  => 1,  3  => 2,  6  => 3,  7 => 5,
+    15 => 6,  16 => 7,  18 => 9,  19 => 10, 20 => 11,
+    21 => 12 ,22 => 14, 23 => 15, 24 => 16, 25 => 17,
+    26 => 18 ,
+);
+
+my %num_jung = reverse %jung_num;
+
+my %double_jaeum = (   #jong,cho  jong
+    "0,9"  => 2,   "3,12" => 4,  "3,18" => 5,
+    "7,0"  => 8,   "7,6"  => 9,  "7,7"  => 10,
+    "7,9"  => 11,  "7,16" => 12, "7,17" => 13,
+    "7,18" => 14,  "16,9"  => 17,
+);
+
+my %rev = reverse %double_jaeum;
+
+my %double_moeum = (   #jung,cho  jung
+    "8,19"  => 9,  "8,20"  => 10, "8,32"  => 11,
+    "13,23" => 14, "13,24" => 15, "13,32" => 16,
+    "18,32" => 19,
+);
+
+my @ret;
+
+my $cho;
+my $jung;
+my $jong;
+
+sub char_input{
+    my @arg = @_;
+    my $three_out = 0;
+    for (@arg){
+        ($_ = -1, $three_out++) if !defined;
+    }
+    return if $three_out == 3;
+    my $input = 0xac00 + 21*28*$arg[0] + 28*$arg[1] + $arg[2] + 1;
+    push @ret, chr($input);
+}
+
+sub jaeum{
+    my ($ch, $index) = @_;
+    if(!defined $jung){
+        if(!defined $jong){
+            if(!defined $cho){
+                $cho = $index;
+            } else {
+                push @ret, $han_arr[$cho];
+                $cho = $index;
+            }
+        }
+    } else {
+        if(!defined $jong){
+            if(!defined $cho){
+                push @ret, $num_jung{$jung};
+                undef $jung;
+                $cho = $index;
+            } else {
+                if( defined(my $var = $jong_num{$ch}) ){
+                    $jong = $var;
+                } else {
+                    char_input($cho, $jung, $jong);
+                    undef $jung;
+                    undef $jong;
+                    $cho = $index;
+                }
+            }
+        } else {
+            if(defined $cho){
+                if( my $temp = $double_jaeum{"$jong,$index"} ){
+                    $jong = $temp;
+                } else {
+                    char_input($cho, $jung, $jong);
+                    undef $jung;
+                    undef $jong;
+                    $cho = $index;
+                }
+            }
+        }
+    }
+}
+
+sub moeum{
+    my ($ch, $index) = @_;
+
+    if(!defined $cho){
+        if(defined $jong){
+            if(my $temp = $rev{$jong}){
+                $temp =~ /(\d)+,(\d)+/;
+                $jong = $1;
+                char_input($cho, $jung, $jong);
+                $cho = $2;
+                undef $jong;
+            }
+        } else {
+            push @ret, $ch;
+        }
+    } else {
+        if(!defined $jong){
+            if(!defined $jung){
+                $jung = $jung_num{$ch};
+            } else {
+                if(my $temp = $double_moeum{"$jung,$index"}){
+                    $jung = $temp;
+                } else {
+                    char_input($cho, $jung, $jong);
+                    undef $cho;
+                    undef $jung;
+                    push @ret, $ch;
+                }
+            }
+        } else {
+            my $cho_temp;
+            my $jong_temp;
+            if(my $temp = $rev{$jong}){
+                $temp =~ /(\d+),(\d+)/;
+                $jong = $1;
+                $cho_temp = $2;
+                char_input($cho, $jung, $jong);
+                undef $jong;
+            } else {
+                $jong_temp = $jong;
+                undef $jong;
+                char_input($cho, $jung, $jong);
+            }
+
+            if(defined $cho_temp){
+                $cho = $cho_temp;
+            } else {
+                $cho = $jong_cho{$jong_temp};
+            }
+            $jung = $jung_num{$ch};
+        }
+    }
+}
+
+sub hangul{
+    chomp(my $input = shift);
+    #my $input = shift;
+
+    for my $ch_src(split //, $input){
+        my $index = $alp_num{$ch_src};
+        my $ch = $han_arr[$index] if defined $index;
+
+        if(!defined $index){
+            char_input($cho, $jung, $jong);
+            undef $cho;
+            undef $jung;
+            undef $jong;
+            push @ret, $ch_src;
+            next;
+        }
+
+        if($index < 19){
+            jaeum($ch, $index);
+        } else {
+            moeum($ch, $index);
+        }
+    }
+
+    if(defined $cho){
+        if(defined $jung){
+            char_input($cho, $jung, $jong);
+        } else {
+            push @ret, $han_arr[$cho];
+        }
+    } else {
+        if(defined $jung){
+            push @ret, $jung_num{$jung};
+        } else {
+            push @ret, $jong_num{$jong} if(defined $jong);
+        }
+    }
+
+    undef $cho;
+    undef $jung;
+    undef $jong;
+
+    print join '', @ret;
+    undef @ret;
+}
+
+while(<>){              #Starts Here
+    hangul $_;
+}

@@ -1,0 +1,17 @@
+#!/usr/bin/perl
+
+($rcnt, $file) = @ARGV;
+$rcnt .= "\n";
+$file = "$ENV{HOME}/".$file;
+$seen{"$rcnt"}++;
+push @list, $rcnt;
+
+open $fh, "<", $file or die "open failed 1\n";
+while (<$fh>) {
+	push @list, $_ unless $_ eq $rcnt;
+}
+close $fh or die "close failed 1\n";
+
+open $fh, ">", $file or die "open failed 2\n";
+print $fh $_ for @list;
+close $fh or die "close failed 2\n";
