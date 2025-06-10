@@ -1,6 +1,7 @@
 #!/usr/bin/sh
 
-tmpdir=$(mktemp -dt "bakdir.XXXXXX")
+# tmpdir=$(mktemp -dt "bakdir.XXXXXX")
+tmpdir=~/backup
 chmod 700 ${tmpdir}
 tar -cvJf ${tmpdir}/backup.tar.xz ~/aleph/
 export tmpdir

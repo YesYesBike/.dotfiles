@@ -3,20 +3,20 @@
 url=$(perl -e 'my @list; while(<>){chomp; push @list, $_}
 	@list = sort {($a1)=($a=~/(\d+)$/); ($b1)=($b=~/(\d+)$/); $sum=$a1+$b1;
 		return 0 unless($sum); if($sum==$a1){-1} elsif($sum==$b1){1} else {$a1<=>$b1}} @list;
-	print "$_\n" for @list' < ~/personal/firefox_asdf | column -t -s',' |\
+	print "$_\n" for @list' < ~/personal/firefox_list | column -t -s',' |\
     fzf-tmux -p 80% -n 1,2 --with-nth=1,2 \
 	--tiebreak=begin --bind change:first --border-label "TMUGS-FIREFOX")
 [ -z "$url" ] && exit 0
 
 export url
 perl -e '$url=$ENV{url}; @url = split " ", $url; $chk = $url[4]; $url = $url[2];
-	open $fh, "<", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+	open $fh, "<", "$ENV{HOME}/personal/firefox_list" or die "open failed\n";
 	my @list;
 	while(<$fh>){chomp; /(.*,)([^,]+)$/; $aaa=$1; $num=$2;
 		if(/,\Q$url\E,/){$num=1} else{$num=$num==0?0:$num<$chk?$num+1:$chk==0?$num+1:$num}
 			push @list, "$aaa$num"}
 	close $fh or die "close failed\n";
-	open $fh, ">", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+	open $fh, ">", "$ENV{HOME}/personal/firefox_list" or die "open failed\n";
 	print $fh "$_\n" for @list;
 	close $fh or die "close failed\n"'
 url=$(perl -ae '$F[2] = $F[2] =~ m#^https://www.youtube.com# ?

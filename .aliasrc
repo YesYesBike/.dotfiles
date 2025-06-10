@@ -65,19 +65,13 @@ function rascp {
 }
 
 function monon {
-	xrandr --output HDMI-1-1 --auto --left-of eDP-1
-	xrandr --output HDMI-1-2 --auto --left-of eDP-1
-	xrandr --output HDMI-1-3 --auto --left-of eDP-1
-	xrandr --output HDMI-1-4 --auto --left-of eDP-1
-	feh --bg-scale ~/images/wallpaper/selected/01.jpg --bg-scale ~/images/wallpaper/selected/06.jpg
+	xrandr --output HDMI-1-0 --auto --left-of eDP-1
+	feh --bg-scale ~/images/wallpaper/selected/12.jpg --bg-scale ~/images/wallpaper/selected/06.jpg
 }
 
 function monoff {
-	xrandr --output HDMI-1-1 --off
-	xrandr --output HDMI-1-2 --off
-	xrandr --output HDMI-1-3 --off
-	xrandr --output HDMI-1-4 --off
-	feh --bg-scale ~/images/wallpaper/selected/01.jpg --bg-scale ~/images/wallpaper/selected/06.jpg
+	xrandr --output HDMI-1-0 --off
+	feh --bg-scale ~/images/wallpaper/selected/12.jpg
 }
 
 function rfeh {
