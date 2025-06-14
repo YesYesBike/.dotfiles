@@ -32,8 +32,6 @@ alias la='ls -a'
 alias ls='ls --color=auto'
 alias ll='ls -hal'
 alias mv='mv -i'
-alias nf='clear; neofetch'
-alias nfs="neofetch --color_blocks off | sed -e 's/\x1B\[[0-9;\?]*[a-zA-Z]//g' -e 's/^\s+$//'"
 alias pg="pacman -Q | grep $1"
 alias raf='~/util/raffle'
 alias sicp='racket -I sicp'
