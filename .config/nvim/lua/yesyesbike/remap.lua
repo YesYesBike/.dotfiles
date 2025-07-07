@@ -22,4 +22,13 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>")
 
 vim.keymap.set("n", "<leader>R", function()
 	vim.cmd("so ~/.config/nvim/init.lua")
+	print("Reloaded")
+end)
+
+vim.keymap.set("n", "<leader>m", function()
+	vim.cmd("make!")
+end)
+
+vim.keymap.set("n", "<leader>r", function()
+	vim.cmd("make! makerun")
 end)
