@@ -10,12 +10,12 @@ case $menu in
 			push @ans, "0"; die "Enter the category/title/url!\n" unless $ans[0] and $ans[1] and $ans[2];
 			y/ /_/ for @ans;
 			$ans[3] = "." unless $ans[3]; $new=join ",", @ans;
-			open $fh, ">>", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
-			print $fh $new;
+			open $fh, ">>", "$ENV{HOME}/personal/firefox_list" or die "open failed\n";
+			print $fh "$new\n";
 			close $fh or die "close failed\n"'
 		;;
 	copy)
-		url=$( column -t -s',' ~/personal/firefox_asdf |\
+		url=$( column -t -s',' ~/personal/firefox_list |\
 			fzf-tmux -p 80% -n 1,2 --with-nth=1,2,4 \
 			--tiebreak=begin --bind change:first --border-label "COPY")
 		[ -z "$url" ] && exit 0
@@ -29,12 +29,12 @@ case $menu in
 			$url[4] = 0;
 			$url = join ",", @url;
 
-			open $fh, ">>", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+			open $fh, ">>", "$ENV{HOME}/personal/firefox_list" or die "open failed\n";
 			print $fh "$url\n";
 			close $fh or die "close failed\n"'
 		;;
 	edit)
-		url=$( column -t -s',' ~/personal/firefox_asdf |\
+		url=$( column -t -s',' ~/personal/firefox_list |\
 			fzf-tmux -p 80% -n 1,2 --with-nth=1,2,4 \
 			--tiebreak=begin --bind change:first --border-label "EDIT")
 		[ -z "$url" ] && exit 0
@@ -49,21 +49,21 @@ case $menu in
 			$url = join ",", @{[split " ", $url]};
 			$url_new = join ",", @url;
 
-			open $fh, "<", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+			open $fh, "<", "$ENV{HOME}/personal/firefox_list" or die "open failed\n";
 			while(<$fh>){chomp; if(/\Q$url\E/){push @list,$url_new} else{push @list,$_}}
 			close $fh or die "close failed\n";
-			open $fh, ">", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+			open $fh, ">", "$ENV{HOME}/personal/firefox_list" or die "open failed\n";
 			print $fh "$_\n" for @list;
 			close $fh or die "close failed\n"'
 		;;
 	remove)
-		url=$( column -t -s',' ~/personal/firefox_asdf |\
+		url=$( column -t -s',' ~/personal/firefox_list |\
 			fzf-tmux -p 80% -n 1,2 --with-nth=1,2,4 \
 			--tiebreak=begin --bind change:first --border-label "REMOVE")
 		[ -z "$url" ] && exit 0
 		export url
 		perl -e '$url = $ENV{url}; @url = split " ", $url; $url = join ",", @url;
-			open $fh, "<", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+			open $fh, "<", "$ENV{HOME}/personal/firefox_list" or die "open failed\n";
 			my @list;
 			while(<$fh>){chomp; next if /\Q$url\E/; 
 				if ($url[4]) {
@@ -73,15 +73,15 @@ case $menu in
 				push @list, $_
 			}
 			close $fh or die "close failed\n";
-			open $fh, ">", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+			open $fh, ">", "$ENV{HOME}/personal/firefox_list" or die "open failed\n";
 			print $fh "$_\n" for @list;
 			close $fh or die "close failed\n"'
 		;;
 	reset)
-		perl -e 'open $fh, "<", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+		perl -e 'open $fh, "<", "$ENV{HOME}/personal/firefox_list" or die "open failed\n";
 			my @list; while(<$fh>){chomp; /(\d+)$/; s//0/ if $1; push @list, $_}
 			close $fh or die "close failed\n";
-			open $fh, ">", "$ENV{HOME}/personal/firefox_asdf" or die "open failed\n";
+			open $fh, ">", "$ENV{HOME}/personal/firefox_list" or die "open failed\n";
 			print $fh "$_\n" for @list; close $fh or die "close failed\n"'
 		;;
 esac
