@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo -e "\n\nExit Code: $?"
+echo "Press Enter to Exit"
+read

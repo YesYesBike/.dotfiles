@@ -1,0 +1,3 @@
+#!/bin/bash
+
+tmux new-window -c $1 "gdb $2"

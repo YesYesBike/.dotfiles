@@ -25,10 +25,17 @@ vim.keymap.set("n", "<leader>R", function()
 	print("Reloaded")
 end)
 
+
+-- Development Remap
+
 vim.keymap.set("n", "<leader>m", function()
 	vim.cmd("make!")
 end)
 
 vim.keymap.set("n", "<leader>r", function()
-	vim.cmd("make! makerun")
+	vim.cmd("silent make! makerun")
+end)
+
+vim.keymap.set("n", "<leader>d", function()
+	vim.cmd("silent make! makedbg")
 end)
