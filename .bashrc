@@ -67,8 +67,16 @@ export PERLDOC_PAGER="less -+C "
 export HACKPAGER=less
 
 date +'%F(%a)'
+todotoday=$(grep "^$(date +'%2m/%2d')" ~/personal/plan/calendar | cut -f3- )
+if [ "$todotoday" != "-" ]
+then
+	echo "####TODO####"
+	echo $todotoday
+fi
+
 
 if [ -s ~/note/important ]
 then
+	echo "####IMPORTANT THINGS####"
 	cat ~/note/important
 fi
