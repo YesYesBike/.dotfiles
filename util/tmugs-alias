@@ -1,24 +1,22 @@
 #!/bin/sh
 
 alias=$(fzf-tmux -n 1 -p 50% --border-label='Tmugs-Alias' \
-    < ~/.tmux-alias | awk '{ print $1 }')
+	< ~/.tmux-alias | awk '{ print $1 }')
 
 case $alias in
-    ac) tmux neww -n "ASCII" "man 7 ascii" ;;
-    ae) tmux neww -n "aliasrc" "nvim ~/.aliasrc" ;;
+	ac) tmux neww -n "ASCII" "man 7 ascii" ;;
+	ae) tmux neww -n "aliasrc" "nvim ~/.aliasrc" ;;
 	ba) tmux run -b "~/personal/ba/ba || exit 0" ;;
-    be) tmux neww -n "bashrc" "nvim ~/.bashrc" ;;
-    #bo) tmux run "~/util/tmugs-book || exit 0; exec bash" ;;
-	di) tmux neww -n "DIARY" -c ~/"projects/github_io/diary/2025" "nvim 02.md" ;;
-    #fe) tmux neww -n "firefox_list" -c ~/personal "~/util/tmugs-fe" ;;
-    #fe) tmux neww -n "firefox_list" -c ~/personal "nvim firefox_list" ;;
-    #he) tmux neww -n "Homepage" "nvim homepage.html" ;;
-	#lol) tmux neww "printf 'enter the value: '; read asdf; echo $asdf" ;;
+	be) tmux neww -n "bashrc" "nvim ~/.bashrc" ;;
+	pl)
+		source ~/personal/plan/line
+		tmux neww -n "PLAN" -c ~/"personal/plan" \
+			"nvim +${CAL_LINE} calendar" ;;
 	rm) tmux neww -n "RMAP" -c ~/"projects/github_io/" "nvim roadmap.md" ;;
 	si)tmux neww -c ~/".dotfiles/scheme" "nvim sicp.scm" ;; 
-    sc) tmux neww -n "SCRATCHPAD" -c ~/"note" "nvim +$ scratchpad" ;;
-    tae) tmux neww -n "tmux-alias" -c ~/"util" "nvim tmugs-alias" ;;
-    te) tmux neww -n "tmuxconf" "nvim ~/.tmux.conf" ;;
-    ve) tmux neww -n "nvim_set" -c ~/".config/nvim" "nvim init.lua" ;;
-    *) ;;
+	sc) tmux neww -n "SCRATCHPAD" -c ~/"note" "nvim +$ scratchpad" ;;
+	tae) tmux neww -n "tmux-alias" -c ~/"util" "nvim tmugs-alias" ;;
+	te) tmux neww -n "tmuxconf" "nvim ~/.tmux.conf" ;;
+	ve) tmux neww -n "nvim_set" -c ~/".config/nvim" "nvim init.lua" ;;
+	*) ;;
 esac
