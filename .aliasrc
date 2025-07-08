@@ -34,6 +34,7 @@ alias ll='ls -hal'
 alias mv='mv -i'
 alias pg="pacman -Q | grep $1"
 alias raf='~/util/raffle'
+alias rmm='rm -rf $(ls | fzf -m)'
 alias sicp='racket -I sicp'
 #alias st='stty cols 101; stty rows 30'
 alias t='tmux '
