@@ -22,8 +22,13 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>")
 
 vim.keymap.set("n", "<leader>R", function()
 	vim.cmd("so ~/.config/nvim/init.lua")
+	vim.cmd("so ~/.config/nvim/lua/yesyesbike/set.lua")
+	vim.cmd("so ~/.config/nvim/lua/yesyesbike/remap.lua")
 	print("Reloaded")
 end)
+
+vim.keymap.set("i", "<C-s>", "<esc>:w<cr>a")
+
 
 
 -- Development Remap
@@ -39,3 +44,10 @@ end)
 vim.keymap.set("n", "<leader>rd", function()
 	vim.cmd("silent make! makedbg")
 end)
+
+
+-- 한글
+vim.keymap.set("i", "<C-c><C-c>", "<esc>!!han -E,<cr><C-l>A")
+vim.keymap.set("i", "<C-c><C-f>", "<esc>!!han -e,<cr><C-l>A")
+vim.keymap.set("i", "<C-c><C-v>", "<esc>!!han -O,<cr><C-l>A")
+vim.keymap.set("i", "<C-c><C-g>", "<esc>!!han -o,<cr><C-l>A")

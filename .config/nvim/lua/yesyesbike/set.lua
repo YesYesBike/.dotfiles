@@ -23,3 +23,4 @@ vim.opt.updatetime = 50
 vim.opt.timeout = false
 
 vim.opt.colorcolumn = "80"
+vim.opt.cursorline = true

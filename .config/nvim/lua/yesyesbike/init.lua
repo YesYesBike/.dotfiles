@@ -21,3 +21,4 @@ vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
 vim.cmd("colorscheme yin")
+vim.cmd.so("~/.config/nvim/trailling_whitespace.vim")
