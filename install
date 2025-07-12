@@ -1,14 +1,5 @@
 #!/bin/bash
 
-if [ -z "$1" ]
-then
-	dev="def"
-else
-	dev=$1
-fi
-
-[ "${dev}" = "def" ] || [ "${dev}" = "think" ] || exit 70
-
 mv ~/.bashrc ~/.bashrc_bak
 mv ~/.bash_profile ~/.bash_profile_bak
 stow .
@@ -23,11 +14,9 @@ do
 done
 
 git clone git://git.suckless.org/dwm || exit 99
-ln -sn ~/.dotfiles/src/dwm/config_${dev}.h ~/src/$i/config.h
+ln -sn ~/.dotfiles/src/dwm/config.h ~/src/dwm/config.h
 ln -sn ~/.dotfiles/src/dwm/*.diff ~/src/dwm
 
 cd -
 
 ln -sn /tmp/test_${USER} ~/test
-
-ln -sn ~/.dotfiles/.xinitrc_${dev} ~/.xinitrc
