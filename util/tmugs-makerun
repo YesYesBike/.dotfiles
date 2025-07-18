@@ -1,3 +1,3 @@
 #!/bin/bash
 
-tmux new-window "$1; exec ~/util/tmugs-wait-for-exit"
+tmux new-window -c $1 "$2; exec ~/util/tmugs-wait-for-exit"
