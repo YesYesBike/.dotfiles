@@ -71,6 +71,7 @@ static const char *vol_tog[] = { "amixer", "sset", "Master", "toggle", NULL };
 //static const char *vol_dec[] = { "amixer", "sset", "Master", "5%-", NULL };
 static const char *vol_inc[] = { "amixer", "sset", "Master", "5+", NULL };
 static const char *vol_dec[] = { "amixer", "sset", "Master", "5-", NULL };
+static const char *vol_spk[] = { "amixer", "sset", "Speaker", "toggle", NULL };
 static const char *firefox[] = { "firefox", NULL };
 
 static const Key keys[] = {
@@ -116,6 +117,7 @@ static const Key keys[] = {
         { 0,                    XF86XK_AudioMute,         spawn,          {.v = vol_tog} },
         { 0,                    XF86XK_AudioLowerVolume,  spawn,          {.v = vol_dec} },
         { 0,                    XF86XK_AudioRaiseVolume,  spawn,          {.v = vol_inc} },
+        { MODKEY4|ShiftMask,    XK_m,                     spawn,          {.v = vol_spk} },
 };
 
 /* button definitions */
