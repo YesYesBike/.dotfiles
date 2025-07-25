@@ -47,7 +47,7 @@ end)
 
 
 -- 한글
-vim.keymap.set("i", "<C-c><C-c>", "<esc>!!han -E,<cr><C-l>A")
-vim.keymap.set("i", "<C-c><C-f>", "<esc>!!han -e,<cr><C-l>A")
-vim.keymap.set("i", "<C-c><C-v>", "<esc>!!han -O,<cr><C-l>A")
-vim.keymap.set("i", "<C-c><C-g>", "<esc>!!han -o,<cr><C-l>A")
+vim.keymap.set("i", "<C-c><C-c>", "<esc>!!han -E $'\\x0c'<cr><C-l>A")
+vim.keymap.set("i", "<C-c><C-f>", "<esc>!!han -e $'\\x0c'<cr><C-l>A")
+vim.keymap.set("i", "<C-c><C-v>", "<esc>!!han -O $'\\x0c'<cr><C-l>A")
+vim.keymap.set("i", "<C-c><C-g>", "<esc>!!han -o $'\\x0c'<cr><C-l>A")
