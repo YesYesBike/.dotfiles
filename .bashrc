@@ -51,32 +51,13 @@ stty -ixon
 . ~/.aliasrc
 
 
-
-
 export FZF_DEFAULT_OPTS="--border=bold --reverse --no-info --scroll-off=99\
 	--tiebreak=index --bind=change:first"
 export FZF_COMPLETION_TRIGGER='~~'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export PLAN9=/usr/local/plan9
-PATH=$PATH:$PLAN9/bin
-PATH=$PATH:~/.spoofdpi/bin:~/bin
-PATH=$PATH:~/src/prv9/source/bin
 export BC_ENV_ARGS="$HOME/.bc"
 export PERLDOC_PAGER="less -+C "
-export HACKPAGER=less
 
 date +'%F(%a)'
-todotoday=$(grep "^$(date +'%2m/%2d')" ~/personal/plan/calendar | cut -f3- )
-if [ "$todotoday" != "-" ]
-then
-	echo "####TODO####"
-	echo $todotoday
-fi
-
-
-if [ -s ~/note/important ]
-then
-	echo "####IMPORTANT THINGS####"
-	cat ~/note/important
-fi
