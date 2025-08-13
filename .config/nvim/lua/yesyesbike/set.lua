@@ -3,6 +3,8 @@ vim.opt.guicursor = ""
 vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.showmode = false
+vim.opt.shortmess = "atToOFI"
+-- vim.opt.cpoptions = "BceFs_"
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -11,6 +13,9 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.infercase = false
 
 vim.opt.termguicolors = true
 
