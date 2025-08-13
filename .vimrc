@@ -2,6 +2,10 @@
 
 """"""""""""""""""""""""""""""""""""setting"""""""""""""""""""""""""""""""""""""
 
+" syntax on
+set nocp
+set backspace=indent,eol,start
+
 " esc delay
 set notimeout
 set ttimeout
