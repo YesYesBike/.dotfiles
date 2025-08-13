@@ -56,7 +56,8 @@ export FZF_DEFAULT_OPTS="--border=bold --reverse --no-info --scroll-off=99\
 export FZF_COMPLETION_TRIGGER='~~'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-export PLAN9=/usr/local/plan9
+
+PATH=$PATH:~/bin
 export BC_ENV_ARGS="$HOME/.bc"
 export PERLDOC_PAGER="less -+C "
 
