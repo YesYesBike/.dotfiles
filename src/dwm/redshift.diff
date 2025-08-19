@@ -1,0 +1,47 @@
+diff --git a/dwm.c b/dwm.c
+index 1443802..6696fb4 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -232,6 +232,7 @@ static int xerror(Display *dpy, XErrorEvent *ee);
+ static int xerrordummy(Display *dpy, XErrorEvent *ee);
+ static int xerrorstart(Display *dpy, XErrorEvent *ee);
+ static void zoom(const Arg *arg);
++static void redshift(const Arg *arg);
+ 
+ /* variables */
+ static const char broken[] = "broken";
+@@ -2139,6 +2140,34 @@ zoom(const Arg *arg)
+ 	pop(c);
+ }
+ 
++void
++redshift(const Arg *arg)
++{
++	struct sigaction sa;
++	static const char *arg_rs[] = {
++		"1000K",
++		"6500K",
++	};
++	static size_t idx = 0;
++
++	if (fork() == 0) {
++		if (dpy)
++			close(ConnectionNumber(dpy));
++		setsid();
++
++		sigemptyset(&sa.sa_mask);
++		sa.sa_flags = 0;
++		sa.sa_handler = SIG_DFL;
++		sigaction(SIGCHLD, &sa, NULL);
++
++		execl("/bin/redshift", "redshift", "-P", "-O", arg_rs[idx],
++		      (char *)NULL);
++		die("dwm: redshift failed.");
++	}
++
++	idx ^= 1;
++}
++
+ int
+ main(int argc, char *argv[])
+ {
