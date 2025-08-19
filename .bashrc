@@ -49,6 +49,7 @@ PS1='~ '
 set -o vi
 stty -ixon
 . ~/.aliasrc
+. ~/.bashrc_personal
 
 
 export FZF_DEFAULT_OPTS="--border=bold --reverse --no-info --scroll-off=99\
