@@ -12,11 +12,13 @@ do
 	capacity=$(cat /sys/class/power_supply/BAT0/capacity)
 	status=$(cat /sys/class/power_supply/BAT0/status)
 
-	if [ ${capacity} -le 25 ] && [ ${status} != "Charging" ] then
+	if [ ${capacity} -le 25 ] && [ ${status} != "Charging" ]
+	then
 		aplay -q ~/wav/low.wav
 		tmux_echo "${capacity}: ${msg_low}"
 	fi
-	if [ ${capacity} -ge 75 ] && [ ${status} != "Discharging" ] then
+	if [ ${capacity} -ge 75 ] && [ ${status} != "Discharging" ]
+	then
 		aplay -q ~/wav/charged.wav
 		tmux_echo "${capacity}: ${msg_high}"
 	fi
