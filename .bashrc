@@ -44,19 +44,29 @@ PS1='~ '
 #PS1='\[\e[32m\W\e[0m\$ '	  #w: full directory, W: current directory
 #PS1="\[\e[32m\]\W\[\e[0m\]\$ "
 
+function monon {
+	xrandr --output HDMI-1-0 --auto --left-of eDP-1
+	feh --bg-scale ~/images/wallpaper/selected/12.jpg --bg-scale ~/images/wallpaper/selected/06.jpg
+}
 
+function monoff {
+	xrandr --output HDMI-1-0 --off
+	feh --bg-scale ~/images/wallpaper/selected/12.jpg
+}
+
+function rfeh {
+	feh -zF
+}
 
 set -o vi
 stty -ixon
 . ~/.aliasrc
 . ~/.bashrc_personal
 
-
 export FZF_DEFAULT_OPTS="--border=bold --reverse --no-info --scroll-off=99\
 	--tiebreak=index --bind=change:first"
 export FZF_COMPLETION_TRIGGER='~~'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 
 PATH=$PATH:~/bin
 export BC_ENV_ARGS="$HOME/.bc"

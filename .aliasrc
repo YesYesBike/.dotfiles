@@ -1,28 +1,18 @@
-alias :q='exit'
 alias bak='~/util/backup'
 alias batstat="cat /sys/class/power_supply/BAT0/capacity /sys/class/power_supply/BAT0/status"
 alias bc='bc -q '
 alias bs='source ~/.bashrc'
 alias cdf='cd ~/.dotfiles'
-alias cl='column -t'
 alias cp='cp -i'
 alias dd='dd status=progress '
 alias diff='diff --color=auto'
 alias f='. ~/util/falias'
-alias g=guile
 alias gaa='git add -A'
-alias gb='git branch '
-alias gbd='git branch -d '
 alias gcA='git commit --amend'
 alias gcm='git commit -m '
-alias gC='git checkout '
-alias gCb='git checkout -b '
 alias gd='git diff '
-alias gdb='gdb -q '
 alias gl='git log '
 alias gs='git status '
-alias gS='/bin/gs '
-alias gss='git status -s '
 alias gp='git push '
 alias gP='git pull '
 alias grep='grep --color=auto'
@@ -33,46 +23,13 @@ alias ls='ls --color=auto'
 alias ll='ls -hal'
 alias mv='mv -i'
 alias pg="pacman -Q | grep $1"
-alias raf='~/util/raffle'
 alias rmm='rm -rf $(ls | fzf -m)'
-alias sicp='racket -I sicp'
-#alias st='stty cols 101; stty rows 30'
-alias t='tmux '
 alias ta='tmux new -A -s'
 alias tk='tmux kill-ses -t'
 alias tl='tmux ls'
 alias top='top -E g '
 alias type='type -a '
-alias ucat='cat /dev/ttyUSB0'
 alias v=nvim
 alias vidir='export EDITOR=nvim; vidir'
 alias x='cd; startx'
 alias zathura='zathura-sandbox'
-
-
-function uart {
-	if [ -z "$1" ]; then
-		picocom -b 9600 /dev/ttyUSB0
-	else
-		picocom -b $1 /dev/ttyUSB0
-	fi
-}
-
-function rascp {
-	#echo $@
-	scp $@ user@rasbian:/home/user/transfer/local
-}
-
-function monon {
-	xrandr --output HDMI-1-0 --auto --left-of eDP-1
-	feh --bg-scale ~/images/wallpaper/selected/12.jpg --bg-scale ~/images/wallpaper/selected/06.jpg
-}
-
-function monoff {
-	xrandr --output HDMI-1-0 --off
-	feh --bg-scale ~/images/wallpaper/selected/12.jpg
-}
-
-function rfeh {
-	feh -zF
-}
