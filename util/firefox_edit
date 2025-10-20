@@ -1,0 +1,168 @@
+#!/bin/perl
+
+use warnings;
+use strict;
+use List::MoreUtils qw(uniq);
+use IPC::Open2;
+use File::Temp qw(tempfile);
+
+my (@list, @list_split, @list_fzf);
+my %subroutines = (
+	add => \&sub_ad,
+	copy => \&sub_cp,
+	edit => \&sub_ed,
+	remove => \&sub_rm,
+	reset => \&sub_rs,
+);
+my $fzf = q(fzf-tmux -p 80% -n1,2 --with-nth=1,2 \
+	--tiebreak=begin --bind change:first --border-label "FIREFOX-EDIT");
+
+sub edit_arr
+{
+	my $ref = pop;
+	my @arr = @$ref;
+	my ($fh, $filename) = tempfile;
+	print $fh "$_\n" for @arr;
+	close $fh;
+	@arr = ();
+
+	my $pid = fork;
+	if ($pid == 0) {
+		exec "nvim $filename"
+	} elsif ($pid > 0) {
+		waitpid $pid, 0
+	} else {
+		die "fork failed"
+	}
+
+	open $fh, "<$filename" or die "open failed";
+	while (<$fh>) {
+		chomp;
+		push @arr, $_;
+	}
+	close $fh or die "close failed";
+
+	y/ /_/ for @arr;
+	@$ref = @arr;
+}
+
+sub getidx
+{
+	open2 my $fh_out, my $fh_in, $fzf or die "pipe open failed";
+	print $fh_in $_ for @list_fzf;
+	chomp(my $line = (<$fh_out> or exit 0));
+	close $fh_in or die "pipe close failed";
+	close $fh_out or die "pipe close failed";
+
+	my ($idx) = ($line =~ /(\d+)$/);
+
+	$idx;
+}
+
+sub sub_ad
+{
+	my @arr = (
+		"Category",
+		"Title",
+		"URL",
+		"(Timestamp)",
+	);
+
+	edit_arr \@arr;
+	exit 0 if $arr[2] eq "URL";
+	$arr[-1] = "." if $arr[-1] eq "(Timestamp)";
+	push @arr, "0\n";
+	push @list_split, \@arr;
+}
+
+sub sub_cp
+{
+	my $idx = getidx();
+	my @arr = @{$list_split[$idx]};
+	pop @arr;
+
+	edit_arr \@arr;
+
+	push @arr, "0\n";
+	splice @list_split, $idx+1, 0, \@arr;
+}
+
+sub sub_ed
+{
+	my $idx = getidx();
+	my @arr = @{$list_split[$idx]};
+	my $pri = pop @arr;
+
+	edit_arr \@arr;
+
+	push @arr, $pri;
+	$list_split[$idx] = \@arr;
+}
+
+sub sub_rm
+{
+	#NOTE not editted any priority
+	my $idx = getidx();
+	splice @list_split, $idx, 1;
+}
+
+sub sub_rs
+{
+	$_->[-1] = "0\n" for (@list_split);
+}
+
+# priority: 1 > 2 > ... > 0
+# 0 for new pages.
+# the most recent page has 1.
+sub priority
+{
+	my ($aa) = ($a =~ /(\d+)\n$/);
+	my ($bb) = ($b =~ /(\d+)\n$/);
+	my $sum = $aa + $bb;
+
+	return $sum == 0 ? 0 :
+		$sum == $aa ? -1 :
+		$sum == $bb ? 1 :
+		$aa <=> $bb;
+}
+
+sub getmaxwidth
+{
+	my $res = 0;
+	(length > $res) && ($res = length) for @_;
+	# $res += 8 - ($res % 8);	# multiple of 8
+	$res;
+}
+
+#make a list for fzf
+#category / title / (index)
+sub getfzf
+{
+	my $max = getmaxwidth(uniq map { $$_[0] } @list_split);
+	my ($c, $t, $i) = (@{$list_split[$_]}, $_);
+	my $format = "%-${max}s\t%s\t%s\n";
+	sprintf $format, $c, $t, $i;
+}
+
+open my $fh, "<$ENV{HOME}/personal/firefox_list" or die "open failed";
+push @list, $_ while <$fh>;
+close $fh or die "close failed";
+
+@list = sort priority @list;
+@list_split = map { [split /\|/] } @list;
+@list_fzf = map getfzf, 0..$#list;
+
+open2 my $fh_out, my $fh_in, $fzf or die "pipe open failed";
+print $fh_in "add\ncopy\nedit\nremove\nreset\n";
+chomp(my $subref = (<$fh_out> or exit 0));
+close $fh_in or die "pipe close failed";
+close $fh_out or die "pipe close failed";
+$subroutines{$subref}->();
+
+#finishing
+@list_split = sort { $$a[0] cmp $$b[0] } @list_split;
+@list = map { join '|', @$_ } @list_split;
+
+open $fh, ">$ENV{HOME}/personal/firefox_list" or die "open failed";
+print $fh $_ for @list;
+close $fh or die "close failed";

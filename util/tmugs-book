@@ -11,13 +11,13 @@ then
 	book=$(fzf-tmux -p 80% --tiebreak=begin --bind change:first\
 		--border-label "RECENT" < ~/common/pdf/booklist_recent)
 	[ -z "$book" ] && exit 0
-elif [ "$book" == "#PRINT#" ]
-then
-	book=$(sed 1,2d ~/common/pdf/booklist | fzf-tmux -p 80% --tiebreak=begin\
-		--bind change:first --border-label "PRINT")
-	[ -z "$book" ] && exit 0
-	firefox --new-tab ~/common/pdf/$book.pdf &
-	exit 0
+# elif [ "$book" == "#PRINT#" ]
+# then
+# 	book=$(sed 1,2d ~/common/pdf/booklist | fzf-tmux -p 80% --tiebreak=begin\
+# 		--bind change:first --border-label "PRINT")
+# 	[ -z "$book" ] && exit 0
+# 	firefox --new-tab ~/common/pdf/$book.pdf &
+# 	exit 0
 fi
 
 ~/util/tmugs-recent "$book" "common/pdf/booklist_recent"

@@ -1,25 +1,107 @@
-#!/bin/sh
+#!/bin/perl
 
-url=$(perl -e 'my @list; while(<>){chomp; push @list, $_}
-	@list = sort {($a1)=($a=~/(\d+)$/); ($b1)=($b=~/(\d+)$/); $sum=$a1+$b1;
-		return 0 unless($sum); if($sum==$a1){-1} elsif($sum==$b1){1} else {$a1<=>$b1}} @list;
-	print "$_\n" for @list' < ~/personal/firefox_list | column -t -s',' |\
-    fzf-tmux -p 80% -n 1,2 --with-nth=1,2 \
-	--tiebreak=begin --bind change:first --border-label "TMUGS-FIREFOX")
-[ -z "$url" ] && exit 0
+use warnings;
+use strict;
+use List::MoreUtils qw(uniq);
+use IPC::Open2;
 
-export url
-perl -e '$url=$ENV{url}; @url = split " ", $url; $chk = $url[4]; $url = $url[2];
-	open $fh, "<", "$ENV{HOME}/personal/firefox_list" or die "open failed\n";
-	my @list;
-	while(<$fh>){chomp; /(.*,)([^,]+)$/; $aaa=$1; $num=$2;
-		if(/,\Q$url\E,/){$num=1} else{$num=$num==0?0:$num<$chk?$num+1:$chk==0?$num+1:$num}
-			push @list, "$aaa$num"}
-	close $fh or die "close failed\n";
-	open $fh, ">", "$ENV{HOME}/personal/firefox_list" or die "open failed\n";
-	print $fh "$_\n" for @list;
-	close $fh or die "close failed\n"'
-url=$(perl -ae '$F[2] = $F[2] =~ m#^https://www.youtube.com# ?
-	$F[2]."&t=".$F[3] : $F[2].$F[3] if $F[3] ne "."; print $F[2]' <<< "$url")
+my (@list, @list_split);
 
-firefox --new-tab $url
+# priority: 1 > 2 > ... > 0
+# 0 for new pages.
+# the most recent page has 1.
+sub priority
+{
+	my ($aa) = ($a =~ /(\d+)\n$/);
+	my ($bb) = ($b =~ /(\d+)\n$/);
+	my $sum = $aa + $bb;
+
+	return $sum == 0 ? 0 :
+		$sum == $aa ? -1 :
+		$sum == $bb ? 1 :
+		$aa <=> $bb;
+}
+
+sub geturl
+{
+	my ($url, $stamp) = @$_[2,3];
+	return $url if $stamp eq ".";	#TODO remove period
+	$url .= "&t=$stamp";		#TODO feature for non-utube
+}
+
+sub getmaxwidth
+{
+	my $res = 0;
+	(length > $res) && ($res = length) for @_;
+	# $res += 8 - ($res % 8);	# multiple of 8
+	$res;
+}
+
+#make a list for fzf
+#category / title / (index)
+sub getfzf
+{
+	my $max = getmaxwidth uniq map { $$_[0] } @list_split;
+	#TODO shorten
+	my ($c, $t, $i) = (@{$list_split[$_]}, $_);
+	my $format = "%-${max}s\t%s\t%s\n";
+	sprintf $format, $c, $t, $i;
+}
+
+#0: increase one for every positive numbers
+#1: priority doesn't change
+#n: increase one for every numbers smaller than n
+sub chnum
+{
+	my $idx = pop;
+	return if $list_split[$idx]->[4] == 1;
+
+	if ($list_split[$idx]->[4] == 0) {
+		for (@list_split) {
+			chomp(my $n = $_->[4]);
+			next if $n++ == 0;
+			$_->[4] = "$n\n";
+		}
+	} else {
+		for (@list_split) {
+			chomp(my $n = $_->[4]);
+			next if $n++ == 0;
+			next if $n > $list_split[$idx]->[4];
+			$_->[4] = "$n\n";
+		}
+	}
+
+
+	$list_split[$idx]->[4] = "1\n";
+}
+
+my $fzf = q(fzf-tmux -p 80% -n 1,2 --with-nth=1,2 \
+	--tiebreak=begin --bind change:first --border-label "FIREFOX");
+
+open my $fh, "<$ENV{HOME}/personal/firefox_list" or die "open failed";
+push @list, $_ while <$fh>;
+close $fh or die "close failed";
+
+@list = sort priority @list;
+@list_split = map { [split /\|/] } @list;
+my @list_url = map geturl, @list_split;
+my @list_fzf = map getfzf, 0..$#list;
+
+open2 my $fh_out, my $fh_in, $fzf or die "pipe open failed";
+print $fh_in $_ for @list_fzf;
+chomp(my $idx = (<$fh_out> or exit 0));
+close $fh_in or die "pipe close failed";
+close $fh_out or die "pipe close failed";
+
+$idx =~ /(\d+)$/;
+$idx = $1;
+chnum $1;
+
+@list_split = sort { $$a[0] cmp $$b[0] } @list_split;
+@list = map { join '|', @$_ } @list_split;
+
+open $fh, ">$ENV{HOME}/personal/firefox_list" or die "open failed";
+print $fh $_ for @list;
+close $fh or die "close failed";
+
+exec "firefox --new-tab $list_url[$idx]";
