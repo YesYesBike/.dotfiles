@@ -39,11 +39,11 @@ sub getmaxwidth
 
 #make a list for fzf
 #category / title / (index)
-sub getfzf
+sub getfzfstr
 {
 	my $max = getmaxwidth uniq map { $$_[0] } @list_split;
 	#TODO shorten
-	my ($c, $t, $i) = (@{$list_split[$_]}, $_);
+	my ($c, $t, $i) = ($list_split[$_]->[0], $list_split[$_]->[1], $_);
 	my $format = "%-${max}s\t%s\t%s\n";
 	sprintf $format, $c, $t, $i;
 }
@@ -85,7 +85,7 @@ close $fh or die "close failed";
 @list = sort priority @list;
 @list_split = map { [split /\|/] } @list;
 my @list_url = map geturl, @list_split;
-my @list_fzf = map getfzf, 0..$#list;
+my @list_fzf = map getfzfstr, 0..$#list;
 
 open2 my $fh_out, my $fh_in, $fzf or die "pipe open failed";
 print $fh_in $_ for @list_fzf;
@@ -97,11 +97,11 @@ $idx =~ /(\d+)$/;
 $idx = $1;
 chnum $1;
 
-@list_split = sort { $$a[0] cmp $$b[0] } @list_split;
-@list = map { join '|', @$_ } @list_split;
-
-open $fh, ">$ENV{HOME}/personal/firefox_list" or die "open failed";
-print $fh $_ for @list;
-close $fh or die "close failed";
-
+# @list_split = sort { $$a[0] cmp $$b[0] } @list_split;
+# @list = map { join '|', @$_ } @list_split;
+#
+# open $fh, ">$ENV{HOME}/personal/firefox_list" or die "open failed";
+# print $fh $_ for @list;
+# close $fh or die "close failed";
+#
 exec "firefox --new-tab $list_url[$idx]";

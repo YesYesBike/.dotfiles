@@ -70,6 +70,7 @@ sub sub_ad
 
 	edit_arr \@arr;
 	exit 0 if $arr[2] eq "URL";
+
 	$arr[-1] = "." if $arr[-1] eq "(Timestamp)";
 	push @arr, "0\n";
 	push @list_split, \@arr;
@@ -81,6 +82,7 @@ sub sub_cp
 	my @arr = @{$list_split[$idx]};
 	pop @arr;
 
+	#TODO cancel
 	edit_arr \@arr;
 
 	push @arr, "0\n";
@@ -93,6 +95,7 @@ sub sub_ed
 	my @arr = @{$list_split[$idx]};
 	my $pri = pop @arr;
 
+	#TODO cancel
 	edit_arr \@arr;
 
 	push @arr, $pri;
@@ -136,10 +139,10 @@ sub getmaxwidth
 
 #make a list for fzf
 #category / title / (index)
-sub getfzf
+sub getfzfstr
 {
 	my $max = getmaxwidth(uniq map { $$_[0] } @list_split);
-	my ($c, $t, $i) = (@{$list_split[$_]}, $_);
+	my ($c, $t, $i) = ($list_split[$_]->[0], $list_split[$_]->[1], $_);
 	my $format = "%-${max}s\t%s\t%s\n";
 	sprintf $format, $c, $t, $i;
 }
@@ -150,7 +153,7 @@ close $fh or die "close failed";
 
 @list = sort priority @list;
 @list_split = map { [split /\|/] } @list;
-@list_fzf = map getfzf, 0..$#list;
+@list_fzf = map getfzfstr, 0..$#list;
 
 open2 my $fh_out, my $fh_in, $fzf or die "pipe open failed";
 print $fh_in "add\ncopy\nedit\nremove\nreset\n";
