@@ -8,6 +8,7 @@ static const unsigned int snap      = 32;           /* snap pixel */
 static const int showbar            = 0;            /* 0 means no bar */
 static const int topbar             = 1;            /* 0 means bottom bar */
 static const char *fonts[]          = {"LiterationMonoNerdFontMono-Bold:size=16" };
+// static const char *fonts[]          = {"LiterationMonoNerdFontMono-Bold:size=32" };
 static const char dmenufont[]       = "LiterationMonoNerdFontMono-Bold:size=16";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -64,7 +65,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *screenshot[] = { "scrot",
-	"/home/yesyesbike/images/screenshot/%Y-%m-%d-%T.jpg", NULL};
+	"/home/yesyesbike/image/screenshot/%Y-%m-%d-%T.jpg", NULL};
 static const char *slock[] = { "slock", NULL };
 static const char *vol_tog[] = { "amixer", "sset", "Master", "toggle", NULL };
 //static const char *vol_inc[] = { "amixer", "sset", "Master", "5%+", NULL };
