@@ -97,11 +97,11 @@ $idx =~ /(\d+)$/;
 $idx = $1;
 chnum $1;
 
-# @list_split = sort { $$a[0] cmp $$b[0] } @list_split;
-# @list = map { join '|', @$_ } @list_split;
-#
-# open $fh, ">$ENV{HOME}/personal/firefox_list" or die "open failed";
-# print $fh $_ for @list;
-# close $fh or die "close failed";
-#
+@list_split = sort { $$a[0] cmp $$b[0] } @list_split;
+@list = map { join '|', @$_ } @list_split;
+
+open $fh, ">$ENV{HOME}/personal/firefox_list" or die "open failed";
+print $fh $_ for @list;
+close $fh or die "close failed";
+
 exec "firefox --new-tab $list_url[$idx]";
