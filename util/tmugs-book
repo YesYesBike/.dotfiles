@@ -1,6 +1,6 @@
 #!/bin/sh
 
-book=$(column -t ~/common/pdf/booklist |
+book=$(column -t ~/pdf/booklist |
     fzf-tmux -p 80% --tiebreak=begin --bind change:first\
     --border-label "TMUGS-BOOK")
     # --border-label "TMUGS-BOOK" | awk '{ print $2 }')
@@ -9,16 +9,16 @@ book=$(column -t ~/common/pdf/booklist |
 if [ "$book" == "##RECENT##" ]
 then
 	book=$(fzf-tmux -p 80% --tiebreak=begin --bind change:first\
-		--border-label "RECENT" < ~/common/pdf/booklist_recent)
+		--border-label "RECENT" < ~/pdf/booklist_recent)
 	[ -z "$book" ] && exit 0
 # elif [ "$book" == "#PRINT#" ]
 # then
-# 	book=$(sed 1,2d ~/common/pdf/booklist | fzf-tmux -p 80% --tiebreak=begin\
+# 	book=$(sed 1,2d ~/pdf/booklist | fzf-tmux -p 80% --tiebreak=begin\
 # 		--bind change:first --border-label "PRINT")
 # 	[ -z "$book" ] && exit 0
-# 	firefox --new-tab ~/common/pdf/$book.pdf &
+# 	firefox --new-tab ~/pdf/$book.pdf &
 # 	exit 0
 fi
 
-~/util/tmugs-recent "$book" "common/pdf/booklist_recent"
-zathura-sandbox ~/common/pdf/$book.pdf &
+~/util/tmugs-recent "$book" "pdf/booklist_recent"
+zathura-sandbox ~/pdf/$book.pdf &
