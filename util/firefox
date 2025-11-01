@@ -104,4 +104,4 @@ open $fh, ">$ENV{HOME}/personal/firefox_list" or die "open failed";
 print $fh $_ for @list;
 close $fh or die "close failed";
 
-exec "firefox --new-tab $list_url[$idx]";
+exec "firefox --new-tab \"$list_url[$idx]\"";
