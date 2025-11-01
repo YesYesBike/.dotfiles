@@ -1,11 +1,7 @@
-ac  / ASCII
 ae  / Edit .aliasrc
 ba  / BA
 be  / Edit .bashrc
-te  / Edit .tmux.conf
 tae / Edit .tmux-alias
-pl  / Plan
-rm  / Roadmap
-si  / SICP
+te  / Edit .tmux.conf
 sc  / Scratchpad
 ve  / Edit Neovim Setting

@@ -4,16 +4,9 @@ alias=$(fzf-tmux -n 1 -p 50% --border-label='Tmugs-Alias' \
 	< ~/.tmux-alias | awk '{ print $1 }')
 
 case $alias in
-	ac) tmux neww -n "ASCII" "man 7 ascii" ;;
 	ae) tmux neww -n "aliasrc" "nvim ~/.aliasrc" ;;
 	ba) tmux run -b "~/personal/ba/ba || exit 0" ;;
 	be) tmux neww -n "bashrc" "nvim ~/.bashrc" ;;
-	pl)
-		source ~/personal/plan/line
-		tmux neww -n "PLAN" -c ~/"personal/plan" \
-			"nvim +${CAL_LINE} calendar" ;;
-	rm) tmux neww -n "RMAP" -c ~/"projects/github_io/" "nvim roadmap.md" ;;
-	si)tmux neww -c ~/".dotfiles/scheme" "nvim sicp.scm" ;; 
 	sc) tmux neww -n "SCRATCHPAD" -c ~/"note" "nvim +$ scratchpad" ;;
 	tae) tmux neww -n "tmux-alias" -c ~/"util" "nvim tmugs-alias" ;;
 	te) tmux neww -n "tmuxconf" "nvim ~/.tmux.conf" ;;
