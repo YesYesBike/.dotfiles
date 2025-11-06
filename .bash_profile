@@ -23,4 +23,8 @@ then
 fi
 
 SCRATCHPAD="/tmp/scratchpad_${USER}"
-[ -e ${SCRATCHPAD} ] || cp ~/personal/scratchpad_template ${SCRATCHPAD}
+if [ ! -e ${SCRATCHPAD} ]
+then
+	cp ~/personal/scratchpad_template ${SCRATCHPAD}
+	chmod 0700 ${SCRATCHPAD}
+fi
