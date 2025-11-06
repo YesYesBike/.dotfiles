@@ -6,6 +6,8 @@ use List::MoreUtils qw(uniq);
 use IPC::Open2;
 use File::Temp qw(tempfile);
 
+#TODO cancel editting in vim
+
 my (@list, @list_split, @list_fzf);
 my %subroutines = (
 	add => \&sub_ad,
@@ -82,7 +84,6 @@ sub sub_cp
 	my @arr = @{$list_split[$idx]};
 	pop @arr;
 
-	#TODO cancel
 	edit_arr \@arr;
 
 	push @arr, "0\n";
@@ -95,7 +96,6 @@ sub sub_ed
 	my @arr = @{$list_split[$idx]};
 	my $pri = pop @arr;
 
-	#TODO cancel
 	edit_arr \@arr;
 
 	push @arr, $pri;

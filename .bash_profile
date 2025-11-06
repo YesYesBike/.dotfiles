@@ -26,5 +26,5 @@ SCRATCHPAD="/tmp/scratchpad_${USER}"
 if [ ! -e ${SCRATCHPAD} ]
 then
 	cp ~/personal/scratchpad_template ${SCRATCHPAD}
-	chmod 0700 ${SCRATCHPAD}
+	chmod 0600 ${SCRATCHPAD}
 fi

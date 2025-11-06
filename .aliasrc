@@ -22,6 +22,7 @@ alias la='ls -a'
 alias ls='ls --color=auto'
 alias ll='ls -hal'
 alias mv='mv -i'
+alias memo='nvim ~/note/MEMO'
 alias pg="pacman -Q | grep $1"
 alias rmm='rm -rf $(ls | fzf -m)'
 alias ta='tmux new -A -s'
