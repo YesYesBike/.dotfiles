@@ -26,7 +26,12 @@ sub geturl
 {
 	my ($url, $stamp) = @$_[2,3];
 	return $url if $stamp eq ".";	#TODO remove period
-	$url .= "&t=$stamp";		#TODO feature for non-utube
+
+	if ($url =~ /youtube\.com/) {
+		$url .= "&t=$stamp";	#TODO feature for non-utube
+	} else {
+		$url .= $stamp;
+	}
 }
 
 sub getmaxwidth
