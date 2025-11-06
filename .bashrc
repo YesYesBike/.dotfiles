@@ -63,13 +63,13 @@ stty -ixon
 . ~/.aliasrc
 . ~/.bashrc_personal
 
-export FZF_DEFAULT_OPTS="--border=bold --reverse --no-info --scroll-off=99\
-	--tiebreak=index --bind=change:first"
-export FZF_COMPLETION_TRIGGER='~~'
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# export FZF_DEFAULT_OPTS="--border=bold --reverse --no-info --scroll-off=99\
+# 	--tiebreak=index --bind=change:first"
+# export FZF_COMPLETION_TRIGGER='~~'
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 PATH=$PATH:~/bin
-export BC_ENV_ARGS="$HOME/.bc"
-export PERLDOC_PAGER="less -+C "
+# export BC_ENV_ARGS="$HOME/.bc"
+# export PERLDOC_PAGER="less -+C "
 
 date +'%F(%a)'

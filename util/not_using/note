@@ -1,52 +1,35 @@
 #!/bin/perl
-use utf8;
-use strict;
-use warnings;
-use Data::Dumper;
-use feature qw/
-    say
-/;
-use Switch;
+#use utf8;
+#use strict;
+#use warnings;
+#use Data::Dumper;
+#use integer;
+#use feature qw/
+#    say
+#/;
 
-open(ORIG, "<", $ENV{HOME}."/note/quicknote");
-open(LEGACY, ">>", $ENV{HOME}."/note/archive/legacy");
-open(IMPORTANT, ">>", $ENV{HOME}."/note/archive/important");
+my $dir = $ENV{HOME}."/note/";
+chdir $dir;
+#system("mkdir -p $dir");
 
-my @reserve;
-my @important;
-my @file;
-my @legacy;
+while(<>){
+    my $line;
+    my $filename;
 
-
-while(<ORIG>){
-    chomp;
-    switch($_){
-        case m/^$/          {}
-        case m/^#/          { push @reserve, $_ }
-        case m/^!/          { push @important, $_ }
-        case m/^\(.*?\)/    { push @file, $_ }
-        else                { push @legacy, $_ }
+    if (/^!(.*)/){
+        $filename = "important";
+        $line = $1;
+    } elsif (/^\((.*?)\)(.*)/){
+        $filename = $1;
+        $line = $2;
+    } else {
+        $filename = "quicknote";
+        $line = $_;
     }
-}
 
-close ORIG;
-
-say IMPORTANT for (@important);
-say LEGACY for (@legacy);
-
-close IMPORTANT;
-close LEGACY;
-
-for(@file){
-    m/^\((.*?)\)(.*)/;
-    open(FILE, ">>", $ENV{HOME}."/note/archive/files/".$1);
-    say FILE $2;
+    open FILE, ">>", $filename or die "Can't open $filename!"; 
+    print FILE $line."\n";
     close FILE;
 }
 
-open(NEW, ">", $ENV{HOME}."/note/quicknote");
-say NEW for (@reserve);
-close NEW;
-
-chdir $ENV{HOME}."/note/archive/files/";
 system("~/util/delempty");

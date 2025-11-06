@@ -11,5 +11,9 @@ case $alias in
 	tae) tmux neww -n "tmux-alias" -c ~/"util" "nvim tmugs-alias" ;;
 	te) tmux neww -n "tmuxconf" "nvim ~/.tmux.conf" ;;
 	ve) tmux neww -n "nvim_set" -c ~/".config/nvim" "nvim init.lua" ;;
+
+	#temp
+	ja) tmux neww -n "JA" -c ~/"projects/dict" "nvim +/# jp" ;;
+
 	*) ;;
 esac
