@@ -6,8 +6,6 @@ use List::MoreUtils qw(uniq);
 use IPC::Open2;
 use File::Temp qw(tempfile);
 
-#TODO cancel editting in vim
-
 my (@list, @list_split, @list_fzf);
 my %subroutines = (
 	add => \&sub_ad,
@@ -19,6 +17,7 @@ my %subroutines = (
 my $fzf = q(fzf-tmux -p 80% -n1,2 --with-nth=1,2 \
 	--tiebreak=begin --bind change:first --border-label "FIREFOX-EDIT");
 
+#exit when any line is empty
 sub edit_arr
 {
 	my $ref = pop;
@@ -40,6 +39,7 @@ sub edit_arr
 	open $fh, "<$filename" or die "open failed";
 	while (<$fh>) {
 		chomp;
+		exit 0 if /^$/;
 		push @arr, $_;
 	}
 	close $fh or die "close failed";
