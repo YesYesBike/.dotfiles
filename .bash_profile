@@ -11,6 +11,9 @@
 #
 #clear
 
+GPG_TTY=$(tty)
+export GPG_TTY
+
 export BC_ENV_ARGS="$HOME/.bc"
 export PERLDOC_PAGER="less -+C "
 
