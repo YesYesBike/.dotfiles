@@ -37,28 +37,13 @@ vim.keymap.set("n", "<leader>m", function()
 	vim.cmd("!~/test/.make.sh")
 end)
 
--- vim.keymap.set("n", "<leader>rr", function()
--- 	vim.cmd("silent make! makerun")
--- end)
---
--- vim.keymap.set("n", "<leader>rd", function()
--- 	vim.cmd("silent make! makedbg")
--- end)
+vim.keymap.set("n", "<leader>rr", function()
+	vim.cmd("!~/test/.run.sh")
+end)
 
--- vim.keymap.set("n", "<leader>m", function()
--- 	vim.cmd("make!")
--- end)
-
-
-
-
--- vim.keymap.set("n", "<leader>rr", function()
--- 	vim.cmd("silent make! makerun")
--- end)
---
--- vim.keymap.set("n", "<leader>rd", function()
--- 	vim.cmd("silent make! makedbg")
--- end)
+vim.keymap.set("n", "<leader>rd", function()
+	vim.cmd("!~/test/.debug.sh")
+end)
 
 -- 한글
 -- vim.keymap.set("i", "<C-c><C-c>", "<esc>!!han -E $'\\x0c'<cr><C-l>A")
