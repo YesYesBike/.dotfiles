@@ -1,2 +1,5 @@
 DELETE
 list
+.make.sh
+.run.sh
+.debug.sh

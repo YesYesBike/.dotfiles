@@ -4,4 +4,7 @@ be  / Edit .bashrc
 ja  / ja (temp)
 tae / Edit .tmux-alias
 te  / Edit .tmux.conf
+vd  / Neovim Debug Setting
 ve  / Edit Neovim Setting
+vm  / Neovim Make Setting
+vr  / Neovim Run Setting
