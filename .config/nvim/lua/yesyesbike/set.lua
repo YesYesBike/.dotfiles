@@ -4,6 +4,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.showmode = false
 vim.opt.shortmess = "atToOFI"
+vim.opt.cino = ":0(0"
 -- vim.opt.cpoptions = "BceFs_"
 
 vim.opt.swapfile = false

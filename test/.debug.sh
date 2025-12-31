@@ -1,6 +1,6 @@
 #!/bin/sh
 
 #default command
-#true
+#tmux neww "gdb ./a.out"
 
-true
+tmux neww "gdb ./a.out"

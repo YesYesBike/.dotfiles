@@ -23,6 +23,7 @@ then
 	mkdir ${TEST_DIR}
 	chmod 0700 ${TEST_DIR}
 	cp -r ~/.dotfiles/test/* ${TEST_DIR}
+	cp -r ~/.dotfiles/test/.* ${TEST_DIR}
 fi
 
 SCRATCHPAD="/tmp/scratchpad_${USER}"

@@ -32,17 +32,16 @@ vim.keymap.set("i", "<C-s>", "<esc>:w<cr>a")
 
 
 -- Development Remap
-
 vim.keymap.set("n", "<leader>m", function()
-	vim.cmd("!~/test/.make.sh")
+	vim.cmd("silent !~/test/.make.sh")
 end)
 
 vim.keymap.set("n", "<leader>rr", function()
-	vim.cmd("!~/test/.run.sh")
+	vim.cmd("silent !~/test/.run.sh")
 end)
 
 vim.keymap.set("n", "<leader>rd", function()
-	vim.cmd("!~/test/.debug.sh")
+	vim.cmd("silent !~/test/.debug.sh")
 end)
 
 -- 한글

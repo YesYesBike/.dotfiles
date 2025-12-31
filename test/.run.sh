@@ -1,6 +1,6 @@
 #!/bin/sh
 
 #default command
-#true
+#tmux neww "./a.out; exec ~/util/tmugs-wait-for-exit"
 
-true
+tmux neww "./a.out; exec ~/util/tmugs-wait-for-exit"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
 #default command
-#make
+#tmux neww "make 2>&1 | less -R"
 
-make
+tmux neww "make 2>&1 | less -R"
