@@ -33,6 +33,8 @@ static const Rule rules[] = {
 	{ "firefox",          NULL,     NULL,  1 << 1,     0,           -1 },
 	{ "Zathura-sandbox",  NULL,     NULL,  1 << 2,     0,           -1 },
         { "feh",              NULL,     NULL,  1 << 2,     0,           -1 },
+        { NULL,               NULL,     "MuseScore Studio",
+					1 << 3,     0,           -1 },
 };
 
 /* layout(s) */

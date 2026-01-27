@@ -22,7 +22,7 @@ index 1443802..6696fb4 100644
 +		"1000K",
 +		"6500K",
 +	};
-+	static size_t idx = 0;
++	static int idx = 0;
 +
 +	if (fork() == 0) {
 +		if (dpy)

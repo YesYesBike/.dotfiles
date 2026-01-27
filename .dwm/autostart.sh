@@ -1,4 +1,5 @@
 #!/bin/bash
 
 firefox &
-exec st -e tmux new -A -s 1
+st -e tmux new -A -s 1 &
+exit 0

@@ -9,11 +9,11 @@ case $alias in
 	be) tmux neww -n "bashrc" "nvim ~/.bashrc" ;;
 	tae) tmux neww -n "tmux-alias" -c ~/"util" "nvim tmugs-alias" ;;
 	te) tmux neww -n "tmuxconf" "nvim ~/.tmux.conf" ;;
-
 	ve) tmux neww -n "nvim_set" -c ~/".config/nvim" "nvim init.lua" ;;
-	vd) tmux neww -n "nvim_debug" -c ~/"test" "nvim .debug.sh" ;;
-	vm) tmux neww -n "nvim_make" -c ~/"test" "nvim .make.sh" ;;
-	vr) tmux neww -n "nvim_run" -c ~/"test" "nvim .run.sh" ;;
+
+	dbg) tmux neww -n "nvim_debug" -c ~/"test" "nvim .debug.sh" ;;
+	ma) tmux neww -n "nvim_make" -c ~/"test" "nvim .make.sh" ;;
+	run) tmux neww -n "nvim_run" -c ~/"test" "nvim .run.sh" ;;
 
 	#temp
 	ja) tmux neww -n "JA" -c ~/"projects/dict" "nvim +/# jp" ;;
