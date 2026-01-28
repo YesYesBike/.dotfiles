@@ -1,22 +1,30 @@
 #!/bin/bash
 
+DOTFILES_DIR=$PWD
 mv ~/.bashrc ~/.bashrc_bak
 mv ~/.bash_profile ~/.bash_profile_bak
 stow .
 
 mkdir -p ~/src
 cd ~/src
-for i in {dmenu,st,slock}
+for i in dmenu dwm st slock
 do
-	git clone git://git.suckless.org/$i || exit 99
-	ln -sn ~/.dotfiles/src/$i/config.h ~/src/$i/config.h
-	ln -sn ~/.dotfiles/src/$i/*.diff ~/src/$i
+	git clone git://git.suckless.org/${i} || exit 99
+	cd ${DOTFILES_DIR}/suckless/${i}
+	for j in *
+	do
+		ln -sn ${DOTFILES_DIR}/suckless/${i}/${j} ~/src/${i}
+	done
+	cd -
 done
 
-git clone git://git.suckless.org/dwm || exit 99
-ln -sn ~/.dotfiles/src/dwm/config.h ~/src/dwm/config.h
-ln -sn ~/.dotfiles/src/dwm/*.diff ~/src/dwm
+mkdir -p ~/.config
+cd ${DOTFILES_DIR}/config
+for i in *
+do
+	ln -sn ${DOTFILES_DIR}/config/${i} ~/.config/
+done
 
-cd -
+cd
 
 ln -sn /tmp/test_${USER} ~/test

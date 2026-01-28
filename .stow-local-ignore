@@ -1,10 +1,10 @@
 .git
 .gitignore
-install
-install_firefox
-README.md
 .stow-local-ignore
-src
-test
-.xinitrc_*
-stty
+
+config/
+install
+openwrt_diffconfig
+suckless/
+ssh_url
+test/
