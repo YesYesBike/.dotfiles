@@ -10,18 +10,28 @@ then
 	echo -ne '\033[?8c'
 fi
 
-function monon {
+function monon
+{
 	xrandr --output HDMI-1-0 --auto --left-of eDP-1
 	feh --bg-scale ~/images/wallpaper/selected/12.jpg --bg-scale ~/images/wallpaper/selected/06.jpg
 }
 
-function monoff {
+function monoff
+{
 	xrandr --output HDMI-1-0 --off
 	feh --bg-scale ~/images/wallpaper/selected/12.jpg
 }
 
-function rfeh {
+function rfeh
+{
 	feh -zF
+}
+
+function duhead
+{
+	local line=$1
+	[ -z "$line" ] && line=10
+	du -hd1 | sort -rh | sed ${line}q
 }
 
 PS1='~ '
