@@ -34,6 +34,13 @@ function duhead
 	du -hd1 | sort -rh | sed ${line}q
 }
 
+function mantoc
+{
+	[ -z "$1" ] && echo "mantoc: no arg" && return 1
+	zcat "$(man -w $1)" | perl -ne 'if (/(^\.SH)/i) { s///; print }
+				elsif (/(^\.SS)/i) { s//    /; print }'
+}
+
 PS1='~ '
 
 set -o vi
