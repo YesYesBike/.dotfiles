@@ -37,7 +37,17 @@ function duhead
 function mantoc
 {
 	[ -z "$1" ] && echo "mantoc: no arg" && return 1
-	zcat "$(man -w $1)" | perl -ne 'if (/^\.SH /i) { s///; print }
+
+	local cmd
+
+	if [ "$2" = '-' ]
+	then
+		cmd='cat'
+	else
+		cmd='zcat'
+	fi
+
+	${cmd} "$(man -w $1)" | perl -ne 'if (/^\.SH /i) { s///; print }
 				elsif (/^\.SS /i) { s//    /; print }'
 }
 
