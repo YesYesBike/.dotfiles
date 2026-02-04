@@ -1,15 +1,15 @@
 #!/bin/sh
 
-book=$(ls ~/pdf | sed -e '1i\##RECENT##' -e 's/.pdf$//' |\
-    fzf-tmux -p 80% --tiebreak=begin --bind change:first\
-    --border-label "TMUGS-BOOK")
+book=$(ls ~/pdf | sed -e '1i\##RECENT##' -e 's/.pdf$//' |
+	fzf-tmux -p 100% --tiebreak=begin --bind change:first\
+	--border-label "TMUGS-BOOK")
 [ -z "$book" ] && exit 0
 
 if [ "$book" == "##RECENT##" ]
 then
-	book=$(sed '$d' ~/pdf/booklist_recent |\
-	    fzf-tmux -p 80% --tiebreak=begin --bind change:first\
-	    --border-label "Recent Book")
+	book=$(sed '$d' ~/pdf/booklist_recent | fzf-tmux -p 100% \
+		--tiebreak=begin --bind change:first\
+		--border-label "Recent Book")
 	[ -z "$book" ] && exit 0
 
 fi

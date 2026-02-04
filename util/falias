@@ -1,9 +1,9 @@
 #!/bin/sh
 
-location=$(find -L ~ -mindepth 1 -maxdepth 3 -type d |
-    ~/util/dirsed | sed '1itest\n\/' |fzf --margin 13% --border-label="somewhere over teh lainbow")
+loc=$(find -L ~ -mindepth 1 -maxdepth 3 -type d | ~/util/dirsed |
+	sed '1itest\n\/' | fzf --border-label="somewhere over teh lainbow")
 
-[ "$location" = "/" ] && cd $(find / -mindepth 1 -maxdepth 3 -type d 2>/dev/null|
-    fzf --margin 13% --bind change:first --border-label "TMUGS-CD-ROOT") && location=""
+[ "$loc" = "/" ] && cd $(find / -mindepth 1 -maxdepth 3 -type d 2>/dev/null |
+	fzf --bind change:first --border-label "TMUGS-CD-ROOT") && loc=""
 
-[ -z "$location" ] || cd ~/"$location"
+[ -z "$loc" ] || cd ~/"$loc"

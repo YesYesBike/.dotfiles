@@ -3,10 +3,9 @@
 var=$(ls /usr/share/man/ | grep "man$1" | cut -b 4- | tr -s '\n' ',')
 #var=${var::-1}     it's not necessary
 
-string=$(apropos -s $var . |
-    fzf-tmux -p 80% -n 1 --delimiter=' ' --bind change:first\
-    --border-label "TMUGS-MAN-EX" --tiebreak=chunk)
-[ -z $string ] && exit 0
-command=$(cut -d ' ' -f 1 <<< "$string")
-section=$(cut -d ' ' -f 2 <<< "$string" | tr -d '()')
-tmux neww -n "man($command)" "man $section $command"
+str=$(apropos -s $var . | fzf-tmux -p 100% -n 1 --delimiter=' '
+	--bind change:first --border-label "TMUGS-MAN-EX")
+[ -z $str ] && exit 0
+cmd=$(echo "$str" | cut -d ' ' -f 1)
+sec=$(echo "$str" | cut -d ' ' -f 2 | tr -d '()')
+tmux neww -n "man($cmd)" "man $sec $cmd"

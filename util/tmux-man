@@ -4,15 +4,15 @@ case $(apropos $1 | grep -i "^$1" | wc -l) in
     0)
         ;;
     #1)
-    #    tmux renamew "man($command)"; man $1
+    #    tmux renamew "man($cmd)"; man $1
     #    ;;
     *)
-        string=$(apropos $1 | grep -i "^$1" |\
-            fzf-tmux -p 100% -n 1 --delimiter=' '\
-            --bind change:first --border-label "TMUX-MAN")
-        command=$(echo $string | cut -d ' ' -f 1)
-        section=$(echo $string | cut -d ' ' -f 2 | tr -d '()')
-        tmux renamew "man($command)"
-        man $section $command
-        ;;
+	str=$(apropos $1 | grep -i "^$1" | fzf-tmux -p 100% -n 1\
+		--delimiter=' ' --bind change:first --border-label "TMUX-MAN")
+	[ -z "$str" ] && exit 0
+	cmd=$(echo $str | cut -d ' ' -f 1)
+	sec=$(echo $str | cut -d ' ' -f 2 | tr -d '()')
+	tmux renamew "man($cmd)"
+	man $sec $cmd
+	;;
 esac

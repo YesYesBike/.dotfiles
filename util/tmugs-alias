@@ -1,6 +1,6 @@
 #!/bin/sh
 
-alias=$(fzf-tmux -n 1 -p 50% --border-label='Tmugs-Alias' \
+alias=$(fzf-tmux -n 1 -p 80% --border-label='Tmugs-Alias' \
 	< ~/.tmux-alias | awk '{ print $1 }')
 
 case $alias in
@@ -14,9 +14,5 @@ case $alias in
 	dbg) tmux neww -n "nvim_debug" -c ~/"test" "nvim .debug.sh" ;;
 	ma) tmux neww -n "nvim_make" -c ~/"test" "nvim .make.sh" ;;
 	run) tmux neww -n "nvim_run" -c ~/"test" "nvim .run.sh" ;;
-
-	#temp
-	ja) tmux neww -n "JA" -c ~/"projects/dict" "nvim +/# jp" ;;
-
 	*) ;;
 esac
