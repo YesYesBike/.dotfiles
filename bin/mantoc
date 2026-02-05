@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+
+die "mantoc: no arg" if @ARGV < 1;
+
+$cmd = @ARGV == 2 ? "cat" : "zcat";
+$file = `man -w $ARGV[0]`;
+open $fh, '-|', "${cmd} ${file}" or
+	die "mantoc: file open failed. cmd: ${cmd}, file: ${file}";
+%skip = (
+	"NAME\n" => 1,
+	"SYNOPSIS\n" => 1,
+	"DESCRIPTION\n" => 1,
+);
+
+while (<$fh>) {
+	if (/^\.SH /i) {
+		s///;
+		next if $skip{$_};
+		print;
+	} elsif (/^\.SS /i) {
+		s//    /;
+		next if $skip{$_};
+		print;
+	}
+}
+
+close $fh or die "mantoc: close failed";

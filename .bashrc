@@ -34,23 +34,6 @@ function duhead
 	du -hd1 | sort -rh | sed ${line}q
 }
 
-function mantoc
-{
-	[ -z "$1" ] && echo "mantoc: no arg" && return 1
-
-	local cmd
-
-	if [ "$2" = '-' ]
-	then
-		cmd='cat'
-	else
-		cmd='zcat'
-	fi
-
-	${cmd} "$(man -w $1)" | perl -ne 'if (/^\.SH /i) { s///; print }
-				elsif (/^\.SS /i) { s//    /; print }'
-}
-
 PS1='~ '
 
 set -o vi

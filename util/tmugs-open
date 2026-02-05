@@ -6,4 +6,4 @@ file=$(find -L ~ -maxdepth 3 -type f | ~/util/dirsed | fzf-tmux -p 100% \
 dir=$(dirname $file)
 file=$(basename $file)
 
-[ -n $file ] && tmux neww -c "~/$dir" "nvim $file"
+[ -n $file ] && tmux neww -c ~/"$dir" "nvim $file"
