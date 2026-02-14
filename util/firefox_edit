@@ -14,7 +14,7 @@ my %subroutines = (
 	remove => \&sub_rm,
 	reset => \&sub_rs,
 );
-my $fzf = q(fzf-tmux -p 80% -n1,2 --with-nth=1,2 \
+my $fzf = q(fzf-tmux -p 100% -n1,2 --with-nth=1,2 \
 	--tiebreak=begin --bind change:first --border-label "FIREFOX-EDIT");
 
 #exit when any line is empty

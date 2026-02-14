@@ -80,7 +80,7 @@ sub chnum
 	$list_split[$idx]->[4] = "1\n";
 }
 
-my $fzf = q(fzf-tmux -p 80% -n 1,2 --with-nth=1,2 \
+my $fzf = q(fzf-tmux -p 100% -n 1,2 --with-nth=1,2 \
 	--tiebreak=begin --bind change:first --border-label "FIREFOX");
 
 open my $fh, "<$ENV{HOME}/personal/firefox_list" or die "open failed";
