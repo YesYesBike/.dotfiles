@@ -54,7 +54,7 @@ int allowwindowops = 0;
  * near minlatency, but it waits longer for slow updates to avoid partial draw.
  * low minlatency will tear/flicker more, as it can "detect" idle too early.
  */
-static double minlatency = 8;
+static double minlatency = 2;
 static double maxlatency = 33;
 
 /*
@@ -94,54 +94,46 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
+/* Terminal colors (16 first used in escape sequence) */
+static const char *colorname[] = {
+	/* 8 normal colors */
+	"#1C1C1C",
+	"#AF5F5F",
+	"#5F875F",
+	"#87875F",
+	"#5F87AF",
+	"#5F5F87",
+	"#5F8787",
+	"#6C6C6C",
 
-typedef struct {
-	const char* const colors[260]; /* terminal colors */
-	unsigned int fg;               /* foreground */
-	unsigned int bg;               /* background */
-	unsigned int cs;               /* cursor */
-	unsigned int rcs;              /* reverse cursor */
-} ColorScheme;
-/*
- * Terminal colors (16 first used in escape sequence,
- * 2 last for custom cursor color),
- * foreground, background, cursor, reverse cursor
- */
-static const ColorScheme schemes[] = {
-    //Apprentice
-    {{"#1C1C1C", "#AF5F5F", "#5F875F", "#87875F",
-      "#5F87AF", "#5F5F87", "#5F8787", "#6C6C6C",
-      "#444444", "#FF8700", "#87AF87", "#FFFFAF",
-      "#8FAFD7", "#8787AF", "#5FAFAF", "#FFFFFF",
-      "#bcbcbc", "#262626",
-	  [256]="#cccccc", "#555555", "#bcbcbc", "#262626"},
-      258, 259, 256, 257},
+	/* 8 bright colors */
+	"#444444",
+	"#FF8700",
+	"#87AF87",
+	"#FFFFAF",
+	"#8FAFD7",
+	"#8787AF",
+	"#5FAFAF",
+	"#FFFFFF",
 
-    //Everforest Light Soft
-    {{"#5C6A72", "#F85552", "#8DA101", "#DFA000",
-      "#3A94C5", "#DF69BA", "#35A77C", "#DFDDC8",
-      "#3A464C", "#E67E80", "#A7C080", "#DBBC7F",
-      "#7FBBB3", "#D699B6", "#83C092", "#D3C6AA",
-	  [256]="#555555", "#cccccc", "#5c6a72", "#f3ead3"},
-      258, 259, 256, 257},
+	[255] = 0,
+
+	/* more colors can be added after 255 to use with DefaultXX */
+	"#cccccc",
+	"#555555",
+	"#bcbcbc", /* default foreground colour */
+	"#262626", /* default background colour */
 };
 
-static const char * const * colorname;
-int colorscheme = 0;
+
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-
-unsigned int defaultfg;
-unsigned int defaultbg;
-unsigned int defaultcs;
-static unsigned int defaultrcs;
-
-//unsigned int defaultfg = 258;
-//unsigned int defaultbg = 259;
-//unsigned int defaultcs = 256;
-//static unsigned int defaultrcs = 257;
+unsigned int defaultfg = 258;
+unsigned int defaultbg = 259;
+unsigned int defaultcs = 256;
+static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
@@ -193,8 +185,7 @@ static MouseShortcut mshortcuts[] = {
 };
 
 /* Internal keyboard shortcuts. */
-#define MODKEY  Mod1Mask
-#define MODKEY4 Mod4Mask
+#define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
 
 static Shortcut shortcuts[] = {
@@ -211,8 +202,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ MODKEY4,              XK_Escape,      updatescheme,   {.i =  0} },
 };
+
 /*
  * Special keys (change & recompile st.info accordingly)
  *
