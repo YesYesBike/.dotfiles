@@ -10,7 +10,7 @@ vim.keymap.set({"n", "v"}, "L", "$")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "J", "mzJ`z")
+--vim.keymap.set("n", "J", "mzJ`z")
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
@@ -45,10 +45,6 @@ vim.keymap.set("n", "<leader>rd", function()
 end)
 
 -- 한글
-vim.keymap.set("i", "<C-c>", "<esc>!!han -e $'\\x0c'<cr><C-l>A")
+vim.keymap.set("i", "<C-c>", "<esc>!!han<cr><C-l>A")
+vim.keymap.set("i", "<C-f>", "<esc>!!han -o $'\\x0c'<cr><C-l>A")
 
--- Fold
-vim.keymap.set("i", "<C-f>", function()
-	vim.cmd(".!fold -s")
-	vim.cmd("s/\\s\\+$//")
-end)

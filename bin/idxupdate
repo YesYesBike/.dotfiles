@@ -1,0 +1,27 @@
+#!/bin/perl
+
+use strict;
+use warnings;
+use feature 'say';
+
+my $index_file;
+my $dir;
+my %is_exist;
+
+$dir = (@ARGV != 2) ? './' : $ARGV[1];
+$index_file = (@ARGV == 0) ? "index" :
+	($ARGV[0] eq '-') ? '/dev/null' : $dir . $ARGV[0];
+
+open my $fh, '<', $index_file or die "$index_file: open failed";
+while (<$fh>) {
+	next if ! /^\t/;
+	chomp;
+	s///;
+	s/\t.*$//;
+	$is_exist{$_}++;
+}
+close $fh or die "close failed";
+
+for (split /\n/, `ls -F $dir`) {
+	say if ! $is_exist{$_};
+}
