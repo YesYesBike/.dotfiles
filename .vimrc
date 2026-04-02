@@ -30,6 +30,8 @@ set nowrap
 set noshowmode
 set shortmess="atToOFI"
 set cpoptions="BceFs_"
+set nomodeline
+set colorcolumn=80
 
 " scroll
 set scrolloff=999
@@ -42,6 +44,10 @@ nnoremap H ^
 xnoremap H ^
 nnoremap L $
 xnoremap L $
+
+" han
+inoremap <C-c> <esc>!!han<cr><C-l>A
+inoremap <C-f> <esc>!!han -o $'\\x0c'<cr><C-l>A
 
 
 " That's all forks! (from neovim config)
