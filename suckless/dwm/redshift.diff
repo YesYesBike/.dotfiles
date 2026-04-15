@@ -1,5 +1,5 @@
 diff --git a/dwm.c b/dwm.c
-index 1443802..6696fb4 100644
+index ab3a84c..0edddac 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -232,6 +232,7 @@ static int xerror(Display *dpy, XErrorEvent *ee);
@@ -10,7 +10,7 @@ index 1443802..6696fb4 100644
  
  /* variables */
  static const char broken[] = "broken";
-@@ -2139,6 +2140,34 @@ zoom(const Arg *arg)
+@@ -2140,6 +2141,37 @@ zoom(const Arg *arg)
  	pop(c);
  }
  
@@ -19,8 +19,10 @@ index 1443802..6696fb4 100644
 +{
 +	struct sigaction sa;
 +	static const char *arg_rs[] = {
-+		"1000K",
-+		"6500K",
++		"echo 300 > /sys/class/backlight/intel_backlight/brightness; redshift -P -O 1000K",
++		"echo 3000 > /sys/class/backlight/intel_backlight/brightness; redshift -P -O 6500K",
++		// "1000K",
++		// "6500K",
 +	};
 +	static int idx = 0;
 +
@@ -34,8 +36,9 @@ index 1443802..6696fb4 100644
 +		sa.sa_handler = SIG_DFL;
 +		sigaction(SIGCHLD, &sa, NULL);
 +
-+		execl("/bin/redshift", "redshift", "-P", "-O", arg_rs[idx],
-+		      (char *)NULL);
++		execl("/bin/sh", "REDSHIFT", "-c", arg_rs[idx], (char *)NULL);
++		// execl("/bin/redshift", "redshift", "-P", "-O", arg_rs[idx],
++		//       (char *)NULL);
 +		die("dwm: redshift failed.");
 +	}
 +
