@@ -19,7 +19,7 @@ index ab3a84c..0edddac 100644
 +{
 +	struct sigaction sa;
 +	static const char *arg_rs[] = {
-+		"echo 300 > /sys/class/backlight/intel_backlight/brightness; redshift -P -O 1000K",
++		"echo 1000 > /sys/class/backlight/intel_backlight/brightness; redshift -P -O 1000K",
 +		"echo 3000 > /sys/class/backlight/intel_backlight/brightness; redshift -P -O 6500K",
 +		// "1000K",
 +		// "6500K",
