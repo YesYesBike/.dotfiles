@@ -111,7 +111,7 @@ sub sub_rm
 
 sub sub_rs
 {
-	$_->[-1] = "0\n" for (@list_split);
+	$_->[-1] = "0\n" for @list_split;
 }
 
 # priority: 1 > 2 > ... > 0
@@ -119,8 +119,7 @@ sub sub_rs
 # the most recent page has 1.
 sub priority
 {
-	my ($aa) = ($a =~ /(\d+)\n$/);
-	my ($bb) = ($b =~ /(\d+)\n$/);
+	chomp for (my ($aa, $bb) = ($a, $b));
 	my $sum = $aa + $bb;
 
 	return $sum == 0 ? 0 :
