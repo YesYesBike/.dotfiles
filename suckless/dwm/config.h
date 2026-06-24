@@ -77,6 +77,7 @@ static const char *vol_inc[] = { "amixer", "sset", "Master", "5+", NULL };
 static const char *vol_dec[] = { "amixer", "sset", "Master", "5-", NULL };
 static const char *vol_spk[] = { "amixer", "sset", "Speaker", "toggle", NULL };
 static const char *firefox[] = { "firefox", NULL };
+static const char *dodo[] = { "/bin/sh", "-c", "/home/yesyesbike/DODO", NULL };
 
 static const Key keys[] = {
 	/* modifier             key                       function        argument */
@@ -123,6 +124,8 @@ static const Key keys[] = {
 	{ 0,                    XF86XK_AudioRaiseVolume,  spawn,          {.v = vol_inc} },
 	{ MODKEY4|ShiftMask,    XK_m,                     spawn,          {.v = vol_spk} },
 	{ MODKEY4|ShiftMask,    XK_r,                     redshift,       {0} },
+
+	{ MODKEY4,              XK_r,                     spawn,          {.v = dodo} },
 };
 
 /* button definitions */
