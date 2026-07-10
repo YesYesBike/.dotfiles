@@ -8,6 +8,7 @@ ja  / ja (temp)
 tae / Edit .tmux-alias
 te  / Edit .tmux.conf
 ve  / Edit Neovim Setting
+ztl / ztl
 dbg / Neovim Debug Setting
 ma  / Neovim Make Setting
 run / Neovim Run Setting
