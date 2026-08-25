@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 //static char *font = "Liberation Mono:pixelsize=24:antialias=true:autohint=true";
-static char *font = "LiterationMonoNerdFontMono-Bold:pixelsize=39:antialias=true:autohint=true";
+static char *font = "LiterationMonoNerdFontMono-Bold:pixelsize=37:antialias=true:autohint=true";
 static char *font2[] = {
 	"NanumMyeongjo:pixelsize=10:antialias=true:autohint=true",
 };

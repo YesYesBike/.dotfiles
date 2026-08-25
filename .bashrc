@@ -52,6 +52,7 @@ eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS="--border=bold --reverse --no-info --scroll-off=99\
 	--tiebreak=index --bind=change:first"
 
+export PATH="$PATH:/home/yesyesbike/.local/bin"
 PATH=$PATH:~/bin
 # export BC_ENV_ARGS="$HOME/.bc"
 # export PERLDOC_PAGER="less -+C "
