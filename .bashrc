@@ -52,7 +52,12 @@ eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS="--border=bold --reverse --no-info --scroll-off=99\
 	--tiebreak=index --bind=change:first"
 
-export PATH="$PATH:/home/yesyesbike/.local/bin"
+export ANDROID_HOME="$HOME/Android/Sdk"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
+
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/lastest/bin"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
 PATH=$PATH:~/bin
 # export BC_ENV_ARGS="$HOME/.bc"
 # export PERLDOC_PAGER="less -+C "
